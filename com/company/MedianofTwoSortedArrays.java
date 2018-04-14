@@ -25,7 +25,7 @@ class Solution {
             } else if (i > iMin && A[i - 1] > B[j]) {
                 iMax = iMax - 1;                // i is too big
             } else {                                // i is perfect
-                int maxLeft;
+                int maxLeft =0;
                 if (i == 0) {
                     maxLeft = B[j - 1];
                 } else if (j == 0) {
@@ -37,7 +37,7 @@ class Solution {
                     return maxLeft;
                 }
 
-                int minRight;
+                int minRight =0;
                 if (i == m) {
                     minRight = B[j];
                 } else if (j == n) {
