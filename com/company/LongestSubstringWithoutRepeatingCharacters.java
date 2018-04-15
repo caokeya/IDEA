@@ -2,23 +2,24 @@ package com.company;
 
 //求一个字符串中最大的子串（字母不重复）
 
+import java.util.HashMap;
+
 public class LongestSubstringWithoutRepeatingCharacters {
 
     class Solution {
         public int lengthOfLongestSubstring(String s) {
-            if(s == null || s.length() <= 0){
-                return 0;
-            }
-            int j = 0;
+            int n = s.length();
+            HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+
+            int i = 0;
             int max = 0;
-            int[] map = new int[256];
-            for(int i = 0; i < s.length(); i++){
-                while(j < s.length() && map[s.charAt(j)] == 0){
-                    map[s.charAt(j)] = 1;
-                    max = Math.max(max, j - i + 1);
-                    j++;
+            for (int j = 0; j < n; j++) {
+                char key = s.charAt(j);
+                if (map.containsKey(key)) {
+                    i = Math.max(map.get(key) + 1, i);
                 }
-                map[s.charAt(i)] = 0;
+                map.put(key, j);
+                max = Math.max(max, j - i + 1);
             }
             return max;
         }
