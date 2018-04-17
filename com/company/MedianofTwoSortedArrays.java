@@ -4,7 +4,7 @@ import java.lang.Math;
 
 //求两个数组的中位数
 
-class Solution {
+class MedianofTwoSortedArrays {
     public double findMedianSortedArrays(int[] A, int[] B) {
         int m = A.length;
         int n = B.length;

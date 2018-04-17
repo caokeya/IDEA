@@ -13,7 +13,29 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="LongestPalindromicSubstring.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com/company/LongestPalindromicSubstring.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="489">
+              <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LongestSubstringWithoutRepeatingCharacters.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/com/company/LongestSubstringWithoutRepeatingCharacters.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+              <folding>
+                <element signature="e#270#290#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -31,6 +53,7 @@
         <option value="$PROJECT_DIR$/src/com/company/AddTwoNumbers.java" />
         <option value="$PROJECT_DIR$/com/company/MedianofTwoSortedArrays.java" />
         <option value="$PROJECT_DIR$/com/company/LongestPalindromicSubstring.java" />
+        <option value="$PROJECT_DIR$/com/company/LongestSubstringWithoutRepeatingCharacters.java" />
       </list>
     </option>
   </component>
@@ -55,6 +78,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -66,18 +90,12 @@
             <path>
               <item name="IDEA" type="b2602c69:ProjectViewProjectNode" />
               <item name="IDEA" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IDEA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IDEA" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -153,6 +171,7 @@
       <workItem from="1523686016323" duration="62000" />
       <workItem from="1523694005905" duration="15000" />
       <workItem from="1523782216968" duration="12000" />
+      <workItem from="1523785281738" duration="364000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1523671095562</created>
@@ -238,11 +257,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523678425213</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="用HashMap求最长的不重复字母的子串">
+      <created>1523785407149</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1523785407149</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4639000" />
+    <option name="totallyTimeSpent" value="5003000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -260,7 +286,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2782516" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28144988" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -272,9 +298,9 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49713466" visible="true" weight="0.32867134" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +311,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test" />
+    <MESSAGE value="用HashMap求最长的不重复字母的子串" />
+    <option name="LAST_COMMIT_MESSAGE" value="用HashMap求最长的不重复字母的子串" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/com/company/LongestSubstringWithoutRepeatingCharacters.java">
@@ -343,15 +370,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/com/company/LongestPalindromicSubstring.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
+        <state relative-caret-position="489">
           <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/com/company/LongestSubstringWithoutRepeatingCharacters.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="486">
+          <caret line="18" column="54" lean-forward="true" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+          <folding>
+            <element signature="e#270#290#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
