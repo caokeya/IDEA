@@ -11,7 +11,6 @@ public class AddTwoNumbers {
 	    ListNode(int x) { val = x; }
 	}
 
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode c1 = l1;
         ListNode c2 = l2;
@@ -35,4 +34,5 @@ public class AddTwoNumbers {
             d.next = new ListNode(1);
         return sentinel.next;
     }
+    
 }

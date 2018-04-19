@@ -19,10 +19,10 @@ class MedianofTwoSortedArrays {
 			int i = (iMin + iMax) / 2;
 			int j = halfLen - i;
 			if (i < iMax && B[j - 1] > A[i]) {
-				iMin = iMin + 1; // i is too small
+				iMin = iMin + 1; 						// i is too small
 			} else if (i > iMin && A[i - 1] > B[j]) {
-				iMax = iMax - 1; // i is too big
-			} else { // i is perfect
+				iMax = iMax - 1; 						// i is too big
+			} else { 									// i is perfect
 				int maxLeft = 0;
 				if (i == 0) {
 					maxLeft = B[j - 1];

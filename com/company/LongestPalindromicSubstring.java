@@ -3,6 +3,7 @@ package com.company;
 //求出最长的回文子串
 
 public class LongestPalindromicSubstring {
+	
     private int lo, maxLen;
 
     public String longestPalindrome(String s) {
