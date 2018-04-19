@@ -1,6 +1,6 @@
 package com.company;
 
-//求最长的回文串
+//求出最长的回文子串
 
 public class LongestPalindromicSubstring {
     private int lo, maxLen;

@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 //利用HashMap对两个数字进行求和得到与目标值相等的数字的位置
 
@@ -35,4 +34,3 @@ public class twosumTotarget {
 		return res;
 	}
 }
-
