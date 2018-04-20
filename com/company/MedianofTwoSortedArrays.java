@@ -1,6 +1,6 @@
 package com.company;
 
-//求两个数组的中位数
+//求两个数组的中位数（Hard）
 
 class MedianofTwoSortedArrays {
 	public double findMedianSortedArrays(int[] A, int[] B) {
