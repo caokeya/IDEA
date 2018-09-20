@@ -142,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537430339873" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537430544223" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -231,7 +231,7 @@
       <workItem from="1535770129801" duration="172000" />
       <workItem from="1537407646551" duration="69000" />
       <workItem from="1537410920355" duration="1126000" />
-      <workItem from="1537429938486" duration="227000" />
+      <workItem from="1537429938486" duration="480000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1523671095562</created>
@@ -394,11 +394,32 @@
       <option name="project" value="LOCAL" />
       <updated>1537430128906</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Leetcode">
+      <created>1537430217898</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1537430217898</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Leetcode">
+      <created>1537430261511</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1537430261511</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Leetcode">
+      <created>1537430441750</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1537430441750</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9822000" />
+    <option name="totallyTimeSpent" value="10075000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -412,7 +433,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.22547974" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.22547974" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -428,7 +449,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.21181718" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32887402" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028653" side_tool="true" weight="0.32867134" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3277592" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="10" visible="true" weight="0.3277592" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Structure" order="1" sideWeight="0.5008347" weight="0.14978679" />
@@ -444,6 +465,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
