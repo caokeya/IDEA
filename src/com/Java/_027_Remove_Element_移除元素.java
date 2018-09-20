@@ -1,0 +1,19 @@
+package src.com.Java;
+
+public class _027_Remove_Element_移除元素 {
+    class Solution {
+        public int removeElement(int[] A, int elem) {
+            int m = 0;
+            for (int i = 0; i < A.length; i++) {
+
+                if (A[i] != elem) {
+                    A[m] = A[i];
+                    m++;
+                }
+            }
+
+            return m;
+        }
+    }
+
+}
