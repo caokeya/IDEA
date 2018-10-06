@@ -1,7 +1,13 @@
 package src.com.Java;
 
 //Z字形将多个字符拼接一个字符串
-
+/*
+将字符串 "PAYPALISHIRING" 以Z字形排列成给定的行数：
+P   A   H   N
+A P L S I I G
+Y   I   R
+之后从左往右，逐行读取字符："PAHNAPLSIIGYIR"
+ */
 public class _006_ZigZag_Conversion_Z字形将多个字符拼接一个字符串 {
 
 	public String convert(String s, int nRows) {

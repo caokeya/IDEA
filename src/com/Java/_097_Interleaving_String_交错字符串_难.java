@@ -1,5 +1,10 @@
 package src.com.Java;
-
+/*
+给定三个字符串 s1, s2, s3, 验证 s3 是否是由 s1 和 s2 交错组成的。
+示例 1:
+输入: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
+输出: true
+ */
 public class _097_Interleaving_String_交错字符串_难 {
     class Solution {
         public boolean isInterleave(String s1, String s2, String s3) {

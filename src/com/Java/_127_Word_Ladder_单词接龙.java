@@ -14,6 +14,14 @@ import java.util.Set;
     所有单词只由小写字母组成。
     字典中不存在重复的单词。
     你可以假设 beginWord 和 endWord 是非空的，且二者不相同。
+示例 1:
+输入:
+beginWord = "hit",
+endWord = "cog",
+wordList = ["hot","dot","dog","lot","log","cog"]
+输出: 5
+解释: 一个最短转换序列是 "hit" -> "hot" -> "dot" -> "dog" -> "cog",
+     返回它的长度 5。
  */
 public class _127_Word_Ladder_单词接龙 {
     // 双向bfs, dfs, string O(n ^ (d / 2)) n: 平均每层分支数, d: 起点到终点深度

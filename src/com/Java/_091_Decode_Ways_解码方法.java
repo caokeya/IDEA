@@ -1,5 +1,16 @@
 package src.com.Java;
-
+/*
+一条包含字母 A-Z 的消息通过以下方式进行了编码：
+'A' -> 1
+'B' -> 2
+...
+'Z' -> 26
+给定一个只包含数字的非空字符串，请计算解码方法的总数。
+示例 1:
+输入: "12"
+输出: 2
+解释: 它可以解码为 "AB"（1 2）或者 "L"（12）。
+ */
 public class _091_Decode_Ways_解码方法 {
     class Solution {
         public int numDecodings(String s) {

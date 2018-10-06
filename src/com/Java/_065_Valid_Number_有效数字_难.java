@@ -1,5 +1,13 @@
 package src.com.Java;
-
+/*
+验证给定的字符串是否为数字。
+例如:
+"0" => true
+" 0.1 " => true
+"abc" => false
+"1 a" => false
+"2e10" => true
+ */
 public class _065_Valid_Number_有效数字_难 {
     class Solution {
         public boolean isNumber(String s) {
