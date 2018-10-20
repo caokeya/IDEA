@@ -2,7 +2,220 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="10-06">
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_521_Longest_Uncommon_Subsequence_最长特殊序列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_522_Longest_Uncommon_Subsequence_II_最长特殊序列2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_523_Continuous_Subarray_Sum_连续的子数组和.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_524_Longest_Word_in_Dictionary_through_Deleting_通过删除字母匹配到字典里最长单词.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_525_Contiguous_Array_连续数组.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_526_Beautiful_Arrangement_优美的排列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_528_Random_Pick_with_Weight_按权重随机选择.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_529_Minesweeper_扫雷游戏.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_530_Minimum_Absolute_Difference_in_BST_二叉搜索树的最小绝对差.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_532_Kdiff_Pairs_in_an_Array_数组中的Kdiff数对.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_535_Encode_and_Decode_TinyURL_TinyURL的加密与解密.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_537_Complex_Number_Multiplication_复数乘法.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_538_Convert_BST_to_Greater_Tree_把二叉搜索树转换为累加树.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_539_Minimum_Time_Difference_最小时间差.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_540_Single_Element_in_a_Sorted_Array_有序数组中的单一元素.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_541_Reverse_String_II_反转字符串2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_542_01_Matrix_01矩阵.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_543_Diameter_of_Binary_Tree_二叉树的直径.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_546_Remove_Boxes_移除盒子_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_547_Friend_Circles_朋友圈.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_551_Student_Attendance_Record_学生出勤纪录.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_552_Student_Attendance_Record_ll_学生出勤纪录2_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_553_Optimal_Division_最优除法.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_554_Brick_Wall_砖墙.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_556_Next_Greater_Element_III_下一个更大元素3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_557_Reverse_Words_in_a_String_III_反转字符串中的单词3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_558_Quad_Tree_Intersection_四棵树十字路口.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_559_Maximum_Depth_of_N_ary_Tree_N叉树的最大深度.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_560_Subarray_Sum_Equals_K_和为K的子数组.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_561_Array_Partition_数组拆分.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_563_Binary_Tree_Tilt_二叉树的坡度.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_564_Find_the_Closest_Palindrome_寻找最近的回文数_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_565_Array_Nesting_数组嵌套.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_566_Reshape_the_Matrix_重塑矩阵.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_567_Permutation_in_String_字符串的排列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_572_Subtree_of_Another_Tree_另一个树的子树.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_575_Distribute_Candies_分糖果.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_576_Out_of_Boundary_Paths_出界的路径数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_581_Shortest_Unsorted_Continuous_Subarray_最短无序连续子数组.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_583_Delete_Operation_for_Two_Strings_两个字符串的删除操作.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_587_Erect_the_Fence_安装栅栏_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_589_N_ary_Tree_Preorder_Traversal_N叉树的前序遍历.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_590_N_ary_Tree_Postorder_Traversal_N叉树的后序遍历.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_591_Tag_Validator_标签验证器_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_592_Fraction_Addition_and_Subtraction_分数加减运算.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_593_Valid_Square_有效的正方形.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_594_Longest_Harmonious_Subsequence_最长和谐子序列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_598_Range_Addition_II_范围求和.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_599_Minimum_Index_Sum_of_Two_Lists_两个列表的最小索引总和.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_600_Non_negative_Integers_without_Consecutive_Ones_不含连续1的非负整数_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_605_Can_Place_Flowers_种花问题.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_606_Construct_String_from_Binary_Tree_根据二叉树创建字符串.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_609_Find_Duplicate_File_in_System_在系统中查找重复文件.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_611_Valid_Triangle_Number_有效三角形的个数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_617_Merge_Two_Binary_Trees_合并二叉树.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_621_Task_Scheduler_任务调度器.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_622_Design_Circular_Queue_设计循环队列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_623_Add_One_Row_to_Tree_在二叉树中增加一行.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_628_Maximum_Product_of_Three_Numbers_三个数的最大乘积.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_629_K_Inverse_Pairs_Array_K个逆序对数组_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_630_Course_Schedule_III_课程表3_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_632_Smallest_Range_最小区间_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_633_Sum_of_Square_Numbers_平方数之和.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_636_Exclusive_Time_of_Functions_函数的独占时间.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_637_Average_of_Levels_in_Binary_Tree_二叉树的层平均值.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_638_Shopping_Offers_大礼包.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_639_Decode_Ways_ll_解码方法2_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_640_Solve_the_Equation_求解方程.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_641_Design_Circular_Deque_设计循环双端队列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_643_Maximum_Average_Subarray_I_子数组最大平均数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_645_Set_Mismatch_错误的集合.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_646_Maximum_Length_of_Pair_Chain_最长数对链.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_647_Palindromic_Substrings_回文子串.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_648_Replace_Words_单词替换.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_649_Dota2_Senate_Dota2参议院.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_650_2_Keys_Keyboard_只有两个键的键盘.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_652_Find_Duplicate_Subtrees_寻找重复的子树.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_653_Two_Sum_IV_Input_is_a_BST两数之和4输入BST.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_654_Maximum_Binary_Tree_最大二叉树.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_655_Print_Binary_Tree_输出二叉树.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_657_Robot_Return_to_Origin_机器人能否返回原点.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_658_Find_K_Closest_Elements_找到K个最接近的元素.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_659_Split_Array_into_Consecutive_Subsequences_分割数组为连续子序列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_661_Image_Smoother_图片平滑器.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_662_Maximum_Width_of_Binary_Tree_二叉树最大宽度.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_664_Strange_Printer_奇怪的打印机_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_665_Non_decreasing_Array_非递减数列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_667_Beautiful_Arrangement_II_优美的排列2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_668_Kth_Smallest_Number_in_Multiplication_Table_乘法表中第k小的数_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_669_Trim_a_Binary_Search_Tree_修剪二叉搜索树.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_670_Maximum_Swap_最大交换.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_671_Second_Minimum_Node_In_a_Binary_Tree_二叉树中第二小的节点.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_672_Bulb_Switcher_II_灯泡开关2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_673_Number_of_Longest_Increasing_Subsequence_最长递增子序列的个数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_674_Longest_Continuous_Increasing_Subsequence_最长连续递增序列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_675_Cut_Off_Trees_for_Golf_Event_为高尔夫比赛砍树_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_676_Implement_Magic_Dictionary_实现一个魔法字典.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_677_Map_Sum_Pairs_键值映射.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_678_Valid_Parenthesis_String_.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_679_24_Game_24点游戏_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_680_Valid_Palindrome_II_验证回文字符串2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_682_Baseball_Game_棒球比赛.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_684_Redundant_Connection_冗余连接.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_685_Redundant_Connection_II_冗余连接2_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_686_Repeated_String_Match_重复叠加字符串匹配.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_687_Longest_Univalue_Path_最长同值路径.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_688_Knight_Probability_in_Chessboard_马在棋盘上的概率.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_689_Maximum_Sum_of_3_Non_Overlapping_Subarrays_三个无重叠子数组的最大和_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_690_Employee_Importance_员工的重要性.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_691_Stickers_to_Spell_Word_拼字贴纸_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_692_Top_K_Frequent_Words_前K个高频单词.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_693_Binary_Number_with_Alternating_Bits_交替位二进制数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_695_Max_Area_of_Island_岛屿的最大面积.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_696_Count_Binary_Substrings_计数二进制子串.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_697_Degree_of_an_Array_数组的度.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_698_Partition_to_K_Equal_Sum_Subsets_划分为k个相等的子集.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_699_Falling_Squares_掉落的方块_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_700_Searchin_a_Binary_Search_Tree_二叉搜索树中的搜索.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_701_Insert_into_a_Binary_Search_Tree_二叉树中的插入操作.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_703_Kth_Largest_Element_in_a_Stream_数据流中的第K大元素.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_704_Binary_Search_二分查找.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_705_Design_HashSet_设计哈希集合.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_706_Design_HashMap_设计哈希映射.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_707_Design_Linked_List_设计链表.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_709_To_Lower_Case_转换成小写字母.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_710_Random_Pick_with_Blacklist_黑名单中的随机数_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_712_Minimum_ASCII_Delete_Sum_for_Two_Strings_两个字符串的最小ASCII删除和.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_713_Subarray_Product_Less_Than_K_乘积小于K的子数组.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_714_Best_Time_to_Buy_and_Sell_Stock_with_Transaction_Fee_买卖股票的最佳时机含手续费.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_715_Range_Module_Range模块_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_717_1_bit_and_2_bit_Characters_1比特与2比特字符.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_718_Maximum_Length_of_Repeated_Subarray_最长重复子数组.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_719_Find_K_th_Smallest_Pair_Distance_找出第k小的距离对_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_720_Longest_Word_in_Dictionary_词典中最长的单词.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_721_Accounts_Merge_账户合并.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_722_Remove_Comments_删除注释.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_724_Find_Pivot_Index_寻找数组的中心索引.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_725_Split_Linked_List_in_Parts_分隔链表.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_726_Number_of_Atoms_原子的数量_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_728_Self_Dividing_Numbers_自除数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_729_My_Calendar_I_我的日程安排表.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_730_Count_Different_Palindromic_Subsequences_统计不同回文子字符串_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_731_My_Calendar_II_我的日程安排表2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_732_My_Calendar_III_我的日程安排表3_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_733_Flood_Fill_图像渲染.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_735_Asteroid_Collision_行星碰撞.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_736_Parse_Lisp_Expression_Lisp_语法解析_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_738_Monotone_Increasing_Digits_单调递增的数字.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_739_Daily_Temperatures_每日温度.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_740_Delete_and_Earn_删除与获得点数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_741_Cherry_Pickup_摘樱桃_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_743_Network_Delay_Time_网络延迟时间.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_744_Find_Smallest_Letter_Greater_Than_Target_寻找比目标字母大的最小字母.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_745_Prefix_and_Suffix_Search_前缀和后缀搜索_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_746_Min_Cost_Climbing_Stairs_使用最小花费爬楼梯.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_747_Largest_Number_At_Least_Twice_of_Others_至少是其他数字两倍的最大数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_748_Shortest_Completing_Word_最短完整词.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_749_Contain_Virus_隔离病毒_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_752_Open_the_Lock_打开转盘锁.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_753_Cracking_the_Safe_破解保险柜_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_754_Reach_a_Number_到达终点数字.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_756_Pyramid_Transition_Matrix_金字塔转换矩阵.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_757_Set_Intersection_Size_At_Least_Two_设置交集大小至少为2_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_761_Special_Binary_String_特殊的二进制序列_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_762_Prime_Number_of_Set_Bits_in_Binary_Representation_二进制表示中质数个计算置位.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_763_Partition_Labels_划分字母区间.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_764_Largest_Plus_Sign_最大加号标志.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_765_Couples_Holding_Hands_情侣牵手_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_766_Toeplitz_Matrix_托普利茨矩阵.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_767_Reorganize_String_重构字符串.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_768_Max_Chunks_To_Make_Sorted_ll_最多能完成排序的块2_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_769_Max_Chunks_To_Make_Sorted_最多能完成排序的块.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_770_Basic_Calculator_IV_基本计算器4_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_771_Jewels_and_Stones_宝石与石头.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_773_Sliding_Puzzle_滑动谜题_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_775_Global_and_Local_Inversions_全局倒置与局部倒置.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_777_Swap_Adjacent_in_LR_String_在LR字符串中交换相邻字符.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_778_Swim_in_Rising_Water_水位上升的泳池中游泳_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_779_Kth_Symbol_in_Grammar_第K个语法符号.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_780_Reaching_Points_到达终点_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_781_Rabbits_in_Forest_森林中的兔子.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_782_Transform_to_Chessboard_变为棋盘_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_783_MinImum_Distance_Between_BST_Nodes_二叉搜索树结点最小距离.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_784_Letter_Case_Permutation_字母大小写全排列.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_785_Is_Graph_Bipartite_判断二分图.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_786_Kth_Smallest_Prime_Fraction_第K个最小的素数分数_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_787_Cheapesr_Flights_Within_K_Stops_K站中转内最便宜的航班.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_788_Rotated_Digits_旋转数字.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_789_Escape_the_Ghosts_逃脱阻碍者.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_790_Domino_and_Tromino_Tiling_多米诺和托米诺平铺.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_791_Custom_Sort_String_自定义字符串排序.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_792_Number_of_Matching_Subsequences_匹配子序列的单词数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_793_Preimage_Size_of_Factorial_Zeroes_Function_阶乘函数后K个零_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_794_Valid_Tic_Tac_Toe_State_有效的井字游戏.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_795_Number_of_Subarrays_with_Bounded_Maximum_区间子数组个数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_796_Rotate_String_旋转字符串.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_797_All_Paths_From_Source_to_Target_所有可能的路径.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_798_Smallest_Rotation_with_Highest_Score_得分最高的最小轮调_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_799_Champagne_Tower_香槟塔.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Java/_801_Minimum_Swaps_To_Make_Sequences_Increasing_使序列递增的最小交换次数.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_196_Delete_Duplicate_Emails_删除重复的电子邮箱.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_197_Rising_Temperature_上升的温度.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_595_Big_Countries_大的国家.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_596_Classes_More_Than_5_Students_超过5名学生的课.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_601_Human_Traffic_of_Stadium_体育馆的人流量_难.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_620_Not_Boring_Movies_有趣的电影.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_626_Exchange_Seats_换座位.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/Mysql/_627_Swap_Salary_交换工资.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_121_Best_Time_to_Buy_and_Sell_Stock_买卖股票的最佳时机.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_121_Best_Time_to_Buy_and_Sell_Stock_买卖股票的最佳时机.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_122_Best_Time_to_Buy_and_Sell_Stock_ll_买卖股票的最佳时机2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_122_Best_Time_to_Buy_and_Sell_Stock_ll_买卖股票的最佳时机2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_123_Best_Time_to_Buy_and_Sell_Stock_lll_买卖股票的最佳时机3_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_123_Best_Time_to_Buy_and_Sell_Stock_lll_买卖股票的最佳时机3_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_188_Best_Time_to_Buy_and_Sell_Stock_IV_买卖股票的最佳时机4_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_188_Best_Time_to_Buy_and_Sell_Stock_IV_买卖股票的最佳时机4_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_309_Best_Time_to_Buy_and_Sell_Stock_with_Cooldown_最佳买卖股票时机含冷冻期.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_309_Best_Time_to_Buy_and_Sell_Stock_with_Cooldown_最佳买卖股票时机含冷冻期.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,28 +242,29 @@
     <session id="628924586">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="12" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="9" />
+          <entry key="java" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="9" />
+          <entry key="JAVA" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -71,7 +285,22 @@
     <favorites_list name="IDEA" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Mysql/_178_Rank_Scores_分数排名.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/Java/_502_IPO_难.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="621">
+              <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -96,6 +325,9 @@
         <option value="$PROJECT_DIR$/com/company/_100_Same_Tree_判断树相同.java" />
         <option value="$PROJECT_DIR$/com/company/hu.java" />
         <option value="$PROJECT_DIR$/com/company/_020_Valid_Parentheses_判断一串括号是否是合法匹配的.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/Java/_502_IPO_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Mysql/_178_Rank_Scores_分数排名.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_502_IPO_难.java" />
       </list>
     </option>
   </component>
@@ -117,12 +349,15 @@
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -141,27 +376,33 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="Java" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="IDEA" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IDEA" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Mysql" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538816910259" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539996903860" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Confirmation" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\IDEA\src\com" />
       <recent name="H:\IDEA\src\com\Java" />
       <recent name="H:\IDEA" />
       <recent name="H:\IDEA\com\company" />
@@ -244,6 +485,8 @@
       <workItem from="1537410920355" duration="1126000" />
       <workItem from="1537429938486" duration="645000" />
       <workItem from="1538816530256" duration="329000" />
+      <workItem from="1538827263959" duration="55000" />
+      <workItem from="1539996148207" duration="363000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1523671095562</created>
@@ -441,11 +684,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538816729975</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="10-06">
+      <created>1538827313662</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1538827313662</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10569000" />
+    <option name="totallyTimeSpent" value="10987000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -458,8 +708,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.2185501" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.2228145" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -575,6 +826,30 @@
     <entry file="file://$PROJECT_DIR$/src/com/Java/_330_Patching_Array_按要求补齐数组_难.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-8" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_514_Freedom_Trail_自由之路_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="20" column="61" lean-forward="true" selection-start-line="20" selection-start-column="61" selection-end-line="20" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/Java/_502_IPO_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Mysql/_178_Rank_Scores_分数排名.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_502_IPO_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
+        </state>
       </provider>
     </entry>
   </component>
