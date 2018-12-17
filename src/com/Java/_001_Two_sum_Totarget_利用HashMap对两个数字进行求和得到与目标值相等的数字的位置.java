@@ -13,17 +13,7 @@ import java.util.Map;
 所以返回 [0, 1]
  */
 public class _001_Two_sum_Totarget_利用HashMap对两个数字进行求和得到与目标值相等的数字的位置 {
-
-    public static void main(String[] args) {
-        int[] a = new int[] { 2, 3, 6 };
-        int b = 8;
-        int[] c = twoSum(a, b);
-        for (int i = 0; i < c.length; i++) {
-            System.out.println(c[i]);
-        }
-    }
-
-    public static int[] twoSum(int[] nums, int target) {
+    public int[] twoSum(int[] nums, int target) {
         int[] res = new int[2];
         if (nums == null || nums.length < 2) {
             return res;

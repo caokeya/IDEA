@@ -21,15 +21,15 @@ public class _003_Longest_Substring_Without_Repeating_Characters_求一个字符
 	        int n = s.length();
 	        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 	        
-	        int i = 0;
+	        int first = 0;
 	        int max = 0;
-	        for(int j = 0; j < n; j++) {
-	            char key = s.charAt(j);
-	            if(map.containsKey(key)) {
-	                i = Math.max(map.get(key) + 1, i);
+	        for(int second = 0; second < n; second++) {
+	            char c = s.charAt(second);
+	            if(map.containsKey(c)) {
+	                first = Math.max(map.get(c) + 1, first);
 	            }           
-	            map.put(key, j);
-	            max = Math.max(max, j - i + 1);
+	            map.put(c, second);
+	            max = Math.max(max, second - first + 1);
 	        }
 	        return max;
 	    }

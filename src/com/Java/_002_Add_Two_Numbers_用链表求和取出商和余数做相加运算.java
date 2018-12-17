@@ -21,8 +21,8 @@ public class _002_Add_Two_Numbers_用链表求和取出商和余数做相加运�
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode c1 = l1;
         ListNode c2 = l2;
-        ListNode sentinel = new ListNode(0);
-        ListNode d = sentinel;
+        ListNode temp = new ListNode(0);
+        ListNode d = temp;
         int sum = 0;
         while (c1 != null || c2 != null) {
             sum /= 10;
@@ -39,7 +39,7 @@ public class _002_Add_Two_Numbers_用链表求和取出商和余数做相加运�
         }
         if (sum / 10 == 1)
             d.next = new ListNode(1);
-        return sentinel.next;
+        return temp.next;
     }
     
 }
