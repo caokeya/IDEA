@@ -1,64 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="12-17">
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_201_Bitwise_AND_of_Numbers_Range_数字区间按位与.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_202_Happy_Number_递归判断是否是happyNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_203_Remove_Linked_List_Elements.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_204_Count_Primes_统计质数的个数.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_205_Isomorphic_Strings_是否是同型字符串.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_206_Reverse_Linked_List_反转链表.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_208_ImplementTrie_PrefixTree_实现前缀树的insertSearchStartwith三个方法.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_209_Minimum_Size_Subarray_Sum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_211_Add_and_Search_Word_Data_structure_design_新增和搜索单词_数据结构设计.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_212_Word_SearchII_单词搜索.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_213_House_Robber_II_打家劫舍2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_215_Kth_Largest_Element_in_an_Array_排序.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_216_Combination_Sum_III_组合求和.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_217_Contains_Duplicate_存在重复元素.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_219_Contains_DuplicateII_重复数字.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_220_Contains_Duplicate_III_重复数字.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_221_Maximal_Square_求二位数组中的最大1正方形.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_222_Count_Complete_Tree_Nodes_完全二叉树的节点个数.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_223_Rectangle_Area_求两个矩形的面积.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_225_Implement_Stack_using_Queues_用队列实现栈.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_226_InvertBinaryTree_翻转二叉树.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_227_Basic_CalculatorII_基础计算器.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_228_Summary_Ranges_汇总区间.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_229_Majority_Element_II_统计数字出现的个数.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_231_Power_Of_Two_是否是2的幂.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_232_Implement_Queue_Using_Stacks_使用栈来实现队列.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_234_Palindrome_Linked_List_回文链表.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_235_Lowest_Commom_Ancestor_Of_A_Binary_Search_Tree_二叉搜索树得最近公共祖先.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_236_Lowest_Common_Ancestor_Of_A_Binary_Tree_二叉树的最近公共祖先.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_237_Delete_Node_In_A_Linked_List_删除链表中的节点.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_238_Product_Of_Array_Except_Self_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_239_Sliding_Window_Maximun_滑窗最大值.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_240_Search_A_2D_Matrix_II_在二维矩阵中搜索元素.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_241_Different_Ways_To_Add_Parentheses_运算表达式的不同组合结果.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_242_Valid_Anagram_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_243_Shortest_Word_Distance_最短单词距离.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_244_Shortest_Word_DistanceII_最短单词距离2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_257_Binary_Tree_Paths_二叉树的所有路径.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_258_Add_Digits_各位相加化简成一位数字.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_260_Single_Number_III_只出现一次的数字.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_263_Ugly_Number_只由235乘积构成的数.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_264_Ugly_Number_II.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_268_Missing_Number_找到缺少的数easy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_274_H_Index_H引用指数.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_275_HIndex_II_H指数2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_278_First_Bad_Version_快速查找.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_279_Perfect_Squares_将n拆为完全平方数的和.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_283_Mmove_Zeros_移动零元素.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_284_Peeking_Iterator_顶端迭代器.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_287_Find_the_Duplicate_Number_寻找重复数字.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_290_Game_of_Life_九宫格.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_290_Word_Pattern_单词格式匹配.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_292_Nim_Game_.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_295_Finde_Median_From_Data_System_数据流的中位数.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_299_Bulls_And_Cows_猜数字游戏.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Java/_300_Longest_Increasing_Subsequence_最长上升子序列.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="12-18">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -106,27 +49,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="33" />
+          <entry key="java" value="36" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="33" />
+          <entry key="JAVA" value="36" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="233" />
-          <entry key="txt" value="14" />
+          <entry key="txt" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="233" />
-          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
     </session>
@@ -136,20 +79,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/Java/_201_Bitwise_AND_of_Numbers_Range_数字区间按位与.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Java/_208_ImplementTrie_PrefixTree_实现前缀树的insertSearchStartwith三个方法.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="459">
+              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Java/_201_Bitwise_AND_of_Numbers_Range_数字区间按位与.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Java/_202_Happy_Number_递归判断是否是happyNumber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="405">
+              <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -207,7 +159,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -278,7 +230,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545100334717" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545100552098" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/Java" />
     <property name="project.structure.last.edited" value="SDKs" />
@@ -380,7 +332,7 @@
       <workItem from="1545011508454" duration="177000" />
       <workItem from="1545051114380" duration="978000" />
       <workItem from="1545053188461" duration="212000" />
-      <workItem from="1545100179803" duration="71000" />
+      <workItem from="1545100179803" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1523671095562</created>
@@ -606,11 +558,25 @@
       <option name="project" value="LOCAL" />
       <updated>1545051941485</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="12-18">
+      <created>1545100293631</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1545100293631</updated>
+    </task>
+    <task id="LOCAL-00034" summary="12-18">
+      <created>1545100376982</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1545100376982</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14072000" />
+    <option name="totallyTimeSpent" value="14363000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -622,7 +588,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.23400854" />
@@ -638,10 +604,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Messages" order="6" sideWeight="0.49713466" weight="0.3281075" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.21181718" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.21181718" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32887402" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5028653" side_tool="true" weight="0.32867134" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32664436" />
+      <window_info anchor="bottom" id="Version Control" order="10" visible="true" weight="0.32664436" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Structure" order="1" sideWeight="0.5008347" weight="0.14978679" />
@@ -706,7 +672,8 @@
     <MESSAGE value="10-20" />
     <MESSAGE value="10-31" />
     <MESSAGE value="12-17" />
-    <option name="LAST_COMMIT_MESSAGE" value="12-17" />
+    <MESSAGE value="12-18" />
+    <option name="LAST_COMMIT_MESSAGE" value="12-18" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -816,17 +783,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_202_Happy_Number_递归判断是否是happyNumber.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_208_ImplementTrie_PrefixTree_实现前缀树的insertSearchStartwith三个方法.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="459">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Java/_201_Bitwise_AND_of_Numbers_Range_数字区间按位与.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="459">
           <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_202_Happy_Number_递归判断是否是happyNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
         </state>
       </provider>
     </entry>
