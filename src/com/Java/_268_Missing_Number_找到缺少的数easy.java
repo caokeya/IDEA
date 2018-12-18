@@ -1,45 +1,31 @@
 package src.com.Java;
 
-/**
- * @author suzw
- * @version 创建时间：2018年10月26日 下午1:00:01 类说明 Given an array containing n distinct
- *          numbers taken from 0, 1, 2, ..., n, find the one that is missing
- *          from the array.
- * 
- *          Example 1:
- * 
- *          Input: [3,0,1] Output: 2 Example 2:
- * 
- *          Input: [9,6,4,2,3,5,7,0,1] Output: 8 Note: Your algorithm should run
- *          in linear runtime complexity. 
- *          Could you implement it using only
- *          constant extra space complexity?
+/*
+给定一个包含 0, 1, 2, ..., n 中 n 个数的序列，找出 0 .. n 中没有出现在序列中的那个数。
+示例 1:
+输入: [3,0,1]
+输出: 2
+示例 2:
+输入: [9,6,4,2,3,5,7,0,1]
+输出: 8
  */
 public class _268_Missing_Number_找到缺少的数easy {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
     public int missingNumber(int[] nums) {
-        int sum = nums.length * (nums.length + 1) / 2;
-        for (int i=0; i < nums.length; i++) {
-            sum -= nums[i];
+        int xor = 0, i = 0;
+        for (i = 0; i < nums.length; i++) {
+            xor = xor ^ i ^ nums[i];
         }
-        return sum;
+        return xor ^ i;
     }
-    
-	public static int missingNumber2(int[] nums) {
-		int[] newNums = new int[nums.length + 1];
 
-		for (int i : nums) {
-			newNums[i] = 1;
-		}
-		for (int i = 0; i < newNums.length; i++) {
-			if (newNums[i] == 0)
-				return i;
-		}
-		return 0;
-	}
+    class Solution2 {
+        public int missingNumber(int[] nums) {
+            int sum = 0;
+            int n = nums.length;
+            for (int i = 0; i < nums.length; i++) {
+                sum += nums[i];
+            }
+            return n * (n + 1) / 2 - sum;
+        }
+    }
 }

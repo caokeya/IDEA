@@ -1,70 +1,120 @@
 package src.com.Java;
 
+import java.util.Deque;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
-/** 
-* @author  suzw
-* @version 创建时间：2018年9月19日 上午10:31:10 
-* 类说明 
-* Implement the following operations of a stack using queues.
-push(x) -- Push element x onto stack.
-pop() -- Removes the element on top of the stack.
-top() -- Get the top element.
-empty() -- Return whether the stack is empty.
-Example:
-MyStack stack = new MyStack();
-
-stack.push(1);
-stack.push(2);  
-stack.top();   // returns 2
-stack.pop();   // returns 2
-stack.empty(); // returns false
-Notes:
-You must use only standard operations of a queue -- which means only push to back, peek/pop from front, 
-size, and is empty operations are valid.
-Depending on your language, queue may not be supported natively. You may simulate a queue by using a list 
-or deque (double-ended queue), as long as you use only standard operations of a queue.
-You may assume that all operations are valid (for example, no pop or top operations will be called on an 
-empty stack).
+/*
+ 使用队列实现栈的下列操作：
+ push(x) -- 元素 x 入栈
+ pop() -- 移除栈顶元素
+ top() -- 获取栈顶元素
+ empty() -- 返回栈是否为空
 */
 public class _225_Implement_Stack_using_Queues_用队列实现栈 {
+    class MyStack {
+        Deque<Integer> queue;
+        /**
+         * Initialize your data structure here.
+         */
+        public MyStack() {
+            queue = new LinkedList<>();
+        }
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+        /**
+         * Push element x onto stack.
+         */
+        public void push(int x) {
+            queue.add(x);
+        }
 
-	}
-	
-	class MyStack {
-		Queue<Integer> queue;
-	    /** Initialize your data structure here. */
-	    public MyStack() {
-	        queue = new LinkedList<Integer>();
-	    }
-	    
-	    /** Push element x onto stack. */
-	    public void push(int x) {
-	    	//先加入队列的末尾，再将队列颠倒顺序[最后添加的一个元素放在队首]
-	        queue.add(x);
-	        //如[1],add2->[1,2]-》 [2,1],add3->[2,1,3]->[1,3,2]->[3,2,1]
-	        for (int i = 0; i < queue.size()-1; i++) {
-				queue.add(queue.poll());
-			}
-	    }
-	    
-	    /** Removes the element on top of the stack and returns that element. */
-	    public int pop() {
-	        return (int) queue.poll();
-	    }
-	    
-	    /** Get the top element. */
-	    public int top() {
-	        return (int) queue.peek();
-	    }
-	    
-	    /** Returns whether the stack is empty. */
-	    public boolean empty() {
-	        return queue.isEmpty();
-	    }
-	}
+        /**
+         * Removes the element on top of the stack and returns that element.
+         */
+        public int pop() {
+            if (empty()) throw new IndexOutOfBoundsException("Empty stack");
+            return queue.removeLast();
+        }
+
+        /**
+         * Get the top element.
+         */
+        public int top() {
+            if (empty()) throw new IndexOutOfBoundsException("Empty stack");
+            return queue.getLast();
+        }
+
+        /**
+         * Returns whether the stack is empty.
+         */
+        public boolean empty() {
+            return queue.isEmpty();
+        }
+    }
+
+    class MyStack2 {
+        Queue<Integer> myStackIn;
+        Queue<Integer> myStackOut;
+
+        /**
+         * Initialize your data structure here.
+         */
+        public MyStack2() {
+            myStackIn = new PriorityQueue<>();
+            myStackOut = new PriorityQueue<>();
+        }
+
+        /**
+         * Push element x onto stack.
+         */
+        public void push(int x) {
+            myStackIn.add(x);
+        }
+
+        /**
+         * Removes the element on top of the stack and returns that element.
+         */
+        public int pop() {
+            int result;
+            while (myStackIn.size() != 1) {
+                myStackOut.add(myStackIn.poll());
+            }
+            result = myStackIn.poll();
+            while (myStackOut.peek() != null) {
+                myStackIn.add(myStackOut.poll());
+            }
+            return result;
+        }
+
+        /**
+         * Get the top element.
+         */
+        public int top() {
+            int result;
+            while (myStackIn.size() != 1) {
+                myStackOut.add(myStackIn.poll());
+            }
+            result = myStackIn.peek();
+            while (myStackOut.peek() != null) {
+                myStackIn.add(myStackOut.poll());
+            }
+            return result;
+        }
+
+        /**
+         * Returns whether the stack is empty.
+         */
+        public boolean empty() {
+            return myStackIn.peek() == null;
+        }
+    }
+/**
+ * Your MyStack object will be instantiated and called as such:
+ * MyStack obj = new MyStack();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.top();
+ * boolean param_4 = obj.empty();
+ */
 }

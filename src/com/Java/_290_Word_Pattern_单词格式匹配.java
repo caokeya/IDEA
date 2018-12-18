@@ -1,68 +1,60 @@
 package src.com.Java;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
-/** 
-* @author  suzw
-* @version 创建时间：2018年10月31日 下午8:37:55 
-* 类说明 
-* Given a pattern and a string str, find if str follows the same pattern.
-
-Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.
-
-Example 1:
-
-Input: pattern = "abba", str = "dog cat cat dog"
-Output: true
-Example 2:
-
-Input:pattern = "abba", str = "dog cat cat fish"
-Output: false
-Example 3:
-
-Input: pattern = "aaaa", str = "dog cat cat dog"
-Output: false
-Example 4:
-
-Input: pattern = "abba", str = "dog dog dog dog"
-Output: false
-Notes:
-You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space.
+/*
+给定一种 pattern(模式) 和一个字符串 str ，判断 str 是否遵循相同的模式。
+这里的遵循指完全匹配，例如， pattern 里的每个字母和字符串 str 中的每个非空单词之间存在着双向连接的对应模式。
+示例1:
+输入: pattern = "abba", str = "dog cat cat dog"
+输出: true
+示例 2:
+输入:pattern = "abba", str = "dog cat cat fish"
+输出: false
+示例 3:
+输入: pattern = "aaaa", str = "dog cat cat dog"
+输出: false
+示例 4:
+输入: pattern = "abba", str = "dog dog dog dog"
+输出: false
 */
 public class _290_Word_Pattern_单词格式匹配 {
+    class Solution {
+        public boolean wordPattern(String pattern, String str) {
+            String[] words = str.split(" ");
+            if (words.length != pattern.length())
+                return false;
+            Map index = new HashMap();
+            for (Integer i = 0; i < words.length; ++i)
+                if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
+                    return false;
+            return true;
+        }
+    }
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	   public boolean wordPatternNew(String pattern, String str) {
-		   String[] arr= str.split(" ");
-		           HashMap<Character, String> map = new HashMap<Character, String>();
-		           if(arr.length!= pattern.length())
-		               return false;
-		           for(int i=0; i<arr.length; i++){
-		               char c = pattern.charAt(i);
-		               if(map.containsKey(c)){
-		                   if(!map.get(c).equals(arr[i]))
-		                       return false;
-		               }else{
-		                   if(map.containsValue(arr[i]))
-		                       return false;
-		                   map.put(c, arr[i]);
-		               }    
-		           }
-		           return true;
-		       }
-	public boolean wordPattern(String pattern, String str) {
-	    String[] words = str.split(" ");
-	    if (words.length != pattern.length())
-	        return false;
-	    Map index = new HashMap();
-	    for (Integer i=0; i<words.length; ++i)
-	        if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
-	            return false;
-	    return true;
-	}
-	
+    class Solution2 {
+        public boolean wordPattern(String pattern, String str) {
+            if (pattern == null || str == null) return false;
+            if (pattern.length() == 0) return false;
+            String[] x = str.split(" ");
+            if (pattern.length() != x.length) return false;
+            HashMap<Character, String> hm = new HashMap<Character, String>();
+            HashSet<String> hs = new HashSet<String>();
+            int len = pattern.length();
+            for (int i = 0; i < len; i++) {
+                Character ch = pattern.charAt(i);
+                String wd = x[i];
+                if (hm.containsKey(ch)) {
+                    if (!hm.get(ch).equals(wd)) return false;
+                } else {
+                    if (hs.contains(wd)) return false;
+                    hm.put(ch, wd);
+                    hs.add(wd);
+                }
+            }
+            return true;
+        }
+    }
 }
