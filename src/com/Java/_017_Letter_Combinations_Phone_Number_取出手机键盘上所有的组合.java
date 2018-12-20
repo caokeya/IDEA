@@ -1,4 +1,6 @@
 package src.com.Java;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,25 +14,48 @@ import java.util.List;
 
  */
 public class _017_Letter_Combinations_Phone_Number_取出手机键盘上所有的组合 {
+    public class Solution {
+        public List<String> letterCombinations(String digits) {
+            LinkedList<String> ans = new LinkedList<String>();
+            if (digits.isEmpty())
+                return ans;
+            String[] mapping = new String[]{"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+            ans.add("");
+            for (int i = 0; i < digits.length(); i++) {
+                int x = Character.getNumericValue(digits.charAt(i));
+                while (ans.peek().length() == i) {
+                    String t = ans.remove();
+                    for (char s : mapping[x].toCharArray())
+                        ans.add(t + s);
+                }
+            }
+            return ans;
+        }
+    }
 
-	public static class Solution {
+    class Solution2 {
+        private final char[][] chars = {{}, {}, {'a', 'b', 'c'}, {'d', 'e', 'f'}, {'g', 'h', 'i'}, {'j', 'k', 'l'},
+                {'m', 'n', 'o'}, {'p', 'q', 'r', 's'}, {'t', 'u', 'v'}, {'w', 'x', 'y', 'z'}};
 
-		public List<String> letterCombinations(String digits) {
-			LinkedList<String> ans = new LinkedList<String>();
-			if (digits.isEmpty())
-				return ans;
-			String[] mapping = new String[] { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
-			ans.add("");
-			for (int i = 0; i < digits.length(); i++) {
-				int x = Character.getNumericValue(digits.charAt(i));
-				while (ans.peek().length() == i) {
-					String t = ans.remove();
-					for (char s : mapping[x].toCharArray())
-						ans.add(t + s);
-				}
-			}
-			return ans;
-		}
-	}
+        public List<String> letterCombinations(String digits) {
+            List<String> l = new ArrayList();
+            if (digits == null || digits.length() == 0) return l;
+            StringBuilder sb = new StringBuilder();
+            dfs(digits, sb, 0, digits.length(), l);
+            return l;
+        }
 
+        private void dfs(String digits, StringBuilder sb, int k, int len, List<String> l) {
+            if (k == len) {
+                l.add(sb.toString());
+                return;
+            }
+            int d = digits.charAt(k) - '0';
+            for (int i = 0; i < chars[d].length; i++) {
+                sb.append(chars[d][i]);
+                dfs(digits, sb, k + 1, len, l);
+                sb.deleteCharAt(k);
+            }
+        }
+    }
 }

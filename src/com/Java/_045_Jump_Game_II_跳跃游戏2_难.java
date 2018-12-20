@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个非负整数数组，你最初位于数组的第一个位置。
 数组中的每个元素代表你在该位置可以跳跃的最大长度。
@@ -16,7 +17,6 @@ public class _045_Jump_Game_II_跳跃游戏2_难 {
             int last = 0; // 上一个可以reach到的 position
             int minSteps = 0;
             int maxReach = 0;
-
             for (int i = 0; i < n - 1; i++) {
                 maxReach = Math.max(maxReach, i + nums[i]);
                 // Once the current point reaches curEnd, then trigger another jump
@@ -28,7 +28,6 @@ public class _045_Jump_Game_II_跳跃游戏2_难 {
                     }
                 }
             }
-
             return minSteps;
         }
     }

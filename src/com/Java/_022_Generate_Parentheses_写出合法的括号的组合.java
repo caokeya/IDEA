@@ -15,7 +15,6 @@ import java.util.List;
 ]
  */
 public class _022_Generate_Parentheses_写出合法的括号的组合 {
-	
 	class Solution {
 	    public List<String> generateParenthesis(int n) {
 	        List<String> list = new ArrayList<>();
@@ -33,5 +32,4 @@ public class _022_Generate_Parentheses_写出合法的括号的组合 {
 	            generate(list, s + ")", start, end - 1);
 	    }
 	}
-	
 }

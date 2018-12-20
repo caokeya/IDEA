@@ -13,7 +13,6 @@ import java.util.Stack;
 输出: true
  */
 public class _020_Valid_Parentheses_判断一串括号是否是合法匹配的 {
-
 	class Solution {
 		public boolean isValid(String s) {
 			Stack<Character> stack = new Stack<Character>();
@@ -30,5 +29,4 @@ public class _020_Valid_Parentheses_判断一串括号是否是合法匹配的 {
 			return stack.isEmpty();
 		}
 	}
-
 }

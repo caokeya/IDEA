@@ -1,9 +1,7 @@
 package src.com.Java;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+
 /*
 给定一个可包含重复数字的序列，返回所有不重复的全排列。
 示例:
@@ -21,34 +19,25 @@ public class _047_Permutations_II_全排列2 {
             List<List<Integer>> res = new ArrayList<>();
             if (nums == null || nums.length == 0)
                 return res;
-            permute(nums, res, 0);
+            Arrays.sort(nums);
+            helper(res, new ArrayList<>(), nums, new boolean[nums.length]);
             return res;
         }
 
-        void permute(int[] nums, List<List<Integer>> res, int pos) {
-            if (pos == nums.length - 1) {
-                List<Integer> tmp = new ArrayList<Integer>();
-                for (int n : nums)
-                    tmp.add(n);
-                res.add(tmp);
+        private void helper(List<List<Integer>> res, List<Integer> list, int[] nums, boolean[] used) {
+            if (list.size() == nums.length) {
+                res.add(new ArrayList<>(list));
                 return;
             }
-
-            Set<Integer> visited = new HashSet<>();
-            for (int i = pos; i < nums.length; i++) {
-                if (visited.contains(nums[i]))
+            for (int i = 0; i < nums.length; i++) {
+                if (used[i] || i > 0 && nums[i] == nums[i - 1] && !used[i - 1])
                     continue;
-                visited.add(nums[i]);
-                swap(nums, i, pos);
-                permute(nums, res, pos + 1);
-                swap(nums, i, pos);
+                used[i] = true;
+                list.add(nums[i]);
+                helper(res, list, nums, used);
+                used[i] = false;
+                list.remove(list.size() - 1);
             }
-        }
-
-        void swap(int[] nums, int i, int j) {
-            int tmp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = tmp;
         }
     }
 }

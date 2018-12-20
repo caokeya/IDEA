@@ -9,7 +9,6 @@ package src.com.Java;
 输出: 49
  */
 public class _011_Container_With_Most_Water_计算与垂直线段与X轴所得的最大面积 {
-
 	class Solution {
 		public int maxArea(int[] height) {
 			int L = height.length, lo = 0, hi = L - 1;
@@ -30,5 +29,4 @@ public class _011_Container_With_Most_Water_计算与垂直线段与X轴所得�
 			return max;
 		}
 	}
-
 }
