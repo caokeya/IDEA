@@ -2,6 +2,7 @@ package src.com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /*
 给定两个整数 n 和 k，返回 1 ... n 中所有可能的 k 个数的组合。
 示例:
@@ -17,22 +18,22 @@ import java.util.List;
 ]
  */
 public class _077_Combinations_组合 {
-    public class Solution {
+    class Solution {
         public List<List<Integer>> combine(int n, int k) {
-            List<List<Integer>> combs = new ArrayList<List<Integer>>();
-            combine(combs, new ArrayList<Integer>(), 1, n, k);
-            return combs;
+            List<List<Integer>> res = new ArrayList<List<Integer>>();
+            backtrack(res, new ArrayList<>(), n, k);
+            return res;
         }
 
-        public void combine(List<List<Integer>> combs, List<Integer> comb, int start, int n, int k) {
-            if (k == 0) {
-                combs.add(new ArrayList<Integer>(comb));
+        private void backtrack(List<List<Integer>> res, List<Integer> tempList, int n, int remain) {
+            if (remain == 0) {
+                res.add(new ArrayList<Integer>(tempList));
                 return;
             }
-            for (int i = start; i <= n; i++) {
-                comb.add(i);
-                combine(combs, comb, i + 1, n, k - 1);
-                comb.remove(comb.size() - 1);
+            for (int m = n; m > 0; m--) {
+                tempList.add(m);
+                backtrack(res, tempList, m - 1, remain - 1);
+                tempList.remove(tempList.size() - 1);
             }
         }
     }

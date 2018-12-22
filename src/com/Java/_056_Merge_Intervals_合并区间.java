@@ -1,7 +1,7 @@
 package src.com.Java;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
 /*
 给出一个区间的集合，请合并所有重叠的区间。
 示例 1:
@@ -10,7 +10,7 @@ import java.util.List;
 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
  */
 public class _056_Merge_Intervals_合并区间 {
-    /**
+    /*
      * Definition for an interval.
      */
     public class Interval {
@@ -30,27 +30,29 @@ public class _056_Merge_Intervals_合并区间 {
 
     class Solution {
         public List<Interval> merge(List<Interval> intervals) {
-            if (intervals.size() <= 1)
-                return intervals;
-
-            // Sort by ascending starting point using an anonymous Comparator
-            intervals.sort((i1, i2) -> Integer.compare(i1.start, i2.start));
-
-            List<Interval> result = new LinkedList<Interval>();
+            List<Interval> result = new ArrayList<>();
+            if (intervals == null || intervals.size() < 1) {
+                return result;
+            }
+            Collections.sort(intervals, new Comparator<Interval>() {
+                public int compare(Interval a, Interval b) {
+                    if (a.start == b.start) {
+                        return a.end - b.end;
+                    }
+                    return a.start - b.start;
+                }
+            });
             int start = intervals.get(0).start;
             int end = intervals.get(0).end;
-
-            for (Interval interval : intervals) {
-                if (interval.start <= end) // Overlapping intervals, move the end if needed
-                    end = Math.max(end, interval.end);
-                else { // Disjoint intervals, add the previous one and reset bounds
+            for (int i = 0; i < intervals.size(); i++) {
+                if (end >= intervals.get(i).start) {
+                    end = Math.max(end, intervals.get(i).end);
+                } else {
                     result.add(new Interval(start, end));
-                    start = interval.start;
-                    end = interval.end;
+                    start = intervals.get(i).start;
+                    end = intervals.get(i).end;
                 }
             }
-
-            // Add the last interval
             result.add(new Interval(start, end));
             return result;
         }

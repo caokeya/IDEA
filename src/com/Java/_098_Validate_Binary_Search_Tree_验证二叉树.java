@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
 假设一个二叉搜索树具有如下特征：
@@ -13,7 +14,7 @@ package src.com.Java;
 输出: true
  */
 public class _098_Validate_Binary_Search_Tree_验证二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -26,18 +27,17 @@ public class _098_Validate_Binary_Search_Tree_验证二叉树 {
         }
     }
 
-    public class Solution {
+    class Solution {
         public boolean isValidBST(TreeNode root) {
-            return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
+            long uppermost = Long.MAX_VALUE;
+            long lowermost = Long.MIN_VALUE;
+            return dfs(root, uppermost, lowermost);
         }
 
-        public boolean isValidBST(TreeNode root, long minVal, long maxVal) {
-            if (root == null)
-                return true;
-            if (root.val >= maxVal || root.val <= minVal)
-                return false;
-            return isValidBST(root.left, minVal, root.val) && isValidBST(root.right, root.val, maxVal);
+        private boolean dfs(TreeNode root, long uppermost, long lowermost) {
+            if (root == null) return true;
+            if (root.val <= lowermost || root.val >= uppermost) return false;
+            return dfs(root.left, root.val, lowermost) && dfs(root.right, uppermost, root.val);
         }
     }
-
 }

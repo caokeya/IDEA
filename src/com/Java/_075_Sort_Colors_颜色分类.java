@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个包含红色、白色和蓝色，一共 n 个元素的数组，原地对它们进行排序，使得相同颜色的元素相邻，并按照红色、白色、蓝色顺序排列。
 此题中，我们使用整数 0、 1 和 2 分别表示红色、白色和蓝色。
@@ -21,13 +22,39 @@ public class _075_Sort_Colors_颜色分类 {
                 else if (nums[i] == 2)
                     ++num2;
             }
-
             for (int i = 0; i < num0; ++i)
                 nums[i] = 0;
             for (int i = 0; i < num1; ++i)
                 nums[num0 + i] = 1;
             for (int i = 0; i < num2; ++i)
                 nums[num0 + num1 + i] = 2;
+        }
+    }
+
+    class Solution2 {
+        public void sortColors(int[] nums) {
+            int idx = 0;
+            int curr = 0;
+            while (curr < nums.length) {
+                if (nums[curr] == 0) {
+                    int temp = nums[idx];
+                    nums[idx] = nums[curr];
+                    nums[curr] = temp;
+                    idx++;
+                }
+                curr++;
+            }
+            int widx = nums.length - 1;
+            curr = nums.length - 1;
+            while (curr >= 0) {
+                if (nums[curr] == 2) {
+                    int temp = nums[widx];
+                    nums[widx] = nums[curr];
+                    nums[curr] = temp;
+                    widx--;
+                }
+                curr--;
+            }
         }
     }
 }

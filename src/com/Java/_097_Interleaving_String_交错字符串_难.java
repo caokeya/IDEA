@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定三个字符串 s1, s2, s3, 验证 s3 是否是由 s1 和 s2 交错组成的。
 示例 1:
@@ -8,31 +9,29 @@ package src.com.Java;
 public class _097_Interleaving_String_交错字符串_难 {
     class Solution {
         public boolean isInterleave(String s1, String s2, String s3) {
-
-            if ((s1.length() + s2.length()) != s3.length())
+            int alen = s1.length();
+            int blen = s2.length();
+            int clen = s3.length();
+            if (alen + blen != clen) {
                 return false;
-
-            boolean[][] matrix = new boolean[s2.length() + 1][s1.length() + 1];
-
-            matrix[0][0] = true;
-
-            for (int i = 1; i < matrix[0].length; i++) {
-                matrix[0][i] = matrix[0][i - 1] && (s1.charAt(i - 1) == s3.charAt(i - 1));
             }
-
-            for (int i = 1; i < matrix.length; i++) {
-                matrix[i][0] = matrix[i - 1][0] && (s2.charAt(i - 1) == s3.charAt(i - 1));
-            }
-
-            for (int i = 1; i < matrix.length; i++) {
-                for (int j = 1; j < matrix[0].length; j++) {
-                    matrix[i][j] = (matrix[i - 1][j] && (s2.charAt(i - 1) == s3.charAt(i + j - 1)))
-                            || (matrix[i][j - 1] && (s1.charAt(j - 1) == s3.charAt(i + j - 1)));
+            // i to represent i-th char in string
+            boolean[][] dp = new boolean[alen + 1][blen + 1];
+            for (int i = 0; i <= alen; i++) {
+                for (int j = 0; j <= blen; j++) {
+                    if (i == 0 && j == 0) {
+                        dp[i][j] = true;
+                    } else if (i == 0) {
+                        dp[i][j] = dp[i][j - 1] && s2.charAt(j - 1) == s3.charAt(i + j - 1);
+                    } else if (j == 0) {
+                        dp[i][j] = dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1);
+                    } else {
+                        dp[i][j] = dp[i][j - 1] && s2.charAt(j - 1) == s3.charAt(i + j - 1)
+                                || dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1);
+                    }
                 }
             }
-
-            return matrix[s2.length()][s1.length()];
-
+            return dp[alen][blen];
         }
     }
 }

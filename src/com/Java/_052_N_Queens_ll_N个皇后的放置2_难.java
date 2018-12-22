@@ -24,6 +24,7 @@ public class _052_N_Queens_ll_N个皇后的放置2_难 {
 
         public int totalNQueens(int n) {
             boolean[] cols = new boolean[n]; // columns |
+            //the point on the line y=kx+d k=1 or k = -1 so use d[] to save if the line has been used
             boolean[] d1 = new boolean[2 * n]; // diagonals \
             boolean[] d2 = new boolean[2 * n]; // diagonals /
             backtracking(0, cols, d1, d2, n);

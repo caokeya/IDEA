@@ -11,7 +11,7 @@ package src.com.Java;
 输出: true
  */
 public class _100_Same_Tree_判断树相同 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

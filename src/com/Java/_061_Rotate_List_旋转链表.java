@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
 示例 1:
@@ -9,7 +10,7 @@ package src.com.Java;
 向右旋转 2 步: 4->5->1->2->3->NULL
  */
 public class _061_Rotate_List_旋转链表 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -23,22 +24,27 @@ public class _061_Rotate_List_旋转链表 {
 
     class Solution {
         public ListNode rotateRight(ListNode head, int k) {
-            if (head == null)
-                return null;
-            ListNode cur = head;
+            if (head == null) return head;
+            ListNode tail = head;
             int len = 1;
-            while (cur.next != null) {
-                cur = cur.next;
+            while (tail.next != null) {
+                tail = tail.next;
                 len++;
             }
-            cur.next = head;
-            for (int i = 1; i < len - k % len; i++) {
-                head = head.next;
+            int newHeadIndex = len - (k % len);
+            if (newHeadIndex == 0) return head;
+            // connect the tail the head
+            tail.next = head;
+            // get the new head
+            ListNode newHead = head;
+            ListNode newTail = head;
+            for (int i = 0; i < newHeadIndex; i++) {
+                newHead = newHead.next;
+                if (i > 0) newTail = newTail.next;
             }
-            ListNode res = head.next;
-            head.next = null;
-
-            return res;
+            // cut off the tail
+            newTail.next = null;
+            return newHead;
         }
     }
 }

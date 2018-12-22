@@ -12,7 +12,6 @@ package src.com.Java;
  */
 public class _070_Climbing_Stairs_爬楼梯 {
     public class Solution {
-
         public int climbStairs(int n) {
             if (n == 0 || n == 1 || n == 2) {
                 return n;
@@ -25,6 +24,5 @@ public class _070_Climbing_Stairs_爬楼梯 {
             }
             return mem[n - 1];
         }
-
     }
 }

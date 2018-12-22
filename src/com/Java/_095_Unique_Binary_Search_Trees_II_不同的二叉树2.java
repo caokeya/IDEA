@@ -24,7 +24,7 @@ import java.util.List;
    2     1         2                 3
  */
 public class _095_Unique_Binary_Search_Trees_II_不同的二叉树2 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

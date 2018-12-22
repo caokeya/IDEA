@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个仅包含大小写字母和空格 ' ' 的字符串，返回其最后一个单词的长度。
 如果不存在最后一个单词，请返回 0 。
@@ -9,6 +10,17 @@ package src.com.Java;
  */
 public class _058_Length_of_Last_Word_最后一个单词的长度 {
     class Solution {
+        public int lengthOfLastWord(String s) {
+            int count = 0;
+            for (int i = s.length() - 1; i >= 0; i--) {
+                if (s.charAt(i) == ' ' && count > 0) return count;
+                else if (s.charAt(i) != ' ') count++;
+            }
+            return count;
+        }
+    }
+
+    class Solution2 {
         public int lengthOfLastWord(String s) {
             return s.trim().length() - s.trim().lastIndexOf(" ") - 1;
         }

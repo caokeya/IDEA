@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
     每行中的整数从左到右按升序排列。
@@ -16,18 +17,21 @@ target = 3
 public class _074_Search_a_2D_Matrix_搜索二维矩阵 {
     class Solution {
         public boolean searchMatrix(int[][] matrix, int target) {
-            if (matrix == null || matrix.length == 0)
+            if (matrix.length == 0) {
                 return false;
-            int m = matrix.length;
-            int n = matrix[0].length;
-            int i = 0, j = n - 1;
-            while (i < m && j >= 0) {
-                if (matrix[i][j] == target)
+            }
+            // initialize
+            int col = matrix[0].length - 1;
+            int row = 0;
+
+            while (row >= 0 && row < matrix.length && col >= 0 && col < matrix[0].length) {
+                if (target == matrix[row][col]) {
                     return true;
-                if (matrix[i][j] > target)
-                    j--;
-                else
-                    i++;
+                } else if (target < matrix[row][col]) {
+                    col--;
+                } else {
+                    row++;
+                }
             }
             return false;
         }

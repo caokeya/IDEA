@@ -32,6 +32,9 @@ r   g  ta  e
 示例 1:
 输入: s1 = "great", s2 = "rgeat"
 输出: true
+示例 2:
+输入: s1 = "abcde", s2 = "caebd"
+输出: false
  */
 public class _087_Scramble_String_将字符串分成二叉树交换子节点_难 {
     public class Solution {

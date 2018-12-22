@@ -24,7 +24,7 @@ public class _062_Unique_Paths_不同路径 {
             }
             for (int i = 1; i < m; i++) {
                 for (int j = 1; j < n; j++) {
-                    map[i][j] = map[i - 1][j] + map[i][j - 1];
+                    map[i][j] = map[i - 1][j] + map[i][j - 1];//加上左边和上边的方法值
                 }
             }
             return map[m - 1][n - 1];

@@ -9,7 +9,7 @@ package src.com.Java;
 输出: 2->3
  */
 public class _082_Remove_Duplicates_from_Sorted_List_II_删除排序链表中的重复元素2 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {

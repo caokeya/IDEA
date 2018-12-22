@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个二维网格和一个单词，找出该单词是否存在于网格中。
 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
@@ -16,28 +17,35 @@ board =
 public class _079_Word_Search_单词搜索 {
     class Solution {
         public boolean exist(char[][] board, String word) {
-            char[] w = word.toCharArray();
-            for (int y = 0; y < board.length; y++) {
-                for (int x = 0; x < board[y].length; x++) {
-                    if (exist(board, y, x, w, 0))
-                        return true;
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
+                    if (word.charAt(0) == board[i][j]) {
+                        boolean result = search(board, j, i, word.toCharArray(), 0);
+                        if (result)
+                            return true;
+                    }
                 }
             }
             return false;
         }
 
-        private boolean exist(char[][] board, int y, int x, char[] word, int i) {
-            if (i == word.length)
+        private boolean search(char[][] board, int x, int y, char[] word, int position) {
+            if (word.length == position)
                 return true;
-            if (y < 0 || x < 0 || y == board.length || x == board[y].length)
+            if ((x < 0) || (x > board[0].length - 1) ||
+                    (y < 0) || (y > board.length - 1) ||
+                    (board[y][x] != word[position])
+            )
                 return false;
-            if (board[y][x] != word[i])
-                return false;
-            board[y][x] ^= 256;//将当前元素 XOR 256会得到将当前的元素遮盖起来(即得到一个非字母字符的表示)
-            boolean exist = exist(board, y, x + 1, word, i + 1) || exist(board, y, x - 1, word, i + 1)
-                    || exist(board, y + 1, x, word, i + 1) || exist(board, y - 1, x, word, i + 1);
-            board[y][x] ^= 256;//在搜索过后，需要将被遮盖的元素重新恢复过来，从而不影响下一次的重新搜索，这时候只要再进行一次 XOR 256即可
-            return exist;
+            char c = board[y][x];
+            board[y][x] = '*';
+            boolean result =
+                    search(board, x - 1, y, word, position + 1) ||
+                            search(board, x + 1, y, word, position + 1) ||
+                            search(board, x, y + 1, word, position + 1) ||
+                            search(board, x, y - 1, word, position + 1);
+            board[y][x] = c;
+            return result;
         }
     }
 }
