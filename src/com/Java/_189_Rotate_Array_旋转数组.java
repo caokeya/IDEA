@@ -14,8 +14,12 @@ public class _189_Rotate_Array_旋转数组 {
     class Solution {
         public void rotate(int[] nums, int k) {
             k %= nums.length;
+            //[1,2,3,4,5,6,7] and k = 3
+            //[1,2,3,4,5,6,7]-->[7,6,5,4,3,2,1]
             reverse(nums, 0, nums.length - 1);
+            //[7,6,5,4,3,2,1]-->[5,6,7,4,3,2,1]
             reverse(nums, 0, k - 1);
+            //[5,6,7,4,3,2,1]-->[5,6,7,1,2,3,4]
             reverse(nums, k, nums.length - 1);
         }
 

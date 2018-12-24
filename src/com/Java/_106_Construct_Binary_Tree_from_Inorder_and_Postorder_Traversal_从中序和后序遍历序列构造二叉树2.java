@@ -1,6 +1,7 @@
 package src.com.Java;
 
 import java.util.HashMap;
+
 /*
 根据一棵树的中序遍历与后序遍历构造二叉树。
 注意:
@@ -16,7 +17,7 @@ import java.util.HashMap;
    15   7
  */
 public class _106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树2 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -30,9 +31,7 @@ public class _106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从
     }
 
     class Solution {
-
         int postIndex = 0;
-
         HashMap<Integer, Integer> map;
 
         public TreeNode buildTree(int[] inorder, int[] postorder) {
@@ -43,31 +42,25 @@ public class _106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从
             for (int i = 0; i < inorder.length; i++) {
                 map.put(inorder[i], i);
             }
-
             return buildTree(inorder, postorder, 0, inorder.length - 1);
 
         }
         /*
         in  : 9 3 15 20 7
         post: 9 15 7 20 3
-                        3
-                    9      20
-                         15   7
+                    3
+                9      20
+                     15   7
         */
         public TreeNode buildTree(int[] inorder, int[] postorder, int inS, int inE) {
-
             if (inS > inE)
                 return null;
-
             TreeNode node = new TreeNode(postorder[postIndex--]);
             if (inS == inE)
                 return node;
-
             int index = map.get(node.val);
-
             node.right = buildTree(inorder, postorder, index + 1, inE);
             node.left = buildTree(inorder, postorder, inS, index - 1);
-
             return node;
 
         }

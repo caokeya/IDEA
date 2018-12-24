@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个二叉树，原地将它展开为链表。
 例如，给定二叉树
@@ -21,7 +22,7 @@ package src.com.Java;
           6
  */
 public class _114_Flatten_Binary_Tree_to_Linked_List_二叉树展开为链表 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -38,7 +39,7 @@ public class _114_Flatten_Binary_Tree_to_Linked_List_二叉树展开为链表 {
         public TreeNode lastNode = null;
 
         public void flatten(TreeNode root) {
-            // 依次先序遍历二叉树进行拼接。先拼接根，再拼接左边，再拼接右边。记得先记录左右，因为flatten之后树的结构回改变。
+            //依次先序遍历二叉树进行拼接。先拼接根，再拼接左边，再拼接右边。记得先记录左右，因为flatten之后树的结构回改变。
             if (root == null) {
                 return;
             }
@@ -51,6 +52,20 @@ public class _114_Flatten_Binary_Tree_to_Linked_List_二叉树展开为链表 {
             TreeNode right = root.right;
             flatten(left);
             flatten(right);
+        }
+    }
+
+    class Solution2 {
+        private TreeNode prev = null;
+
+        public void flatten(TreeNode root) {
+            if (root == null)
+                return;
+            flatten(root.right);
+            flatten(root.left);
+            root.right = prev;
+            root.left = null;
+            prev = root;
         }
     }
 }

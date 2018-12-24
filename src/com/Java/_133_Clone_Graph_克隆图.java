@@ -14,9 +14,16 @@ import java.util.Map;
     第一个节点的标签为 0，存在从节点 0 到节点 1 和节点 2 的两条边。
     第二个节点的标签为 1，存在从节点 1 到节点 2 的一条边。
     第三个节点的标签为 2，存在从节点 2 到节点 2 (本身) 的一条边，从而形成自环。
+    我们将图形可视化如下：
+       1
+      / \
+     /   \
+    0 --- 2
+         / \
+         \_/
  */
 public class _133_Clone_Graph_克隆图 {
-    /**
+    /*
      * Definition for undirected graph.
      */
     class UndirectedGraphNode {

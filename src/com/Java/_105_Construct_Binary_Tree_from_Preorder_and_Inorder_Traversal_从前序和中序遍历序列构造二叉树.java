@@ -2,6 +2,7 @@ package src.com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /*
 根据一棵树的前序遍历与中序遍历构造二叉树。
 注意:
@@ -17,7 +18,7 @@ import java.util.Map;
    15   7
  */
 public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -31,32 +32,35 @@ public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从�
     }
 
     class Solution {
-        int preIndex = 0;
-        Map<Integer, Integer> indexMap = new HashMap<>();
+        int preorderIndex;
 
         public TreeNode buildTree(int[] preorder, int[] inorder) {
+            preorderIndex = 0;
+            Map<Integer, Integer> inorderIndex = new HashMap<>();
             for (int i = 0; i < inorder.length; i++) {
-                indexMap.put(inorder[i], i);
+                inorderIndex.put(inorder[i], i);
             }
-            return constructTree(preorder, 0, inorder.length);
+            return build(preorder, inorder, inorderIndex, 0, inorder.length - 1);
         }
+
         /*
         pre: 3 9 20 15 7
         in : 9 3 15 20 7
-                        3
-                    9      20
-                         15   7
+                3
+            9      20
+                 15   7
         */
-        public TreeNode constructTree(int[] preorder, int start, int end) {
-            if (start > end || preIndex > preorder.length - 1)
-                return null;
-            int rootVal = preorder[preIndex++];
-            TreeNode root = new TreeNode(rootVal);
-            int rootIndex = indexMap.get(rootVal);
-            root.left = constructTree(preorder, start, rootIndex - 1);
-            root.right = constructTree(preorder, rootIndex + 1, end);
+        public TreeNode build(int[] preorder, int[] inorder, Map<Integer, Integer> inorderIndex, int iStart, int iEnd) {
+            if (preorderIndex >= inorder.length || iStart > iEnd || iStart >= inorder.length || iEnd < 0) return null;
+            int rootval = preorder[preorderIndex++];
+            TreeNode root = new TreeNode(rootval);
 
+            int inorderMid = inorderIndex.get(rootval);
+            root.left = build(preorder, inorder, inorderIndex, iStart, inorderMid - 1);
+            root.right = build(preorder, inorder, inorderIndex, inorderMid + 1, iEnd);
             return root;
         }
     }
+
+
 }

@@ -33,5 +33,4 @@ public class _118_Pascal_Triangle_杨辉三角 {
             return res;
         }
     }
-
 }

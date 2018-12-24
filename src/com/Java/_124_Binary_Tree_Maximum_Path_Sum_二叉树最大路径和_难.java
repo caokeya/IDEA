@@ -11,7 +11,7 @@ package src.com.Java;
 输出: 6
  */
 public class _124_Binary_Tree_Maximum_Path_Sum_二叉树最大路径和_难 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

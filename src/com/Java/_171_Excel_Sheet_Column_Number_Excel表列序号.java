@@ -10,6 +10,15 @@ package src.com.Java;
     AA -> 27
     AB -> 28 
     ...
+示例 1:
+输入: "A"
+输出: 1
+示例 2:
+输入: "AB"
+输出: 28
+示例 3:
+输入: "ZY"
+输出: 701
  */
 public class _171_Excel_Sheet_Column_Number_Excel表列序号 {
     class Solution {

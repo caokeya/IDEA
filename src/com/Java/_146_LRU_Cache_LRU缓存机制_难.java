@@ -21,9 +21,7 @@ cache.get(3);       // 返回  3
 cache.get(4);       // 返回  4
 */
 public class _146_LRU_Cache_LRU缓存机制_难 {
-
     class LRUCache {
-
         class DLinkNode {
             int key;
             int value;
@@ -54,8 +52,10 @@ public class _146_LRU_Cache_LRU缓存机制_难 {
         public int get(int key) {
             DLinkNode node = map.get(key);
             if (node == null) {
-                return -1;
+                return -1; // should raise exception here.
+
             }
+            // move the accessed node to the head;
             this.moveToHead(node);
             return node.value;
         }
@@ -75,16 +75,21 @@ public class _146_LRU_Cache_LRU缓存机制_难 {
                 ++count;
 
                 if (count > capacity) {
+                    // pop the tail
                     DLinkNode tail = this.popTail();
                     this.map.remove(tail.key);
                     count--;
                 }
             } else {
+                // update the value.
                 node.value = value;
                 this.moveToHead(node);
             }
         }
 
+        /*
+         * Always add the new node right after head;
+         */
         private void addNode(DLinkNode node) {
             node.pre = head;
             node.post = head.post;
@@ -93,6 +98,9 @@ public class _146_LRU_Cache_LRU缓存机制_难 {
             head.post = node;
         }
 
+        /*
+         * Remove an existing node from the linked list.
+         */
         private void removeNode(DLinkNode node) {
             DLinkNode pre = node.pre;
             DLinkNode post = node.post;
@@ -101,11 +109,15 @@ public class _146_LRU_Cache_LRU缓存机制_难 {
             post.pre = pre;
         }
 
+        /*
+         * Move certain node in between to the head.
+         */
         private void moveToHead(DLinkNode node) {
             this.removeNode(node);
             this.addNode(node);
         }
 
+        // pop the current tail.
         private DLinkNode popTail() {
             DLinkNode res = tail.pre;
             this.removeNode(res);

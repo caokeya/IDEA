@@ -19,7 +19,10 @@ minStack.top();      --> 返回 0.
 minStack.getMin();   --> 返回 -2.
  */
 public class _155_Min_Stack_最小栈 {
-    public class MinStack {
+    class MinStack {
+        /*
+         * initialize your data structure here.
+         */
         long min;
         Stack<Long> stack;
 
@@ -28,44 +31,43 @@ public class _155_Min_Stack_最小栈 {
         }
 
         public void push(int x) {
+
             if (stack.isEmpty()) {
                 stack.push(0L);
                 min = x;
             } else {
-                stack.push(x - min);// Could be negative if min value needs to change
-                if (x < min)
+                stack.push(x - min);
+                if (x < min) {
                     min = x;
+                }
             }
         }
 
         public void pop() {
-            if (stack.isEmpty())
-                return;
-
-            long pop = stack.pop();
-
-            if (pop < 0)
-                min = min - pop;// If negative, increase the min value
-
+            long x = stack.pop();
+            if (x < 0)
+                min = min - x;
         }
 
         public int top() {
-            long top = stack.peek();
-            if (top > 0) {
-                return (int) (top + min);
-            } else {
-                return (int) (min);
-            }
+
+            long x = stack.peek();
+            if (x < 0)
+                return (int) min;
+            else
+                return (int) (x + min);
         }
 
         public int getMin() {
             return (int) min;
         }
     }
-
-    /**
-     * Your MinStack object will be instantiated and called as such: MinStack obj =
-     * new MinStack(); obj.push(x); obj.pop(); int param_3 = obj.top(); int param_4
-     * = obj.getMin();
-     */
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * MinStack obj = new MinStack();
+ * obj.push(x);
+ * obj.pop();
+ * int param_3 = obj.top();
+ * int param_4 = obj.getMin();
+ */
 }

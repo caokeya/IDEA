@@ -1,4 +1,5 @@
 package src.com.Java;
+
 //只能交易一次
 /*
 给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。
@@ -27,6 +28,25 @@ public class _121_Best_Time_to_Buy_and_Sell_Stock_买卖股票的最佳时机 {
                 maxSoFar = Math.max(maxCur, maxSoFar);
             }
             return maxSoFar;
+        }
+    }
+
+    class Solution2 {
+        public int maxProfit(int[] prices) {
+            if (prices.length == 0) return 0;
+            int min = Integer.MAX_VALUE;
+            int max = Integer.MIN_VALUE;
+            int maxProfit = 0;
+            for (int price : prices) {
+                if (price < min) {
+                    min = price;
+                    max = price;
+                } else if (price > max) {
+                    max = price;
+                }
+                maxProfit = Math.max(maxProfit, max - min);
+            }
+            return maxProfit;
         }
     }
 }

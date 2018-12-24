@@ -9,7 +9,7 @@ package src.com.Java;
 3  4 4  3
  */
 public class _101_Symmetric_Tree_对称二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

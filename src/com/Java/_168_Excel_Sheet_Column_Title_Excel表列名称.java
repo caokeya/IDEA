@@ -13,17 +13,15 @@ package src.com.Java;
     ...
  */
 public class _168_Excel_Sheet_Column_Title_Excel表列名称 {
-    public class Solution {
+    class Solution {
         public String convertToTitle(int n) {
-            StringBuilder result = new StringBuilder();
-
-            while (n > 0) {
-                n--;
-                result.insert(0, (char) ('A' + n % 26));
-                n /= 26;
+            String res = "";
+            while(n != 0) {
+                char ch = (char)((n - 1) % 26 + 65);
+                n = (n - 1) / 26;
+                res = ch + res;
             }
-
-            return result.toString();
+            return res;
         }
     }
 }

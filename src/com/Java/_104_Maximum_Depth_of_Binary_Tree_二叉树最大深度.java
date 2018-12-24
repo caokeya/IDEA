@@ -13,7 +13,7 @@ package src.com.Java;
 返回它的最大深度 3 。
  */
 public class _104_Maximum_Depth_of_Binary_Tree_二叉树最大深度 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -32,6 +32,30 @@ public class _104_Maximum_Depth_of_Binary_Tree_二叉树最大深度 {
                 return 0;
             }
             return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+        }
+    }
+
+    class Solution2 {
+        public int maxDepth(TreeNode root) {
+            if(root == null) {
+                return 0;
+            }
+            int[] global = {Integer.MIN_VALUE};
+            dfs(root, 0, global);
+            return global[0];
+        }
+
+        private void dfs (TreeNode root, int prefix, int[] global) {
+            if(root == null) {
+                return;
+            }
+            prefix++;
+            if(root.left == null && root.right == null) {
+                global[0] = Math.max(global[0], prefix);
+                return;
+            }
+            dfs(root.left, prefix, global);
+            dfs(root.right, prefix, global);
         }
     }
 }

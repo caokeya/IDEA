@@ -13,7 +13,7 @@ package src.com.Java;
 返回 true 。
  */
 public class _110_Balanced_Binary_Tree_平衡二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

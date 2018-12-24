@@ -16,7 +16,7 @@ import java.util.List;
   5     4       <---
  */
 public class _199_Binary_Tree_Right_Side_View_二叉树的右视图 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -29,24 +29,23 @@ public class _199_Binary_Tree_Right_Side_View_二叉树的右视图 {
         }
     }
 
-    public class Solution {
+    class Solution {
         public List<Integer> rightSideView(TreeNode root) {
-            List<Integer> result = new ArrayList<Integer>();
-            rightView(root, result, 0);
-            return result;
+            List<Integer> res = new ArrayList<>();
+            dfs(root, res, 0);
+            return res;
         }
 
-        public void rightView(TreeNode curr, List<Integer> result, int currDepth) {
-            if (curr == null) {
+        private void dfs(TreeNode node, List<Integer> list, int d) {
+            if(node == null)
                 return;
+            if(list.size() > d) {
+                list.set(d, node.val);
+            } else {
+                list.add(node.val);
             }
-            if (currDepth == result.size()) {
-                result.add(curr.val);
-            }
-
-            rightView(curr.right, result, currDepth + 1);
-            rightView(curr.left, result, currDepth + 1);
-
+            dfs(node.left, list, d + 1);
+            dfs(node.right, list, d + 1);
         }
     }
 }

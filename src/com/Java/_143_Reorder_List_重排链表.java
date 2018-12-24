@@ -2,9 +2,18 @@ package src.com.Java;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-//输入[1,2,3,4,5,6]
+
+/*
+给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
+将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
+你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+示例 1:
+给定链表 1->2->3->4, 重新排列为 1->4->2->3.
+示例 2:
+给定链表 1->2->3->4->5, 重新排列为 1->5->2->4->3.
+ */
 public class _143_Reorder_List_重排链表 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public static class ListNode {
@@ -16,114 +25,49 @@ public class _143_Reorder_List_重排链表 {
         }
     }
 
-    public static class Solution {
+    public class Solution {
         public void reorderList(ListNode head) {
             if (head == null || head.next == null)
                 return;
-
-            // Find the middle of the list
-            ListNode p1 = head;
-            ListNode p2 = head;
-            while (p2.next != null && p2.next.next != null) {
-                p1 = p1.next;
-                p2 = p2.next.next;
+            // step 1. cut the list to two halves
+            // prev will be the tail of 1st half
+            // slow will be the head of 2nd half
+            ListNode prev = null, slow = head, fast = head, l1 = head;
+            while (fast != null && fast.next != null) {
+                prev = slow;
+                slow = slow.next;
+                fast = fast.next.next;
             }
+            prev.next = null;
+            // step 2. reverse the 2nd half
+            ListNode l2 = reverse(slow);
 
-            // Reverse the half after middle 1->2->3->4->5->6 to 1->2->3->6->5->4
-            ListNode preMiddle = p1;
-            System.out.println("preMiddle" + preMiddle.val);
-            ListNode preCurrent = p1.next;
-            System.out.println("preCurrent" + preCurrent.val);
-            System.out.println();
-            while (preCurrent.next != null) {
-                ListNode current = preCurrent.next;
-                System.out.println("current" + current.val);
-                preCurrent.next = current.next;
-                System.out.println("preCurrent" + preCurrent.val);
-                try {
-                    System.out.println("preCurrent.next" + preCurrent.next.val);
-                } catch (NullPointerException e) {
-                    System.out.println("NullPointerException");
-                }
-                current.next = preMiddle.next;
-                System.out.println("current" + current.val);
-                System.out.println("current.next" + current.next.val);
-                preMiddle.next = current;
-                System.out.println("preMiddle" + preMiddle.val);
-                System.out.println("preMiddle.next" + preMiddle.next.val);
-                System.out.println();
-                String out = MainClass.listNodeToString(head);
-                System.out.println(out);
-                System.out.println();
-            }
-
-            // Start reorder one by one 1->2->3->6->5->4 to 1->6->2->5->3->4
-            p1 = head;
-            p2 = preMiddle.next;
-            while (p1 != preMiddle) {
-                preMiddle.next = p2.next;
-                p2.next = p1.next;
-                p1.next = p2;
-                p1 = p2.next;
-                p2 = preMiddle.next;
-            }
-        }
-    }
-
-    public static class MainClass {
-        public static int[] stringToIntegerArray(String input) {
-            input = input.trim();
-            input = input.substring(1, input.length() - 1);
-            if (input.length() == 0) {
-                return new int[0];
-            }
-
-            String[] parts = input.split(",");
-            int[] output = new int[parts.length];
-            for (int index = 0; index < parts.length; index++) {
-                String part = parts[index].trim();
-                output[index] = Integer.parseInt(part);
-            }
-            return output;
+            // step 3. merge the two halves
+            merge(l1, l2);
         }
 
-        public static ListNode stringToListNode(String input) {
-            // Generate array from the input
-            int[] nodeValues = stringToIntegerArray(input);
-
-            // Now convert that list into linked list
-            ListNode dummyRoot = new ListNode(0);
-            ListNode ptr = dummyRoot;
-            for (int item : nodeValues) {
-                ptr.next = new ListNode(item);
-                ptr = ptr.next;
+        ListNode reverse(ListNode head) {
+            ListNode prev = null, curr = head, next = null;
+            while (curr != null) {
+                next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
             }
-            return dummyRoot.next;
+            return prev;
         }
 
-        public static String listNodeToString(ListNode node) {
-            if (node == null) {
-                return "[]";
-            }
+        void merge(ListNode l1, ListNode l2) {
+            while (l1 != null) {
+                ListNode n1 = l1.next, n2 = l2.next;
+                l1.next = l2;
 
-            String result = "";
-            while (node != null) {
-                result += Integer.toString(node.val) + ", ";
-                node = node.next;
-            }
-            return "[" + result.substring(0, result.length() - 2) + "]";
-        }
+                if (n1 == null)
+                    break;
 
-        public static void main(String[] args) throws Exception {
-            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            String line;
-            while ((line = in.readLine()) != null) {
-                ListNode head = stringToListNode(line);
-
-                new Solution().reorderList(head);
-                String out = listNodeToString(head);
-
-                System.out.print(out);
+                l2.next = n1;
+                l1 = n1;
+                l2 = n2;
             }
         }
     }

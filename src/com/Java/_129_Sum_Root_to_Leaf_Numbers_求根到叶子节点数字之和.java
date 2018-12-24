@@ -17,7 +17,7 @@ package src.com.Java;
 因此，数字总和 = 12 + 13 = 25.
  */
 public class _129_Sum_Root_to_Leaf_Numbers_求根到叶子节点数字之和 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

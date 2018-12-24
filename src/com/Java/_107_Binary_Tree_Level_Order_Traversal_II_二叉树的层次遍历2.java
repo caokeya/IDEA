@@ -21,7 +21,7 @@ import java.util.Queue;
 ]
  */
 public class _107_Binary_Tree_Level_Order_Traversal_II_二叉树的层次遍历2 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

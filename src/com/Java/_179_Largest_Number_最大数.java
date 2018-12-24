@@ -1,6 +1,7 @@
 package src.com.Java;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 
@@ -14,37 +15,35 @@ import java.util.Comparator;
 输出: 9534330
  */
 public class _179_Largest_Number_最大数 {
-
-    public class Solution {
-        public String largestNumber(int[] num) {
-            StringBuffer sbuf = new StringBuffer();
-            ArrayList<String> numstrings = new ArrayList<String>(num.length);
-
-            for (int i : num)
-                numstrings.add(String.valueOf(i));
-            Collections.sort(numstrings, new StringComparator());
-
-            for (String s : numstrings)
-                sbuf.append(s);
-
-            String res = sbuf.toString();
-            if (res.length() > 0 && res.charAt(0) == '0')
-                return "0";
-
-            return res;
-        }
-    }
-
-    class StringComparator implements Comparator<String> {
-        public int compare(String a, String b) {
-            if (a.length() == b.length()) {
-                return b.compareTo(a);
-            } else {
+    class Solution {
+        private class LargerNumberComparator implements Comparator<String> {
+            @Override
+            public int compare(String a, String b) {
                 String ab = a + b;
                 String ba = b + a;
                 return ba.compareTo(ab);
             }
         }
-    }
 
+        public String largestNumber(int[] nums) {
+            // Get input integers as strings.
+            String[] asStrs = new String[nums.length];
+            for (int i = 0; i < nums.length; i++) {
+                asStrs[i] = String.valueOf(nums[i]);
+            }
+            // Sort strings according to custom comparator.
+            Arrays.sort(asStrs, new LargerNumberComparator());
+            // If, after being sorted, the largest number is `0`, the entire number
+            // is zero.
+            if (asStrs[0].equals("0")) {
+                return "0";
+            }
+            // Build largest number from sorted array.
+            String largestNumberStr = new String();
+            for (String numAsStr : asStrs) {
+                largestNumberStr += numAsStr;
+            }
+            return largestNumberStr;
+        }
+    }
 }
