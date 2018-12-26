@@ -58,8 +58,6 @@ public class _289_Game_of_Life_生命游戏 {
                     }
                 }
             }
-
-
         }
 
         private int getLiveNeighbors(int[][] board, int row, int col) {
@@ -78,11 +76,9 @@ public class _289_Game_of_Life_生命游戏 {
             if (row < 0 || row >= board.length) {
                 return 0;
             }
-
             if (col < 0 || col >= board[0].length) {
                 return 0;
             }
-
             return board[row][col];
         }
     }

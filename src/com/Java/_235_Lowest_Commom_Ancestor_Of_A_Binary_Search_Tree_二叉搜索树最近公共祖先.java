@@ -28,7 +28,7 @@ package src.com.Java;
 p、q 为不同节点且均存在于给定的二叉搜索树中。
 */
 public class _235_Lowest_Commom_Ancestor_Of_A_Binary_Search_Tree_二叉搜索树最近公共祖先 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

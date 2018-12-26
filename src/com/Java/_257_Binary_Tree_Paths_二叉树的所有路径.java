@@ -17,7 +17,7 @@ import java.util.List;
 解释: 所有根节点到叶子节点的路径为: 1->2->5, 1->3
 */
 public class _257_Binary_Tree_Paths_二叉树的所有路径 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -32,51 +32,43 @@ public class _257_Binary_Tree_Paths_二叉树的所有路径 {
 
     class Solution {
         public List<String> binaryTreePaths(TreeNode root) {
-            List<String> result = new ArrayList<>();
-            if (root != null) {
-                if (root.left != null || root.right != null) {
-                    helper(root.left, result, "" + root.val);
-                    helper(root.right, result, "" + root.val);
-                } else {
-                    result.add(root.val + "");
-                }
+            List<String> list = new ArrayList<>();
+            if (root == null) return list;
+            if (root.left == null && root.right == null) {
+                list.add(String.valueOf(root.val));
             }
-            return result;
+            if (root.right != null) {
+                addVal(binaryTreePaths(root.right), root.val, list);
+            }
+            if (root.left != null) {
+                addVal(binaryTreePaths(root.left), root.val, list);
+            }
+            return list;
         }
 
-        private void helper(TreeNode current, List<String> res, String path) {
-            if (current != null) {
-                String scurrent = path + "->" + current.val;
-                if (current.left != null) {
-                    helper(current.left, res, scurrent);
-                }
-                if (current.right != null) {
-                    helper(current.right, res, scurrent);
-                }
-                if (current.left == null && current.right == null) {
-                    res.add(scurrent);
-                }
+        public void addVal(List<String> ll, int val, List<String> list) {
+            for (String s : ll) {
+                list.add(String.valueOf(val) + "->" + s);
             }
         }
     }
 
     class Solution2 {
         public List<String> binaryTreePaths(TreeNode root) {
-            List<String> res = new ArrayList<String>();
+            List<String> res = new ArrayList<>();
             if (root == null) return res;
-            if (root.left == null && root.right == null) {
-                res.add(String.valueOf(root.val));
-                return res;
-            }
-            List<String> left = binaryTreePaths(root.left);
-            List<String> right = binaryTreePaths(root.right);
-            for (String str : left) {
-                res.add(root.val + "->" + str);
-            }
-            for (String str : right) {
-                res.add(root.val + "->" + str);
-            }
+            helper(res, "", root);
             return res;
+        }
+
+        public void helper(List<String> res, String s, TreeNode root) {
+            if (root.left == null && root.right == null) {
+                res.add(s + root.val);
+            }
+            if (root.left != null)
+                helper(res, s + root.val + "->", root.left);
+            if (root.right != null)
+                helper(res, s + root.val + "->", root.right);
         }
     }
 }

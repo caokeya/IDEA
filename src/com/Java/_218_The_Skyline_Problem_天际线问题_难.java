@@ -18,42 +18,32 @@ import java.util.function.Function;
 public class _218_The_Skyline_Problem_天际线问题_难 {
     class Solution {
         public List<int[]> getSkyline(int[][] buildings) {
-            if (buildings == null  // just defensive, given list length [0, 10000]
-                    || buildings.length == 0) { // explicit what algorithm would return
-                return Collections.emptyList();
+            List<int[]> res = new ArrayList<>();
+            List<int[]> height = new ArrayList<>();    // height list to store all buildings' heights
+            for (int[] b : buildings) {
+                height.add(new int[]{b[0], -b[2]});    // start of a building, height stored as negtive
+                height.add(new int[]{b[1], b[2]});     // end of a building, height stored as positive
             }
-
-            Map<Integer, List<int[]>> map = new TreeMap<>(); // critical: if multiple buildings same edges
-            for (int[] building : buildings) {
-                Function f = new Function<Integer, List<int[]>>() {
-                    @Override
-                    public List<int[]> apply(Integer e) {
-                        return new ArrayList<>();
-                    }
-                };
-                map.computeIfAbsent(building[0], f).add(building);
-                map.computeIfAbsent(building[1], f).add(building);
-            }
-
-            List<int[]> result = new ArrayList<>();
-
-            PriorityQueue<Integer> maxPq = new PriorityQueue<>(Collections.reverseOrder());
-            maxPq.add(0);
-            int currentHeight = 0;
-            for (Map.Entry<Integer, List<int[]>> entry : map.entrySet()) {
-                for (int[] building : entry.getValue()) {
-                    if (building[0] == entry.getKey()) {
-                        maxPq.add(building[2]);
-                    } else {
-                        maxPq.remove(building[2]);
-                    }
+            Collections.sort(height, (a, b) -> (a[0] == b[0] ? a[1] - b[1] : a[0] - b[0]));     // sort the height list
+            // a pq that stores all the encountered buildings' heights in descending order
+            PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> (b - a));
+            pq.offer(0);
+            int preMax = 0;
+            for (int[] h : height) {
+                if (h[1] < 0) {     // h[1] < 0, that means it meets a new building, so add it to pq
+                    pq.offer(-h[1]);
+                } else {            // h[1] >=0, that means it has reached the end of the building, so remove it from pq
+                    pq.remove(h[1]);
                 }
-                if (maxPq.element() != currentHeight) {
-                    result.add(new int[]{entry.getKey(), maxPq.element()});
-                    currentHeight = maxPq.element();
+                // the current max height in all encountered buildings
+                int curMax = pq.peek();
+                // if the max height is different from the previous one, that means a critical point is met, add to result list
+                if (curMax != preMax) {
+                    res.add(new int[]{h[0], curMax});
+                    preMax = curMax;
                 }
             }
-            return result;
+            return res;
         }
     }
 

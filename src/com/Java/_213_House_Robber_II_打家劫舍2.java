@@ -19,21 +19,23 @@ public class _213_House_Robber_II_打家劫舍2 {
         public int rob(int[] nums) {
             if (nums == null || nums.length == 0) return 0;
             if (nums.length == 1) return nums[0];
+            return Math.max(rob(nums, 0, nums.length - 2), rob(nums, 1, nums.length - 1));
+        }
 
-            int n = nums.length;
-            int[] rob1 = new int[n + 1], rob2 = new int[n + 1];
+        private int rob(int[] nums, int lo, int hi) {
+            int preNotRob = 0;
+            int preRob = 0;
+            int notRob = 0;
+            int rob = 0;
 
-            rob1[0] = 0;
-            rob1[1] = nums[0];
-            rob2[0] = 0;
-            rob2[1] = 0;
+            for (int i = lo; i <= hi; i++) {
+                preNotRob = notRob;
+                preRob = rob;
 
-            for (int i = 2; i <= n; i++) {
-                rob1[i] = Math.max(rob1[i - 1], rob1[i - 2] + nums[i - 1]);
-                rob2[i] = Math.max(rob2[i - 1], rob2[i - 2] + nums[i - 1]);
+                rob = Math.max(preRob, preNotRob + nums[i]);
+                notRob = Math.max(preRob, preNotRob);
             }
-
-            return Math.max(rob1[n - 1], rob2[n]);
+            return Math.max(rob, notRob);
         }
     }
 }

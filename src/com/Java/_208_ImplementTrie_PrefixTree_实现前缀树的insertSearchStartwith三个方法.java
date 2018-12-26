@@ -11,64 +11,56 @@ trie.startsWith("app"); // 返回 true
 trie.insert("app");
 trie.search("app");     // 返回 true
  */
-class Trie {
-	TrieNode root;
-	/**
-	 * Initialize your data structure here.
-	 */
-	public Trie() {
-		root = new TrieNode(' ');
-	}
-	/**
-	 * Inserts a word into the trie.
-	 */
-	public void insert(String word) {
-		TrieNode curTrieNode = root;
-		for (char c : word.toCharArray()) {
-			if (curTrieNode.chilren[c - 'a'] == null) {
-				curTrieNode.chilren[c - 'a'] = new TrieNode(c);
-			}
-			curTrieNode = curTrieNode.chilren[c - 'a'];
-		}
-		curTrieNode.isCorrectWord = true;
-	}
-	/**
-	 * Returns if the word is in the trie.
-	 */
-	public boolean search(String word) {
-		TrieNode curTrieNode = root;
-		for (char c : word.toCharArray()) {
-			if (curTrieNode.chilren[c - 'a'] == null) {
-				return false;
-			}
-			curTrieNode = curTrieNode.chilren[c - 'a'];
-		}
-		return curTrieNode.isCorrectWord;
-	}
-	/**
-	 * Returns if there is any word in the trie that starts with the given prefix.
-	 */
-	public boolean startsWith(String prefix) {
-		TrieNode curTrieNode = root;
-		for (char c : prefix.toCharArray()) {
-			if (curTrieNode.chilren[c - 'a'] == null) {
-				return false;
-			}
-			curTrieNode = curTrieNode.chilren[c - 'a'];
-		}
-		return true;
-	}
-}
-class TrieNode {
-	char val;
-	boolean isCorrectWord;
-	TrieNode[] chilren = new TrieNode[26];
+public class _208_ImplementTrie_PrefixTree_实现前缀树的insertSearchStartwith三个方法 {
+    class Trie {
 
-	public TrieNode(char c) {
-		val = c;
-		isCorrectWord = false;
-	}
-}
+        Node root;
+
+        class Node {
+            Node[] children = new Node[26];
+            boolean end = false;
+        }
+
+        /* Initialize your data structure here. */
+        public Trie() {
+            root = new Node();
+        }
+
+        /* Inserts a word into the trie. */
+        public void insert(String word) {
+            Node p = root;
+            for (char c : word.toCharArray()) {
+                if (p.children[c - 'a'] == null)
+                    p.children[c - 'a'] = new Node();
+                p = p.children[c - 'a'];
+            }
+            p.end = true;
+        }
+
+        /* Returns if the word is in the trie. */
+        public boolean search(String word) {
+            Node p = root;
+            for (char c : word.toCharArray()) {
+                if (p.children[c - 'a'] == null) {
+                    return false;
+                }
+                p = p.children[c - 'a'];
+            }
+            return p.end;
+        }
+
+        /* Returns if there is any word in the trie that starts with the given prefix. */
+        public boolean startsWith(String prefix) {
+            Node p = root;
+            for (char c : prefix.toCharArray()) {
+                if (p.children[c - 'a'] == null) {
+                    return false;
+                }
+                p = p.children[c - 'a'];
+            }
+            return true;
+        }
+    }
 /**
  * Your Trie object will be instantiated and called as such:
  * Trie obj = new Trie();
@@ -76,4 +68,6 @@ class TrieNode {
  * boolean param_2 = obj.search(word);
  * boolean param_3 = obj.startsWith(prefix);
  */
+}
+
 

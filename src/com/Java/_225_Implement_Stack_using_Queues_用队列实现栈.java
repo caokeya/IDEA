@@ -15,6 +15,7 @@ import java.util.Queue;
 public class _225_Implement_Stack_using_Queues_用队列实现栈 {
     class MyStack {
         Deque<Integer> queue;
+
         /**
          * Initialize your data structure here.
          */
@@ -54,61 +55,48 @@ public class _225_Implement_Stack_using_Queues_用队列实现栈 {
     }
 
     class MyStack2 {
-        Queue<Integer> myStackIn;
-        Queue<Integer> myStackOut;
+        Queue<Integer> queue = new LinkedList();
 
         /**
          * Initialize your data structure here.
          */
         public MyStack2() {
-            myStackIn = new PriorityQueue<>();
-            myStackOut = new PriorityQueue<>();
+
         }
 
         /**
          * Push element x onto stack.
          */
         public void push(int x) {
-            myStackIn.add(x);
+            queue.add(x);
+            for (int i = 0; i < queue.size() - 1; i++) {
+                queue.add(queue.poll());
+            }
         }
 
         /**
          * Removes the element on top of the stack and returns that element.
          */
         public int pop() {
-            int result;
-            while (myStackIn.size() != 1) {
-                myStackOut.add(myStackIn.poll());
-            }
-            result = myStackIn.poll();
-            while (myStackOut.peek() != null) {
-                myStackIn.add(myStackOut.poll());
-            }
-            return result;
+            return queue.poll();
         }
 
         /**
          * Get the top element.
          */
         public int top() {
-            int result;
-            while (myStackIn.size() != 1) {
-                myStackOut.add(myStackIn.poll());
-            }
-            result = myStackIn.peek();
-            while (myStackOut.peek() != null) {
-                myStackIn.add(myStackOut.poll());
-            }
-            return result;
+            return queue.peek();
         }
 
         /**
          * Returns whether the stack is empty.
          */
         public boolean empty() {
-            return myStackIn.peek() == null;
+            return queue.size() == 0;
         }
     }
+
+
 /**
  * Your MyStack object will be instantiated and called as such:
  * MyStack obj = new MyStack();

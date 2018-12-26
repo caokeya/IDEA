@@ -24,7 +24,7 @@ public class _295_Finde_Median_From_Data_System_数据流的中位数 {
         private PriorityQueue<Integer> right = new PriorityQueue<>();//heap is a minimal heap by default
         private PriorityQueue<Integer> left = new PriorityQueue<>(Collections.reverseOrder());//change to a maximum heap
 
-        /**
+        /*
          * initialize your data structure here.
          */
         public MedianFinder() {

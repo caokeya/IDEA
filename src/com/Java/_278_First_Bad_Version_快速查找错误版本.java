@@ -14,23 +14,25 @@ package src.com.Java;
 所以，4 是第一个错误的版本。
  */
 public class _278_First_Bad_Version_快速查找错误版本 {
-    public static int firstBadVersion(int n) {
-        int lo = 1;
-        int hi = n;
-        //不加等号的话，hi = mid； 否则会无法跳出循环
-        while (lo <= hi) {
-            // int mid = (lo + hi)/2;下式可避免Int越界
-            int mid = lo + (hi - lo) / 2;
-            // 当mid不是badBersion时，
-            if (!isBadVersion(mid)) {
-                lo = mid + 1;
-            } else
-                hi = mid - 1;
+    public class Solution {
+        public int firstBadVersion(int n) {
+            int lo = 1;
+            int hi = n;
+            //不加等号的话，hi = mid； 否则会无法跳出循环
+            while (lo <= hi) {
+                // int mid = (lo + hi)/2;下式可避免Int越界
+                int mid = lo + (hi - lo) / 2;
+                // 当mid不是badBersion时，
+                if (!isBadVersion(mid)) {
+                    lo = mid + 1;
+                } else
+                    hi = mid - 1;
+            }
+            return lo;
         }
-        return lo;
-    }
 
-    public static boolean isBadVersion(int n) {
-        return false;
+        public boolean isBadVersion(int n) {
+            return false;
+        }
     }
 }

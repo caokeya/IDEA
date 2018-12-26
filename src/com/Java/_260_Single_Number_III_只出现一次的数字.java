@@ -7,26 +7,27 @@ package src.com.Java;
 输出: [3,5]
  */
 public class _260_Single_Number_III_只出现一次的数字 {
-    public class Solution {
+    class Solution {
         public int[] singleNumber(int[] nums) {
-            // Pass 1 :
-            // Get the XOR of the two numbers we need to find
-            int diff = 0;
-            for (int num : nums) {
-                diff ^= num;
-            }
-            // Get its last set bit
-            diff &= -diff;
+            int res = 0;
 
-            // Pass 2 :
-            int[] rets = {0, 0}; // this array stores the two numbers we will return
-            for (int num : nums) {
-                if ((num & diff) == 0) // the bit is not set
-                {
-                    rets[0] ^= num;
-                } else // the bit is set
-                {
-                    rets[1] ^= num;
+            // xor of the two unique elements
+            for (int i = 0; i < nums.length; i++) {
+                res = res ^ nums[i];
+            }
+
+            //find the rightmost set bit of this result
+            res &= -res;
+            //res ^= res & (res - 1);
+
+            int[] rets = {0, 0};
+            for (int i = 0; i < nums.length; i++) {
+                if ((nums[i] & res) == 0) {
+                    // xor all numbers who has this bit set
+                    rets[0] ^= nums[i];
+                } else {
+                    // xor all numbers who has this bit unset
+                    rets[1] ^= nums[i];
                 }
             }
             return rets;

@@ -1,5 +1,6 @@
 package src.com.Java;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,12 +19,17 @@ import java.util.Map;
  输出: true
 */
 public class _205_Isomorphic_Strings_是否是同型字符串 {
-    public class Solution {
-        public boolean isIsomorphic(String s1, String s2) {
-            int[] m = new int[512];
-            for (int i = 0; i < s1.length(); i++) {
-                if (m[s1.charAt(i)] != m[s2.charAt(i) + 256]) return false;
-                m[s1.charAt(i)] = m[s2.charAt(i) + 256] = i + 1;
+    class Solution {
+        public boolean isIsomorphic(String s, String t) {
+            int[] map1 = new int[256];
+            int[] map2 = new int[256];
+            Arrays.fill(map1, -1);
+            Arrays.fill(map2, -1);
+            for (int i = 0; i < s.length(); i++) {
+                if (map1[s.charAt(i)] != map2[t.charAt(i)]) {
+                    return false;
+                }
+                map1[s.charAt(i)] = map2[t.charAt(i)] = i;
             }
             return true;
         }

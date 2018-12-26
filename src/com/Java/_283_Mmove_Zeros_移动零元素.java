@@ -15,7 +15,8 @@ public class _283_Mmove_Zeros_移动零元素 {
 
             int insertPos = 0;
             for (int num : nums) {
-                if (num != 0) nums[insertPos++] = num;
+                if (num != 0)
+                    nums[insertPos++] = num;
             }
 
             while (insertPos < nums.length) {

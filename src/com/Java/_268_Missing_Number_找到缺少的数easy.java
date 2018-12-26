@@ -10,12 +10,14 @@ package src.com.Java;
 输出: 8
  */
 public class _268_Missing_Number_找到缺少的数easy {
-    public int missingNumber(int[] nums) {
-        int xor = 0, i = 0;
-        for (i = 0; i < nums.length; i++) {
-            xor = xor ^ i ^ nums[i];
+    class Solution {
+        public int missingNumber(int[] nums) {
+            int xor = 0, i = 0;
+            for (i = 0; i < nums.length; i++) {
+                xor = xor ^ i ^ nums[i];
+            }
+            return xor ^ i;//最后一次循环过后，数字n没有被异或两次
         }
-        return xor ^ i;
     }
 
     class Solution2 {

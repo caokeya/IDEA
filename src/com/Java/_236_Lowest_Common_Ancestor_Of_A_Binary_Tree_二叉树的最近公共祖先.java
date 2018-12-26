@@ -26,7 +26,7 @@ package src.com.Java;
 p、q 为不同节点且均存在于给定的二叉树中。
 */
 public class _236_Lowest_Common_Ancestor_Of_A_Binary_Tree_二叉树的最近公共祖先 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -41,6 +41,7 @@ public class _236_Lowest_Common_Ancestor_Of_A_Binary_Tree_二叉树的最近公�
 
     class Solution {
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+            //base case, if root is null or root is equal to one of the nodes then this is the LCA
             if (root == null || root == p || root == q) {
                 return root;
             }

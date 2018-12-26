@@ -1,74 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="12-22">
+    <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="12-24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_101_Symmetric_Tree_对称二叉树.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_101_Symmetric_Tree_对称二叉树.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_102_Binary_Tree_Level_Order_Traversal_二叉树层序遍历.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_102_Binary_Tree_Level_Order_Traversal_二叉树层序遍历.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_103_Binary_Tree_Zigzag_Level_Order_Traversal_二叉树的锯齿形遍历.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_103_Binary_Tree_Zigzag_Level_Order_Traversal_二叉树的锯齿形遍历.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_104_Maximum_Depth_of_Binary_Tree_二叉树最大深度.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_104_Maximum_Depth_of_Binary_Tree_二叉树最大深度.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_107_Binary_Tree_Level_Order_Traversal_II_二叉树的层次遍历2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_107_Binary_Tree_Level_Order_Traversal_II_二叉树的层次遍历2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_108_Convert_Sorted_Array_to_Binary_Search_Tree_将有序数组转换为二叉搜索树.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_108_Convert_Sorted_Array_to_Binary_Search_Tree_将有序数组转换为二叉搜索树.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_109_Convert_Sorted_List_to_Binary_Search_Tree_将有序链表转换为二叉搜索树2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_109_Convert_Sorted_List_to_Binary_Search_Tree_将有序链表转换为二叉搜索树2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_110_Balanced_Binary_Tree_平衡二叉树.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_110_Balanced_Binary_Tree_平衡二叉树.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_111_Minimum_Depth_of_Binary_Tree_二叉树最小深度.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_111_Minimum_Depth_of_Binary_Tree_二叉树最小深度.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_112_Path_Sum_二叉树路径总和.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_112_Path_Sum_二叉树路径总和.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_113_Path_Sum_ll_二叉树路径总和2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_113_Path_Sum_ll_二叉树路径总和2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_114_Flatten_Binary_Tree_to_Linked_List_二叉树展开为链表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_114_Flatten_Binary_Tree_to_Linked_List_二叉树展开为链表.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_115_Distinct_Subsequences_不同的子序列_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_115_Distinct_Subsequences_不同的子序列_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_116_Populating_Next_Right_Pointers_in_Each_Node_填充同一层的兄弟节点.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_116_Populating_Next_Right_Pointers_in_Each_Node_填充同一层的兄弟节点.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_117_Populating_Next_Right_Pointers_in_Each_Node_ll_填充同一层的兄弟节点2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_117_Populating_Next_Right_Pointers_in_Each_Node_ll_填充同一层的兄弟节点2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_118_Pascal_Triangle_杨辉三角.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_118_Pascal_Triangle_杨辉三角.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_120_Triangle_三角形最小路径和.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_120_Triangle_三角形最小路径和.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_121_Best_Time_to_Buy_and_Sell_Stock_买卖股票的最佳时机.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_121_Best_Time_to_Buy_and_Sell_Stock_买卖股票的最佳时机.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_124_Binary_Tree_Maximum_Path_Sum_二叉树最大路径和_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_124_Binary_Tree_Maximum_Path_Sum_二叉树最大路径和_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_126_Word_Ladder_II_单词接龙2_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_126_Word_Ladder_II_单词接龙2_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_128_Longest_Consecutive_Sequence_最长连续序列.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_128_Longest_Consecutive_Sequence_最长连续序列.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_129_Sum_Root_to_Leaf_Numbers_求根到叶子节点数字之和.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_129_Sum_Root_to_Leaf_Numbers_求根到叶子节点数字之和.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_131_Palindrome_Partitioning_分割回文串.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_131_Palindrome_Partitioning_分割回文串.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_132_Palindrome_Partitioning_II_分割回文串2_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_132_Palindrome_Partitioning_II_分割回文串2_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_133_Clone_Graph_克隆图.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_133_Clone_Graph_克隆图.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_134_Gas_Station_加油站.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_134_Gas_Station_加油站.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_135_Candy_分发糖果_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_135_Candy_分发糖果_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_136_Single_Number_找到只出现了一次的数字.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_136_Single_Number_找到只出现了一次的数字.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_137_Single_Number_ll_找到只出现了一次的数字2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_137_Single_Number_ll_找到只出现了一次的数字2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_138_Copy_List_with_Random_Pointer_复制带随机指针的链表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_138_Copy_List_with_Random_Pointer_复制带随机指针的链表.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_139_Word_Break_单词拆分.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_139_Word_Break_单词拆分.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_140_Word_Break_II_单词拆分2_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_140_Word_Break_II_单词拆分2_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_141_Linked_List_Cycle_环形链表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_141_Linked_List_Cycle_环形链表.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_142_Linked_List_Cycle_II_环形链表2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_142_Linked_List_Cycle_II_环形链表2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_143_Reorder_List_重排链表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_143_Reorder_List_重排链表.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_144_Binary_Tree_Preorder_Traversal_二叉树前序遍历.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_144_Binary_Tree_Preorder_Traversal_二叉树前序遍历.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_145_Binary_Tree_Postorder_Traversal_二叉树的后序遍历_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_145_Binary_Tree_Postorder_Traversal_二叉树的后序遍历_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_146_LRU_Cache_LRU缓存机制_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_146_LRU_Cache_LRU缓存机制_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_147_Insertion_Sort_List_链表插入排序.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_147_Insertion_Sort_List_链表插入排序.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_148_Sort_List_链表归并排序.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_148_Sort_List_链表归并排序.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_149_Ma_Points_on_a_Line_直线上最多的点数_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_149_Ma_Points_on_a_Line_直线上最多的点数_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_150_Evaluate_Reverse_Polish_Notation_逆波兰表达式求值.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_150_Evaluate_Reverse_Polish_Notation_逆波兰表达式求值.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_151_Reverse_Words_in_a_String_翻转字符串里的单词.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_151_Reverse_Words_in_a_String_翻转字符串里的单词.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_152_Maximum_Product_Subarray_乘积最大子序列.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_152_Maximum_Product_Subarray_乘积最大子序列.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_153_Find_Minimum_in_Rotated_Sorted_Array_寻找旋转排序数组中的最小值.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_153_Find_Minimum_in_Rotated_Sorted_Array_寻找旋转排序数组中的最小值.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_154_Find_Minimum_in_Rotated_Sorted_Array_II_寻找旋转排序数组中的最小值2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_154_Find_Minimum_in_Rotated_Sorted_Array_II_寻找旋转排序数组中的最小值2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_155_Min_Stack_最小栈.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_155_Min_Stack_最小栈.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_160_Intersection_of_Two_Linked_Lists_相交链表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_160_Intersection_of_Two_Linked_Lists_相交链表.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_162_Find_Peak_Element_寻找峰值.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_162_Find_Peak_Element_寻找峰值.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_164_Maximum_Gap_最大间距基数排序.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_164_Maximum_Gap_最大间距基数排序.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_165_Compare_Version_Numbers_比较版本号.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_165_Compare_Version_Numbers_比较版本号.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_166_Fraction_to_Recurring_Decimal_分数到小数.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_166_Fraction_to_Recurring_Decimal_分数到小数.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_167_Two_Sum_两数之和.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_167_Two_Sum_两数之和.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_168_Excel_Sheet_Column_Title_Excel表列名称.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_168_Excel_Sheet_Column_Title_Excel表列名称.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_171_Excel_Sheet_Column_Number_Excel表列序号.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_171_Excel_Sheet_Column_Number_Excel表列序号.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_172_Factorial_Trailing_Zeroes_阶乘后的零.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_172_Factorial_Trailing_Zeroes_阶乘后的零.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_173_Binary_Search_Tree_Iterator_二叉搜索树迭代器.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_173_Binary_Search_Tree_Iterator_二叉搜索树迭代器.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_174_Dungeon_Game_地下城游戏_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_174_Dungeon_Game_地下城游戏_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_179_Largest_Number_最大数.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_179_Largest_Number_最大数.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_187_Repeated_DNA_Sequences_重复的DNA序列.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_187_Repeated_DNA_Sequences_重复的DNA序列.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_189_Rotate_Array_旋转数组.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_189_Rotate_Array_旋转数组.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_190_Reverse_Bits_颠倒二进制位.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_190_Reverse_Bits_颠倒二进制位.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_199_Binary_Tree_Right_Side_View_二叉树的右视图.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_199_Binary_Tree_Right_Side_View_二叉树的右视图.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_200_Number_of_Islands_岛屿的个数.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_200_Number_of_Islands_岛屿的个数.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_203_Remove_Linked_List_Elements_移除链表元素.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_203_Remove_Linked_List_Elements_移除链表元素.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_205_Isomorphic_Strings_是否是同型字符串.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_205_Isomorphic_Strings_是否是同型字符串.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_206_Reverse_Linked_List_反转链表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_206_Reverse_Linked_List_反转链表.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_207_Course_Schedule_课程表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_207_Course_Schedule_课程表.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_208_ImplementTrie_PrefixTree_实现前缀树的insertSearchStartwith三个方法.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_208_ImplementTrie_PrefixTree_实现前缀树的insertSearchStartwith三个方法.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_210_Course_Schedule_Il_课程表2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_210_Course_Schedule_Il_课程表2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_212_Word_SearchII_单词搜索_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_212_Word_SearchII_单词搜索_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_213_House_Robber_II_打家劫舍2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_213_House_Robber_II_打家劫舍2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_214_Shortest_Palindrome_最短回文串_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_214_Shortest_Palindrome_最短回文串_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_215_Kth_Largest_Element_in_an_Array_数组中的第K个最大元素.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_215_Kth_Largest_Element_in_an_Array_数组中的第K个最大元素.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_216_Combination_Sum_III_组合总和3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_216_Combination_Sum_III_组合总和3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_218_The_Skyline_Problem_天际线问题_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_218_The_Skyline_Problem_天际线问题_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_219_Contains_DuplicateII_存在重复元素2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_219_Contains_DuplicateII_存在重复元素2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_220_Contains_Duplicate_III_存在重复元素3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_220_Contains_Duplicate_III_存在重复元素3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_222_Count_Complete_Tree_Nodes_完全二叉树的节点个数.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_222_Count_Complete_Tree_Nodes_完全二叉树的节点个数.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_223_Rectangle_Area_求两个矩形的面积.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_223_Rectangle_Area_求两个矩形的面积.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_224_Basic_Calculator_基本计算器_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_224_Basic_Calculator_基本计算器_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_225_Implement_Stack_using_Queues_用队列实现栈.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_225_Implement_Stack_using_Queues_用队列实现栈.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_226_InvertBinaryTree_翻转二叉树.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_226_InvertBinaryTree_翻转二叉树.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_227_Basic_CalculatorII_基础计算器2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_227_Basic_CalculatorII_基础计算器2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_228_Summary_Ranges_汇总区间.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_228_Summary_Ranges_汇总区间.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_229_Majority_Element_II_求众数2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_229_Majority_Element_II_求众数2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_230_Kth_Smallest_Element_in_a_BST_二叉搜索树中第K小的元素.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_230_Kth_Smallest_Element_in_a_BST_二叉搜索树中第K小的元素.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_232_Implement_Queue_Using_Stacks_使用栈来实现队列.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_232_Implement_Queue_Using_Stacks_使用栈来实现队列.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_233_Number_of_Digit_One_数字1的个数_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_233_Number_of_Digit_One_数字1的个数_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_234_Palindrome_Linked_List_回文链表.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_234_Palindrome_Linked_List_回文链表.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_235_Lowest_Commom_Ancestor_Of_A_Binary_Search_Tree_二叉搜索树最近公共祖先.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_235_Lowest_Commom_Ancestor_Of_A_Binary_Search_Tree_二叉搜索树最近公共祖先.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_236_Lowest_Common_Ancestor_Of_A_Binary_Tree_二叉树的最近公共祖先.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_236_Lowest_Common_Ancestor_Of_A_Binary_Tree_二叉树的最近公共祖先.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_237_Delete_Node_In_A_Linked_List_删除链表中的节点.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_237_Delete_Node_In_A_Linked_List_删除链表中的节点.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_238_Product_Of_Array_Except_Self_除自身以外数组的乘积.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_238_Product_Of_Array_Except_Self_除自身以外数组的乘积.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_239_Sliding_Window_Maximun_滑窗最大值_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_239_Sliding_Window_Maximun_滑窗最大值_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_242_Valid_Anagram_有效的字母异位词.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_242_Valid_Anagram_有效的字母异位词.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_257_Binary_Tree_Paths_二叉树的所有路径.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_257_Binary_Tree_Paths_二叉树的所有路径.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_258_Add_Digits_各位相加化简成一位数字.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_258_Add_Digits_各位相加化简成一位数字.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_260_Single_Number_III_只出现一次的数字.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_260_Single_Number_III_只出现一次的数字.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_263_Ugly_Number_只由235乘积构成的数.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_263_Ugly_Number_只由235乘积构成的数.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_268_Missing_Number_找到缺少的数easy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_268_Missing_Number_找到缺少的数easy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_274_H_Index_H引用指数.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_274_H_Index_H引用指数.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_275_HIndex_II_H引用指数2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_275_HIndex_II_H引用指数2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_278_First_Bad_Version_快速查找错误版本.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_278_First_Bad_Version_快速查找错误版本.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_279_Perfect_Squares_将n拆为完全平方数的和.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_279_Perfect_Squares_将n拆为完全平方数的和.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_282_Expression_Add_Operators_给表达式添加运算符_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_282_Expression_Add_Operators_给表达式添加运算符_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_283_Mmove_Zeros_移动零元素.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_283_Mmove_Zeros_移动零元素.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_284_Peeking_Iterator_顶端迭代器.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_284_Peeking_Iterator_顶端迭代器.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_287_Find_the_Duplicate_Number_寻找重复数字.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_287_Find_the_Duplicate_Number_寻找重复数字.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_289_Game_of_Life_生命游戏.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_289_Game_of_Life_生命游戏.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_290_Word_Pattern_单词格式匹配.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_290_Word_Pattern_单词格式匹配.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_295_Finde_Median_From_Data_System_数据流的中位数.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_295_Finde_Median_From_Data_System_数据流的中位数.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_297_Serialize_and_Deserialize_Binary_Tree_二叉树的序列化与反序列化_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_297_Serialize_and_Deserialize_Binary_Tree_二叉树的序列化与反序列化_难.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_299_Bulls_And_Cows_猜数字游戏.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_299_Bulls_And_Cows_猜数字游戏.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_300_Longest_Increasing_Subsequence_最长上升子序列.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_300_Longest_Increasing_Subsequence_最长上升子序列.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,21 +80,15 @@
     <favorites_list name="IDEA" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Java/_199_Binary_Tree_Right_Side_View_二叉树的右视图.java">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/Java/_300_Longest_Increasing_Subsequence_最长上升子序列.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="632">
-              <caret line="49" column="5" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="49" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/Java/_200_Number_of_Islands_岛屿的个数.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+              <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,57 +118,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/Java/_116_Populating_Next_Right_Pointers_in_Each_Node_填充同一层的兄弟节点.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_117_Populating_Next_Right_Pointers_in_Each_Node_ll_填充同一层的兄弟节点2.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_118_Pascal_Triangle_杨辉三角.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_120_Triangle_三角形最小路径和.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_121_Best_Time_to_Buy_and_Sell_Stock_买卖股票的最佳时机.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_124_Binary_Tree_Maximum_Path_Sum_二叉树最大路径和_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_126_Word_Ladder_II_单词接龙2_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_128_Longest_Consecutive_Sequence_最长连续序列.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_129_Sum_Root_to_Leaf_Numbers_求根到叶子节点数字之和.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_131_Palindrome_Partitioning_分割回文串.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_132_Palindrome_Partitioning_II_分割回文串2_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_133_Clone_Graph_克隆图.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_134_Gas_Station_加油站.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_135_Candy_分发糖果_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_136_Single_Number_找到只出现了一次的数字.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_137_Single_Number_ll_找到只出现了一次的数字2.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_138_Copy_List_with_Random_Pointer_复制带随机指针的链表.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_139_Word_Break_单词拆分.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_140_Word_Break_II_单词拆分2_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_141_Linked_List_Cycle_环形链表.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_142_Linked_List_Cycle_II_环形链表2.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_143_Reorder_List_重排链表.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_144_Binary_Tree_Preorder_Traversal_二叉树前序遍历.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_145_Binary_Tree_Postorder_Traversal_二叉树的后序遍历_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_146_LRU_Cache_LRU缓存机制_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_147_Insertion_Sort_List_链表插入排序.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_148_Sort_List_链表归并排序.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_149_Ma_Points_on_a_Line_直线上最多的点数_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_150_Evaluate_Reverse_Polish_Notation_逆波兰表达式求值.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_151_Reverse_Words_in_a_String_翻转字符串里的单词.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_152_Maximum_Product_Subarray_乘积最大子序列.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_153_Find_Minimum_in_Rotated_Sorted_Array_寻找旋转排序数组中的最小值.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_154_Find_Minimum_in_Rotated_Sorted_Array_II_寻找旋转排序数组中的最小值2.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_155_Min_Stack_最小栈.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_160_Intersection_of_Two_Linked_Lists_相交链表.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_162_Find_Peak_Element_寻找峰值.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_164_Maximum_Gap_最大间距基数排序.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_165_Compare_Version_Numbers_比较版本号.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_166_Fraction_to_Recurring_Decimal_分数到小数.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_167_Two_Sum_两数之和.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_168_Excel_Sheet_Column_Title_Excel表列名称.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_171_Excel_Sheet_Column_Number_Excel表列序号.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_172_Factorial_Trailing_Zeroes_阶乘后的零.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_173_Binary_Search_Tree_Iterator_二叉搜索树迭代器.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_174_Dungeon_Game_地下城游戏_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_179_Largest_Number_最大数.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_187_Repeated_DNA_Sequences_重复的DNA序列.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_189_Rotate_Array_旋转数组.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_190_Reverse_Bits_颠倒二进制位.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_199_Binary_Tree_Right_Side_View_二叉树的右视图.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_200_Number_of_Islands_岛屿的个数.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_205_Isomorphic_Strings_是否是同型字符串.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_206_Reverse_Linked_List_反转链表.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_207_Course_Schedule_课程表.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_208_ImplementTrie_PrefixTree_实现前缀树的insertSearchStartwith三个方法.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_210_Course_Schedule_Il_课程表2.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_212_Word_SearchII_单词搜索_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_213_House_Robber_II_打家劫舍2.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_214_Shortest_Palindrome_最短回文串_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_215_Kth_Largest_Element_in_an_Array_数组中的第K个最大元素.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_216_Combination_Sum_III_组合总和3.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_218_The_Skyline_Problem_天际线问题_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_219_Contains_DuplicateII_存在重复元素2.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_220_Contains_Duplicate_III_存在重复元素3.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_222_Count_Complete_Tree_Nodes_完全二叉树的节点个数.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_223_Rectangle_Area_求两个矩形的面积.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_224_Basic_Calculator_基本计算器_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_225_Implement_Stack_using_Queues_用队列实现栈.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_226_InvertBinaryTree_翻转二叉树.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_227_Basic_CalculatorII_基础计算器2.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_228_Summary_Ranges_汇总区间.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_229_Majority_Element_II_求众数2.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_230_Kth_Smallest_Element_in_a_BST_二叉搜索树中第K小的元素.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_232_Implement_Queue_Using_Stacks_使用栈来实现队列.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_233_Number_of_Digit_One_数字1的个数_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_234_Palindrome_Linked_List_回文链表.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_235_Lowest_Commom_Ancestor_Of_A_Binary_Search_Tree_二叉搜索树最近公共祖先.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_236_Lowest_Common_Ancestor_Of_A_Binary_Tree_二叉树的最近公共祖先.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_237_Delete_Node_In_A_Linked_List_删除链表中的节点.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_238_Product_Of_Array_Except_Self_除自身以外数组的乘积.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_239_Sliding_Window_Maximun_滑窗最大值_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_242_Valid_Anagram_有效的字母异位词.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_257_Binary_Tree_Paths_二叉树的所有路径.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_258_Add_Digits_各位相加化简成一位数字.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_260_Single_Number_III_只出现一次的数字.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_263_Ugly_Number_只由235乘积构成的数.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_268_Missing_Number_找到缺少的数easy.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_274_H_Index_H引用指数.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_275_HIndex_II_H引用指数2.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_278_First_Bad_Version_快速查找错误版本.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_279_Perfect_Squares_将n拆为完全平方数的和.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_282_Expression_Add_Operators_给表达式添加运算符_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_283_Mmove_Zeros_移动零元素.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_284_Peeking_Iterator_顶端迭代器.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_287_Find_the_Duplicate_Number_寻找重复数字.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_289_Game_of_Life_生命游戏.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_290_Word_Pattern_单词格式匹配.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_292_Nim_Game_Nim游戏.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_295_Finde_Median_From_Data_System_数据流的中位数.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_297_Serialize_and_Deserialize_Binary_Tree_二叉树的序列化与反序列化_难.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_299_Bulls_And_Cows_猜数字游戏.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_300_Longest_Increasing_Subsequence_最长上升子序列.java" />
       </list>
     </option>
   </component>
@@ -213,7 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -243,6 +221,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,9 +249,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545657067927" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545814926632" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/Java" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -381,7 +361,9 @@
       <workItem from="1545360601073" duration="10627000" />
       <workItem from="1545458223585" duration="14176000" />
       <workItem from="1545542938383" duration="15847000" />
-      <workItem from="1545615481911" duration="22854000" />
+      <workItem from="1545615481911" duration="22955000" />
+      <workItem from="1545705503780" duration="21796000" />
+      <workItem from="1545791054487" duration="9385000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1523671095562</created>
@@ -649,11 +631,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545485609990</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="12-24">
+      <created>1545657104019</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1545657104019</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125534000" />
+    <option name="totallyTimeSpent" value="156816000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -668,7 +657,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.25799572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.26332623" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -766,394 +755,398 @@
     <MESSAGE value="12-18" />
     <MESSAGE value="12-20" />
     <MESSAGE value="12-22" />
-    <option name="LAST_COMMIT_MESSAGE" value="12-22" />
+    <MESSAGE value="12-24" />
+    <option name="LAST_COMMIT_MESSAGE" value="12-24" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_129_Sum_Root_to_Leaf_Numbers_求根到叶子节点数字之和.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_216_Combination_Sum_III_组合总和3.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
+        <state relative-caret-position="486">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_217_Contains_Duplicate_存在重复元素.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="31" column="5" lean-forward="true" selection-start-line="21" selection-start-column="2" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_218_The_Skyline_Problem_天际线问题_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_219_Contains_DuplicateII_存在重复元素2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="21" selection-start-line="21" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_220_Contains_Duplicate_III_存在重复元素3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
           <folding>
-            <element signature="e#653#654#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_128_Longest_Consecutive_Sequence_最长连续序列.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_221_Maximal_Square_求二位数组中最大正方形.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-378">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="200">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_222_Count_Complete_Tree_Nodes_完全二叉树的节点个数.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="65" column="50" selection-start-line="65" selection-start-column="50" selection-end-line="65" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_223_Rectangle_Area_求两个矩形的面积.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="11" selection-start-line="11" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_225_Implement_Stack_using_Queues_用队列实现栈.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
           <folding>
-            <element signature="e#372#381#0" expanded="true" />
+            <element signature="e#1725#1726#0" expanded="true" />
+            <element signature="e#1768#1769#0" expanded="true" />
+            <element signature="e#1832#1833#0" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2008#2009#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_127_Word_Ladder_单词接龙.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_224_Basic_Calculator_基本计算器_难.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="1223">
+          <caret line="61" column="29" lean-forward="true" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_126_Word_Ladder_II_单词接龙2_难.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_226_InvertBinaryTree_翻转二叉树.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="100" column="24" selection-start-line="100" selection-start-column="21" selection-end-line="100" selection-end-column="24" />
+        <state relative-caret-position="335">
+          <caret line="35" selection-start-line="35" selection-end-line="45" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_130_Surrounded_Regions_填充被围绕的区域.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_227_Basic_CalculatorII_基础计算器2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        <state relative-caret-position="1334">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_131_Palindrome_Partitioning_分割回文串.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_229_Majority_Element_II_求众数2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+        <state relative-caret-position="1269">
+          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_132_Palindrome_Partitioning_II_分割回文串2_难.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_228_Summary_Ranges_汇总区间.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_230_Kth_Smallest_Element_in_a_BST_二叉搜索树中第K小的元素.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1388">
+          <caret line="60" column="50" selection-start-line="60" selection-start-column="50" selection-end-line="60" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_232_Implement_Queue_Using_Stacks_使用栈来实现队列.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_133_Clone_Graph_克隆图.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="45" column="69" lean-forward="true" selection-start-line="45" selection-start-column="69" selection-end-line="45" selection-end-column="69" />
+          <caret line="34" column="33" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="33" />
           <folding>
-            <element signature="e#997#998#0" expanded="true" />
-            <element signature="e#1039#1040#0" expanded="true" />
+            <element signature="e#754#755#0" expanded="true" />
+            <element signature="e#1445#1446#0" expanded="true" />
+            <element signature="e#1504#1505#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_134_Gas_Station_加油站.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_231_Power_Of_Two_是否是2的幂.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="818">
-          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+        <state relative-caret-position="317">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_135_Candy_分发糖果_难.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_233_Number_of_Digit_One_数字1的个数_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_234_Palindrome_Linked_List_回文链表.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="794">
+          <caret line="91" column="5" lean-forward="true" selection-start-line="71" selection-start-column="3" selection-end-line="91" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_235_Lowest_Commom_Ancestor_Of_A_Binary_Search_Tree_二叉搜索树最近公共祖先.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="43" selection-start-line="43" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_236_Lowest_Common_Ancestor_Of_A_Binary_Tree_二叉树的最近公共祖先.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="43" column="98" selection-start-line="43" selection-start-column="98" selection-end-line="43" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_237_Delete_Node_In_A_Linked_List_删除链表中的节点.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_238_Product_Of_Array_Except_Self_除自身以外数组的乘积.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_239_Sliding_Window_Maximun_滑窗最大值_难.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
+          <caret line="30" column="85" lean-forward="true" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_136_Single_Number_找到只出现了一次的数字.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_240_Search_A_2D_Matrix_II_在二维矩阵中搜索元素.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" selection-start-line="11" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="749">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="38" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_137_Single_Number_ll_找到只出现了一次的数字2.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_241_Different_Ways_To_Add_Parentheses_运算表达式的不同组合结果.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="830">
+          <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_242_Valid_Anagram_有效的字母异位词.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
           <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_138_Copy_List_with_Random_Pointer_复制带随机指针的链表.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#624#656#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_139_Word_Break_单词拆分.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_140_Word_Break_II_单词拆分2_难.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="30" column="34" lean-forward="true" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_141_Linked_List_Cycle_环形链表.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_142_Linked_List_Cycle_II_环形链表2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_143_Reorder_List_重排链表.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_145_Binary_Tree_Postorder_Traversal_二叉树的后序遍历_难.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_144_Binary_Tree_Preorder_Traversal_二叉树前序遍历.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_146_LRU_Cache_LRU缓存机制_难.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="130" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_147_Insertion_Sort_List_链表插入排序.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="38" column="39" lean-forward="true" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_148_Sort_List_链表归并排序.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="902">
-          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_149_Ma_Points_on_a_Line_直线上最多的点数_难.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="81" column="35" lean-forward="true" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_150_Evaluate_Reverse_Polish_Notation_逆波兰表达式求值.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="53" column="12" selection-start-line="53" selection-start-column="12" selection-end-line="53" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_151_Reverse_Words_in_a_String_翻转字符串里的单词.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_152_Maximum_Product_Subarray_乘积最大子序列.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_153_Find_Minimum_in_Rotated_Sorted_Array_寻找旋转排序数组中的最小值.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="28" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_154_Find_Minimum_in_Rotated_Sorted_Array_II_寻找旋转排序数组中的最小值2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_155_Min_Stack_最小栈.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
-          <folding>
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#1289#1290#0" expanded="true" />
-            <element signature="e#1328#1329#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_160_Intersection_of_Two_Linked_Lists_相交链表.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_162_Find_Peak_Element_寻找峰值.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_164_Maximum_Gap_最大间距基数排序.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="44" column="17" lean-forward="true" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_165_Compare_Version_Numbers_比较版本号.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="35" column="5" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_166_Fraction_to_Recurring_Decimal_分数到小数.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#1085#1100#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_167_Two_Sum_两数之和.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_168_Excel_Sheet_Column_Title_Excel表列名称.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_169_Majority_Element_求众数.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="35" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_171_Excel_Sheet_Column_Number_Excel表列序号.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_172_Factorial_Trailing_Zeroes_阶乘后的零.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_173_Binary_Search_Tree_Iterator_二叉搜索树迭代器.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
-          <folding>
-            <element signature="e#804#805#0" expanded="true" />
-            <element signature="e#851#852#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_174_Dungeon_Game_地下城游戏_难.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="42" column="5" lean-forward="true" selection-start-line="19" selection-start-column="3" selection-end-line="42" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_179_Largest_Number_最大数.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_187_Repeated_DNA_Sequences_重复的DNA序列.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_188_Best_Time_to_Buy_and_Sell_Stock_IV_买卖股票的最佳时机4_难.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="41" column="27" lean-forward="true" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_189_Rotate_Array_旋转数组.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_190_Reverse_Bits_颠倒二进制位.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_191_Number_of_1_Bits_二进制1的个数.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="12" column="16" selection-start-line="10" selection-start-column="1" selection-end-line="18" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_198_House_Robber_打家劫舍.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="12" selection-start-column="3" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_199_Binary_Tree_Right_Side_View_二叉树的右视图.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="49" column="5" lean-forward="true" selection-start-line="31" selection-start-column="3" selection-end-line="49" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_200_Number_of_Islands_岛屿的个数.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_243_Shortest_Word_Distance_最短单词距离.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_244_Shortest_Word_DistanceII_最短单词距离2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_257_Binary_Tree_Paths_二叉树的所有路径.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_258_Add_Digits_各位相加化简成一位数字.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_260_Single_Number_III_只出现一次的数字.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_263_Ugly_Number_只由235乘积构成的数.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_264_Ugly_Number_II_只由235乘积构成的数2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="36" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_268_Missing_Number_找到缺少的数easy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_273_Integer_to_English_Words_整数转换英文表示_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_274_H_Index_H引用指数.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_275_HIndex_II_H引用指数2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="38" column="28" lean-forward="true" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_278_First_Bad_Version_快速查找错误版本.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding>
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_279_Perfect_Squares_将n拆为完全平方数的和.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_282_Expression_Add_Operators_给表达式添加运算符_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="55" column="83" selection-start-line="55" selection-start-column="77" selection-end-line="55" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_283_Mmove_Zeros_移动零元素.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_284_Peeking_Iterator_顶端迭代器.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-232">
+          <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+          <folding>
+            <element signature="e#1534#1535#0" expanded="true" />
+            <element signature="e#1599#1600#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_287_Find_the_Duplicate_Number_寻找重复数字.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2079">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_289_Game_of_Life_生命游戏.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_290_Word_Pattern_单词格式匹配.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1073">
+          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_292_Nim_Game_Nim游戏.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="13" column="41" selection-start-line="13" selection-start-column="41" selection-end-line="13" selection-end-column="41" />
+          <folding>
+            <element signature="e#384#385#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_295_Finde_Median_From_Data_System_数据流的中位数.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="35" column="28" lean-forward="true" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_297_Serialize_and_Deserialize_Binary_Tree_二叉树的序列化与反序列化_难.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="57" column="53" lean-forward="true" selection-start-line="57" selection-start-column="53" selection-end-line="57" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_299_Bulls_And_Cows_猜数字游戏.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="668">
+          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_300_Longest_Increasing_Subsequence_最长上升子序列.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -23,13 +23,24 @@ import java.util.Map;
 public class _290_Word_Pattern_单词格式匹配 {
     class Solution {
         public boolean wordPattern(String pattern, String str) {
+            Map<Character, String> map = new HashMap<>();
             String[] words = str.split(" ");
-            if (words.length != pattern.length())
+            if (words.length != pattern.length()) {
                 return false;
-            Map index = new HashMap();
-            for (Integer i = 0; i < words.length; ++i)
-                if (index.put(pattern.charAt(i), i) != index.put(words[i], i))
-                    return false;
+            }
+            for (int i = 0; i < words.length; ++i) {
+                char c = pattern.charAt(i);
+                if (!map.containsKey(c)) {
+                    if (map.containsValue(words[i])) {
+                        return false;
+                    }
+                    map.put(c, words[i]);
+                } else {
+                    if (!map.get(c).equals(words[i])) {
+                        return false;
+                    }
+                }
+            }
             return true;
         }
     }

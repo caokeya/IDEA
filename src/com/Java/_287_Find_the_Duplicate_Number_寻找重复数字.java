@@ -55,6 +55,7 @@ public class _287_Find_the_Duplicate_Number_寻找重复数字 {
         实际上，它们在一个圆中相交，当从nums[0]访问数组时，重复的数字必须是圆的入口点。接下来我们只需要找到入口点。
         我们用一个点(我们可以用前面快的那个点)来访问表单，每次从一个步骤开始，做同样的工作来慢下来。当快==慢时，它们在圆的入口相遇。
          */
+        //两次找到同一个位置即我们要的位置
         public int findDuplicate(int[] nums) {
             int slow = nums[0];
             int fast = nums[0];
@@ -62,16 +63,31 @@ public class _287_Find_the_Duplicate_Number_寻找重复数字 {
             do {
                 slow = nums[slow];
                 fast = nums[nums[fast]];
-            } while(slow != fast);
+            } while (slow != fast);
 
             int ptr1 = nums[0];
             int ptr2 = slow;
 
-            while(ptr1 != ptr2){
+            while (ptr1 != ptr2) {
                 ptr1 = nums[ptr1];
                 ptr2 = nums[ptr2];
             }
             return ptr1;
         }
+
+        //将原来的值变成负数，当再次找到这个位置即我们要的位置
+        public int findDuplicateReserve(int[] nums) {
+            for (int i = 0; i < nums.length; i++) {
+                int index = Math.abs(nums[i]) - 1;
+                if (nums[index] < 0) {
+                    return index + 1;
+                } else {
+                    nums[index] = -nums[index];
+                }
+            }
+            return -1;
+        }
     }
 }
+
+

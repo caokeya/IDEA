@@ -11,30 +11,32 @@ h 指数的定义: “h 代表“高引用次数”（high citations），一名
      由于研究者有 3 篇论文每篇至少被引用了 3 次，其余两篇论文每篇被引用不多于 3 次，所以她的 h 指数是 3。
  */
 public class _275_HIndex_II_H引用指数2 {
-	/*
-	 * case 1: citations[mid] == len-mid, then it means there are citations[mid]
-	 * papers that have at least citations[mid] citations. 
-	 * case 2: citations[mid] >len-mid, then it means there are citations[mid] papers that have more than
-	 * citations[mid] citations, so we should continue searching in the left half
-	 
-	 * case 3: citations[mid] < len-mid, we should continue searching in the right
-	 * side After iteration, it is guaranteed that right+1 is the one we need to 
-	 * find (i.e. len-(right+1) papars have at least len-(righ+1) citations)
-	 */
-	public static int hIndex(int[] citations) {
-        
-		if(citations.length == 0) return 0;
-        int len = citations.length;
-        int lo = 0;
-        int hi = citations.length-1;
-        while(lo<=hi) {
-        	int mid = (lo+hi)/2;
-        	if(citations[mid]==len-mid)
-        		return len - mid;
-        	//二分查找，每次lo和hi都进行一次移位，避免陷入死循环
-        	else if(citations[mid]<len-mid) lo = mid+1;
-        	else if(citations[mid]>len-mid) hi = mid-1;
+    /*
+     * case 1: citations[mid] == len-mid, then it means there are citations[mid]
+     * papers that have at least citations[mid] citations.
+     * case 2: citations[mid] >len-mid, then it means there are citations[mid] papers that have more than
+     * citations[mid] citations, so we should continue searching in the left half
+     * case 3: citations[mid] < len-mid, we should continue searching in the right
+     * side After iteration, it is guaranteed that right+1 is the one we need to
+     * find (i.e. len-(right+1) papars have at least len-(righ+1) citations)
+     */
+    class Solution {
+        public int hIndex(int[] citations) {
+            if (citations.length == 0) return 0;
+            int len = citations.length;
+            int lo = 0;
+            int hi = citations.length - 1;
+            while (lo <= hi) {
+                int mid = (lo + hi) / 2;
+                if (citations[mid] == len - mid)
+                    return len - mid;
+                    //二分查找，每次lo和hi都进行一次移位，避免陷入死循环
+                else if (citations[mid] < len - mid)
+                    lo = mid + 1;
+                else if (citations[mid] > len - mid)
+                    hi = mid - 1;
+            }
+            return len - lo;
         }
-        return len-lo;
-	}
+    }
 }

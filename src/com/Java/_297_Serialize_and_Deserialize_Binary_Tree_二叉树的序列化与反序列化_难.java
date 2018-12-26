@@ -19,7 +19,7 @@ import java.util.LinkedList;
 序列化为 "[1,2,3,null,null,4,5]"
  */
 public class _297_Serialize_and_Deserialize_Binary_Tree_二叉树的序列化与反序列化_难 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

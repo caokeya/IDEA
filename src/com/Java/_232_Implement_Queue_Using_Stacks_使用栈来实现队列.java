@@ -17,8 +17,6 @@ queue.pop();   // 返回 1
 queue.empty(); // 返回 false
 */
 public class _232_Implement_Queue_Using_Stacks_使用栈来实现队列 {
-
-
     class MyQueue {
         Stack<Integer> s1;
         Stack<Integer> s2;

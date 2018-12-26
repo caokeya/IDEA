@@ -43,7 +43,6 @@ public class _227_Basic_CalculatorII_基础计算器2 {
                     sign = s.charAt(i);
                     num = 0;
                 }
-
             }
 
             int res = 0;
@@ -52,6 +51,5 @@ public class _227_Basic_CalculatorII_基础计算器2 {
             }
             return res;
         }
-
     }
 }

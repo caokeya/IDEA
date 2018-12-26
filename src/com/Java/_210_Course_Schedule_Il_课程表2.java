@@ -1,9 +1,6 @@
 package src.com.Java;
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.List;
+import java.util.*;
 
 /*
  现在你总共有 n 门课需要选，记为 0 到 n-1。
@@ -21,6 +18,7 @@ import java.util.List;
  因此，一个正确的课程顺序是 [0,1,2,3] 。另一个正确的排序是 [0,2,1,3] 。
  */
 public class _210_Course_Schedule_Il_课程表2 {
+    //BFS
     class Solution {
         public int[] findOrder(int numCourses, int[][] prerequisites) {
             List<List<Integer>> graph = new ArrayList<>();
@@ -46,8 +44,7 @@ public class _210_Course_Schedule_Il_课程表2 {
             return index == numCourses ? res : new int[0];
         }
 
-        private void buildGraph(int numCourses, int[][] prerequisites,
-                                List<List<Integer>> graph, int[] inDegrees) {
+        private void buildGraph(int numCourses, int[][] prerequisites, List<List<Integer>> graph, int[] inDegrees) {
             for (int i = 0; i < numCourses; i++) {
                 graph.add(new ArrayList<>());
             }
@@ -55,6 +52,41 @@ public class _210_Course_Schedule_Il_课程表2 {
                 graph.get(p[1]).add(p[0]);
                 inDegrees[p[0]]++;
             }
+        }
+    }
+
+    //DFS
+    class Solution2 {
+        public int[] findOrder(int numCourses, int[][] prerequisites) {
+            int[] visited = new int[numCourses];
+            List<List<Integer>> graph = new ArrayList<>();
+            Stack<Integer> stack = new Stack<>();
+            int[] rst = new int[numCourses];
+            for (int i = 0; i < numCourses; i++) {
+                graph.add(new ArrayList<>());
+            }
+            for (int[] pre : prerequisites) {
+                graph.get(pre[1]).add(pre[0]);
+            }
+            for (int i = 0; i < numCourses; i++) {
+                if (!dfs(graph, stack, i, visited)) return new int[0];
+            }
+            for (int i = 0; i < numCourses; i++) {
+                rst[i] = stack.pop();
+            }
+            return rst;
+        }
+
+        private boolean dfs(List<List<Integer>> graph, Stack<Integer> stack, int i, int[] visited) {
+            if (visited[i] == 1) return false;
+            if (visited[i] == 2) return true;
+            visited[i] = 1;
+            for (Integer cur : graph.get(i)) {
+                if (!dfs(graph, stack, cur, visited)) return false;
+            }
+            visited[i] = 2;
+            stack.push(i);
+            return true;
         }
     }
 }

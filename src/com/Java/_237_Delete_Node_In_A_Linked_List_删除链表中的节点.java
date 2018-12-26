@@ -14,7 +14,7 @@ package src.com.Java;
  解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9.
 */
 public class _237_Delete_Node_In_A_Linked_List_删除链表中的节点 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -28,21 +28,27 @@ public class _237_Delete_Node_In_A_Linked_List_删除链表中的节点 {
 
     class Solution {
         public void deleteNode(ListNode node) {
-            ListNode curr = node;
-            ListNode next = curr.next;
-
-            int temp = curr.val;
-            curr.val = next.val;
-            next.val = temp;
-
-            curr.next = next.next;
+            node.val = node.next.val;
+            node.next = node.next.next;
         }
     }
 
     class Solution2 {
+        // the trick here is to overwrite vals with later vals
         public void deleteNode(ListNode node) {
-            node.val = node.next.val;
-            node.next = node.next.next;
+            if (node == null || node.next == null)
+                return;
+
+            ListNode right = node;
+            ListNode left = node.next;
+            while (left.next != null) {
+                right.val = left.val;
+                right = right.next;
+                left = left.next;
+            }
+
+            right.val = left.val;
+            right.next = null;
         }
     }
 }

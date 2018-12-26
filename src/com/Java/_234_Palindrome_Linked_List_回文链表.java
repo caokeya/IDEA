@@ -13,7 +13,7 @@ import java.util.Deque;
  输出: true
 */
 public class _234_Palindrome_Linked_List_回文链表 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -59,14 +59,12 @@ public class _234_Palindrome_Linked_List_回文链表 {
             ListNode curr = head;
             ListNode next = null;
             ListNode prev = null;
-
             while (curr != null) {
                 next = curr.next;
                 curr.next = prev;
                 prev = curr;
                 curr = next;
             }
-
             return prev;
         }
     }

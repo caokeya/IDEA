@@ -17,25 +17,19 @@ public class _242_Valid_Anagram_有效的字母异位词 {
             if (s.length() != t.length()) {
                 return false;
             }
-
             char[] S = s.toCharArray();
             char[] T = t.toCharArray();
-
             int[] counter = new int[26];
-
             for (char c : S) {
                 counter[c - 'a']++;
             }
-
             for (char c : T) {
                 if (counter[c - 'a'] < 0) return false;
                 counter[c - 'a']--;
             }
-
             for (int count : counter) {
                 if (count != 0) return false;
             }
-
             return true;
         }
     }

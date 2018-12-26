@@ -20,6 +20,26 @@ import java.util.List;
 */
 public class _212_Word_SearchII_单词搜索_难 {
     class Solution {
+        class TrieNode {
+            String word;
+            TrieNode[] children;
+
+            public TrieNode() {
+                this.children = new TrieNode[26];
+            }
+        }
+
+        public void buildTrie(TrieNode root, String s) {
+            char[] ch = s.toCharArray();
+            for (char c : ch) {
+                if (root.children[c - 'a'] == null) {
+                    root.children[c - 'a'] = new TrieNode();
+                }
+                root = root.children[c - 'a'];
+            }
+            root.word = s;
+        }
+
         public List<String> findWords(char[][] board, String[] words) {
             TrieNode root = new TrieNode();
             List<String> res = new ArrayList<>();
@@ -35,7 +55,10 @@ public class _212_Word_SearchII_单词搜索_难 {
         }
 
         private void dfs(char[][] board, TrieNode root, int i, int j, List<String> res) {
-            if (i < 0 || j < 0 || i >= board.length || j >= board[0].length || board[i][j] == '#' || root.children[board[i][j] - 'a'] == null) {
+            if (i < 0 || j < 0 ||
+                i >= board.length || j >= board[0].length ||
+                board[i][j] == '#' ||
+                root.children[board[i][j] - 'a'] == null) {
                 return;
             }
             root = root.children[board[i][j] - 'a'];
@@ -50,26 +73,6 @@ public class _212_Word_SearchII_单词搜索_难 {
             dfs(board, root, i, j - 1, res);
             dfs(board, root, i, j + 1, res);
             board[i][j] = c;
-        }
-
-        private void buildTrie(TrieNode root, String s) {
-            char[] ch = s.toCharArray();
-            for (char c : ch) {
-                if (root.children[c - 'a'] == null) {
-                    root.children[c - 'a'] = new TrieNode();
-                }
-                root = root.children[c - 'a'];
-            }
-            root.word = s;
-        }
-
-        class TrieNode {
-            String word;
-            TrieNode[] children;
-
-            public TrieNode() {
-                this.children = new TrieNode[26];
-            }
         }
     }
 }

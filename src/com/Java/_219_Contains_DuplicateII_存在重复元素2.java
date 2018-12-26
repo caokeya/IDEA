@@ -18,12 +18,32 @@ import java.util.Set;
  输出: false
  */
 public class _219_Contains_DuplicateII_存在重复元素2 {
+    //Map
     class Solution {
+        public boolean containsNearbyDuplicate(int[] nums, int k) {
+            if (nums.length < 1)
+                return false;
+            HashMap<Integer, Integer> map = new HashMap<>();
+            for (int i = 0; i < nums.length; i++) {
+                int num = nums[i];
+                if (map.containsKey(num)) {
+                    if (i - map.get(num) <= k)
+                        return true;
+                }
+                map.put(num, i);
+            }
+            return false;
+        }
+    }
+
+    //Set
+    class Solution2 {
         public boolean containsNearbyDuplicate(int[] nums, int k) {
             Set<Integer> set = new HashSet<Integer>();
             for (int i = 0; i < nums.length; i++) {
                 if (i > k) set.remove(nums[i - k - 1]);
-                if (!set.add(nums[i])) return true;
+                if (!set.add(nums[i]))
+                    return true;
             }
             return false;
         }

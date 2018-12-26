@@ -2,6 +2,7 @@ package src.com.Java;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /*
  给定一个二叉搜索树，编写一个函数 kthSmallest 来查找其中第 k 个最小的元素。
@@ -27,7 +28,7 @@ import java.util.List;
 输出: 3
  */
 public class _230_Kth_Smallest_Element_in_a_BST_二叉搜索树中第K小的元素 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -56,6 +57,25 @@ public class _230_Kth_Smallest_Element_in_a_BST_二叉搜索树中第K小的元�
     }
 
     class Solution2 {
+        public int kthSmallest(TreeNode root, int k) {
+            Stack<TreeNode> stack = new Stack<>();
+            while (root != null || !stack.empty()) {
+                while (root != null) {
+                    stack.push(root);
+                    root = root.left;
+                }
+                root = stack.pop();
+                k--;
+                if (k == 0) {
+                    break;
+                }
+                root = root.right;
+            }
+            return root.val;
+        }
+    }
+
+    class Solution3 {
         public int kthSmallest(TreeNode root, int k) {
             int count = countN(root.left);
             if (count >= k)

@@ -20,7 +20,7 @@ import java.util.Queue;
 9   6 3   1
 */
 public class _226_InvertBinaryTree_翻转二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -42,7 +42,6 @@ public class _226_InvertBinaryTree_翻转二叉树 {
             root.left = right;
             root.right = left;
             return root;
-
         }
     }
 }

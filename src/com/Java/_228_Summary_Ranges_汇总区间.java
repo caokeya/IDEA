@@ -17,29 +17,19 @@ import java.util.List;
 public class _228_Summary_Ranges_汇总区间 {
     class Solution {
         public List<String> summaryRanges(int[] nums) {
-            List<String> ranges = new ArrayList<>();
-
-            for (int i = 0; i < nums.length; i++) {
-                // begin range;
-                int beginIndex = i;
-                if (i == nums.length - 1) {
-                    ranges.add("" + nums[beginIndex]);
-                    break;
+            List<String> res = new ArrayList<>();
+            for (int slow = 0, fast = 0; fast < nums.length; fast++) {
+                while (fast + 1 < nums.length && nums[fast] == nums[fast + 1] - 1) {
+                    fast++;
                 }
-                while (i + 1 < nums.length && (nums[i + 1] == nums[i] + 1)) {
-                    // in the same range.
-                    i++;
-                    if (i == nums.length - 1)
-                        break; // reached the end
-                }
-                if (beginIndex == i) {
-                    ranges.add("" + nums[beginIndex]);
+                if (fast == slow) {
+                    res.add(nums[fast] + "");
                 } else {
-                    ranges.add(nums[beginIndex] + "->" + nums[i]);
+                    res.add(nums[slow] + "->" + nums[fast]);
                 }
+                slow = fast + 1;
             }
-
-            return ranges;
+            return res;
         }
     }
 }

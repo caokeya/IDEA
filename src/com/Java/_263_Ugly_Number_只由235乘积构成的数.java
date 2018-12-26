@@ -19,15 +19,13 @@ package src.com.Java;
 public class _263_Ugly_Number_只由235乘积构成的数 {
     class Solution {
         public boolean isUgly(int num) {
-            if (num < 1) return false;
-            while (num % 5 == 0) {
-                num /= 5;
-            }
-            while (num % 3 == 0) {
-                num /= 3;
-            }
-            while (num % 2 == 0) {
-                num /= 2;
+            while (num > 1) {
+                if (num % 2 == 0) num /= 2;
+                else if (num % 3 == 0) num /= 3;
+                else if (num % 5 == 0) num /= 5;
+                else {
+                    return false;
+                }
             }
             return num == 1;
         }

@@ -9,24 +9,25 @@ package src.com.Java;
  */
 public class _233_Number_of_Digit_One_数字1的个数_难 {
     /*
-    case 1: n=3141092, a= 31410, b=92. 计算百位上1的个数应该为 3141 *100 次.
-    case 2: n=3141192, a= 31411, b=92. 计算百位上1的个数应该为 3141 *100 + (92+1) 次.
-    case 3: n=3141592, a= 31415, b=92. 计算百位上1的个数应该为 (3141+1) *100 次.
+    if n = xyzdabc
+    we are considering the occurrence of one on thousand, it should be:
+    (1) xyz * 1000                     if d == 0
+    (2) xyz * 1000 + abc + 1           if d == 1
+    (3) xyz * 1000 + 1000              if d >  1
      */
     class Solution {
-        int countDigitOne(int n) {
-            if (n < 1) return 0;
-            if (n >= 1 && n < 10) return 1;
-            // x: first digit
-            int y = 1, x = n;
-            while (!(x < 10)) {
-                x /= 10;
-                y *= 10;
-            }
-            if (x == 1)
-                return countDigitOne(y - 1) + n % y + 1 + countDigitOne(n % y);
-            else
-                return y + x * countDigitOne(y - 1) + countDigitOne(n % y);
+        public int countDigitOne(int n) {
+            if (n <= 0) return 0;
+            int q = n, x = 1, ans = 0;
+            do {
+                int digit = q % 10;
+                q /= 10;
+                ans += q * x;
+                if (digit == 1) ans += n % x + 1;
+                if (digit > 1) ans += x;
+                x *= 10;
+            } while (q > 0);
+            return ans;
         }
     }
 }

@@ -23,7 +23,8 @@ import java.util.List;
  */
 public class _282_Expression_Add_Operators_给表达式添加运算符_难 {
     class Solution {
-        //思路: DFS after each digit, we can try adding opeartors between each possible numbers. When we reach to the last digit and the computation result is equal to the target, we add the path to the result list.
+        //思路: DFS after each digit, we can try adding opeartors between each possible numbers.
+        // When we reach to the last digit and the computation result is equal to the target, we add the path to the result list.
         //Time: O(3^(n-1)), n represents the length of the string, Space: O(n-1) if not considering the result list?
         public List<String> addOperators(String num, int target) {
             List<String> res = new ArrayList<>();

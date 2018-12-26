@@ -24,18 +24,17 @@ public class _216_Combination_Sum_III_组合总和3 {
             return res;
         }
 
-        private void dfs(int k, int n, List<List<Integer>> res, List<Integer> list, int val) {
-            if (list.size() > k || n < 0) return;
-            if (n == 0 && list.size() == k) {
+        private void dfs(int k, int target, List<List<Integer>> res, List<Integer> list, int startval) {
+            if (list.size() > k || target < 0) return;
+            if (target == 0 && list.size() == k) {
                 res.add(new LinkedList<Integer>(list));
                 return;
             }
-            for (int i = val; i <= 9; i++) {
+            for (int i = startval; i <= 9; i++) {
                 list.add(i);
-                dfs(k, n - i, res, list, i + 1);
+                dfs(k, target - i, res, list, i + 1);
                 list.remove(list.size() - 1);
             }
-
         }
     }
 }

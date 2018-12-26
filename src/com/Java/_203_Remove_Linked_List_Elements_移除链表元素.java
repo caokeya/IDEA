@@ -7,7 +7,7 @@ package src.com.Java;
  输出: 1->2->3->4->5
  */
 public class _203_Remove_Linked_List_Elements_移除链表元素 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -21,21 +21,18 @@ public class _203_Remove_Linked_List_Elements_移除链表元素 {
 
     class Solution {
         public ListNode removeElements(ListNode head, int val) {
-            ListNode dummyNode = new ListNode(-1);
-            dummyNode.next = head;
-            ListNode previous = dummyNode;
-            ListNode curr = head;
-
-            while (curr != null) {
-                if (curr.val == val) {
-                    previous.next = curr.next;
+            if (head == null) return head;
+            ListNode dummy = new ListNode(0);
+            dummy.next = head;
+            ListNode curr = dummy;
+            while (curr != null && curr.next != null) {
+                if (curr.next.val == val) {
+                    curr.next = curr.next.next;
                 } else {
-                    previous = curr;
+                    curr = curr.next;
                 }
-                curr = curr.next;
             }
-            return dummyNode.next;
-
+            return dummy.next;
         }
     }
 }

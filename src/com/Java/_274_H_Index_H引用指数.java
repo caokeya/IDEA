@@ -15,6 +15,25 @@ h 指数的定义: “h 代表“高引用次数”（high citations），一名
 public class _274_H_Index_H引用指数 {
     class Solution {
         public int hIndex(int[] citations) {
+            int[] map = new int[citations.length + 1]; // citation -> # paper
+
+            for (int c : citations) {
+                if (c > citations.length)
+                    c = citations.length; // very high citation, don't care
+                map[c]++;
+            }
+            int papers = 0;
+            for (int c = map.length - 1; c >= 0; c--) {
+                papers += map[c];
+                if (papers >= c)
+                    return c;
+            }
+            return 0;
+        }
+    }
+
+    class Solution2 {
+        public int hIndex(int[] citations) {
             Arrays.sort(citations);
             int h = 0;
             for (int i = citations.length - 1; i >= 0; i--) {
@@ -24,28 +43,5 @@ public class _274_H_Index_H引用指数 {
             }
             return h;
         }
-    }
-
-    class Solution2 {
-        public int hIndex(int[] citations) {
-            if (citations == null || citations.length == 0)
-                return 0;
-            Arrays.sort(citations);
-            for (int h = citations.length; h >= 0; h--) {
-                if (isHIdex(citations, h))
-                    return h;
-            }
-            return 0;
-        }
-
-        public boolean isHIdex(int[] sortedArray, int h) {
-            if (h == 0)
-                return sortedArray[sortedArray.length - 1] <= h;
-            else if (h == sortedArray.length)
-                return sortedArray[0] >= h;
-            int firstIdx = sortedArray.length - h;
-            return (sortedArray[firstIdx] >= h && sortedArray[firstIdx - 1] <= h);
-        }
-
     }
 }

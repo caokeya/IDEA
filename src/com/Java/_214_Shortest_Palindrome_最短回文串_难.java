@@ -15,15 +15,15 @@ public class _214_Shortest_Palindrome_最短回文串_难 {
             if (s == null || s.length() < 2)
                 return s;
             int len = s.length();
-            int j = 0;
-            for (int i = len - 1; i >= 0; i--) {
-                if (s.charAt(j) == s.charAt(i))
-                    j++;
+            int i = 0;
+            for (int j = len - 1; j >= 0; j--) {
+                if (s.charAt(i) == s.charAt(j))
+                    i++;
             }
-            if (j == s.length())
+            if (i == s.length())
                 return s;
-            String suffix = s.substring(j);
-            return new StringBuilder(suffix).reverse().toString() + shortestPalindrome(s.substring(0, j)) + suffix;
+            String suffix = s.substring(i);
+            return new StringBuilder(suffix).reverse().toString() + shortestPalindrome(s.substring(0, i)) + suffix;
         }
     }
 }

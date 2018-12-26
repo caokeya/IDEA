@@ -9,11 +9,16 @@ package src.com.Java;
 
 */
 public class _258_Add_Digits_各位相加化简成一位数字 {
-    class Solution {
+    public class Solution {
         public int addDigits(int num) {
-            if (num == 0)
+            if (num == 0) {
                 return 0;
-            return (num - 1) % 9 + 1;
+            }
+            if (num % 9 == 0) {
+                return 9;
+            } else {
+                return num % 9;
+            }
         }
     }
 

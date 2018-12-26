@@ -29,19 +29,16 @@ public class _279_Perfect_Squares_将n拆为完全平方数的和 {
      */
     class Solution {
         public int numSquares(int n) {
-            int[] dp = new int[n + 1];
-            Arrays.fill(dp, Integer.MAX_VALUE);
-            dp[0] = 0;
-            for (int i = 1; i <= n; i++) {
-                int min = Integer.MAX_VALUE;
-                int j = 1;
-                while (i - j * j >= 0) {
-                    min = Math.min(min, dp[i - j * j] + 1);
-                    j++;
+            int[] res = new int[n + 1];
+            Arrays.fill(res, Integer.MAX_VALUE);
+            res[0] = 0;
+
+            for (int i = 0; i <= n; i++) {
+                for (int j = 1; j * j <= i; j++) {
+                    res[i] = Math.min(res[i], res[i - j * j] + 1);
                 }
-                dp[i] = min;
             }
-            return dp[n];
+            return res[n];
         }
     }
 

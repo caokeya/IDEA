@@ -18,15 +18,12 @@ import java.util.List;
 public class _229_Majority_Element_II_求众数2 {
     class Solution {
         public List<Integer> majorityElement(int[] nums) {
-
             int num1 = 0;
             int num2 = 0;
 
             int count1 = 0;
             int count2 = 0;
-
             for (int i : nums) {
-
                 if (num1 == i) {
                     count1++;
                 } else if (num2 == i) {
@@ -41,12 +38,9 @@ public class _229_Majority_Element_II_求众数2 {
                     count1--;
                     count2--;
                 }
-
             }
-
             count1 = 0;
             count2 = 0;
-
             for (int i : nums) {
                 if (num1 == i)
                     count1++;
@@ -54,13 +48,10 @@ public class _229_Majority_Element_II_求众数2 {
                     count2++;
             }
             List<Integer> result = new LinkedList();
-
             if (count1 > nums.length / 3)
                 result.add(num1);
-
             if (count2 > nums.length / 3)
                 result.add(num2);
-
             return result;
         }
     }

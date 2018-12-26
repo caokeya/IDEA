@@ -9,23 +9,17 @@ package src.com.Java;
 public class _238_Product_Of_Array_Except_Self_除自身以外数组的乘积 {
     class Solution {
         public int[] productExceptSelf(int[] nums) {
-            int n = nums.length;
-            int[] leftProduct = new int[n];
-            int[] rightProduct = new int[n];
-            int[] ans = new int[n];
-            leftProduct[0] = 1;
-            rightProduct[n - 1] = 1;
-            for (int i = 1; i < n; i++) {
-                leftProduct[i] = leftProduct[i - 1] * nums[i - 1];
+            int[] res = new int[nums.length];
+            res[0] = 1; //left
+            for (int i = 1; i < nums.length; i++) { // Storing all the products of the left elements
+                res[i] = res[i - 1] * nums[i - 1];
             }
-            for (int i = n - 2; i >= 0; i--) {
-                rightProduct[i] = rightProduct[i + 1] * nums[i + 1];
+            int right = nums[nums.length - 1];
+            for (int i = nums.length - 2; i >= 0; i--) {
+                res[i] *= right; // Multiplying all the products of right elements
+                right = right * nums[i];
             }
-            for (int i = 0; i < n; i++) {
-                ans[i] = leftProduct[i] * rightProduct[i];
-            }
-            return ans;
-
+            return res;
         }
     }
 }

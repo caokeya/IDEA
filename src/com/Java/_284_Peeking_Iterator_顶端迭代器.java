@@ -14,42 +14,42 @@ import java.util.NoSuchElementException;
 public class _284_Peeking_Iterator_顶端迭代器 {
     // Java Iterator interface reference:
     // https://docs.oracle.com/javase/8/docs/api/java/util/Iterator.html
-
     class PeekingIterator implements Iterator<Integer> {
-        Integer next;
-        Iterator<Integer> iter;
-        boolean noSuchElement;
+        private Iterator iterator;
+        private Integer peek;
 
         public PeekingIterator(Iterator<Integer> iterator) {
             // initialize any member here.
-            iter = iterator;
-            advanceIter();
+            this.iterator = iterator;
 
         }
 
         // Returns the next element in the iteration without advancing the iterator.
         public Integer peek() {
-            return next;
+            if (peek == null) {
+                peek = (Integer) iterator.next();
+                return peek;
+            } else {
+                return peek;
+            }
         }
 
         // hasNext() and next() should behave the same as in the Iterator interface.
         // Override them if needed.
         @Override
         public Integer next() {
-            if (noSuchElement) throw new NoSuchElementException();
-            Integer res = next;
-            advanceIter();
-            return res;
+            if (peek == null) {
+                return (Integer) iterator.next();
+            } else {
+                Integer val = peek;
+                peek = null;
+                return val;
+            }
         }
 
         @Override
         public boolean hasNext() {
-            return !noSuchElement;
-        }
-
-        private void advanceIter() {
-            if (iter.hasNext()) next = iter.next();
-            else noSuchElement = true;
+            return peek != null || iterator.hasNext();
         }
     }
 }

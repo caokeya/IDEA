@@ -14,7 +14,7 @@ package src.com.Java;
 输出: 6
 */
 public class _222_Count_Complete_Tree_Nodes_完全二叉树的节点个数 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -28,43 +28,56 @@ public class _222_Count_Complete_Tree_Nodes_完全二叉树的节点个数 {
     }
 
     class Solution {
+        int res = 0;
+
         public int countNodes(TreeNode root) {
-            if (root == null) return 0;
-
-            int leftHeight = getHeight(root.left);
-            int rightHeight = getHeight(root.right);
-
-            // same height means missing node in right-subtree
-            if (leftHeight == rightHeight)
-                return (1 << leftHeight) + countNodes(root.right);
-            else // different height means missing node in left-subtree
-                return (1 << rightHeight) + countNodes(root.left);
+            dfs(root);
+            return res;
         }
 
-        private int getHeight(TreeNode node) {
-            int height = 0;
-
-            // 只用求从根节点到最左端节点的长度
-            while (node != null) {
-                node = node.left;
-                height++;
-            }
-
-            return height;
+        private void dfs(TreeNode root) {
+            if (root == null)
+                return;
+            if (root.val < 0)
+                return;
+            root.val = -1;
+            res++;
+            dfs(root.left);
+            dfs(root.right);
         }
     }
 
     class Solution2 {
         public int countNodes(TreeNode root) {
-            if (root == null) {
+            // assumption: left & right can't be complete both
+            // case 1 : left height == right height => left is perfect tree
+            // case 2 : left height = right height + 1 => right is perfect tree
+            if (root == null)
                 return 0;
+            int ans = 0;
+            while(root != null) {
+                int left = getHeight(root.left);
+                int right = getHeight(root.right);
+                if (left == right) {
+                    // case 1 left is perfect tree
+                    ans += 1 << left;
+                    root = root.right;
+                } else {
+                    //case 2 right is perfect tree
+                    ans += 1 << right;
+                    root = root.left;
+                }
             }
-            if (root.val != Integer.MAX_VALUE) {
-                root.val = Integer.MAX_VALUE;
-                return 1 + countNodes(root.left) + countNodes(root.right);
+            return ans;
+        }
+
+        private int getHeight(TreeNode root) {
+            int height = 0;
+            while(root != null) {
+                root = root.left;
+                height++;
             }
-            return 0;
+            return height;
         }
     }
-
 }
