@@ -25,7 +25,7 @@ import java.util.Queue;
 7
  */
 public class _513_Find_Bottom_Left_Tree_Value_找树左下角的值 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -61,8 +61,8 @@ public class _513_Find_Bottom_Left_Tree_Value_找树左下角的值 {
     }
 
     class Solution2 {
-        /**
-                     典型的bfs，每一层加入queue，每一层的第一个即是leftmostnode
+        /*
+        典型的BFS，每一层加入queue，每一层的第一个即是leftmostnode
          */
         public int findBottomLeftValue(TreeNode root) {
             Queue<TreeNode> queue = new LinkedList<>();
@@ -85,7 +85,6 @@ public class _513_Find_Bottom_Left_Tree_Value_找树左下角的值 {
                         queue.offer(node.right);
                 }
             }
-
             return res;
         }
     }

@@ -18,21 +18,17 @@ public class _476_Number_Complement_数字的补数 {
     class Solution {
         public int findComplement(int num) {
             int mask = (Integer.highestOneBit(num) << 1) - 1;
-
             return ~num & mask;
         }
     }
 
     class Solution2 {
         public int findComplement(int num) {
-            int i = 0;
-            int j = 0;
-
-            while (i < num) {
-                i += Math.pow(2, j);
-                j++;
+            int mask = 1;
+            while (mask < num) {
+                mask = (mask << 1) | 1;
             }
-            return i - num;
+            return num ^ mask;
         }
     }
 }

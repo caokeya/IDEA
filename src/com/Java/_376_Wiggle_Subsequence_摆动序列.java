@@ -16,25 +16,21 @@ package src.com.Java;
  */
 public class _376_Wiggle_Subsequence_摆动序列 {
     /*
-        If nums[i] > nums[i-1], that means it wiggles up. 
-            the element before it must be a down position. so up[i] = down[i-1] + 1; down[i] keeps the same with before.
-        If nums[i] < nums[i-1], that means it wiggles down.
-            the element before it must be a up position. so down[i] = up[i-1] + 1; up[i] keeps the same with before.
-        If nums[i] == nums[i-1], that means it will not change anything becasue it didn't wiggle at all. 
-            so both down[i] and up[i] keep the same.
+    If nums[i] > nums[i-1], that means it wiggles up.
+        the element before it must be a down position. so up[i] = down[i-1] + 1; down[i] keeps the same with before.
+    If nums[i] < nums[i-1], that means it wiggles down.
+        the element before it must be a up position. so down[i] = up[i-1] + 1; up[i] keeps the same with before.
+    If nums[i] == nums[i-1], that means it will not change anything becasue it didn't wiggle at all.
+        so both down[i] and up[i] keep the same.
      */
     public class Solution {
         public int wiggleMaxLength(int[] nums) {
-
             if (nums.length == 0)
                 return 0;
-
             int[] up = new int[nums.length];
             int[] down = new int[nums.length];
-
             up[0] = 1;
             down[0] = 1;
-
             for (int i = 1; i < nums.length; i++) {
                 if (nums[i] > nums[i - 1]) {
                     up[i] = down[i - 1] + 1;
@@ -47,7 +43,6 @@ public class _376_Wiggle_Subsequence_摆动序列 {
                     up[i] = up[i - 1];
                 }
             }
-
             return Math.max(down[nums.length - 1], up[nums.length - 1]);
         }
     }

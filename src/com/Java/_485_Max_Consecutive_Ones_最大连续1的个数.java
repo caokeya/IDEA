@@ -10,19 +10,17 @@ package src.com.Java;
 public class _485_Max_Consecutive_Ones_最大连续1的个数 {
     class Solution {
         public int findMaxConsecutiveOnes(int[] nums) {
+            int max = 0;
             int count = 0;
-            int temp = 0;
             for (int i = 0; i < nums.length; i++) {
                 if (nums[i] == 1) {
-                    temp++;
-                    if (count < temp) {
-                        count = temp;
-                    }
+                    count++;
+                    max = Math.max(max, count);
                 } else {
-                    temp = 0;
+                    count = 0;
                 }
             }
-            return count;
+            return max;
         }
     }
 }

@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 /*
-给定一个目录信息列表，包括目录路径，以及该目录中的所有包含内容的文件，您需要找到文件系统中的所有重复文件组的路径。一组重复的文件至少包括二个具有完全相同内容的文件。
+给定一个目录信息列表，包括目录路径，以及该目录中的所有包含内容的文件，您需要找到文件系统中的所有重复文件组的路径。
+一组重复的文件至少包括二个具有完全相同内容的文件。
 输入列表中的单个目录信息字符串的格式如下：
 "root/d1/d2/.../dm f1.txt(f1_content) f2.txt(f2_content) ... fn.txt(fn_content)"
 这意味着n档案（f1.txt, f2.txt ... fn.txt 有内容 f1_content, f2_content ... fn_content（分别）

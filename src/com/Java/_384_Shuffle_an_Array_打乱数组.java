@@ -16,39 +16,37 @@ solution.reset();
 solution.shuffle();
  */
 public class _384_Shuffle_an_Array_打乱数组 {
-    public class Solution {
+    class Solution {
+
         private int[] nums;
-        private Random random;
+        private Random r;
 
         public Solution(int[] nums) {
             this.nums = nums;
-            random = new Random();
+            this.r = new Random();
         }
 
-        /** Resets the array to its original configuration and return it. */
+        /*
+         * Resets the array to its original configuration and return it.
+         */
         public int[] reset() {
-            return nums;
+            return this.nums;
         }
 
-        /** Returns a random shuffling of the array. */
+        /*
+         * Returns a random shuffling of the array.
+         */
         public int[] shuffle() {
-            if (nums == null)
-                return null;
-            int[] a = nums.clone();
-            for (int j = 1; j < a.length; j++) {
-                int i = random.nextInt(j + 1);
-                swap(a, i, j);
-            }
-            return a;
-        }
+            int[] arr = new int[this.nums.length];
 
-        private void swap(int[] a, int i, int j) {
-            int t = a[i];
-            a[i] = a[j];
-            a[j] = t;
+            for (int i = 0; i < arr.length; i++) {
+                int j = this.r.nextInt(i + 1);
+                arr[i] = arr[j];
+                arr[j] = this.nums[i];
+            }
+            return arr;
         }
     }
-
     /**
      * Your Solution object will be instantiated and called as such:
      * Solution obj = new Solution(nums);

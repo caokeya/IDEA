@@ -33,20 +33,20 @@ public class _409_Longest_Palindrome_构造最长回文串 {
             return res;
         }
     }
-    
+
     class Solution2 {
         public int longestPalindrome(String s) {
-                Set<Character> set = new HashSet<>();
-            
-            for(int i = 0; i < s.length(); i++){
+            Set<Character> set = new HashSet<>();
+            for (int i = 0; i < s.length(); i++) {
                 char c = s.charAt(i);
-                if(set.contains(c)){
+                if (set.contains(c)) {
                     set.remove(c);
-                }else{
+                } else {
                     set.add(c);
                 }
             }
-            if(set.size() == 0) return s.length();
+            if (set.size() == 0)
+                return s.length();
             return s.length() - set.size() + 1;
         }
     }

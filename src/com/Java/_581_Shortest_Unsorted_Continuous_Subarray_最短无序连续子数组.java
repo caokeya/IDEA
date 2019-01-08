@@ -28,7 +28,6 @@ public class _581_Shortest_Unsorted_Continuous_Subarray_最短无序连续子数
                     left = i;
                 }
             }
-
             return right - left + 1;
         }
     }

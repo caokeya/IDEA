@@ -10,7 +10,7 @@ package src.com.Java;
 输出: [8,4]
  */
 public class _470_Implement_Rand10_Using_Rand7_用Rand7实现Rand10 {
-    /**
+    /*
      * The rand7() API is already defined in the parent class SolBase.
      * public int rand7();
      * @return a random integer in the range 1 to 7

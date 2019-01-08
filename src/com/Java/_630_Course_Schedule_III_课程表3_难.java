@@ -18,29 +18,18 @@ import java.util.PriorityQueue;
 第四门课现在不能修，因为你将会在第 3300 天完成它，这已经超出了关闭日期。
  */
 public class _630_Course_Schedule_III_课程表3_难 {
-    class Solution {
+    public class Solution {
         public int scheduleCourse(int[][] courses) {
-            if (courses == null || courses.length == 0)
-                return 0;
-
-            Arrays.sort(courses, (a, b) -> a[1] - b[1]);
-            int time = 0, count = 0;
-
-            // PriorityQueue
+            Arrays.sort(courses, (a, b) -> a[1] - b[1]); //Sort the courses by their deadlines
             PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> b - a);
-
+            int time = 0;
             for (int[] c : courses) {
-                if (time + c[0] <= c[1]) {
-                    pq.offer(c[0]);
-                    time += c[0];
-                    count++;
-                } else if (!pq.isEmpty() && pq.peek() > c[0]) {
-                    time += c[0] - pq.poll();
-                    pq.offer(c[0]);
-                }
+                time += c[0]; // add current course to a priority queue
+                pq.add(c[0]);
+                if (time > c[1])
+                    time -= pq.poll(); //If time exceeds, drop the previous course which costs the most time
             }
-
-            return count;
+            return pq.size();
         }
     }
 }

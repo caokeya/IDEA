@@ -34,13 +34,13 @@ public class _474_Ones_and_Zeroes_一和零 {
         }
 
         public int countZero(String s) {
-            int res = 0;
+            int count = 0;
             for (int i = 0; i < s.length(); i++) {
                 if (s.charAt(i) == '0') {
-                    res++;
+                    count++;
                 }
             }
-            return res;
+            return count;
         }
     }
 }

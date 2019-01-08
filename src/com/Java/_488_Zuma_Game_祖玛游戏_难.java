@@ -35,7 +35,7 @@ public class _488_Zuma_Game_祖玛游戏_难 {
             for (int i = 0; i < hand.length(); ++i)
                 ++handCount[hand.charAt(i) - 'A'];
             int rs = helper(board + "#", handCount); // append a "#" to avoid special process while j==board.length,
-                                                     // make the code shorter.
+                                                        // make the code shorter.
             return rs == MAXCOUNT ? -1 : rs;
         }
 
@@ -70,6 +70,5 @@ public class _488_Zuma_Game_祖玛游戏_难 {
             }
             return board;
         }
-
     }
 }

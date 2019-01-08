@@ -1,5 +1,7 @@
 package src.com.Java;
 
+import java.util.Arrays;
+
 /*
 给定一个整型数组，在数组中找出由三个数组成的最大乘积，并输出这个乘积。
 示例 1:
@@ -33,6 +35,14 @@ public class _628_Maximum_Product_of_Three_Numbers_三个数的最大乘积 {
                 }
             }
             return Math.max(Max1 * Max2 * Max3, Max1 * Min1 * Min2); // 三个最大的，一个最大的两个最小的
+        }
+    }
+
+    class Solution2 {
+        public int maximumProduct(int[] nums) {
+            Arrays.sort(nums);
+            int len = nums.length;
+            return Math.max(nums[0] * nums[1], nums[len - 3] * nums[len - 2]) * nums[len - 1];
         }
     }
 }

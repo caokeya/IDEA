@@ -28,7 +28,7 @@ public class _589_N_ary_Tree_Preorder_Traversal_N叉树的前序遍历 {
             val = _val;
             children = _children;
         }
-    };
+    }
 
     // Iterative Solution
     class Solution2 {
@@ -46,25 +46,26 @@ public class _589_N_ary_Tree_Preorder_Traversal_N叉树的前序遍历 {
                 for (int i = root.children.size() - 1; i >= 0; i--)//N叉树中，同一层中的存储顺序是反向的：3  2  4--> 4 2 3
                     stack.add(root.children.get(i));
             }
-
             return list;
         }
     }
 
     // Recursive Solution
     class Solution {
-        public List<Integer> list = new ArrayList<>();
-
         public List<Integer> preorder(Node root) {
-            if (root == null)
-                return list;
+            List<Integer> result = new ArrayList<>();
+            return helper(root, result);
 
-            list.add(root.val);
-            for (Node node : root.children)
-                preorder(node);
+        }
 
-            return list;
+        private List<Integer> helper(Node root, List<Integer> result) {
+            if (root != null) {
+                result.add(root.val);
+                for (Node child : root.children) {
+                    helper(child, result);
+                }
+            }
+            return result;
         }
     }
-
 }

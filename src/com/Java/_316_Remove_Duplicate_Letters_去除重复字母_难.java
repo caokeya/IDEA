@@ -23,10 +23,8 @@ public class _316_Remove_Duplicate_Letters_去除重复字母_难 {
                 cnt[c - 'a']--;// decrement number of characters remaining in the string to be analysed
                 if (vis[c - 'a'])// if character is already present in stack, dont bother
                     continue;
-                // if current character is smaller than last character in stack which occurs
-                // later in the string again
-                // it can be removed and added later e.g stack = bc remaining string abc then a
-                // can pop b and then c
+                // if current character is smaller than last character in stack which occurs later in the string again
+                // it can be removed and added later e.g stack = bc remaining string abc then a can pop b and then c
                 while (!stk.isEmpty() && c < stk.peek() && cnt[stk.peek() - 'a'] != 0) {
                     vis[stk.pop() - 'a'] = false;
                 }

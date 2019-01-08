@@ -1,9 +1,6 @@
 package src.com.Java;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /*
 给定一个字符串，请将字符串里的字符按照出现的频率降序排列。
@@ -42,4 +39,22 @@ public class _451_Sort_Characters_By_Frequency_根据字符出现频率排序 {
         }
     }
 
+    public class SolutionPQ {
+        public String frequencySort(String s) {
+            Map<Character, Integer> map = new HashMap<>();
+            for (char c : s.toCharArray())
+                map.put(c, map.getOrDefault(c, 0) + 1);
+
+            PriorityQueue<Map.Entry<Character, Integer>> pq = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+            pq.addAll(map.entrySet());
+
+            StringBuilder sb = new StringBuilder();
+            while (!pq.isEmpty()) {
+                Map.Entry e = pq.poll();
+                for (int i = 0; i < (int) e.getValue(); i++)
+                    sb.append(e.getKey());
+            }
+            return sb.toString();
+        }
+    }
 }

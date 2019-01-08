@@ -26,7 +26,7 @@ package src.com.Java;
 除了我们不能省略第一个对括号来中断输入和输出之间的一对一映射关系。
  */
 public class _606_Construct_String_from_Binary_Tree_根据二叉树创建字符串 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

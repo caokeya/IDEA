@@ -11,7 +11,7 @@ package src.com.Java;
 在这个二叉树中，有两个左叶子，分别是 9 和 15，所以返回 24
  */
 public class _404_Sum_of_Left_Leaves_左叶子之和 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

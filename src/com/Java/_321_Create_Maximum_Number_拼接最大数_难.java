@@ -15,42 +15,60 @@ k = 5
 public class _321_Create_Maximum_Number_拼接最大数_难 {
     class Solution {
         public int[] maxNumber(int[] nums1, int[] nums2, int k) {
-            int n = nums1.length;
-            int m = nums2.length;
-            int[] ans = new int[k];
-            for (int i = Math.max(0, k - m); i <= k && i <= n; ++i) {
-                int[] candidate = merge(maxArray(nums1, i), maxArray(nums2, k - i), k);
-                if (greater(candidate, 0, ans, 0))
-                    ans = candidate;
+            int len1 = nums1.length, len2 = nums2.length;
+            int[] res = new int[k];
+            for (int i = Math.max(0, k - len2); i <= k && i <= len1; i++) {
+                int[] can = merge(maxArray(nums1, i), maxArray(nums2, k - i));
+                if (larger(can, 0, res, 0)) {
+                    res = can;
+                }
             }
-            return ans;
+            return res;
         }
 
-        private int[] merge(int[] nums1, int[] nums2, int k) {
-            int[] ans = new int[k];
-            for (int i = 0, j = 0, r = 0; r < k; ++r)
-                ans[r] = greater(nums1, i, nums2, j) ? nums1[i++] : nums2[j++];
-            return ans;
+        private int[] maxArray(int[] a, int k) {
+            int len = a.length;
+            int valid = 0;
+            int[] res = new int[k];
+            for (int i = 0; i < len; i++) {
+                //len - 1 is the right index of 'a', while i is the left index we have visited
+                //len - 1 - i means the length we have not visited yet
+                //k - 1 is the right index of 'res', while valid is next index of res we need to give value
+                //k - 1 - valid is the length we need to give value on 'res'
+                //if len - 1 - i > k - 1 - valid, means we still have more options left on 'a' than we need to fill 'res'
+                //so we are still free to search  for a larger number to put on lower index of 'res'.
+                //so this is 'greedy' actually.
+                while (len - i - 1 > k - 1 - valid && valid > 0 && res[valid - 1] < a[i]) {
+                    valid--;
+                }
+                if (valid < k) {
+                    res[valid++] = a[i];
+                }
+            }
+            return res;
         }
 
-        public boolean greater(int[] nums1, int i, int[] nums2, int j) {
-            while (i < nums1.length && j < nums2.length && nums1[i] == nums2[j]) {
-                i++;
-                j++;
+        private int[] merge(int[] a, int[] b) {
+            int[] res = new int[a.length + b.length];
+            int valid = 0, i = 0, j = 0;
+            while (i < a.length && j < b.length) {
+                res[valid++] = larger(a, i, b, j) ? a[i++] : b[j++];
             }
-            return j == nums2.length || (i < nums1.length && nums1[i] > nums2[j]);
+            while (i < a.length) {
+                res[valid++] = a[i++];
+            }
+            while (j < b.length) {
+                res[valid++] = b[j++];
+            }
+            return res;
         }
 
-        public int[] maxArray(int[] nums, int k) {
-            int n = nums.length;
-            int[] ans = new int[k];
-            for (int i = 0, j = 0; i < n; ++i) {
-                while (n - i + j > k && j > 0 && ans[j - 1] < nums[i])
-                    j--;
-                if (j < k)
-                    ans[j++] = nums[i];
+        private boolean larger(int[] a, int x, int[] b, int y) {
+            while (x < a.length && y < b.length && a[x] == b[y]) {
+                x++;
+                y++;
             }
-            return ans;
+            return y == b.length || (x < a.length && a[x] > b[y]);
         }
     }
 }

@@ -30,49 +30,54 @@ randomSet.getRandom();
  */
 public class _380_Insert_Delete_GetRandom_O1_常数时间插入删除获取随机元素 {
     class RandomizedSet {
-        private List<Integer> list;
-        private Map<Integer, Integer> map;
+        List<Integer> list;
+        Map<Integer, Integer> map;
 
-        /** Initialize your data structure here. */
+        /*
+         * Initialize your data structure here.
+         */
         public RandomizedSet() {
-            this.list = new ArrayList<>();
-            this.map = new HashMap<>();
+            list = new ArrayList<>();
+            map = new HashMap<>();
         }
 
-        /**
-         * Inserts a value to the set. Returns true if the set did not already contain
-         * the specified element.
+        /*
+         * Inserts a value to the set. Returns true if the set did not already contain the specified element.
          */
         public boolean insert(int val) {
-            if (map.containsKey(val))
+            if (map.containsKey(val)) {
                 return false;
-            map.put(val, list.size());
-            list.add(val);
-            return true;
+            } else {
+                map.put(val, list.size());
+                list.add(val);
+                return true;
+            }
         }
 
-        /**
-         * Removes a value from the set. Returns true if the set contained the specified
-         * element.
+        /*
+         * Removes a value from the set. Returns true if the set contained the specified element.
          */
         public boolean remove(int val) {
-            if (!map.containsKey(val))
+            if (!map.containsKey(val)) {
                 return false;
-            int idx = map.get(val);
-            if (idx != list.size() - 1) {
+            } else if (map.get(val) == list.size() - 1) {
+                list.remove(list.size() - 1);
+            } else {
                 int last = list.get(list.size() - 1);
-                list.set(idx, last);
-                map.put(last, idx);
+                int index = map.get(val);
+                list.set(index, last);
+                map.put(last, index);
+                list.remove(list.size() - 1);
             }
             map.remove(val);
-            list.remove(list.size() - 1);
             return true;
         }
 
-        /** Get a random element from the set. */
+        /*
+         * Get a random element from the set.
+         */
         public int getRandom() {
-            int lastIdx = list.size() - 1;
-            return list.get((int) (Math.random() * (lastIdx - 0 + 1)));
+            return list.get((int) (Math.random() * list.size()));
         }
     }
 /**

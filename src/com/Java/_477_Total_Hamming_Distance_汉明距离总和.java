@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 两个整数的 汉明距离 指的是这两个数字的二进制数对应位不同的数量。
 计算一个数组中，任意两个数之间汉明距离的总和。
@@ -14,13 +15,13 @@ public class _477_Total_Hamming_Distance_汉明距离总和 {
     class Solution {
         public int totalHammingDistance(int[] nums) {
             int total = 0, n = nums.length;
-            for (int j=0;j<32;j++) {
+            for (int j = 0; j < 32; j++) {
                 int bitCount = 0;
-                for (int i=0;i<n;i++) 
+                for (int i = 0; i < n; i++)
                     bitCount += (nums[i] >> j) & 1;
-                total += bitCount*(n - bitCount);
+                total += bitCount * (n - bitCount);
             }
             return total;
         }
-        }
+    }
 }

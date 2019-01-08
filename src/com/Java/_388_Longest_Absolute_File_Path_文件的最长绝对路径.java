@@ -1,5 +1,7 @@
 package src.com.Java;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
 /*
@@ -23,32 +25,33 @@ dir
 public class _388_Longest_Absolute_File_Path_文件的最长绝对路径 {
     class Solution {
         public int lengthLongestPath(String input) {
-            Stack<Integer> stack = new Stack<Integer>();
-            String[] split = input.split("\n");
-            stack.push(0); // dummy length;
-            int maxLevel = 0;
-
-            for (String str : split) {
-                int numOfTabs = str.lastIndexOf("\t") + 1; // this +1 because array index starts from 0;
-
-                int level = numOfTabs + 1; // one \t is level 1 \t\t is level2 so on..
-
-                while (!stack.isEmpty() && level < stack.size()) {
-                    stack.pop();
+            String[] elements = input.split("\n");
+            int result = 0;
+            Deque<int[]> deque = new LinkedList<>();
+            for (String element : elements) {
+                int indent = countIndent(element);//'\t'的个数
+                int size = element.length() - indent;//除去'\t'的长度
+                while (!deque.isEmpty() && deque.getLast()[0] >= indent) {//如果更底层则去除最后一个
+                    deque.removeLast();
                 }
-
-                int currLevel = stack.peek() + str.length() - numOfTabs + 1; // subtract the tabs , this +1 is for
-                                                                             // adding the "/" after this directory;
-                stack.push(currLevel);
-                if (str.contains(".")) { // means u have reached a file
-                    int currStrLevel = currLevel - 1; // -1 for removing previously adding +1
-                    if (currStrLevel > maxLevel) {
-                        maxLevel = currStrLevel;
-                    }
+                if (deque.isEmpty()) {
+                    deque.addLast(new int[]{indent, size});
+                } else {
+                    deque.addLast(new int[]{indent, size + deque.getLast()[1] + 1});//+1是因为\n\t\t\tfile2.ext会多一个'\'
                 }
-
+                if (element.contains(".")) {
+                    result = Math.max(result, deque.getLast()[1]);
+                }
             }
-            return maxLevel;
+            return result;
+        }
+
+        private int countIndent(String element) {
+            int i = 0;
+            while (element.charAt(i) == '\t') {
+                i++;
+            }
+            return i;
         }
     }
 }

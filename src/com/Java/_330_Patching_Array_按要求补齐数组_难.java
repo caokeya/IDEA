@@ -14,23 +14,21 @@ package src.com.Java;
  */
 public class _330_Patching_Array_按要求补齐数组_难 {
     class Solution {
-
+        //The variable max records the maximal value that can be formed by the elements in nums and patched numbers.
+        //If max is less than nums[i] - 1 which means we need to patch a new number, we then patch max + 1.
         public int minPatches(int[] nums, int n) {
-            int m = nums.length;
-            int missnumber = 0;
-            long canreach = 1;
-            int i = 0;
-            while (canreach <= n) {
-                if (i < m && nums[i] <= canreach) {
-                    canreach += nums[i++];
+            long max = 0;
+            int cnt = 0;
+            for (int i = 0; max < n; ) {
+                if (i >= nums.length || max < nums[i] - 1) {
+                    max += max + 1;
+                    cnt++;
                 } else {
-                    canreach += canreach;
-                    missnumber++;
+                    max += nums[i];
+                    i++;
                 }
             }
-            return missnumber;
-
+            return cnt;
         }
-
     }
 }

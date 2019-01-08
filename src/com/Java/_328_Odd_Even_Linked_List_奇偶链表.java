@@ -8,7 +8,7 @@ package src.com.Java;
 输出: 1->3->5->2->4->NULL
  */
 public class _328_Odd_Even_Linked_List_奇偶链表 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -20,22 +20,23 @@ public class _328_Odd_Even_Linked_List_奇偶链表 {
         }
     }
 
-    public class Solution {
+    class Solution {
         public ListNode oddEvenList(ListNode head) {
-            if (head != null) {
+            if (head == null)
+                return null;
 
-                ListNode odd = head, even = head.next, evenHead = even;
+            ListNode odd = head;
+            ListNode even = head.next;
+            ListNode evenHead = even;
 
-                while (even != null && even.next != null) {
-                    odd.next = odd.next.next;
-                    even.next = even.next.next;
-                    odd = odd.next;
-                    even = even.next;
-                }
-                odd.next = evenHead;
+            while (even != null && even.next != null) {
+                odd.next = odd.next.next;
+                even.next = even.next.next;
+                odd = odd.next;
+                even = even.next;
             }
+            odd.next = evenHead;
             return head;
         }
     }
-
 }

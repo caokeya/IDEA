@@ -20,9 +20,10 @@ package src.com.Java;
  */
 public class _309_Best_Time_to_Buy_and_Sell_Stock_with_Cooldown_最佳买卖股票时机含冷冻期 {
     class Solution {
-        /* 最优化，求最大
-                         设 sell[i] 为“第 i 天结束时为卖出状态（恰好第 i 天卖出，或之前卖出后未买入）的最大利润”
-           buy[i] 为“第 i天结束时为买入状态的最大利润”，cool[i] 为“第 i 天结束时为冷却状态的最大利润”，则：
+        /*
+           sell[i] 为“第 i 天结束时为卖出状态（恰好第 i 天卖出，或之前卖出后未买入）的最大利润”
+           buy[i] 为“第 i天结束时为买入状态的最大利润”
+           cool[i] 为“第 i 天结束时为冷却状态的最大利润”
            1. sell[i] = max{sell[i - 1], buy[i - 1] + p[i]}
            2. buy[i] = max{buy[i - 1], cool[i - 1] - p[i]}
            3. cool[i] = max{cool[i - 1], sell[i - 1]}
@@ -32,7 +33,6 @@ public class _309_Best_Time_to_Buy_and_Sell_Stock_with_Cooldown_最佳买卖股�
             if (p == null || p.length < 2) {
                 return 0;
             }
-
             int n = p.length;
             int[] sell = new int[n];
             int[] buy = new int[n];
@@ -41,9 +41,9 @@ public class _309_Best_Time_to_Buy_and_Sell_Stock_with_Cooldown_最佳买卖股�
             buy[0] = -p[0];
             cool[0] = 0;
             for (int i = 1; i < n; i++) {
-                sell[i] = Math.max(sell[i - 1], buy[i - 1] + p[i]);
-                buy[i] = Math.max(buy[i - 1], cool[i - 1] - p[i]);
-                cool[i] = Math.max(cool[i - 1], sell[i - 1]);
+                sell[i] = Math.max(sell[i - 1], buy[i - 1] + p[i]);//昨天卖出，昨天买进今天卖
+                buy[i] = Math.max(buy[i - 1], cool[i - 1] - p[i]);//昨天买进，昨天冷冻期今天买进
+                cool[i] = Math.max(cool[i - 1], sell[i - 1]);//昨天冷冻期，昨天卖出
             }
             return Math.max(sell[n - 1], cool[n - 1]);
         }

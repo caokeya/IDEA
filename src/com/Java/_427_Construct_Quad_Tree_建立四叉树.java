@@ -29,37 +29,6 @@ public class _427_Construct_Quad_Tree_建立四叉树 {
             bottomLeft = _bottomLeft;
             bottomRight = _bottomRight;
         }
-    };
-
-    class Solution {
-        public Node construct(int[][] grid) {
-            if (grid == null || grid.length == 0)
-                return null;
-            return helper(grid, 0, grid.length - 1, 0, grid.length - 1);
-        }
-
-        private Node helper(int[][] grid, int ls, int le, int ws, int we) {
-            if (ls > le || ws > we)
-                return null;
-            boolean isLeaf = true;
-            int val = grid[ls][ws];
-            for (int i = ls; i <= le; i++) {
-                for (int j = ws; j <= we; j++) {
-                    if (grid[i][j] != val) {
-                        isLeaf = false;
-                        break;
-                    }
-                }
-            }
-            if (isLeaf) {
-                return new Node(val == 1, true, null, null, null, null);
-            }
-            int lm = ls + (le - ls) / 2;
-            int wm = ws + (we - ws) / 2;
-            return new Node(val == 1, false, helper(grid, ls, lm, ws, wm), helper(grid, ls, lm, wm + 1, we),
-                    helper(grid, lm + 1, le, ws, wm), helper(grid, lm + 1, le, wm + 1, we));
-
-        }
     }
 
     /*
@@ -69,7 +38,7 @@ public class _427_Construct_Quad_Tree_建立四叉树 {
      * and have same value. Time Complexity: O(N^2 logN), N is the length of the
      * grid. Space Complexity: O(N^2)
      */
-    class Solution2 {
+    class Solution {
         public Node construct(int[][] grid) {
             return helper(grid, 0, 0, grid.length);
         }
@@ -91,7 +60,6 @@ public class _427_Construct_Quad_Tree_建立四叉树 {
                 if (!nodeTL.val && !nodeTR.val && !nodeBL.val && !nodeBR.val)
                     return new Node(false, true, null, null, null, null);
             }
-
             return new Node(true, false, nodeTL, nodeTR, nodeBL, nodeBR);
         }
     }

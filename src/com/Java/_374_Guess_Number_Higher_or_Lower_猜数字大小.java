@@ -16,7 +16,6 @@ public class _374_Guess_Number_Higher_or_Lower_猜数字大小 {
     @param num, your guess
     @return -1 if my number is lower, 1 if my number is higher, otherwise return 0
        int guess(int num); */
-
     public class Solution extends GuessGame {
         public int guessNumber(int n) {
             int i = 1, j = n;

@@ -27,18 +27,51 @@ public class _486_Predict_the_Winner_预测赢家 {
             if ((n & 1) == 0) {
                 return true;
             }
+            //i反着考虑，j从i到n
             int[] dp = new int[n];
             for (int i = n - 1; i >= 0; i--) {
                 for (int j = i; j < n; j++) {
                     if (i == j) {
                         dp[i] = nums[i];
                     } else {
+                        // 如果player1拿了nums[i],player2则从scores[i+1][j]中挑选对自己最有利的，
+                        // 如果player1拿了nums[j],player2则从scores[i][j-1]中挑选对自己最有利的，
                         dp[j] = Math.max(nums[i] - dp[j], nums[j] - dp[j - 1]);
                     }
                 }
             }
             return dp[n - 1] >= 0;
         }
+    }
 
+    class Solution2 {
+        public boolean PredictTheWinner(int[] nums) {
+            int n = nums.length;
+            int[][] dp = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                dp[i][i] = nums[i];
+            }
+            for (int len = 1; len < n; len++) {
+                for (int i = 0; i < n - len; i++) {
+                    int j = i + len;
+                    // 如果player1拿了nums[i],player2则从scores[i+1][j]中挑选对自己最有利的，
+                    // 如果player1拿了nums[j],player2则从scores[i][j-1]中挑选对自己最有利的，
+                    dp[i][j] = Math.max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
+                }
+            }
+            return dp[0][n - 1] >= 0;
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

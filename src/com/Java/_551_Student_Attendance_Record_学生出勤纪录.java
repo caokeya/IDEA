@@ -20,7 +20,6 @@ public class _551_Student_Attendance_Record_学生出勤纪录 {
             if (s == null || s.length() < 2) {
                 return true;
             }
-
             int countA = 0;
             for (int i = 0; i < s.length(); i++) {
                 if (s.charAt(i) == 'A') {
@@ -29,7 +28,6 @@ public class _551_Student_Attendance_Record_学生出勤纪录 {
                         return false;
                     }
                 }
-
                 if (s.charAt(i) == 'L') {
                     if (i > 1 && s.charAt(i - 2) == s.charAt(i - 1) && s.charAt(i - 1) == 'L') {
                         return false;

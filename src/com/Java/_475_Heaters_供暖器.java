@@ -17,7 +17,6 @@ import java.util.Arrays;
 解释: 仅在位置2上有一个供暖器。如果我们将加热半径设为1，那么所有房屋就都能得到供暖。
  */
 public class _475_Heaters_供暖器 {
-
     class Solution {
         public int findRadius(int[] houses, int[] heaters) {
             int max = 0;
@@ -59,9 +58,7 @@ public class _475_Heaters_供暖器 {
             int ans = Integer.MIN_VALUE;
             for (int dist : distances)
                 ans = Math.max(dist, ans);
-
             return ans;
         }
     }
-
 }

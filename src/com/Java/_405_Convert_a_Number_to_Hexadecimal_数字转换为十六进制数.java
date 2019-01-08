@@ -9,7 +9,7 @@ package src.com.Java;
     不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。
 示例 1：
 输入:
-26
+26   0001 1010
 输出:
 "1a"
  */
@@ -21,7 +21,7 @@ public class _405_Convert_a_Number_to_Hexadecimal_数字转换为十六进制数
             char[] map = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
             StringBuilder sb = new StringBuilder();
             while (num != 0) {
-                sb.append(map[num & 15]);
+                sb.append(map[num & 0xf]);//0000 1111
                 num >>>= 4;
             }
             return sb.reverse().toString();

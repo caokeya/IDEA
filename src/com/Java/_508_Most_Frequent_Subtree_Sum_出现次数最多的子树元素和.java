@@ -22,7 +22,7 @@ import java.util.Set;
 返回 [2]，只有 2 出现两次，-5 只出现 1 次。
  */
 public class _508_Most_Frequent_Subtree_Sum_出现次数最多的子树元素和 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -37,13 +37,10 @@ public class _508_Most_Frequent_Subtree_Sum_出现次数最多的子树元素和
 
     class Solution {
         public int[] findFrequentTreeSum(TreeNode root) {
-
             Map<Integer, Integer> map = new HashMap<>();
             getSum(root, map);
-
             int max_count = 0;
             Set<Integer> set = new HashSet<>();
-
             for (int k : map.keySet()) {
                 if (map.get(k) == max_count)
                     set.add(k);
@@ -53,19 +50,16 @@ public class _508_Most_Frequent_Subtree_Sum_出现次数最多的子树元素和
                     max_count = map.get(k);
                 }
             }
-
             int[] res = new int[set.size()];
             int idx = 0;
             for (int i : set)
                 res[idx++] = i;
-
             return res;
         }
 
         private int getSum(TreeNode node, Map<Integer, Integer> map) {
             if (node == null)
                 return 0;
-
             int sum = node.val + getSum(node.left, map) + getSum(node.right, map);
             map.put(sum, map.getOrDefault(sum, 0) + 1);
             return sum;

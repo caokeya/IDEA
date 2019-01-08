@@ -42,10 +42,40 @@ public class _410_Split_Array_Largest_Sum_分割数组的最大值_难 {
                     }
                 }
             }
-
             return dp[0];
         }
     }
-    
-    
+
+    class Solution {
+        public int splitArray(int[] nums, int m) {
+            int max = 0;
+            long sum = 0;
+            for (int num : nums) {
+                max = Math.max(num, max);
+                sum += num;
+            }
+
+            //binary search for max_sum of each group
+            long l = max, r = sum;
+            while (l < r) {
+                long mid = l + (r - l) / 2;
+                int cnt = groupCnt(nums, mid);
+                if (cnt > m) l = mid + 1;  // cnt == m does not mean to stop
+                else r = mid;
+            }
+            return (int) r;
+        }
+
+        private int groupCnt(int[] nums, long target) {
+            int groupCnt = 1, sum = 0;
+            for (int num : nums) {
+                if (sum + num <= target) sum += num;
+                else {
+                    groupCnt++;
+                    sum = num;
+                }
+            }
+            return groupCnt;
+        }
+    }
 }

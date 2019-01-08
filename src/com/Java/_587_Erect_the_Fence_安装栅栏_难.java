@@ -19,7 +19,7 @@ import java.util.Set;
 即使树都在一条直线上，你也需要先用绳子包围它们。
  */
 public class _587_Erect_the_Fence_安装栅栏_难 {
-    /**
+    /*
      * Definition for a point.
      */
     class Point {

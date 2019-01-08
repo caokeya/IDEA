@@ -28,7 +28,7 @@ public class _590_N_ary_Tree_Postorder_Traversal_N叉树的后序遍历 {
             val = _val;
             children = _children;
         }
-    };
+    }
 
     // Iterative Solution
     class Solution {
@@ -36,10 +36,8 @@ public class _590_N_ary_Tree_Postorder_Traversal_N叉树的后序遍历 {
             List<Integer> list = new ArrayList<>();
             if (root == null)
                 return list;
-
             Stack<Node> stack = new Stack<>();
             stack.add(root);
-
             while (!stack.isEmpty()) {
                 root = stack.pop();
                 list.add(root.val);
@@ -58,12 +56,9 @@ public class _590_N_ary_Tree_Postorder_Traversal_N叉树的后序遍历 {
         public List<Integer> postorder(Node root) {
             if (root == null)
                 return list;
-
             for (Node child : root.children)
                 postorder(child);
-
             list.add(root.val);
-
             return list;
         }
     }

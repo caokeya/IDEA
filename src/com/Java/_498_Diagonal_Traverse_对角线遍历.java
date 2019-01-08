@@ -19,32 +19,32 @@ public class _498_Diagonal_Traverse_对角线遍历 {
             int m = matrix.length;
             int n = matrix[0].length;
             int[] ans = new int[m * n];
-            int r = 0;
-            int c = 0;
+            int row = 0;
+            int col = 0;
 
             for (int i = 0; i < m * n; i++) {
-                ans[i] = matrix[r][c];
-                if ((r + c) % 2 == 0) { // moveup
-                    if (c == n - 1) {
-                        r++;
-                    } // 在matrix最右排的情况
-                    else if (r == 0) {
-                        c++;
-                    } // 在matrix第一排的情况
-                    else {
-                        c++;
-                        r--;
+                ans[i] = matrix[row][col];
+                if ((row + col) % 2 == 0) { // moveup
+                    if (col == n - 1) {//最右边，到下一行
+                        row++;
+                    }
+                    else if (row == 0) {//最顶端，向右
+                        col++;
+                    }
+                    else {//向右上
+                        col++;
+                        row--;
                     }
                 } else { // movedown
-                    if (r == m - 1) {
-                        c++;
-                    } // 在matrix最底排的情况
-                    else if (c == 0) {
-                        r++;
-                    } // 在matrix最左排的情况
-                    else {
-                        c--;
-                        r++;
+                    if (row == m - 1) {//最底端，向右
+                        col++;
+                    }
+                    else if (col == 0) {//最左边，向下
+                        row++;
+                    }
+                    else {//向左下
+                        col--;
+                        row++;
                     }
                 }
             }

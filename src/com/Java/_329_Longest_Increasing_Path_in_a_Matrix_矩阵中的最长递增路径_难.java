@@ -32,7 +32,9 @@ public class _329_Longest_Increasing_Path_in_a_Matrix_矩阵中的最长递增�
 
         private int findSmallAround(int i, int j, int[][] matrix, int[][] cache, int pre) {
             // if out of bond OR current cell value larger than previous cell value.
-            if (i < 0 || i >= matrix.length || j < 0 || j >= matrix[0].length || matrix[i][j] >= pre) {
+            if (i < 0 || i >= matrix.length ||
+                j < 0 || j >= matrix[0].length ||
+                matrix[i][j] >= pre) {
                 return 0;
             }
             // if calculated before, no need to do it again

@@ -24,10 +24,9 @@ public class _334_Increasing_Triplet_Subsequence_递增的三元子序列 {
                     small = nums[i];// update small if n is smaller than both
                 else if (nums[i] <= big)
                     big = nums[i];// update big only if greater than small but smaller than big
-                else
+                else if (nums[i] >= big)
                     return true;// return if you find a number bigger than both
             }
-
             return false;
         }
     }

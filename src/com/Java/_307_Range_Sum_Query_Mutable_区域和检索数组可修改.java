@@ -10,7 +10,7 @@ sumRange(0, 2) -> 8
  */
 public class _307_Range_Sum_Query_Mutable_区域和检索数组可修改 {
     public class NumArray {
-        /**
+        /*
          * Binary Indexed Trees (BIT or Fenwick tree):
          * https://www.topcoder.com/community/data-science/data-science-
          * tutorials/binary-indexed-trees/

@@ -21,76 +21,37 @@ import java.util.Random;
 输出: [null,0,1,1,1,0]
  */
 public class _528_Random_Pick_with_Weight_按权重随机选择 {
-
     class Solution {
-        Random rdm = new Random();
-        int[] cur;
+
+        Random random;
+        int[] wSums;
 
         public Solution(int[] w) {
-            if (w == null || w.length == 0)
-                return;
-            cur = new int[w.length];
-            cur[0] = w[0];
-            for (int i = 1; i < w.length; i++) {
-                cur[i] = w[i] + cur[i - 1];
-            }
+            this.random = new Random();
+            for (int i = 1; i < w.length; ++i)
+                w[i] += w[i - 1];
+            this.wSums = w;
         }
 
         public int pickIndex() {
-            int left = 0, right = cur.length - 1;
-            int target = rdm.nextInt(cur[cur.length - 1]) + 1;
-
+            int len = wSums.length;
+            int idx = random.nextInt(wSums[len - 1]) + 1;
+            int left = 0, right = len - 1;
+            // search position
             while (left + 1 < right) {
-                int mid = (right - left) / 2 + left;
-                int midval = cur[mid];
-
-                if (midval > target) {
-                    right = mid;
-                } else if (midval < target) {
+                int mid = left + (right - left) / 2;
+                if (wSums[mid] <= idx)
                     left = mid;
-                } else {
-                    return mid;
-                }
-            }
-            if (cur[left] >= target) {
-                return left;
-            }
-            if (cur[right] >= target) {
-                return right;
+                else right = mid;
             }
 
-            return -1;
+            if (wSums[left] >= idx) return left;
+            else return right;
         }
     }
-
-    class Solution2 {
-        int total;
-        int[] sum;
-
-        public Solution2(int[] w) {
-            sum = new int[w.length];
-            total = 0;
-            for (int i = 0; i < w.length; i++) {
-                total += w[i];
-                sum[i] = total;
-            }
-        }
-
-        public int pickIndex() {
-            int random = (int) (Math.random() * total + 1);
-            int index = Arrays.binarySearch(sum, random);
-            if (index < 0)
-                index = -index - 1;
-            return index;
-
-        }
-    }
-
     /**
      * Your Solution object will be instantiated and called as such:
      * Solution obj = new Solution(w);
      * int param_1 = obj.pickIndex();
      */
-
-
 }

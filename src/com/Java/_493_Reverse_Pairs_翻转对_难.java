@@ -55,17 +55,17 @@ public class _493_Reverse_Pairs_翻转对_难 {
             return mergeSort(nums, 0, nums.length - 1);
         }
 
-        private int mergeSort(int[] nums, int s, int e) {
-            if (s >= e)
+        private int mergeSort(int[] nums, int start, int end) {
+            if (start >= end)
                 return 0;
-            int mid = s + (e - s) / 2;
-            int cnt = mergeSort(nums, s, mid) + mergeSort(nums, mid + 1, e);
-            for (int i = s, j = mid + 1; i <= mid; i++) {
-                while (j <= e && nums[i] / 2.0 > nums[j])
+            int mid = start + (end - start) / 2;
+            int cnt = mergeSort(nums, start, mid) + mergeSort(nums, mid + 1, end);
+            for (int i = start, j = mid + 1; i <= mid; i++) {
+                while (j <= end && nums[i] / 2.0 > nums[j])
                     j++;
                 cnt += j - (mid + 1);
             }
-            Arrays.sort(nums, s, e + 1);
+            Arrays.sort(nums, start, end + 1);
             return cnt;
         }
     }

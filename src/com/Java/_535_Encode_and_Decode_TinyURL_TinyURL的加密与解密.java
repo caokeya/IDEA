@@ -1,6 +1,7 @@
 package src.com.Java;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*
 TinyURL是一种URL简化服务， 比如：当你输入一个URL https://leetcode.com/problems/design-tinyurl 时，它将返回一个简化的URL http://tinyurl.com/4e9iAk.
@@ -8,22 +9,19 @@ TinyURL是一种URL简化服务， 比如：当你输入一个URL https://leetco
 你的加密和解密算法如何设计和运作是没有限制的，你只需要保证一个URL可以被加密成一个TinyURL，并且这个TinyURL可以用解密方法恢复成原本的URL。
  */
 public class _535_Encode_and_Decode_TinyURL_TinyURL的加密与解密 {
-
     public class Codec {
-        HashMap<String, String> short2Original = new HashMap<String, String>();
-
-        Integer counter = 0;
+        Map<String, String> dict = new HashMap<>();
 
         // Encodes a URL to a shortened URL.
         public String encode(String longUrl) {
-            Integer ctr = this.counter++;
-            short2Original.put(Integer.toString(ctr), longUrl);
-            return Integer.toString(ctr);
+            String url = "http://tinyurl.com/" + longUrl.hashCode();
+            dict.put(url, longUrl);
+            return url;
         }
 
         // Decodes a shortened URL to its original URL.
         public String decode(String shortUrl) {
-            return short2Original.get(shortUrl);
+            return dict.get(shortUrl);
         }
     }
 

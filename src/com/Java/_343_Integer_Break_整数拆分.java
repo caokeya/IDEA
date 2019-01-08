@@ -8,6 +8,19 @@ package src.com.Java;
 解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36。
  */
 public class _343_Integer_Break_整数拆分 {
+    class SolutionDP {
+        public int integerBreak(int n) {
+            int[] dp = new int[n + 1];
+            dp[1] = 1;
+            for (int i = 2; i <= n; i++) {
+                for (int j = 1; j < i; j++) {
+                    dp[i] = Math.max(dp[i], Math.max(i - j, dp[i - j]) * Math.max(j, dp[j]));
+                }
+            }
+            return dp[n];
+        }
+    }
+
     public class Solution {
         public int integerBreak(int n) {
             if (n == 2)
@@ -22,20 +35,6 @@ public class _343_Integer_Break_整数拆分 {
             product *= n;
 
             return product;
-        }
-    }
-    
-    class SolutionDP {
-        public int integerBreak(int n) {
-            int[] dp = new int[n + 1];
-            dp[1] = 1;
-            
-            for (int i = 2; i <= n; i++) {
-                for (int j = 1; j < i; j++) {
-                    dp[i] = Math.max(dp[i], Math.max(i - j, dp[i - j]) * Math.max(j, dp[j]));
-                }
-            }
-            return dp[n];
         }
     }
 }

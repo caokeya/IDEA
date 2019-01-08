@@ -13,13 +13,31 @@ n = 5
 因为第三行不完整，所以返回2.
  */
 public class _441_Arranging_Coins_排列硬币 {
-    class Solution {
+    class SolutionMath {
         /*
          * sum = (x + 1) * x / 2
          * so for this problem, if we know the the sum, then we can know the x = (-1 + sqrt(8 * n + 1)) / 2
          */
         public int arrangeCoins(int n) {
-            return (int) ((Math.sqrt(8.0 * n + 2) - 1) / 2);
+            return (int) ((Math.sqrt(8.0 * n + 1) - 1) / 2);
+        }
+    }
+
+    class Solution {
+        public int arrangeCoins(int n) {
+            if(n == 0) return 0;
+            int i = 1;
+            int res = 0;
+            while(n > 0){
+                n -= i;
+                if(n < 0){
+                    res =  i - 1;
+                }else if(n == 0){
+                    res = i;
+                }
+                i++;
+            }
+            return res;
         }
     }
 }

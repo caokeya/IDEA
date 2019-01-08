@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 给定一个非空字符串，其中包含字母顺序打乱的英文单词表示的数字0-9。按升序输出原始的数字。
 注意:
@@ -16,9 +17,9 @@ public class _423_Reconstruct_Original_Digits_from_English_从英文中重建数
     class Solution {
         public String originalDigits(String s) {
             int[] count = new int[10];
-            for (int i = 0; i < s.length(); i++){
+            for (int i = 0; i < s.length(); i++) {
                 char c = s.charAt(i);
-                if (c == 'z') count[0]++;//o n e
+                if (c == 'z') count[0]++;//z e r o
                 if (c == 'w') count[2]++;//t w o
                 if (c == 'x') count[6]++;//s i x
                 if (c == 's') count[7]++;//s e v e n 7-6
@@ -35,12 +36,12 @@ public class _423_Reconstruct_Original_Digits_from_English_从英文中重建数
             count[9] = count[9] - count[8] - count[5] - count[6];//i
             count[1] = count[1] - count[0] - count[2] - count[4];//o
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i <= 9; i++){
-                for (int j = 0; j < count[i]; j++){
+            for (int i = 0; i <= 9; i++) {
+                for (int j = 0; j < count[i]; j++) {
                     sb.append(i);
                 }
             }
             return sb.toString();
         }
-        }
+    }
 }

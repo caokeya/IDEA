@@ -1,5 +1,8 @@
 package src.com.Java;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /*
 在 "100 game" 这个游戏中，两名玩家轮流选择从 1 到 10 的任意整数，累计整数和，先使得累计整数和达到 100 的玩家，即为胜者。
 如果我们将游戏规则改为 “玩家不能重复使用整数” 呢？
@@ -28,23 +31,22 @@ public class _464_Can_I_Win_我能赢吗 {
             }
             Boolean[] memo = new Boolean[1 << (maxChoosableInteger + 1)];
             return canWin(memo, 0, 0, maxChoosableInteger, desiredTotal);
-
         }
 
-        private boolean canWin(Boolean[] memo, int currSum, int status, int choose, int total) {
+        private boolean canWin(Boolean[] memo, int currSum, int status, int maxChoosableInteger, int desiredTotal) {
             // look up in memory for same situation
             if (memo[status] != null) {
                 return memo[status];
             }
             // try all situations
-            for (int i = 1; i <= choose; i++) {
-                // 先判断i是否可以用
+            for (int i = 1; i <= maxChoosableInteger; i++) {
+                // 先判断i是否可以用，二进制一位一位的判断
                 if ((status & (1 << i)) == 0) {
-                    if (i + currSum >= total) {
+                    if (i + currSum >= desiredTotal) {
                         memo[status] = true;
                         return true;
                     }
-                    if (!canWin(memo, i + currSum, status | (1 << i), choose, total)) {
+                    if (!canWin(memo, i + currSum, status | (1 << i), maxChoosableInteger, desiredTotal)) {
                         memo[status] = true;
                         return true;
                     }
@@ -52,6 +54,53 @@ public class _464_Can_I_Win_我能赢吗 {
             }
             memo[status] = false;
             return false;
+        }
+    }
+
+    public class SolutionMap {
+        Map<Integer, Boolean> map;
+        boolean[] used;
+
+        public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
+            int sum = (1 + maxChoosableInteger) * maxChoosableInteger / 2;
+            if (sum < desiredTotal) return false;
+            if (desiredTotal <= 0) return true;
+
+            map = new HashMap();
+            used = new boolean[maxChoosableInteger + 1];
+            return helper(desiredTotal);
+        }
+
+        public boolean helper(int desiredTotal) {
+            if (desiredTotal <= 0) return false;
+            int key = format(used);
+            if (!map.containsKey(key)) {
+                // try every unchosen number as next step
+                for (int i = 1; i < used.length; i++) {
+                    if (!used[i]) {
+                        used[i] = true;
+                        // check whether this lead to a win (i.e. the other player lose)
+                        if (!helper(desiredTotal - i)) {
+                            map.put(key, true);
+                            used[i] = false;
+                            return true;
+                        }
+                        used[i] = false;
+                    }
+                }
+                map.put(key, false);
+            }
+            return map.get(key);
+        }
+
+        // transfer boolean[] to an Integer
+        public int format(boolean[] used) {
+            int num = 0;
+            for (boolean b : used) {
+                num <<= 1;
+                if (b) num |= 1;
+            }
+            return num;
         }
     }
 }

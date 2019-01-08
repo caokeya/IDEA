@@ -18,7 +18,7 @@ import java.util.Queue;
 第0层的平均值是 3,  第1层是 14.5, 第2层是 11. 因此返回 [3, 14.5, 11].
  */
 public class _637_Average_of_Levels_in_Binary_Tree_二叉树的层平均值 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

@@ -13,7 +13,7 @@ package src.com.Java;
           20     13
  */
 public class _538_Convert_BST_to_Greater_Tree_把二叉搜索树转换为累加树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -26,23 +26,16 @@ public class _538_Convert_BST_to_Greater_Tree_把二叉搜索树转换为累加�
         }
     }
 
-    public class Solution {
-
+    class Solution {
         int sum = 0;
 
         public TreeNode convertBST(TreeNode root) {
-            convert(root);
+            if (root == null) return null;
+            convertBST(root.right);
+            root.val += sum;
+            sum = root.val;
+            convertBST(root.left);
             return root;
         }
-
-        public void convert(TreeNode cur) {
-            if (cur == null)
-                return;
-            convert(cur.right);
-            cur.val += sum;
-            sum = cur.val;
-            convert(cur.left);
-        }
-
     }
 }

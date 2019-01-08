@@ -26,18 +26,23 @@ public class _559_Maximum_Depth_of_N_ary_Tree_N叉树的最大深度 {
             val = _val;
             children = _children;
         }
-    };
+    }
 
     class Solution {
-        public int maxDepth(Node root) {
-            if (root == null)
-                return 0;
+        int max = 0;
 
-            int max = 0;
-            for (Node c : root.children) {
-                max = Math.max(max, maxDepth(c));
+        public int maxDepth(Node root) {
+            if (root == null) return 0;
+            maxDepth(root, 1);
+            return max;
+        }
+
+        public void maxDepth(Node node, int depth) {
+            if (node == null) return;
+            for (Node child : node.children) {
+                maxDepth(child, depth + 1);
             }
-            return max + 1;
+            max = Math.max(max, depth);
         }
     }
 }

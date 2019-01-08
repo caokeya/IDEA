@@ -29,11 +29,10 @@ public class _491_Increasing_Subsequences_递增子序列 {
                 }
                 if (list.size() == 0 || list.get(list.size() - 1) <= nums[i]) {
                     used.add(nums[i]);
-                    list.add(nums[i]);
-                    helper(list, i + 1, nums, res);
-                    list.remove(list.size() - 1);
+                    list.add(nums[i]);//将nums[i]加入到list
+                    helper(list, i + 1, nums, res);//对加入后的list进行下一次递归
+                    list.remove(list.size() - 1);//将添加的nums[i]去除，考虑下个数字
                 }
-
             }
         }
     }

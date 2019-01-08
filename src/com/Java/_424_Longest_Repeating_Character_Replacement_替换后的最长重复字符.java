@@ -1,7 +1,8 @@
 package src.com.Java;
 
 /*
-给你一个仅由大写英文字母组成的字符串，你可以将任意位置上的字符替换成另外的字符，总共可最多替换 k 次。在执行上述操作后，找到包含重复字母的最长子串的长度。
+给你一个仅由大写英文字母组成的字符串，你可以将任意位置上的字符替换成另外的字符，总共可最多替换 k 次。
+在执行上述操作后，找到包含重复字母的最长子串的长度。
 注意:
 字符串长度 和 k 不会超过 104。
 示例 1:
@@ -15,18 +16,36 @@ s = "ABAB", k = 2
 public class _424_Longest_Repeating_Character_Replacement_替换后的最长重复字符 {
     class Solution {
         public int characterReplacement(String s, int k) {
-            int len = s.length();
-            int[] count = new int[26];
-            int start = 0, maxCount = 0, maxLength = 0;
-            for (int end = 0; end < len; end++) {
-                maxCount = Math.max(maxCount, ++count[s.charAt(end) - 'A']);
-                while (end - start + 1 - maxCount > k) {
-                    count[s.charAt(start) - 'A']--;
-                    start++;
-                }
-                maxLength = Math.max(maxLength, end - start + 1);
+            if (s == null || s.length() == 0) {
+                return 0;
             }
-            return maxLength;
+            int res = getResult(s, k);
+            return res;
+        }
+
+        private int getResult(String s, int k) {
+            int len = s.length();
+            //  数频率
+            int[] count = new int[26];
+            int slow = 0, maxCount = 0, res = 0;
+            for (int fast = 0; fast < len; fast++) {
+                //  字母在count数组中的索引
+                int idx = s.charAt(fast) - 'A';
+                //  对应的字母频率+1
+                count[idx]++;
+                //  统计在当前位置下的最大频率
+                maxCount = Math.max(maxCount, count[idx]);
+
+                //  窗口开始收缩
+                //  收缩条件：
+                //      不同字母的数量超过k
+                while (fast - slow + 1 - maxCount > k) {
+                    count[s.charAt(slow) - 'A']--;
+                    slow++;
+                }
+                res = Math.max(res, fast - slow + 1);
+            }
+            return res;
         }
     }
 }

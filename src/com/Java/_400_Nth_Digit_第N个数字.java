@@ -24,14 +24,33 @@ public class _400_Nth_Digit_第N个数字 {
                 start *= 10;
                 len++;
             }
+            //找到位数
             int index = (n - 1) % len;
-            // 减1是因为start 自己算一个数，要把start 从计算中抠掉
+            //找到数字，减1是因为start 自己算一个数，要把start 从计算中抠掉
             long num = start + (n - 1) / len;
-
             for (int i = index; i < len - 1; i++) {
                 num /= 10;
             }
             return (int) num % 10;
+        }
+    }
+
+    class Solution2 {
+        public int findNthDigit(int n) {
+            int len = 1, start = 1;
+            long count = 9;
+            while (n > len * count) {
+                n -= len * count;
+                len++;
+                count *= 10;
+                start *= 10;
+            }
+            //找到这个数
+            start += (n - 1) / len;
+            //转换成字符串
+            String str = String.valueOf(start);
+            //找到这个字母
+            return Character.getNumericValue(str.charAt((n - 1) % len));
         }
     }
 }

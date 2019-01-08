@@ -16,7 +16,7 @@ package src.com.Java;
  */
 public class _494_Target_Sum_目标和 {
     /*
-     *                   sum(P) - sum(N) = target
+                         sum(P) - sum(N) = target
        sum(P) + sum(N) + sum(P) - sum(N) = target + sum(P) + sum(N)
                               2 * sum(P) = target + sum(nums)
      */
@@ -35,6 +35,25 @@ public class _494_Target_Sum_目标和 {
                 for (int i = s; i >= n; i--)
                     dp[i] += dp[i - n];
             return dp[s];
+        }
+    }
+
+    class Solution2 {
+        int result = 0;
+
+        public int findTargetSumWays(int[] nums, int S) {
+            if (nums == null || nums.length == 0) return result;
+            helper(nums, S, 0, 0);
+            return result;
+        }
+
+        public void helper(int[] nums, int target, int pos, long eval) {
+            if (pos == nums.length) {
+                if (target == eval) result++;
+                return;
+            }
+            helper(nums, target, pos + 1, eval + nums[pos]);
+            helper(nums, target, pos + 1, eval - nums[pos]);
         }
     }
 }

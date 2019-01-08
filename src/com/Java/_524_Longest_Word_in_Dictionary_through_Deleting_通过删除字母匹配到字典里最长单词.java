@@ -38,8 +38,8 @@ public class _524_Longest_Word_in_Dictionary_through_Deleting_通过删除字母
         public String findLongestWord(String s, List<String> d) {
             String max_str = "";
             for (String str : d) {
-                if (str.length() > max_str.length()
-                        || (str.length() == max_str.length() && str.compareTo(max_str) < 0)) {
+                if (str.length() > max_str.length() ||
+                        (str.length() == max_str.length() && str.compareTo(max_str) < 0)) {
                     if (isSubsequence(str, s)) {
                         max_str = str;
                     }

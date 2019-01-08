@@ -13,47 +13,49 @@ import java.util.Stack;
 解释: 通过重复调用 next 直到 hasNext 返回false，next 返回的元素的顺序应该是: [1,1,2,1,1]。
  */
 public class _341_Flatten_Nested_List_Iterator_扁平化嵌套列表迭代器 {
-    /**
+    /*
      * // This is the interface that allows for creating nested lists. // You should
      * not implement it, or speculate about its implementation
      */
     public interface NestedInteger {
 
         // @return true if this NestedInteger holds a single integer, rather than a nested list.
-        public boolean isInteger();
+        boolean isInteger();
 
         // @return the single integer that this NestedInteger holds, if it holds a single integer
         // Return null if this NestedInteger holds a nested list
-        public Integer getInteger();
+        Integer getInteger();
 
         // @return the nested list that this NestedInteger holds, if it holds a nested list
         // Return null if this NestedInteger holds a single integer
-        public List<NestedInteger> getList();
+        List<NestedInteger> getList();
     }
 
     public class NestedIterator implements Iterator<Integer> {
-        NestedInteger nextInt;
-        Stack<Iterator<NestedInteger>> stack;
-
+        Stack<NestedInteger> stack = new Stack<>();
         public NestedIterator(List<NestedInteger> nestedList) {
-            stack = new Stack<Iterator<NestedInteger>>();
-            stack.push(nestedList.iterator());
+            for (int i = nestedList.size() - 1; i >= 0; i--) {
+                stack.push(nestedList.get(i));
+            }
         }
 
         @Override
         public Integer next() {
-            return nextInt != null ? nextInt.getInteger() : null; // Just in case
+            return stack.pop().getInteger();
         }
 
         @Override
         public boolean hasNext() {
-            while (!stack.isEmpty()) {
-                if (!stack.peek().hasNext())
-                    stack.pop();
-                else if ((nextInt = stack.peek().next()).isInteger())
+            while (stack.size() > 0) {
+                NestedInteger top = stack.peek();
+                if (top.isInteger())
                     return true;
-                else
-                    stack.push(nextInt.getList().iterator());
+                else {
+                    stack.pop();
+                    for (int i = top.getList().size() - 1; i >= 0; i--) {
+                        stack.push(top.getList().get(i));
+                    }
+                }
             }
             return false;
         }

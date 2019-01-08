@@ -25,34 +25,47 @@ import java.util.Set;
 public class _310_Minimum_Height_Trees_最小高度树 {
     //先计算degree为1的节点，这些节点只和一个节点相连，所以这些是leaf节点。
     //逐个去除掉leaf节点以后我们可以尝试计算上一层leaf，继续and继续，直到最后我们剩下一个节点或者两个节点，就是我们要求的root nodes。
-    public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        if (n == 1)
-            return Collections.singletonList(0);
-
-        List<Set<Integer>> adj = new ArrayList<>(n);
-        for (int i = 0; i < n; ++i)
-            adj.add(new HashSet<>());
-        for (int[] edge : edges) {
-            adj.get(edge[0]).add(edge[1]);
-            adj.get(edge[1]).add(edge[0]);
-        }
-
-        List<Integer> leaves = new ArrayList<>();
-        for (int i = 0; i < n; ++i)
-            if (adj.get(i).size() == 1)
-                leaves.add(i);
-
-        while (n > 2) {
-            n -= leaves.size();
-            List<Integer> newLeaves = new ArrayList<>();
-            for (int i : leaves) {
-                int j = adj.get(i).iterator().next();
-                adj.get(j).remove(i);
-                if (adj.get(j).size() == 1)
-                    newLeaves.add(j);
+    class Solution {
+        public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+            List<Integer> result = new ArrayList<>();
+            if (n <= 0) {
+                return result;
             }
-            leaves = newLeaves;
+            if (n == 1 && edges.length == 0) {
+                result.add(0);
+                return result;
+            }
+
+            List<List<Integer>> adjList = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                adjList.add(new ArrayList<>());
+            }
+            for (int[] edge : edges) {
+                adjList.get(edge[0]).add(edge[1]);
+                adjList.get(edge[1]).add(edge[0]);
+            }
+
+            List<Integer> leaves = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                if (adjList.get(i).size() == 1) {
+                    leaves.add(i);
+                }
+            }
+
+            while (n > 2) {
+                n -= leaves.size();
+                List<Integer> newLeaves = new ArrayList<>();
+                for (int leaf : leaves) {
+                    int node = adjList.get(leaf).get(0);
+                    adjList.get(node).remove((Integer) leaf);
+                    if (adjList.get(node).size() == 1) {
+                        newLeaves.add(node);
+                    }
+                }
+                leaves = newLeaves;
+            }
+
+            return leaves;
         }
-        return leaves;
     }
 }

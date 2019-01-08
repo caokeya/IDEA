@@ -19,14 +19,16 @@ A = [1, 2, 3, 4]
 public class _413_Arithmetic_Slices_等差数列划分 {
     class Solution {
         public int numberOfArithmeticSlices(int[] A) {
-            int curr = 0, sum = 0;
-            for (int i = 2; i < A.length; i++)
+            if (A.length < 3)
+                return 0;
+            int[] dp = new int[A.length];
+            int sum = 0;
+            for (int i = 2; i < dp.length; i++) {
                 if (A[i] - A[i - 1] == A[i - 1] - A[i - 2]) {
-                    curr += 1;
-                    sum += curr;
-                } else {
-                    curr = 0;
+                    dp[i] = 1 + dp[i - 1];
+                    sum += dp[i];
                 }
+            }
             return sum;
         }
     }

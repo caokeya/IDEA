@@ -16,21 +16,20 @@ package src.com.Java;
 public class _443_String_Compression_压缩字符串 {
     class Solution {
         public int compress(char[] chars) {
-            int idx = 0, writeIdx = 0;
-            while (idx < chars.length) {
-                char c = chars[idx];
+            int indexAns = 0, index = 0;
+            while (index < chars.length) {
+                char currentChar = chars[index];
                 int count = 0;
-                while (idx < chars.length && chars[idx] == c) {
+                while (index < chars.length && chars[index] == currentChar) {
+                    index++;
                     count++;
-                    idx++;
                 }
-                chars[writeIdx++] = c;
+                chars[indexAns++] = currentChar;
                 if (count != 1)
-                    for (char i : Integer.toString(count).toCharArray()) {
-                        chars[writeIdx++] = i;
-                    }
+                    for (char c : Integer.toString(count).toCharArray())
+                        chars[indexAns++] = c;
             }
-            return writeIdx;
+            return indexAns;
         }
     }
 }

@@ -11,18 +11,18 @@ n 变为 1 所需的最小替换次数是多少？
 public class _397_Integer_Replacement_整数替换 {
     class Solution {
         public int integerReplacement(int n) {
-        int c = 0;
+        int count = 0;
         while (n != 1) {
-            if ((n & 1) == 0) {
+            if ((n & 1) == 0) {//最后一位是0
                 n >>>= 1;
-            } else if (n == 3 || ((n >>> 1) & 1) == 0) {
+            } else if (n == 3 || ((n >>> 1) & 1) == 0) {//最后一位是1，但是倒数第二位是0就-1
                 --n;
-            } else {
+            } else {//最后一位是1，但是倒数第二位是1就+1
                 ++n;
             }
-            ++c;
+            ++count;
         }
-        return c;
+        return count;
         }
     }
 }

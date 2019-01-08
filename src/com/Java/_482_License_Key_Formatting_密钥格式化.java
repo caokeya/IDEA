@@ -31,7 +31,6 @@ public class _482_License_Key_Formatting_密钥格式化 {
                     charsAppended++;
                 }
             }
-
             return result.reverse().toString();
         }
     }

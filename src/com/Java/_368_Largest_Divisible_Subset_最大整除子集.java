@@ -34,9 +34,7 @@ public class _368_Largest_Divisible_Subset_最大整除子集 {
                     }
                 }
             }
-
             int i = maxIndex;
-
             while (i >= 0) {
                 result.add(0, nums[i]);
                 i = index[i];

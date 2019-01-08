@@ -9,7 +9,8 @@ import java.util.PriorityQueue;
 import java.util.Set;
 
 /*
-设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。你的设计需要支持以下的几个功能：
+设计一个简化版的推特(Twitter)，可以让用户实现发送推文，关注/取消关注其他用户，能够看见关注人（包括自己）的最近十条推文。
+你的设计需要支持以下的几个功能：
     1.postTweet(userId, tweetId): 创建一条新的推文
     2.getNewsFeed(userId): 检索最近的十条推文。每个推文都必须是由此用户关注的人或者是用户自己发出的。推文必须按照时间顺序由最近的开始排序。
     3.follow(followerId, followeeId): 关注一个用户
@@ -39,15 +40,12 @@ twitter.unfollow(1, 2);
 // 用户1的获取推文应当返回一个列表，其中包含一个id为5的推文.
 // 因为用户1已经不再关注用户2.
 twitter.getNewsFeed(1);
-
  */
 public class _355_Design_Twitter_设计推特 {
     public class Twitter {
         private  int timeStamp=0;
-        
         // easy to find if user exist
         private Map<Integer, User> userMap;
-        
         // Tweet link to next Tweet so that we can save a lot of time
         // when we execute getNewsFeed(userId)
         private class Tweet{
@@ -61,8 +59,7 @@ public class _355_Design_Twitter_设计推特 {
                 next=null;
             }
         }
-        
-        
+
         // OO design so User can follow, unfollow and post itself
         public class User{
             public int id;
@@ -83,8 +80,7 @@ public class _355_Design_Twitter_设计推特 {
             public void unfollow(int id){
                 followed.remove(id);
             }
-            
-            
+
             // everytime user post a new tweet, add it to the head of tweet list.
             public void post(int id){
                 Tweet t = new Tweet(id);
@@ -92,27 +88,21 @@ public class _355_Design_Twitter_设计推特 {
                 tweet_head=t;
             }
         }
-        
-        
-        
 
-        /** Initialize your data structure here. */
+        /* Initialize your data structure here. */
         public Twitter() {
             userMap = new HashMap<Integer, User>();
         }
         
-        /** Compose a new tweet. */
+        /* Compose a new tweet. */
         public void postTweet(int userId, int tweetId) {
             if(!userMap.containsKey(userId)){
                 User u = new User(userId);
                 userMap.put(userId, u);
             }
             userMap.get(userId).post(tweetId);
-                
         }
-        
 
-        
         // Best part of this.
         // first get all tweets lists from one user including itself and all people it followed.
         // Second add all heads into a max heap. Every time we poll a tweet with 
@@ -141,12 +131,10 @@ public class _355_Design_Twitter_设计推特 {
               if(t.next!=null)
                 q.add(t.next);
             }
-            
             return res;
-            
         }
         
-        /** Follower follows a followee. If the operation is invalid, it should be a no-op. */
+        /* Follower follows a followee. If the operation is invalid, it should be a no-op. */
         public void follow(int followerId, int followeeId) {
             if(!userMap.containsKey(followerId)){
                 User u = new User(followerId);
@@ -159,14 +147,13 @@ public class _355_Design_Twitter_设计推特 {
             userMap.get(followerId).follow(followeeId);
         }
         
-        /** Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
+        /* Follower unfollows a followee. If the operation is invalid, it should be a no-op. */
         public void unfollow(int followerId, int followeeId) {
             if(!userMap.containsKey(followerId) || followerId==followeeId)
                 return;
             userMap.get(followerId).unfollow(followeeId);
         }
     }
-
     /**
      * Your Twitter object will be instantiated and called as such:
      * Twitter obj = new Twitter();

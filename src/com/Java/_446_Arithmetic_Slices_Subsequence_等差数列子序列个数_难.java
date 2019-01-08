@@ -31,10 +31,10 @@ public class _446_Arithmetic_Slices_Subsequence_等差数列子序列个数_难 
                         continue;
                     int d = (int) diff;
                     // map[i].get(d)表示以第i个数为最后一位，差为d的，数组长度大于等于2的组合数
-                    int c1 = map[i].getOrDefault(d, 0);
-                    int c2 = map[j].getOrDefault(d, 0);
-                    result += c2;
-                    map[i].put(d, 1 + c1 + c2);
+                    int origin = map[i].getOrDefault(d, 0);
+                    int sum = map[j].getOrDefault(d, 0);
+                    result += sum;
+                    map[i].put(d, 1 + origin + sum);
                 }
             }
             return result;

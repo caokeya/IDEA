@@ -15,30 +15,39 @@ n = 10, 我选择了8.
 给定 n ≥ 1，计算你至少需要拥有多少现金才能确保你能赢得这个游戏。
  */
 public class _375_Guess_Number_Higher_or_Lower_ll_猜数字大小2 {
-    class Solution {
+    public class Solution {
         public int getMoneyAmount(int n) {
-            return getMoneyAmount(1, n, new int[n][n]);
+            int[][] table = new int[n + 1][n + 1];
+            return DP(table, 1, n);
         }
 
-        public int getMoneyAmount(int l, int r, int[][] memo) {
-            if (l >= r)
-                return 0;
-            if (l + 1 == r)
-                return l;
-            if (l + 2 == r)
-                return l + 1;
-
-            if (memo[l - 1][r - 1] != 0)
-                return memo[l - 1][r - 1];
+        int DP(int[][] t, int s, int e) {
+            if (s >= e) return 0;
+            if (t[s][e] != 0) return t[s][e];
             int res = Integer.MAX_VALUE;
-            for (int i = l; i <= r; i++) {
-                int left = getMoneyAmount(l, i - 1, memo);
-                int right = getMoneyAmount(i + 1, r, memo);
-                res = Math.min(res, Math.max(left, right) + i);
+            for (int x = s; x <= e; x++) {
+                int tmp = x + Math.max(DP(t, s, x - 1), DP(t, x + 1, e));
+                res = Math.min(res, tmp);
             }
-            memo[l - 1][r - 1] = res;
+            t[s][e] = res;
             return res;
         }
+    }
 
+    public class Solution2 {
+        public int getMoneyAmount(int n) {
+            int[][] table = new int[n + 1][n + 1];
+            for (int j = 2; j <= n; j++) {
+                for (int i = j - 1; i > 0; i--) {
+                    int globalMin = Integer.MAX_VALUE;
+                    for (int k = i + 1; k < j; k++) {
+                        int localMax = k + Math.max(table[i][k - 1], table[k + 1][j]);
+                        globalMin = Math.min(globalMin, localMax);
+                    }
+                    table[i][j] = i + 1 == j ? i : globalMin;
+                }
+            }
+            return table[1][n];
+        }
     }
 }

@@ -15,9 +15,7 @@ public class _386_Lexicographical_Numbers_字典序排数 {
             if (n <= 0) {
                 return results;
             }
-
             helper(n, results, 1, 9);
-
             return results;
         }
 
@@ -31,6 +29,30 @@ public class _386_Lexicographical_Numbers_字典序排数 {
                 }
                 results.add(i);
                 helper(n, results, i * 10, i * 10 + 9);
+            }
+        }
+    }
+
+    class Solution2 {
+        public List<Integer> lexicalOrder(int n) {
+            List<Integer> res = new ArrayList<>();
+            for (int i = 1; i < 10; i++) {
+                dfs(i, n, res);
+            }
+            return res;
+        }
+
+        private void dfs(int cur, int n, List<Integer> res) {
+            if (cur > n) {
+                return;
+            } else {
+                res.add(cur);
+                for (int i = 0; i < 10; i++) {
+                    if (10 * cur + i > n) {
+                        return;
+                    }
+                    dfs(10 * cur + i, n, res);
+                }
             }
         }
     }

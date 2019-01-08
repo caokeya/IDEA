@@ -12,7 +12,7 @@ package src.com.Java;
 返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
  */
 public class _543_Diameter_of_Binary_Tree_二叉树的直径 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

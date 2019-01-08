@@ -34,9 +34,7 @@ public class _500_Keyboard_Row_键盘行 {
                     }
                 }
             }
-
             return list.toArray(new String[list.size()]);
         }
     }
-
 }

@@ -14,28 +14,20 @@ import java.util.Arrays;
 2,2,3
  */
 public class _611_Valid_Triangle_Number_有效三角形的个数 {
-    class Solution {
-        // Three Pointer like 3-sum
-        // Time O(n^2) Space O(1)
+    public class Solution {
         public int triangleNumber(int[] nums) {
-            if (nums == null || nums.length < 3)
-                return 0;
+            int result = 0;
+            if (nums.length < 3) return result;
             Arrays.sort(nums);
-            int result = 0;
-            for (int i = nums.length - 1; i >= 2; i--)
-                result += backtrack(nums, i);
-            return result;
-        }
-
-        private int backtrack(int[] nums, int index) {
-            int l = 0, r = index - 1;
-            int result = 0;
-            while (l < r) {
-                if (nums[index] < nums[l] + nums[r]) {
-                    result += r - l;
-                    r--;
-                } else {
-                    l++;
+            for (int i = 2; i < nums.length; i++) {
+                int left = 0, right = i - 1;
+                while (left < right) {
+                    if (nums[left] + nums[right] > nums[i]) {
+                        result += (right - left);
+                        right--;
+                    } else {
+                        left++;
+                    }
                 }
             }
             return result;

@@ -1,4 +1,5 @@
 package src.com.Java;
+
 /*
 有 n 个气球，编号为0 到 n-1，每个气球上都标有一个数字，这些数字存在数组 nums 中。
 现在要求你戳破所有的气球。每当你戳破一个气球 i 时，你可以获得 nums[left] * nums[i] * nums[right] 个硬币。
@@ -11,33 +12,55 @@ package src.com.Java;
 输入: [3,1,5,8]
 输出: 167 
 解释: nums = [3,1,5,8] --> [3,5,8] -->   [3,8]   -->  [8]  --> []
-   coins =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
+     coins =  3*1*5      +  3*5*8    +   1*3*8      + 1*8*1   = 167
  */
 public class _312_Burst_Balloons_戳气球_难 {
     class Solution {
         public int maxCoins(int[] nums) {
-         int n = nums.length + 2;
+            int n = nums.length + 2;
             int[] balloons = new int[n];
             for (int i = 0; i < nums.length; i++) {
-                balloons[i+1] = nums[i];
+                balloons[i + 1] = nums[i];
             }
-            balloons[0] = balloons[n-1] = 1;
-            
-            int[][] dp = new int[n][n]; 
-            
+            balloons[0] = balloons[n - 1] = 1;
+
+            int[][] dp = new int[n][n];
+
             for (int len = 2; len < n; len++) {
                 for (int left = 0; left + len < n; left++) {
                     int right = left + len;
-                    for (int k = left+1; k < right; k++) {
-                        dp[left][right] = 
-                            Math.max(
-                                dp[left][right],
-                                dp[left][k]+balloons[left]*balloons[k]*balloons[right]+dp[k][right]
-                            );
+                    for (int k = left + 1; k < right; k++) {
+                        dp[left][right] = Math.max(dp[left][right],
+                                dp[left][k] + balloons[left] * balloons[k] * balloons[right] + dp[k][right]);
                     }
                 }
             }
-            return dp[0][n-1];
+            return dp[0][n - 1];
+        }
+    }
+
+    class Solution2 {
+        public int maxCoins(int[] iNums) {
+            int[] nums = new int[iNums.length + 2];
+            int n = 1;
+            for (int x : iNums) if (x > 0)
+                nums[n++] = x;
+            nums[0] = nums[n++] = 1;
+            int[][] memo = new int[n][n];
+            return burst(memo, nums, 0, n - 1);
+        }
+
+        public int burst(int[][] memo, int[] nums, int left, int right) {
+            if (left + 1 == right)
+                return 0;
+            if (memo[left][right] > 0)
+                return memo[left][right];
+            int ans = 0;
+            for (int i = left + 1; i < right; ++i)
+                ans = Math.max(ans,
+                               nums[left] * nums[i] * nums[right] + burst(memo, nums, left, i) + burst(memo, nums, i, right));
+            memo[left][right] = ans;
+            return ans;
         }
     }
 }

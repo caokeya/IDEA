@@ -15,23 +15,31 @@ solution.pick(3);
 solution.pick(1);
  */
 public class _398_Random_Pick_Index_随机数索引 {
-    public class Solution {
+    class Solution {
+
         int[] nums;
-        Random r;
+        Random rnd;
 
         public Solution(int[] nums) {
             this.nums = nums;
-            r = new Random();
+            this.rnd = new Random();
         }
 
         public int pick(int target) {
-            int size = nums.length;
-            int i = r.nextInt(size);
-            while (nums[i] != target) {
-                i = r.nextInt(size);
+            int result = -1;
+            int count = 0;
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] != target)
+                    continue;
+                /* randomly select an int from 0 to the nums of target.
+                If x equals 0, set the res as the current index.
+                The probability is always 1/nums for the latest appeared number.
+                For example, 1 for 1st num, 1/2 for 2nd num, 1/3 for 3nd num (1/2 * 2/3 for each of the first 2 nums).
+                 */
+                if (rnd.nextInt(++count) == 0)
+                    result = i;
             }
-
-            return i;
+            return result;
         }
     }
     /**

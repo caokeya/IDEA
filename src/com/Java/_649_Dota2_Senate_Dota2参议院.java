@@ -4,8 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /*
- Dota2 的世界里有两个阵营：Radiant(天辉)和 Dire(夜魇)
-Dota2 参议院由来自两派的参议员组成。现在参议院希望对一个 Dota2 游戏里的改变作出决定。他们以一个基于轮为过程的投票进行。在每一轮中，每一位参议员都可以行使两项权利中的一项：
+Dota2 的世界里有两个阵营：Radiant(天辉)和 Dire(夜魇)
+Dota2 参议院由来自两派的参议员组成。现在参议院希望对一个 Dota2 游戏里的改变作出决定。他们以一个基于轮为过程的投票进行。
+在每一轮中，每一位参议员都可以行使两项权利中的一项：
     禁止一名参议员的权利：参议员可以让另一位参议员在这一轮和随后的几轮中丧失所有的权利。
     宣布胜利：如果参议员发现有权利投票的参议员都是同一个阵营的，他可以宣布胜利并决定在游戏中的有关变化。
 给定一个字符串代表每个参议员的阵营。字母“R”和“D”分别代表了Radiant(天辉)和 Dire(夜魇)。然后，如果有 n 个参议员，给定字符串的大小将是n。
@@ -18,11 +19,15 @@ Dota2 参议院由来自两派的参议员组成。现在参议院希望对一�
 然后在第二轮的时候，第一个参议员可以宣布胜利，因为他是唯一一个有投票权的人
  */
 public class _649_Dota2_Senate_Dota2参议院 {
+    /*
+    这是一个遗忘贪婪算法问题。每一个参议院R必须禁止它的下一个最接近的来自另一个政党的参议院D，否则D将禁止它的下一个参议院来自R的政党。
+    其思想是使用两个队列分别从R党和D党保存每个参议院的索引。
+    在每一轮投票中，我们删除被禁止的参议院索引;然后加上带有n(输入字符串senate的长度)的剩余参议院索引，然后将其移动到其相应队列的后面。
+    */
     class Solution {
         public String predictPartyVictory(String senate) {
             Queue<Integer> queue1 = new LinkedList<Integer>();
             Queue<Integer> queue2 = new LinkedList<Integer>();
-
             for (int i = 0; i < senate.length(); i++) {
                 if (senate.charAt(i) == 'R') {
                     queue1.offer(i);
@@ -30,18 +35,15 @@ public class _649_Dota2_Senate_Dota2参议院 {
                     queue2.offer(i);
                 }
             }
-
             while (!queue1.isEmpty() && !queue2.isEmpty()) {
                 int i = queue1.poll();
                 int j = queue2.poll();
-
                 if (i < j) {
                     queue1.offer(i + senate.length());
                 } else {
                     queue2.offer(j + senate.length());
                 }
             }
-
             return queue1.size() > queue2.size() ? "Radiant" : "Dire";
         }
     }

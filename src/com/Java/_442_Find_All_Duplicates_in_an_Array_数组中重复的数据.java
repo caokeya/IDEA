@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class _442_Find_All_Duplicates_in_an_Array_数组中重复的数据 {
     public class Solution {
+        //没使用额外空间
         // when find a number i, flip the number at position i-1 to negative.
         // if the number at position i-1 is already negative, i is the number that occurs twice.
-
         public List<Integer> findDuplicates(int[] nums) {
             List<Integer> res = new ArrayList<>();
             for (int i = 0; i < nums.length; ++i) {
@@ -26,6 +26,23 @@ public class _442_Find_All_Duplicates_in_an_Array_数组中重复的数据 {
                 nums[index] = -nums[index];
             }
             return res;
+        }
+    }
+
+    class SolutionBoolean {
+        //使用额外空间
+        public List<Integer> findDuplicates(int[] nums) {
+            int size = nums.length;
+            List<Integer> list = new ArrayList();
+            boolean[] appeared = new boolean[size + 1];
+            for (int i = 0; i < size; i++) {
+                if (appeared[nums[i]]) {
+                    list.add(nums[i]);
+                } else {
+                    appeared[nums[i]] = true;
+                }
+            }
+            return list;
         }
     }
 }

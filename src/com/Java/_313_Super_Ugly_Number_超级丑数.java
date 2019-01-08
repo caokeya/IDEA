@@ -19,7 +19,6 @@ public class _313_Super_Ugly_Number_超级丑数 {
                 for (int j = 0; j < primes.length; j++) {
                     res[i] = Math.min(res[i], primes[j] * res[index[j]]);
                 }
-                //
                 for (int j = 0; j < primes.length; j++) {
                     if (primes[j] * res[index[j]] == res[i]) {
                         index[j]++;

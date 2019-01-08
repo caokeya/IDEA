@@ -40,7 +40,7 @@ public class _396_Rotate_Function_旋转函数 {
                 F += i * A[i];
                 Sum += A[i];
             }
-            int max = F;
+            int max = F;//F(0)
             for (int i = n - 1; i >= 1; i--) {
                 F = F + Sum - n * A[i];
                 max = Math.max(F, max);

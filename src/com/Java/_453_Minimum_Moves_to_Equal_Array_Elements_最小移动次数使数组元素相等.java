@@ -17,15 +17,14 @@ public class _453_Minimum_Moves_to_Equal_Array_Elements_最小移动次数使数
             // increment n-1 elements by 1 == decrement one element by 1
             // the idea is to find the min element and count the steps
             // to make every element equals to it
-
-            int res = 0;
             int min = Integer.MAX_VALUE;
-            for (int n : nums) {
-                if (min > n)
-                    min = n;
+            int sum = 0;
+            for (int num : nums) {
+                min = Math.min(min, num);
             }
-            for (int n : nums) {
-                res += n - min;
+            int res = 0;
+            for (int num : nums) {
+                res += num - min;
             }
             return res;
         }

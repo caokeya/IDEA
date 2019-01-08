@@ -16,7 +16,7 @@ getRandom()方法应随机返回1,2,3中的一个，保证每个元素被返回�
 solution.getRandom();
  */
 public class _382_Linked_List_Random_Node_链表随机节点 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -28,34 +28,37 @@ public class _382_Linked_List_Random_Node_链表随机节点 {
         }
     }
 
-    public class Solution {
-
-        ListNode head;
+    class Solution {
+        /*
+         * @param head The linked list's head.
+         * Note that the head is guaranteed to be not null, so it contains at least one node.
+         */
+        ListNode first;
         Random random;
 
-        public Solution(ListNode h) {
-            head = h;
+        public Solution(ListNode head) {
+            first = head;
             random = new Random();
         }
 
+        /*
+         * Returns a random node's value.
+         */
         public int getRandom() {
-
-            ListNode c = head;
-            int r = c.val;
-            for (int i = 1; c.next != null; i++) {
-
-                c = c.next;
-                if (random.nextInt(i + 1) == i)
-                    r = c.val;
+            int result = first.val;
+            ListNode cur = first;
+            for (int i = 1; cur.next != null; i++) {
+                cur = cur.next;
+                if (random.nextInt(i + 1) == i) {
+                    result = cur.val;
+                }
             }
-
-            return r;
+            return result;
         }
     }
-
     /**
-     * Your Solution object will be instantiated and called as such: 
-     * Solution obj =new Solution(head); 
+     * Your Solution object will be instantiated and called as such:
+     * Solution obj = new Solution(head);
      * int param_1 = obj.getRandom();
      */
 }
