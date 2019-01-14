@@ -9,7 +9,8 @@ import java.util.TreeMap;
 MyCalendar 有一个 book(int start, int end)方法。它意味着在start到end时间内增加一个日程安排，
 注意，这里的时间是半开区间，即 [start, end), 实数 x 的范围为，  start <= x < end。
 当三个日程安排有一些时间上的交叉时（例如三个日程安排都在同一时间内），就会产生三重预订。
-每次调用 MyCalendar.book方法时，如果可以将日程安排成功添加到日历中而不会导致三重预订，返回 true。否则，返回 false 并且不要将该日程安排添加到日历中。
+每次调用 MyCalendar.book方法时，如果可以将日程安排成功添加到日历中而不会导致三重预订，返回 true。
+否则，返回 false 并且不要将该日程安排添加到日历中。
 请按照以下步骤调用MyCalendar 类: MyCalendar cal = new MyCalendar(); MyCalendar.book(start, end)
 示例 1:
 MyCalendar();
@@ -52,42 +53,10 @@ public class _731_My_Calendar_II_我的日程安排表2 {
                 int left = Math.max(start, event[0]);
                 int right = Math.min(end, event[1]);
                 if (left < right) {
-                    overlaps.add(new int[] { left, right });
+                    overlaps.add(new int[]{left, right});
                 }
             }
-            booked.add(new int[] { start, end });
-            return true;
-        }
-    }
-
-
-    class MyCalendarTwo2 {
-
-        TreeMap<Integer, Integer> overlaps;
-        List<int[]> events;
-
-        public MyCalendarTwo2() {
-            overlaps = new TreeMap<>();
-            events = new ArrayList<>();
-        }
-
-        // not overlap: start >= event.end or end <= event.start
-        public boolean book(int start, int end) {
-            Integer prev = overlaps.floorKey(start), next = overlaps.ceilingKey(start);
-            if (prev != null && overlaps.get(prev) > start) {
-                return false;
-            }
-            if (next != null && next < end) {
-                return false;
-            }
-            for (int[] event : events) {
-                if (event[0] < end && event[1] > start) {
-                    int key = Math.max(event[0], start);
-                    int val = Math.min(event[1], end);
-                    overlaps.put(key, val);
-                }
-            }
-            events.add(new int[] { start, end });
+            booked.add(new int[]{start, end});
             return true;
         }
     }

@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /*
-给出一个字符串数组words组成的一本英语词典。从中找出最长的一个单词，该单词是由words词典中其他单词逐步添加一个字母组成。若其中有多个可行的答案，则返回答案中字典序最小的单词。
+给出一个字符串数组words组成的一本英语词典。从中找出最长的一个单词，该单词是由words词典中其他单词逐步添加一个字母组成。
+若其中有多个可行的答案，则返回答案中字典序最小的单词。
 若无答案，则返回空字符串。
 示例 1:
 输入: 
@@ -22,8 +23,8 @@ words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]
  */
 public class _720_Longest_Word_in_Dictionary_词典中最长的单词 {
     /*
-     * 按字母顺序排列单词，因此短单词总是排在长单词之前; 沿着排序列表，填充可以构建的单词; 一个单词的任何前缀都必须在这个单词之前。
-     */
+    按字母顺序排列单词，因此短单词总是排在长单词之前; 沿着排序列表，填充可以构建的单词; 一个单词的任何前缀都必须在这个单词之前。
+    */
     class Solution {
         public String longestWord(String[] words) {
             String ans = "";
@@ -49,37 +50,43 @@ public class _720_Longest_Word_in_Dictionary_词典中最长的单词 {
 
     class Solution2 {
         public String longestWord(String[] words) {
-            if (words == null || words.length == 0)
-                return "";
-            Trie head = new Trie();
-            Arrays.sort(words);
+            TrieNode root = new TrieNode();
+            root.word = "-";
             for (String word : words)
-                head.insert(word);
-            return head.maxString;
+                root.insert(word);
+            return dfs(root, "");
         }
 
-        public class Trie {
-            public String maxString = "";
-            public Trie[] children = new Trie[26];
+        String dfs(TrieNode node, String accum) {
+            if (node == null || node.word.length() == 0)
+                return accum;
+            String res = "";
+            if (!node.word.equals("-"))
+                accum = node.word;
+            for (TrieNode child : node.links) {
+                String curRes = dfs(child, accum);
+                if (curRes.length() > res.length() || (curRes.length() == res.length() && curRes.compareTo(res) < 0))
+                    res = curRes;
+            }
+            return res;
+        }
 
-            public void insert(String s) {
-                Trie cur = this;
+        /* Hand write this class every time you need to so you can remember well */
+        class TrieNode {
+            String word = "";
+            TrieNode[] links = new TrieNode[26];
+
+            void insert(String s) {
                 char[] chs = s.toCharArray();
+                TrieNode curNode = this;
                 for (int i = 0; i < chs.length; i++) {
-                    int idx = chs[i] - 'a';
-                    if (cur.children[idx] != null) {
-                        cur = cur.children[idx];
-                    } else {
-                        if (i < s.length() - 1) // special operation (refer to explaination above)
-                            return;
-                        cur.children[idx] = new Trie();
-                        cur = cur.children[idx];
-                        if (s.length() > maxString.length())
-                            maxString = s;
-                    }
+                    int index = chs[i] - 'a';
+                    if (curNode.links[index] == null)
+                        curNode.links[index] = new TrieNode();
+                    curNode = curNode.links[index];
                 }
+                curNode.word = s;
             }
         }
-
     }
 }

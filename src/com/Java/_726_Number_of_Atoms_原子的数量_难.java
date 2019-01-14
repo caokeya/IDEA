@@ -61,11 +61,11 @@ public class _726_Number_of_Atoms_原子的数量_难 {
                     }
                 } else {
                     int start = i - 1;
-                    while (i < n && Character.isLowerCase(formula.charAt(i)))////isLowerCase判断是不是小写字母
+                    while (i < n && Character.isLowerCase(formula.charAt(i)))//isLowerCase判断是不是小写字母
                         i++;
                     String s = formula.substring(start, i);
                     int val = 0;
-                    while (i < n && Character.isDigit(formula.charAt(i)))////isDigit判断是不是数字
+                    while (i < n && Character.isDigit(formula.charAt(i)))//isDigit判断是不是数字
                         val = val * 10 + formula.charAt(i++) - '0';
                     if (val == 0)
                         val = 1;
@@ -152,7 +152,6 @@ public class _726_Number_of_Atoms_原子的数量_难 {
             }
             return cur;
         }
-
         private int idx;
     }
 }

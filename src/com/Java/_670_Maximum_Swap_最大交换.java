@@ -22,10 +22,16 @@ public class _670_Maximum_Swap_最大交换 {
             char[] digits = Integer.toString(num).toCharArray();
 
             int[] buckets = new int[10];
+            /*
+            记录0~9中各个数字所在的最后的位置
+             */
             for (int i = 0; i < digits.length; i++) {
                 buckets[digits[i] - '0'] = i;
             }
-
+            /*
+            从左到右循环num数组。对于每个位置，我们检查这个数字中是否存在一个较大的数字(从9开始到当前数字)。
+            我们还需要确保这个大数的位置在当前数字的后面。如果我们找到它，只需交换这两个数字并返回结果。
+            */
             for (int i = 0; i < digits.length; i++) {
                 for (int k = 9; k > digits[i] - '0'; k--) {
                     if (buckets[k] > i) {
@@ -36,7 +42,6 @@ public class _670_Maximum_Swap_最大交换 {
                     }
                 }
             }
-
             return num;
         }
     }

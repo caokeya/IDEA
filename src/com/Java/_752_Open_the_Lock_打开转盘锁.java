@@ -53,7 +53,7 @@ public class _752_Open_the_Lock_打开转盘锁 {
                 temp = new HashSet<>(); // temp用来做下一次的begin或者end
                 for (String str : begin) {
                     if (end.contains(str)) {
-                        return level;
+                        return level;// hit the target
                     }
                     if (deads.contains(str)) {
                         continue;
@@ -62,10 +62,8 @@ public class _752_Open_the_Lock_打开转盘锁 {
                     deads.add(str);
                     for (int i = 0; i < 4; i++) {
                         char c = str.charAt(i);
-                        String next1 = str.substring(0, i) + (c == '9' ? 0 : c - '0' + 1)
-                                + str.substring(i + 1, str.length());
-                        String next2 = str.substring(0, i) + (c == '0' ? 9 : c - '0' - 1)
-                                + str.substring(i + 1, str.length());
+                        String next1 = str.substring(0, i) + (c == '9' ? 0 : c - '0' + 1) + str.substring(i + 1, str.length());//增大
+                        String next2 = str.substring(0, i) + (c == '0' ? 9 : c - '0' - 1) + str.substring(i + 1, str.length());//减小
                         if (!deads.contains(next1))
                             temp.add(next1);
                         if (!deads.contains(next2))
@@ -73,10 +71,8 @@ public class _752_Open_the_Lock_打开转盘锁 {
                     }
                 }
                 level++;
-
                 begin = temp;
             }
-
             return -1;
         }
     }

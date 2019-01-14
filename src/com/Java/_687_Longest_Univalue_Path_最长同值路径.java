@@ -23,7 +23,7 @@ package src.com.Java;
 2
  */
 public class _687_Longest_Univalue_Path_最长同值路径 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -47,10 +47,8 @@ public class _687_Longest_Univalue_Path_最长同值路径 {
         private int dfs(TreeNode node, int[] res) {
             int l = node.left != null ? dfs(node.left, res) : 0; // Longest-Univalue-Path-Start-At - left child
             int r = node.right != null ? dfs(node.right, res) : 0; // Longest-Univalue-Path-Start-At - right child
-            int resl = node.left != null && node.left.val == node.val ? l + 1 : 0; // Longest-Univalue-Path-Start-At -
-                                                                                   // node, and go left
-            int resr = node.right != null && node.right.val == node.val ? r + 1 : 0; // Longest-Univalue-Path-Start-At -
-                                                                                     // node, and go right
+            int resl = node.left != null && node.left.val == node.val ? l + 1 : 0; // Longest-Univalue-Path-Start-At -node, and go left
+            int resr = node.right != null && node.right.val == node.val ? r + 1 : 0; // Longest-Univalue-Path-Start-At -node, and go right
             res[0] = Math.max(res[0], resl + resr); // Longest-Univalue-Path-Across - node
             return Math.max(resl, resr);
         }
@@ -69,7 +67,6 @@ public class _687_Longest_Univalue_Path_最长同值路径 {
                 return 0;
             int fromLeft = helper(root.left);
             int fromRight = helper(root.right);
-
             if (root.left != null && root.val == root.left.val) {
                 fromLeft++;
             } else {
@@ -80,9 +77,7 @@ public class _687_Longest_Univalue_Path_最长同值路径 {
             } else {
                 fromRight = 0;
             }
-
             max = Math.max(max, fromLeft + fromRight);
-            // System.out.println(max);
             return Math.max(fromLeft, fromRight);
         }
     }

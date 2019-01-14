@@ -34,7 +34,7 @@ package src.com.Java;
  1
  */
 public class _669_Trim_a_Binary_Search_Tree_修剪二叉搜索树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -52,14 +52,11 @@ public class _669_Trim_a_Binary_Search_Tree_修剪二叉搜索树 {
             // base case
             if (root == null)
                 return null;
-
             // recurse
             if (root.val < L) { // ignore left sub-tree
                 return trimBST(root.right, L, R);
-
             } else if (root.val > R) {
                 return trimBST(root.left, L, R);
-
             } else { // L <= root.val <= R
                 root.left = trimBST(root.left, L, R);
                 root.right = trimBST(root.right, L, R);

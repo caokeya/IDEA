@@ -10,20 +10,16 @@ public class _686_Repeated_String_Match_重复叠加字符串匹配 {
         public int repeatedStringMatch(String A, String B) {
             if (B.length() == 0 || A.length() == 0)
                 return -1;
-
             int c = 0;
             StringBuilder sb = new StringBuilder();
-
             while (sb.length() < B.length()) {
                 c++;
                 sb.append(A);
             }
-
             if (sb.toString().lastIndexOf(B) != -1)
                 return c;
             if (sb.append(A).toString().lastIndexOf(B) != -1)
                 return c + 1;
-
             return -1;
         }
     }

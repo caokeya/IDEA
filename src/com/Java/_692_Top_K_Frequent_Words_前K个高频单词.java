@@ -26,13 +26,10 @@ public class _692_Top_K_Frequent_Words_前K个高频单词 {
     class Solution {
         public List<String> topKFrequent(String[] words, int k) {
             HashMap<String, Integer> map = new HashMap<>();
-
             for (String word : words) {
                 map.put(word, map.getOrDefault(word, 0) + 1);
             }
-
             List<String>[] bucket = new ArrayList[words.length + 1];
-
             for (String key : map.keySet()) {
                 int freq = map.get(key);
                 if (bucket[freq] == null) {
@@ -56,54 +53,20 @@ public class _692_Top_K_Frequent_Words_前K个高频单词 {
         }
     }
 
-    class Solution2 {
+    class SolutionPQ {
         public List<String> topKFrequent(String[] words, int k) {
             HashMap<String, Integer> map = new HashMap<>();
             for (String s : words)
                 map.put(s, map.getOrDefault(s, 0) + 1); // Frequent hashmap
-
-            PriorityQueue<Map.Entry<String, Integer>> maxHeap = new PriorityQueue<>(k,
-                    (a, b) -> a.getValue() == b.getValue() ? a.getKey().compareTo(b.getKey())
-                            : b.getValue() - a.getValue());
+            PriorityQueue<Map.Entry<String, Integer>> maxHeap = new PriorityQueue<>
+                    (k, (a, b) -> a.getValue() == b.getValue() ? a.getKey().compareTo(b.getKey()) : b.getValue() - a.getValue());
             // if same frequency, then sort alphabetical .
-
             for (Map.Entry<String, Integer> entry : map.entrySet())
                 maxHeap.add(entry);
-
             List<String> res = new ArrayList<>();
             while (res.size() < k)
                 res.add(maxHeap.poll().getKey()); // add top k
             return res;
         }
     }
-
-    class Solution3 {
-        public List<String> topKFrequent(String[] words, int k) {
-
-            List<String> result = new LinkedList<>();
-            Map<String, Integer> map = new HashMap<>();
-            for (int i = 0; i < words.length; i++) {
-                if (map.containsKey(words[i]))
-                    map.put(words[i], map.get(words[i]) + 1);
-                else
-                    map.put(words[i], 1);
-            }
-
-            PriorityQueue<Map.Entry<String, Integer>> pq = new PriorityQueue<>(
-                    (a, b) -> a.getValue() == b.getValue() ? b.getKey().compareTo(a.getKey())
-                            : a.getValue() - b.getValue());
-
-            for (Map.Entry<String, Integer> entry : map.entrySet()) {
-                pq.offer(entry);
-                if (pq.size() > k)
-                    pq.poll();
-            }
-
-            while (!pq.isEmpty())
-                result.add(0, pq.poll().getKey());
-
-            return result;
-        }
-    }
-
 }

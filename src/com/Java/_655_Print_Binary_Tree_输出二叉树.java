@@ -48,7 +48,7 @@ import java.util.List;
 
  */
 public class _655_Print_Binary_Tree_输出二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -69,12 +69,10 @@ public class _655_Print_Binary_Tree_输出二叉树 {
             for (int i = 0; i < height; i++) {
                 List<String> row = new ArrayList<>();
                 for (int col = 0; col < columns; col++) {
-
                     row.add("");
                 }
                 result.add(row);
             }
-
             fill(root, result, 0, 0, columns);
             return result;
         }
@@ -84,7 +82,6 @@ public class _655_Print_Binary_Tree_输出二叉树 {
                 return;
             }
             result.get(row).set((left + right) / 2, String.valueOf(node.val));
-
             fill(node.left, result, row + 1, left, (left + right) / 2);
             fill(node.right, result, row + 1, (left + right + 1) / 2, right);
         }
@@ -93,7 +90,6 @@ public class _655_Print_Binary_Tree_输出二叉树 {
             if (node == null) {
                 return 0;
             }
-
             return Math.max(getTreeHeight(node.left), getTreeHeight(node.right)) + 1;
         }
     }

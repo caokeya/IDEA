@@ -24,25 +24,22 @@ package src.com.Java;
 public class _668_Kth_Smallest_Number_in_Multiplication_Table_乘法表中第k小的数_难 {
     class Solution {
         public int findKthNumber(int m, int n, int k) {
-            int low = 1, high = m * n + 1;
-
-            while (low < high) {
+            int low = 1, high = m * n;
+            while (low <= high) {
                 int mid = low + (high - low) / 2;
-                int c = count(mid, m, n);
-                if (c >= k)
-                    high = mid;
+                int count = helper(m, n, mid);
+                if (count >= k)
+                    high = mid - 1;
                 else
                     low = mid + 1;
             }
-
-            return high;
+            return low;
         }
 
-        private int count(int v, int m, int n) {
+        private int helper(int m, int n, int num) {
             int count = 0;
             for (int i = 1; i <= m; i++) {
-                int temp = Math.min(v / i, n);
-                count += temp;
+                count += Math.min(num / i, n);
             }
             return count;
         }

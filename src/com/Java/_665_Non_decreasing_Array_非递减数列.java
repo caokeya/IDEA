@@ -15,40 +15,16 @@ package src.com.Java;
 public class _665_Non_decreasing_Array_非递减数列 {
     class Solution {
         public boolean checkPossibility(int[] nums) {
-            boolean once = false;
-            for (int i = 0; i < nums.length - 1; i++) {
-                if (nums[i] > nums[i + 1]) {
-                    if (once) {
-                        return false;
-                    }
-                    once = true;
-                    if (i > 0 && nums[i - 1] > nums[i + 1]) {
-                        // could be fixed with modifying nums[i+1] to nums[i]
-                        nums[i + 1] = nums[i];
-                    }
+            int cnt = 0;                                           //the number of changes
+            for (int i = 1; i < nums.length && cnt <= 1; i++) {
+                if (nums[i - 1] > nums[i]) {
+                    cnt++;
+                    if (i - 2 < 0 || nums[i - 2] <= nums[i])
+                        nums[i - 1] = nums[i];                    //modify nums[i-1] of a priority
+                    else nums[i] = nums[i - 1];                   //have to modify nums[i]
                 }
             }
-            return true;
-        }
-    }
-
-    class Solution2 {
-        public boolean checkPossibility(int[] nums) {
-            int count = 0;
-            for (int i = 0; i < nums.length - 1; i++) {
-                if (nums[i] > nums[i + 1]) {
-                    if (i > 0) {
-                        if (nums[i - 1] <= nums[i + 1])
-                            nums[i] = nums[i - 1];
-                        else
-                            nums[i + 1] = nums[i];
-                    }
-                    count++;
-                    if (count > 1)
-                        return false;
-                }
-            }
-            return true;
+            return cnt <= 1;
         }
     }
 }

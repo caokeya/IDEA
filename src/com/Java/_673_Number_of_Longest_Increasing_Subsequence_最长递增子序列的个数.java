@@ -13,10 +13,10 @@ package src.com.Java;
  */
 public class _673_Number_of_Longest_Increasing_Subsequence_最长递增子序列的个数 {
     /*
-            其思想是使用两个数组len[n]和cnt[n]分别记录这些序列中以nums[i]结尾的递增子序列的最大长度和对应数目。那就是:
-        len[i]:以nums[i]结尾的最长递增子序列的长度。
-        cnt[i]:以数字[i]结尾的最长递增子序列的数目。
-            结果是每个cnt[i]的和，对应的len[i]是最大长度。
+    其思想是使用两个数组len[n]和cnt[n]分别记录这些序列中以nums[i]结尾的递增子序列的最大长度和对应数目。那就是:
+    len[i]:以nums[i]结尾的最长递增子序列的长度。
+    cnt[i]:以数字[i]结尾的最长递增子序列的数目。
+    结果是每个cnt[i]的和，对应的len[i]是最大长度。
      */
     class Solution {
         public int findNumberOfLIS(int[] nums) {
@@ -42,7 +42,6 @@ public class _673_Number_of_Longest_Increasing_Subsequence_最长递增子序列
                 }
             }
             return res;
-
         }
     }
 
@@ -53,12 +52,10 @@ public class _673_Number_of_Longest_Increasing_Subsequence_最长递增子序列
             if (nums == null || nums.length == 0) {
                 return 0;
             }
-
             int[] dp = new int[nums.length];
             int[] cnt = new int[nums.length];
             int maxLength = 0;
             int count = 0;
-
             for (int i = 0; i < nums.length; i++) {
                 dp[i] = 1;
                 cnt[i] = 1;
@@ -73,11 +70,9 @@ public class _673_Number_of_Longest_Increasing_Subsequence_最长递增子序列
                     }
                 }
             }
-
             for (int length : dp) {
                 maxLength = Math.max(length, maxLength);
             }
-
             for (int i = 0; i < nums.length; i++) {
                 if (dp[i] == maxLength) {
                     count += cnt[i];

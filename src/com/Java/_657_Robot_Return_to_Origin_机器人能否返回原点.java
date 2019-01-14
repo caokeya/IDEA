@@ -32,7 +32,6 @@ public class _657_Robot_Return_to_Origin_机器人能否返回原点 {
                 return true;
             else
                 return false;
-
         }
     }
 }

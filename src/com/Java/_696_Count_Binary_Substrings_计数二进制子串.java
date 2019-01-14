@@ -19,10 +19,13 @@ public class _696_Count_Binary_Substrings_计数二进制子串 {
      prevCount计算相同的项之前发生(让说你有0011,预试= 2当你遇到第一个1时,意味着有两个0之前第一个' 1 ')
      currentCount计算当前条目的数量(我们说你有0011,curRun = 2当你遇到第二个1,意味着有两个1 s到目前为止)
            每当项目更改(从0到1或从1到0)，preRun更改为curRun, reset curRun to 1(将curRun编号存储到preRun, reset curRun)
-           每次pre - un >= curRun就意味着1之前有更多的0,count++也可以。(这是一个棘手的问题，例如，当你打第一个1的时候，curRun = 1, preRun = 2，表示0比1大，
-           所以我们现在可以形成01,count++。当你点击第二个“1”时，curRun = 2, preRun = 2，表示0 '等于1'，所以我们现在可以形成"0011"，这就是count++的原因
+           每次pre - un >= curRun就意味着1之前有更多的0,count++也可以。(这是一个棘手的问题，
+           例如，当你打第一个1的时候，curRun = 1, preRun = 2，表示0比1大，
+           所以我们现在可以形成01,count++。当你点击第二个“1”时，curRun = 2, preRun = 2，表示0 '等于1'，
+           所以我们现在可以形成"0011"，这就是count++的原因
      */
     class Solution {
+        //考虑从01或10往外扩展
         public int countBinarySubstrings(String s) {
             if (s == null || s.isEmpty())
                 return 0;

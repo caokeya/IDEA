@@ -21,25 +21,6 @@ package src.com.Java;
 public class _740_Delete_and_Earn_删除与获得点数 {
     class Solution {
         public int deleteAndEarn(int[] nums) {
-
-            int n = 10001;
-            int[] values = new int[n];
-            for (int num : nums)
-                values[num] += num;
-
-            int take = 0, skip = 0;
-            for (int i = 0; i < n; i++) {
-                int take_i = skip + values[i];
-                int skip_i = Math.max(skip, take);
-                take = take_i;
-                skip = skip_i;
-            }
-            return Math.max(take, skip);
-        }
-    }
-
-    class Solution2 {
-        public int deleteAndEarn(int[] nums) {
             if (nums == null || nums.length == 0)
                 return 0;
             int max = 0;

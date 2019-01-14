@@ -18,7 +18,7 @@ Example 1:
         1
  */
 public class _654_Maximum_Binary_Tree_最大二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -40,15 +40,13 @@ public class _654_Maximum_Binary_Tree_最大二叉树 {
             if (left > right) {
                 return null;
             }
-
             // find the max number's index in the range of left and right
             int max = left;
-            for (int i = left; i <= right; i++) {
+            for (int i = left + 1; i <= right; i++) {
                 if (nums[max] < nums[i]) {
                     max = i;
                 }
             }
-
             TreeNode node = new TreeNode(nums[max]);
             node.left = buildTree(nums, left, max - 1);
             node.right = buildTree(nums, max + 1, right);

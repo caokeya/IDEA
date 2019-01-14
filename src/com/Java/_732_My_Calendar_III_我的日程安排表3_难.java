@@ -25,10 +25,10 @@ MyCalendarThree.book(25, 55); // returns 3
  */
 public class _732_My_Calendar_III_我的日程安排表3_难 {
     /*
-         利用TreeMap记录时间端点的次数，起点计数+1，终点计数-1。
-         每增加一个活动，遍历TreeMap并累加，累计值的最大值即为当前的最大重叠活动次数。
+    利用TreeMap记录时间端点的次数，起点计数+1，终点计数-1。
+    每增加一个活动，遍历TreeMap并累加，累计值的最大值即为当前的最大重叠活动次数。
     TreeMap的get操作时间开销为O( log n )，换用keySet+get方式遍历TreeMap会导致TLE。
-     */
+    */
     class MyCalendarThree {
         TreeMap<Integer, Integer> map;
 
@@ -45,7 +45,6 @@ public class _732_My_Calendar_III_我的日程安排表3_难 {
                 active += i;
                 ans = Math.max(ans, active);
             }
-
             return ans;
         }
     }

@@ -26,7 +26,6 @@ public class _697_Degree_of_an_Array_数组的度 {
             }
             // 创建一个map,KEY是数组中的元素， Value是一个数组{出现次数， 第一次出现位置， 最后一次出现位置}
             Map<Integer, int[]> map = new HashMap<>();
-
             for (int i = 0; i < nums.length; i++) {
                 if (!map.containsKey(nums[i])) {
                     map.put(nums[i], new int[] { 1, i, i });

@@ -18,6 +18,17 @@ package src.com.Java;
 输出: True
  */
 public class _678_Valid_Parenthesis_String_ {
+    /*
+    low : take '*' as ')', if there are some '(' not matched
+    high : take '*' as '('
+    if high < 0 means too much ')'
+    if low > 0 , after the count finished, means too much '('
+    since low take '*' as ')', there might be too much ')', so that low might less than 0.
+    That's why low-- should happen only low>0. This can thought as, low only take as much as '(''s ')' and ignore other ')' s.
+    This will not cause problem since :
+    '*' can be treated as empty
+    high has deal with the situation that too much ')' exist
+     */
     class Solution {
         public boolean checkValidString(String s) {
             int low = 0;
@@ -42,6 +53,23 @@ public class _678_Valid_Parenthesis_String_ {
                 }
             }
             return low == 0;
+        }
+    }
+
+    class Solution2 {
+        public boolean checkValidString(String s) {
+            int bal = 0;
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) == '(' || s.charAt(i) == '*') bal++;
+                else if (bal-- == 0) return false;
+            }
+            if (bal == 0) return true;
+            bal = 0;
+            for (int i = s.length()-1; i >= 0; i--) {
+                if (s.charAt(i) == ')' || s.charAt(i) == '*') bal++;
+                else if (bal-- == 0) return false;
+            }
+            return true;
         }
     }
 }

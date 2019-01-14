@@ -19,7 +19,6 @@ public class _674_Longest_Continuous_Increasing_Subsequence_最长连续递增�
                 return 0;
             }
             int count = 1;
-
             int max = 1;
             for (int i = 1; i < nums.length; i++) {
                 if (nums[i] > nums[i - 1]) {
@@ -29,9 +28,7 @@ public class _674_Longest_Continuous_Increasing_Subsequence_最长连续递增�
                     count = 1;
                 }
             }
-
             max = Math.max(max, count);
-
             return max;
         }
     }

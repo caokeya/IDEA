@@ -27,7 +27,7 @@ package src.com.Java;
           4
  */
 public class _701_Insert_into_a_Binary_Search_Tree_二叉树中的插入操作 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -43,19 +43,15 @@ public class _701_Insert_into_a_Binary_Search_Tree_二叉树中的插入操作 {
     class Solution {
         public TreeNode insertIntoBST(TreeNode root, int val) {
             TreeNode newNode = new TreeNode(val);
-
             if (root == null) {
                 return newNode;
             }
-
             if (val > root.val) {
                 root.right = insertIntoBST(root.right, val);
             }
-
             if (val < root.val) {
                 root.left = insertIntoBST(root.left, val);
             }
-
             return root;
         }
     }
