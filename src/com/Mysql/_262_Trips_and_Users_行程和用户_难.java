@@ -43,7 +43,6 @@ Role 则是一个表示（‘client’, ‘driver’, ‘partner’）的枚举�
  */
 public class _262_Trips_and_Users_行程和用户_难 {
     /*
-    # Write your MySQL query statement below
     SELECT Request_at as Day,
     ROUND(COUNT(IF(Status != 'completed', TRUE, NULL)) / COUNT(*), 2) AS 'Cancellation Rate'
     FROM Trips

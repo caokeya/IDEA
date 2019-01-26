@@ -28,10 +28,13 @@ package src.com.Mysql;
 public class _626_Exchange_Seats_换座位 {
     /*
     select case
-    when id % 2 = 0 then id -1
-    when id %2 != 0 and id != counts then id +1
-    else id
-    end 
+        when id % 2 = 0
+            then id -1
+        when id %2 != 0 and id != counts
+            then id +1
+        else
+            id
+        end
     as id , student
     from seat, (select count(*) as counts from seat ) p
     order by id ;

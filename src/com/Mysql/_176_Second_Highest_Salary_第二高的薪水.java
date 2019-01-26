@@ -26,5 +26,4 @@ public class _176_Second_Highest_Salary_第二高的薪水 {
         NULL) AS SecondHighestSalary
     ;
      */
-    
 }

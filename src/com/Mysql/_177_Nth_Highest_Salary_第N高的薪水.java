@@ -22,8 +22,10 @@ public class _177_Nth_Highest_Salary_第N高的薪水 {
         DECLARE M INT;
         SET M=N-1;
           RETURN (
-              # Write your MySQL query statement below.
-              SELECT DISTINCT Salary FROM Employee ORDER BY Salary DESC LIMIT M, 1
+              SELECT DISTINCT Salary
+              FROM Employee
+              ORDER BY Salary DESC
+              LIMIT M, 1
           );
         END
      */
