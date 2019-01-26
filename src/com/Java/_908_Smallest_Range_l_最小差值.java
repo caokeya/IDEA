@@ -24,10 +24,10 @@ public class _908_Smallest_Range_l_最小差值 {
             int max = A[0];
             for (int i = 1; i < A.length; i++) {
                 if (A[i] < min) {
-                    min = A[i];
+                    min = A[i]; // 找到最小值
                 }
                 if (A[i] > max) {
-                    max = A[i];
+                    max = A[i]; // 找到最大值
                 }
             }
             if ((max - min) <= 2 * K)

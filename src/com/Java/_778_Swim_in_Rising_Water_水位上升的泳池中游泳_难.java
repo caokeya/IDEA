@@ -1,11 +1,14 @@
 package src.com.Java;
 
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.PriorityQueue;
+import java.util.Set;
 
 /*
 在一个 N x N 的坐标方格 grid 中，每一个方格的值 grid[i][j] 表示在位置 (i,j) 的平台高度。
-现在开始下雨了。当时间为 t 时，此时雨水导致水池中任意位置的水位为 t 。你可以从一个平台游向四周相邻的任意一个平台，但是前提是此时水位必须同时淹没这两个平台。
+现在开始下雨了。当时间为 t 时，此时雨水导致水池中任意位置的水位为 t 。
+你可以从一个平台游向四周相邻的任意一个平台，但是前提是此时水位必须同时淹没这两个平台。
 假定你可以瞬间移动无限距离，也就是默认在方格内部游动是不耗时的。当然，在你游泳的时候你必须待在坐标方格里面。
 你从坐标方格的左上平台 (0，0) 出发。最少耗时多久你才能到达坐标方格的右下平台 (N-1, N-1)？
 示例 1:
@@ -39,8 +42,8 @@ public class _778_Swim_in_Rising_Water_水位上升的泳池中游泳_难 {
             });
             boolean[][] visit = new boolean[grid.length][grid[0].length];
             visit[0][0] = true;
-            pq.offer(new int[] { grid[0][0], 0, 0 });
-            int[][] direction = new int[][] { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
+            pq.offer(new int[]{grid[0][0], 0, 0});
+            int[][] direction = new int[][]{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
             while (!pq.isEmpty()) {
                 int[] core = pq.poll();
                 if (core[1] == grid.length - 1 && core[2] == grid[0].length - 1)
@@ -50,11 +53,36 @@ public class _778_Swim_in_Rising_Water_水位上升的泳池中游泳_难 {
                     int y = core[2] + direc[1];
                     if (x >= 0 && y >= 0 && x < grid.length && y < grid[0].length && !visit[x][y]) {
                         visit[x][y] = true;
-                        pq.offer(new int[] { Math.max(grid[x][y], core[0]), x, y });
+                        pq.offer(new int[]{Math.max(grid[x][y], core[0]), x, y});
                     }
                 }
             }
             return -1;
+        }
+    }
+
+    class Solution2 {
+        public int swimInWater(int[][] grid) {
+            int time = 0;
+            int N = grid.length;
+            Set<Integer> visited = new HashSet<>();
+            while (!visited.contains(N * N - 1)) {
+                visited.clear();
+                dfs(grid, 0, 0, time, visited);
+                time++;
+            }
+            return time - 1;
+        }
+
+        int[][] dirs = {{-1, 0}, {1, 0}, {0, 1}, {0, -1}};
+
+        private void dfs(int[][] grid, int i, int j, int time, Set<Integer> visited) {
+            if (i < 0 || i > grid.length - 1 || j < 0 || j > grid[0].length - 1 || grid[i][j] > time || visited.contains(i * grid.length + j))
+                return;
+            visited.add(i * grid.length + j);
+            for (int[] dir : dirs) {
+                dfs(grid, i + dir[0], j + dir[1], time, visited);
+            }
         }
     }
 }

@@ -28,38 +28,18 @@ public class _879_Profitable_Schemes_盈利计划_难 {
             // dp[i + p][j + g] += dp[i][j] if i + p < P
             // dp[P][j + g] += dp[i][j] if i + p >= P (这样统计方便, P只要超过下界都算是P)
             int[][] dp = new int[P + 1][G + 1];     // offset = 1, profit and cost
-            dp[0][0] = 1;                           
-            int res = 0, mod = (int)1e9 + 7;
+            dp[0][0] = 1;
+            int res = 0, mod = (int) 1e9 + 7;
             for (int k = 0; k < group.length; k++) {    // profit + cost ~ incremental resource (not repeatable)
                 int g = group[k], p = profit[k];        // resource不能重用 => outer loop 
                 for (int i = P; i >= 0; i--)            // decremental target - profit, max out at P (>=P is fine)
                     for (int j = G - g; j >= 0; j--)    // decremental target - cost, to keep max j at G (must <=G)
                         dp[Math.min(i + p, P)][j + g] = (dp[Math.min(i + p, P)][j + g] + dp[i][j]) % mod;
-                        // 第一次加入的是dp[p][g] = dp[0][0] = 1
+                // 第一次加入的是dp[p][g] = dp[0][0] = 1
             }
             for (int x : dp[P])     // profit >= p and cost <= G
                 res = (res + x) % mod;      // 叠加cost下界
             return res;
         }
     }
-    class Solution2 {
-        public int profitableSchemes(int G, int P, int[] group, int[] profit) {
-            int[][] dp = new int[G + 1][P + 1];
-            int mod = (int) Math.pow(10, 9) + 7;
-            dp[0][0] = 1;// 赚钱为0,0个人只有一种结果
-            int sum = 0;
-            for (int k = 0; k < group.length; k++) {
-                for (int i = G; i >= group[k]; i--) {
-                    for (int j = P; j >= 0; j--) {
-                        dp[i][j] = (dp[i][j] + dp[i - group[k]][Math.max(0, j - profit[k])]) % mod;
-                    }
-                }
-            }
-            for (int i = 0; i < dp.length; i++) {
-                sum = (sum + dp[i][P]) % mod;
-            }
-            return sum;
-        }
-    }
-
 }

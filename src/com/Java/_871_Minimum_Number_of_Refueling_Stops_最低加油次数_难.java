@@ -2,6 +2,7 @@ package src.com.Java;
 
 import java.util.Collections;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 /*
 汽车从起点出发驶向目的地，该目的地位于出发位置东面 target 英里处。
@@ -31,22 +32,21 @@ import java.util.PriorityQueue;
 public class _871_Minimum_Number_of_Refueling_Stops_最低加油次数_难 {
     class Solution {
         public int minRefuelStops(int target, int startFuel, int[][] stations) {
-            PriorityQueue<Integer> maxheap = new PriorityQueue<>(Collections.reverseOrder());
-            int res = 0, cur = startFuel, i = 0;
-            while (true) {
-                if (cur >= target) {
-                    return res;
+            int res = 0;
+            int i = 0;
+            int reach = startFuel;
+            Queue<Integer> priorityQueue = new PriorityQueue<>();
+            while (reach < target) {
+                while (i < stations.length && stations[i][0] <= reach) {
+                    priorityQueue.offer(-stations[i++][1]);
                 }
-                while (i < stations.length && stations[i][0] <= cur) {
-                    maxheap.offer(stations[i++][1]);
+                if (priorityQueue.isEmpty()) {
+                    return -1;
                 }
-                if (maxheap.isEmpty()) {
-                    break;
-                }
-                cur += maxheap.poll();
                 res++;
+                reach += -priorityQueue.poll();
             }
-            return -1;
+            return res;
         }
     }
 }

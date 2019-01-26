@@ -1,6 +1,8 @@
 package src.com.Java;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /*
@@ -17,29 +19,36 @@ import java.util.Map;
  */
 public class _932_Beautiful_Array_漂亮的数组 {
     class Solution {
-        Map<Integer, int[]> memo;
-
         public int[] beautifulArray(int N) {
-            memo = new HashMap<Integer, int[]>();
-            return f(N);
-        }
-
-        public int[] f(int N) {
-            if (memo.containsKey(N))
-                return memo.get(N);
-
-            int[] ans = new int[N];
-            if (N == 1) {
-                ans[0] = 1;
-            } else {
-                int t = 0;
-                for (int x : f((N + 1) / 2)) // odds
-                    ans[t++] = 2 * x - 1;
-                for (int x : f(N / 2)) // evens
-                    ans[t++] = 2 * x;
+            List<Integer> list = new ArrayList<>();
+            list.add(1);
+            while (list.size() < N) {
+                List<Integer> tmp = new ArrayList<>();
+                // 添加 1 to N * 2 -1 的所有奇数
+                // A = [2, 1, 4, 5, 3]
+                // A1 = [3, 1, 7, 9, 5]
+                for (int i : list) {
+                    if (i * 2 - 1 <= N) {
+                        tmp.add(i * 2 - 1);
+                    }
+                }
+                // 添加 1 to N * 2 的所有偶数
+                // A = [2, 1, 4, 5, 3]
+                // A2 = [4, 2, 8, 10, 6]
+                for (int i : list) {
+                    if (i * 2 <= N) {
+                        tmp.add(i * 2);
+                    }
+                }
+                // 继续下一轮数组的倍增
+                list = tmp;
             }
-            memo.put(N, ans);
-            return ans;
+            // 添加到答案
+            int[] res = new int[N];
+            for (int i = 0; i < N; ++i) {
+                res[i] = list.get(i);
+            }
+            return res;
         }
     }
 }

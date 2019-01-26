@@ -21,8 +21,8 @@ import java.util.Arrays;
  */
 public class _899_Orderly_Queue_有序队列_难 {
     /*
-         * 如果K == 1，我们只能旋转整个字符串。 
-         * 如果K > 1，表示我们可以: 旋转整个弦，旋转整个字符串，除了第一个字母。 012345 -> 023451 -> 034512 -> 045123 -> 051234
+     * 如果K == 1，我们只能旋转整个字符串。
+     * 如果K > 1，表示我们可以: 旋转整个弦，旋转整个字符串，除了第一个字母。 012345 -> 023451 -> 034512 -> 045123 -> 051234
      */
     class Solution {
         public String orderlyQueue(String S, int K) {
@@ -32,14 +32,14 @@ public class _899_Orderly_Queue_有序队列_难 {
                 Arrays.sort(s);
                 return new String(s);
             } else {
-                String ret = S;
+                String res = S;
                 for (int i = 0; i < n; i++) {
-                    String T = S.substring(i) + S.substring(0, i);
-                    if (T.compareTo(ret) < 0) {
-                        ret = T;
+                    String temp = S.substring(i) + S.substring(0, i);
+                    if (temp.compareTo(res) < 0) {
+                        res = temp;
                     }
                 }
-                return ret;
+                return res;
             }
         }
     }

@@ -51,28 +51,4 @@ public class _914_X_of_a_Kind_in_a_Deck_of_Cards_卡牌分组 {
             return gcd(b % a, a);
         }
     }
-
-    class Solution2 {
-        public boolean hasGroupsSizeX(int[] deck) {
-            Map<Integer, Integer> map = new HashMap<>();
-            for (int a : deck) {
-                map.put(a, map.getOrDefault(a, 0) + 1);
-            }
-            int x = Collections.min(map.values());
-            boolean b = true;
-            for (int i = x; i > 1; i--) {
-                for (int v : map.values()) {
-                    if (v % i != 0) {
-                        b = false;
-                        break;
-                    }
-                }
-                if (b)
-                    return true;
-                else
-                    b = true;
-            }
-            return false;
-        }
-    }
 }

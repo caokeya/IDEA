@@ -18,7 +18,7 @@ package src.com.Java;
 输出: [1,1,0,1,1,null,1]
  */
 public class _814_Binary_Tree_Pruning_二叉树剪枝 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

@@ -22,11 +22,8 @@ S.next(85) 被调用并返回 6。
 (包括今天的价格 75) 小于或等于今天的价格。
  */
 public class _901_Online_Stock_Span_股票价格跨度 {
-
     class StockSpanner {
-
         Stack<int[]> stack;
-
         public StockSpanner() {
             stack = new Stack<>();
         }

@@ -17,11 +17,11 @@ package src.com.Java;
 (3, 0, 2, 1)
 (3, 1, 2, 0)
  */
-public class _903_Valid_Permutations_for_DI_Sequence_DI序列的有效排列 {
+public class _903_Valid_Permutations_for_DI_Sequence_DI序列的有效排列_难 {
     /*
-     * dp[i][j]是指i + 1位的可能排列数，其中i + 1位是 第j + 1小的数。
-            * 对于“I”，我们计算数组的前缀和
-            * 对于“D”，我们计算数组的后缀和
+    dp[i][j]是指前i + 1位的可能排列数，其中i + 1位是 第j + 1小的数。
+    对于“I”，我们计算数组的前缀和
+    对于“D”，我们计算数组的后缀和
      */
     class Solution {
         public int numPermsDISequence(String S) {
@@ -29,13 +29,18 @@ public class _903_Valid_Permutations_for_DI_Sequence_DI序列的有效排列 {
             int[][] dp = new int[n + 1][n + 1];
             for (int j = 0; j <= n; j++)
                 dp[0][j] = 1;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++)// i 代表前 i 位数
                 if (S.charAt(i) == 'I')
-                    for (int j = 0, cur = 0; j < n - i; j++)
-                        dp[i + 1][j] = cur = (cur + dp[i][j]) % mod;
-                else if (S.charAt(i) == 'D')
-                    for (int j = n - i - 1, cur = 0; j >= 0; j--)
-                        dp[i + 1][j] = cur = (cur + dp[i][j + 1]) % mod;
+                    for (int j = 0, cur = 0; j < n - i; j++) {
+                        cur = (cur + dp[i][j]) % mod;
+                        dp[i + 1][j] = cur;
+                    }
+                else if (S.charAt(i) == 'D') {
+                    for (int j = n - i - 1, cur = 0; j >= 0; j--) {
+                        cur = (cur + dp[i][j + 1]) % mod;
+                        dp[i + 1][j] = cur;
+                    }
+                }
             return dp[n][0];
         }
     }

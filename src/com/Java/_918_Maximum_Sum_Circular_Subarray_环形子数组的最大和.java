@@ -2,8 +2,10 @@ package src.com.Java;
 
 /*
 给定一个由整数数组 A 表示的环形数组 C，求 C 的非空子数组的最大可能和。
-在此处，环形数组意味着数组的末端将会与开头相连呈环状。（形式上，当0 <= i < A.length 时 C[i] = A[i]，而当 i >= 0 时 C[i+A.length] = C[i]）
-此外，子数组最多只能包含固定缓冲区 A 中的每个元素一次。（形式上，对于子数组 C[i], C[i+1], ..., C[j]，不存在 i <= k1, k2 <= j 其中 k1 % A.length = k2 % A.length）
+在此处，环形数组意味着数组的末端将会与开头相连呈环状。
+（形式上，当0 <= i < A.length 时 C[i] = A[i]，而当 i >= 0 时 C[i+A.length] = C[i]）
+此外，子数组最多只能包含固定缓冲区 A 中的每个元素一次。（
+形式上，对于子数组 C[i], C[i+1], ..., C[j]，不存在 i <= k1, k2 <= j 其中 k1 % A.length = k2 % A.length）
 示例 1：
 输入：[1,-2,3,-2]
 输出：3
@@ -26,12 +28,17 @@ package src.com.Java;
 解释：从子数组 [-1] 得到最大和 -1
  */
 public class _918_Maximum_Sum_Circular_Subarray_环形子数组的最大和 {
+    /*
+    想想最大和可以在数组的中间，也可以在数组的两端;
+    我们只需要比较这两个值，然后选择较大的一个;
+    如果在中间，则是求最大的子数组的和;
+    如果在两端，那么中间一定有一个最小的，所以我们只需要找到中间最小的，用totalSum - minSum就可以得到可能的答案。
+     */
     class Solution {
         public int maxSubarraySumCircular(int[] A) {
             int sum = 0;
             for (int i : A)
                 sum += i;
-
             int curMin = A[0], min = A[0];
             int curMax = A[0], max = A[0];
             for (int i = 1; i < A.length; i++) {

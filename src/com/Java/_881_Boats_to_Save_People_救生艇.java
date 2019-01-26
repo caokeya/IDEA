@@ -26,10 +26,10 @@ public class _881_Boats_to_Save_People_救生艇 {
             int start = 0, end = people.length - 1;
             int res = 0;
             while (start <= end) {
-                res++;
                 if (people[start] + people[end] <= limit)
                     start++;
                 end--;
+                res++;
             }
             return res;
         }

@@ -13,69 +13,60 @@ import java.util.Stack;
 最小值为 3，1，2，4，1，1，2，1，1，1，和为 17。
  */
 public class _907_Sum_of_Subarray_Minimums_子数组的最小值之和 {
+    /*
+    For [3,1,2,4] as example:
+    left + 1 = [1,2,1,1]
+    right + 1 = [1,3,2,1]
+    f = [1,6,2,1]
+    res = 3 * 1 + 1 * 6 + 2 * 2 + 4 * 1 = 17
+     */
     class Solution {
         public int sumSubarrayMins(int[] A) {
-            int MOD = 1000000007;
-            int[] smallerLeft = new int[A.length], smallerRight = new int[A.length];
-            for (int i = 0; i < A.length; i++) {
-                int target = i - 1;
-                while (target >= 0 && A[target] > A[i]) {
-                    target = smallerLeft[target];
-                }
-                smallerLeft[i] = target;
+            int res = 0, n = A.length, mod = (int) 1e9 + 7;
+            int[] left = new int[n], right = new int[n];
+            Stack<int[]> s1 = new Stack<>(), s2 = new Stack<>();
+            for (int i = 0; i < n; ++i) {
+                int count = 1;
+                while (!s1.isEmpty() && s1.peek()[0] > A[i])// 找到左边比A[i]大的长度
+                    count += s1.pop()[1];
+                s1.push(new int[]{A[i], count});
+                left[i] = count; // 左[i]， A[i]的左大数的长度
             }
-            for (int i = A.length - 1; i >= 0; i--) {
-                int target = i + 1;
-                while (target < A.length && A[target] >= A[i]) {
-                    target = smallerRight[target];
-                }
-                smallerRight[i] = target;
+            for (int i = n - 1; i >= 0; --i) {
+                int count = 1;
+                while (!s2.isEmpty() && s2.peek()[0] >= A[i])// 找到右边比A[i]大的长度
+                    count += s2.pop()[1];
+                s2.push(new int[]{A[i], count});
+                right[i] = count; // 右[i]， A[i]的右大数的长度
             }
-
-            long res = 0;
-            for (int i = 0; i < A.length; i++) {
-                res = (res + (A[i] * ((i - smallerLeft[i]) % MOD) * ((smallerRight[i] - i) % MOD)) % MOD) % MOD;
-            }
-
-            return (int) res;
+            for (int i = 0; i < n; ++i)
+                res = (res + A[i] * left[i] * right[i]) % mod;
+            return res;
         }
     }
 
     class Solution2 {
         public int sumSubarrayMins(int[] A) {
-            int MOD = 1_000_000_007;
-            int N = A.length;
-
-            // prev has i* - 1 in increasing order of A[i* - 1]
-            // where i* is the answer to query j
-            Stack<Integer> stack = new Stack<Integer>();
-            int[] prev = new int[N];
-            for (int i = 0; i < N; ++i) {
-                while (!stack.isEmpty() && A[i] <= A[stack.peek()])
-                    stack.pop();
-                prev[i] = stack.isEmpty() ? -1 : stack.peek();
-                stack.push(i);
+            int n = A.length;
+            int[] front = new int[n], end = new int[n];
+            for (int i = 0; i < n; i++) {
+                int last = i - 1;
+                while (last >= 0 && A[i] < A[last]) // 找到左边比A[i]大的位置
+                    last = front[last];
+                front[i] = last;
             }
-
-            // next has k* + 1 in increasing order of A[k* + 1]
-            // where k* is the answer to query j
-            stack = new Stack<Integer>();
-            int[] next = new int[N];
-            for (int k = N - 1; k >= 0; --k) {
-                while (!stack.isEmpty() && A[k] < A[stack.peek()])
-                    stack.pop();
-                next[k] = stack.isEmpty() ? N : stack.peek();
-                stack.push(k);
+            for (int i = n - 1; i >= 0; i--) {
+                int last = i + 1;
+                while (last < n && A[i] <= A[last]) // 找到右边比A[i]大的位置
+                    last = end[last];
+                end[i] = last;
             }
-
-            // Use prev/next array to count answer
-            long ans = 0;
-            for (int i = 0; i < N; ++i) {
-                ans += (i - prev[i]) * (next[i] - i) % MOD * A[i] % MOD;
-                ans %= MOD;
+            int res = 0;
+            int mod = (int) 1e9 + 7;
+            for (int i = 0; i < n; i++) {
+                res = (res + A[i] * (end[i] - i) * (i - front[i])) % mod;
             }
-            return (int) ans;
-
+            return (int) res;
         }
     }
 }

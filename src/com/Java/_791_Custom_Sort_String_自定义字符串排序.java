@@ -34,28 +34,4 @@ public class _791_Custom_Sort_String_自定义字符串排序 {
             return sb.toString();
         }
     }
-
-    class Solution2 {
-        public String customSortString(String S, String T) {
-            int[] map = new int[26];
-            StringBuilder sb = new StringBuilder();
-            for (char c : T.toCharArray()) {
-                map[c - 'a']++;
-            }
-            for (int i = 0; i <= S.length() - 1; i++) {
-                while (map[S.charAt(i) - 'a'] != 0) {
-                    sb.append(S.charAt(i));
-                    map[S.charAt(i) - 'a']--;
-                }
-            }
-            for (int i = 0; i < 26; i++) {
-                while (map[i] != 0) {
-                    sb.append((char) (i + 'a')); // (char) is important
-                    map[i]--;
-                }
-            }
-            return sb.toString();
-        }
-    }
-
 }

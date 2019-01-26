@@ -4,7 +4,8 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /*
-给定一个长度为偶数的整数数组 A，只有对 A 进行重组后可以满足 “对于每个 0 <= i < len(A) / 2，都有 A[2 * i + 1] = 2 * A[2 * i]” 时，返回 true；否则，返回 false。
+给定一个长度为偶数的整数数组 A，只有对 A 进行重组后可以满足 “对于每个 0 <= i < len(A) / 2，
+都有 A[2 * i + 1] = 2 * A[2 * i]” 时，返回 true；否则，返回 false。
 示例 1：
 输入：[3,1,3,6]
 输出：false
@@ -21,11 +22,11 @@ import java.util.TreeMap;
  */
 public class _954_Array_of_Doubled_Pairs_二倍数对数组 {
     /* 
-    Count all numbers.
-    Loop all numbers on the order of its absolute.
-    We have counter[x] of x, so we need the same amount of 2x to match them.
-    If c[x] > c[2 * x], then we return false
-    If c[x] <= c[2 * x], then we do c[2 * x] -= c[x] to remove matched 2x.
+    计算所有数字。
+    按绝对数字的顺序循环所有数字。
+    我们有x的计数器[x]所以我们需要相同数量的2x来匹配它们。
+    如果c[x] > c[2 * x]，则返回false
+    如果c[x] <= c[2 * x]，则执行c[2 * x] -= c[x]删除匹配的2x。
      */
     class Solution {
         public boolean canReorderDoubled(int[] A) {

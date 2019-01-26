@@ -22,12 +22,12 @@ package src.com.Java;
  */
 public class _779_Kth_Symbol_in_Grammar_第K个语法符号 {
     /*
-     * f(2 * k) = 0 {if f(k) = 0} or, 1 {if f(k) = 1} => f(2 * k) = f(k) xor 0 
-     * f(2 * k + 1) = 0 {if f(k) = 1} or 1 {if f(k) = 0} => f(2 * k + 1) = f(k) xor 1
-     * f(1001010) = 1 ^ 1 ^ 1 = (1^1) ^ 1 = 0 ^ 1 = 1
-     * f(11110011) = 1 ^ 1^ 1 ^ 1 ^ 1 ^1 = (1 ^ 1) ^ (1 ^ 1) ^ (1 ^1) = 0
-     * 现在，如果k的二进制表示1的个数是偶数，那么f(k) = 0，如果k的二进制表示1的个数是奇数，那么f(k) = 1
-     */
+    f(2 * k) = 0 {if f(k) = 0} or, 1 {if f(k) = 1} => f(2 * k) = f(k) xor 0
+    f(2 * k + 1) = 0 {if f(k) = 1} or 1 {if f(k) = 0} => f(2 * k + 1) = f(k) xor 1
+    f(1001010) = 1 ^ 1 ^ 1 = (1^1) ^ 1 = 0 ^ 1 = 1
+    f(11110011) = 1 ^ 1^ 1 ^ 1 ^ 1 ^1 = (1 ^ 1) ^ (1 ^ 1) ^ (1 ^1) = 0
+    现在，如果k的二进制表示1的个数是偶数，那么f(k) = 0，如果k的二进制表示1的个数是奇数，那么f(k) = 1
+    */
     class Solution {
         public int kthGrammar(int N, int K) {
             return Integer.bitCount(K - 1) & 1;

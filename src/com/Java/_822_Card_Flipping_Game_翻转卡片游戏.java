@@ -34,5 +34,4 @@ public class _822_Card_Flipping_Game_翻转卡片游戏 {
             return res == Integer.MAX_VALUE ? 0 : res;
         }
     }
-
 }

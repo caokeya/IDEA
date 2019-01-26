@@ -34,9 +34,7 @@ public class _860_Lemonade_Change_柠檬水找零 {
         public boolean lemonadeChange(int[] bills) {
             int fives = 0;
             int tens = 0;
-
             for (int bill : bills) {
-
                 if (bill == 5) {
                     fives++;
                 } else if (bill == 10) {
@@ -48,7 +46,6 @@ public class _860_Lemonade_Change_柠檬水找零 {
                 } else {
                     fives -= 3;
                 }
-
                 if (fives < 0) {
                     return false;
                 }

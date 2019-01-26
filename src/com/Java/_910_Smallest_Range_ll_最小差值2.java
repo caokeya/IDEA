@@ -21,26 +21,25 @@ import java.util.Arrays;
  */
 public class _910_Smallest_Range_ll_最小差值2 {
     class Solution {
-        // Assuming there is a point, on the left of the point, all elements add K, 
-        // on the right of the point, all elements substract K, check each possible point
-        // max and min are in these 4 candidates, A[0]+K, A[last]-K, A[point left] + K, A[point right] - K
+        /*
+        假设有一个点，在这个点的左边，所有元素加K，
+        在点的右边，所有元素减去K，检查每一个可能的点
+        max和min在这4个候选项中，A[0]+K, A[last]-K, A[point left] +K, A[point right] -K
+        */
         public int smallestRangeII(int[] A, int K) {
             Arrays.sort(A);
-            int ans = A[A.length-1] - A[0]; // this also represents the result of cases where all nums +K, or -K
-            // int ans= Integer.MAX_VALUE; // wrong, e.g. [1], 0
-            
+            int ans = A[A.length - 1] - A[0];
             int left = A[0] + K;
             int right = A[A.length - 1] - K;
-            
-            for (int i = 0; i+1 < A.length; i++) {
+
+            for (int i = 0; i + 1 < A.length; i++) {
                 int pleft = A[i] + K;
-                int pright = A[i+1] - K;
-                
+                int pright = A[i + 1] - K;
+
                 int max = Math.max(pleft, right);
                 int min = Math.min(left, pright);
                 ans = Math.min(ans, max - min);
             }
-            
             return ans;
         }
     }

@@ -15,7 +15,7 @@ ans.val = 3, ans.next.val = 4, ans.next.next.val = 5, 以及 ans.next.next.next 
 由于该列表有两个中间结点，值分别为 3 和 4，我们返回第二个结点。
  */
 public class _876_Middle_of_the_Linked_List_链表的中间结点 {
-    /**
+    /*
      * Definition for singly-linked list.
      */
     public class ListNode {

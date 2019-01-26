@@ -1,6 +1,7 @@
 package src.com.Java;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 给定一组 N 人（编号为 1, 2, ..., N）， 我们想把每个人分进任意大小的两组。
@@ -21,46 +22,33 @@ import java.util.ArrayList;
 public class _886_Possible_Bipartition_可能的二分法 {
     class Solution {
         public boolean possibleBipartition(int N, int[][] dislikes) {
-            ArrayList<Integer>[] graph = new ArrayList[N + 1];
-            int[] color = new int[N + 1];
-            for (int i = 1; i < graph.length; i++) {
-                graph[i] = new ArrayList<>();
+            int[] colors = new int[N + 1];
+            List<List<Integer>> graph = new ArrayList<>();
+            for (int i = 0; i <= N; ++i)
+                graph.add(new ArrayList<Integer>());
+            for (int i = 0; i < dislikes.length; ++i) {
+                graph.get(dislikes[i][0]).add(dislikes[i][1]);
+                graph.get(dislikes[i][1]).add(dislikes[i][0]);
             }
-
-            for (int[] dis : dislikes) {
-                graph[dis[0]].add(dis[1]);
-                graph[dis[1]].add(dis[0]);
-            }
-
-            for (int i = 1; i <= N; i++) {
-                if (color[i] == 0 && !dfs(i, color, graph, 1)) {
-                    return false;
+            for (int i = 1; i <= N; ++i) {
+                if (colors[i] == 0) {
+                    if (!dfs(graph, colors, i, 1))
+                        return false;
                 }
             }
-
             return true;
         }
 
-        // 0 -- unvisited
-        // 1 -- group 1
-        // 2 -- group 2
-        private boolean dfs(int curr, int[] color, ArrayList<Integer>[] graph, int nextColor) {
-            if (color[curr] != 0) {
-                return color[curr] != nextColor;
-            }
-            int currColor = nextColor;
-            color[curr] = currColor;
-            nextColor = nextColor == 2 ? 1 : 2;
-            for (int next : graph[curr]) {
-                if (color[next] == currColor) {
+        private boolean dfs(List<List<Integer>> graph, int[] colors, int cur, int color) {
+            if (colors[cur] == -1 * color)
+                return false;
+            if (colors[cur] == color)
+                return true;
+            colors[cur] = color;
+            for (int nei : graph.get(cur)) {
+                if (!dfs(graph, colors, nei, -1 * color))
                     return false;
-                }
-
-                if (color[next] == 0 && !dfs(next, color, graph, nextColor)) {
-                    return false;
-                }
             }
-
             return true;
         }
     }

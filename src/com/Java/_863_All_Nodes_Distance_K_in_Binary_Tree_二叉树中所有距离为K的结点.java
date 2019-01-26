@@ -18,7 +18,7 @@ import java.util.Map;
 上面的输入仅仅是对这些对象进行了序列化描述。
  */
 public class _863_All_Nodes_Distance_K_in_Binary_Tree_二叉树中所有距离为K的结点 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -32,10 +32,19 @@ public class _863_All_Nodes_Distance_K_in_Binary_Tree_二叉树中所有距离�
     }
 
     class Solution {
-
         Map<TreeNode, Integer> distanceMap = new HashMap<>(); // key 节点 value 节点到target的距离
 
-        /**
+        public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
+            List<Integer> result = new LinkedList<>();
+            if (root == null || target == null || K < 0) {
+                return result;
+            }
+            findTarget(root, target);
+            dfs(root, K, distanceMap.get(root), result);
+            return result;
+        }
+
+        /*
          * 找到目标节点，返回的是到目标节点的距离
          */
         private int findTarget(TreeNode node, TreeNode target) {
@@ -72,16 +81,6 @@ public class _863_All_Nodes_Distance_K_in_Binary_Tree_二叉树中所有距离�
             }
             dfs(root.left, K, distance + 1, result);
             dfs(root.right, K, distance + 1, result);
-        }
-
-        public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
-            List<Integer> result = new LinkedList<>();
-            if (root == null || target == null || K < 0) {
-                return result;
-            }
-            findTarget(root, target);
-            dfs(root, K, distanceMap.get(root), result);
-            return result;
         }
     }
 }

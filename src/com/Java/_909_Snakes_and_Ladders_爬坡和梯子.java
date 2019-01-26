@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /*
-在一块 N x N 的板子 board 上，从板的左下角开始，每一行交替方向，按从 1 到 N*N 的数字给方格编号。例如，对于一块 6 x 6 大小的板子，可以编号如下：
+在一块 N x N 的板子 board 上，从板的左下角开始，每一行交替方向，按从 1 到 N*N 的数字给方格编号。
+例如，对于一块 6 x 6 大小的板子，可以编号如下：
 36 35 34 33 32 31
 25 26 27 28 29 30
 24 23 22 21 20 19
@@ -19,13 +20,13 @@ import java.util.Queue;
 注意，你每次移动最多只能爬过一个坡或梯子一次：就算目的地是另一个坡或梯子的起点，你也不会继续移动。
 返回达到方格 N*N 所需的最少移动次数，如果不可能，则返回 -1。
 示例：
-输入：[
+输入：
 [-1,-1,-1,-1,-1,-1],
 [-1,-1,-1,-1,-1,-1],
 [-1,-1,-1,-1,-1,-1],
 [-1,35,-1,-1,13,-1],
 [-1,-1,-1,-1,-1,-1],
-[-1,15,-1,-1,-1,-1]]
+[-1,15,-1,-1,-1,-1]
 输出：4
 解释：
 首先，从方格 1 [第 5 行，第 0 列] 开始。
@@ -42,19 +43,16 @@ public class _909_Snakes_and_Ladders_爬坡和梯子 {
             Queue<Integer> queue = new LinkedList<>();
             queue.offer(1);
             boolean[] visited = new boolean[n * n + 1];
-
             for (int move = 0; !queue.isEmpty(); move++) {
                 for (int size = queue.size(); size > 0; size--) {
                     int num = queue.poll();
                     // 返回答案
                     if (num == n * n)
                         return move;
-
                     // 如果访问过
                     if (visited[num])
                         continue;
                     visited[num] = true;
-
                     // 针对下一步
                     for (int i = 1; i <= 6 && num + i <= n * n; i++) {
                         int next = num + i;
@@ -64,7 +62,6 @@ public class _909_Snakes_and_Ladders_爬坡和梯子 {
                         if (!visited[next])
                             queue.offer(next);
                     }
-
                 }
             }
             return -1;

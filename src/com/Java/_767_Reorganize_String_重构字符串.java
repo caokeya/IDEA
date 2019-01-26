@@ -58,7 +58,6 @@ public class _767_Reorganize_String_重构字符串 {
     }
 
     class Solution2 {
-
         // 总体思路是，先定义一个结果数组arr[]，将S中的相同元素隔开放入arr中即可
         // 特殊情况是当某个字符的个数多于(n + 1)/2个时，不可能使结果中相邻元素不同
         public String reorganizeString(String S) {

@@ -15,7 +15,6 @@ public class _949_Largest_Time_for_Given_Digits_给定数字能组成的最大�
     class Solution {
         public String largestTimeFromDigits(int[] A) {
             String res = "";
-
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
                     for (int k = 0; k < 4; k++) {
@@ -30,7 +29,6 @@ public class _949_Largest_Time_for_Given_Digits_给定数字能组成的最大�
                     }
                 }
             }
-
             return res;
         }
     }

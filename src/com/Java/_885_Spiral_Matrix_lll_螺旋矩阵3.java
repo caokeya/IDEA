@@ -19,29 +19,6 @@ import java.util.List;
  */
 public class _885_Spiral_Matrix_lll_螺旋矩阵3 {
     class Solution {
-        public int[][] spiralMatrixIII(int R, int C, int r, int c) {
-            int[][] res = new int[R * C][2];
-            res[0] = new int[] { r, c };
-            int x = 0, y = 1, n = 0, i = 0, tmp, j = 1;
-            while (j < R * C) {
-                r += x;
-                c += y;
-                i++;
-                if (0 <= r && r < R && 0 <= c && c < C)
-                    res[j++] = new int[] { r, c };
-                if (i == n / 2 + 1) {
-                    i = 0;
-                    n++;
-                    tmp = x;
-                    x = y;
-                    y = -tmp;
-                }
-            }
-            return res;
-        }
-    }
-
-    class Solution2 {
         public int[][] spiralMatrixIII(int R, int C, int r0, int c0) {
             int[][] dirt = new int[][] { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } }; // east, south, west, north
             List<int[]> res = new ArrayList<>();

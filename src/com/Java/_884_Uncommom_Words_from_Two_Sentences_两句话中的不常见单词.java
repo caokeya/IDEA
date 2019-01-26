@@ -33,7 +33,6 @@ public class _884_Uncommom_Words_from_Two_Sentences_两句话中的不常见单�
                     result.add(word);
                 }
             }
-
             return result.toArray(new String[result.size()]);
         }
     }

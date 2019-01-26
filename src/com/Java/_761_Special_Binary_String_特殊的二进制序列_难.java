@@ -6,7 +6,7 @@ import java.util.List;
 
 /*
 特殊的二进制序列是具有以下两个性质的二进制序列：
-  0 的数量与 1 的数量相等。
+    0 的数量与 1 的数量相等。
     二进制序列的每一个前缀码中 1 的数量要大于等于 0 的数量。
 给定一个特殊的二进制序列 S，以字符串形式表示。定义一个操作 为首先选择 S 的两个连续且非空的特殊的子串，然后将它们交换。
 （两个子串为连续的当且仅当第一个子串的最后一个字符恰好为第二个子串的第一个字符的前一个字符。)
@@ -21,9 +21,8 @@ import java.util.List;
 public class _761_Special_Binary_String_特殊的二进制序列_难 {
     class Solution {
         public String makeLargestSpecial(String S) {
-            List<String> pool = new ArrayList<>();
-            int count = 0;
-            int start = 0;
+            List<String> l = new ArrayList<>();
+            int count = 0, anchor = 0;
             for (int i = 0; i < S.length(); i++) {
                 if (S.charAt(i) == '1') {
                     count++;
@@ -31,18 +30,16 @@ public class _761_Special_Binary_String_特殊的二进制序列_难 {
                     count--;
                 }
                 if (count == 0) {
-                    pool.add("1" + makeLargestSpecial(S.substring(start + 1, i)) + "0");
-                    start = i + 1;
+                    l.add('1' + makeLargestSpecial(S.substring(anchor + 1, i)) + '0');
+                    anchor = i + 1;
                 }
             }
-
-            Collections.sort(pool);
-            String res = "";
-            for (String s : pool) {
-                res = s + res;
+            Collections.sort(l, Collections.reverseOrder());
+            StringBuilder sb = new StringBuilder();
+            for (String s : l) {
+                sb.append(s);
             }
-
-            return res;
+            return sb.toString();
         }
     }
 }

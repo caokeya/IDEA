@@ -1,11 +1,6 @@
 package src.com.Java;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 
 /*
 给定一个表达式 expression 如 expression = "e + 8 - a + 5" 和一个求值映射，
@@ -17,7 +12,8 @@ import java.util.Stack;
 表达式按通常顺序进行求值：先是括号，然后求乘法，再计算加法和减法。例如，expression = "1 + 2 * 3" 的答案是 ["7"]。
 输出格式如下：
     对于系数非零的每个自变量项，我们按字典排序的顺序将自变量写在一个项中。例如，我们永远不会写像 “b*a*c” 这样的项，只写 “a*b*c”。
-    项的次数等于被乘的自变量的数目，并计算重复项。(例如，"a*a*b*c" 的次数为 4。)。我们先写出答案的最大次数项，用字典顺序打破关系，此时忽略词的前导系数。
+    项的次数等于被乘的自变量的数目，并计算重复项。(例如，"a*a*b*c" 的次数为 4。)。
+    我们先写出答案的最大次数项，用字典顺序打破关系，此时忽略词的前导系数。
     项的前导系数直接放在左边，用星号将它与变量分隔开(如果存在的话)。前导系数 1 仍然要打印出来。
     格式良好的一个示例答案是 ["-2*a*a*a", "3*a*a*b", "3*b*b", "4*a", "5*c", "-6"] 。
     系数为 0 的项（包括常数项）不包括在内。例如，“0” 的表达式输出为 []。
@@ -40,149 +36,133 @@ evalvars = [], evalints = []
  */
 public class _770_Basic_Calculator_IV_基本计算器4_难 {
     class Solution {
-        // 2*a*b
-        class Term implements Comparable<Term> {
-            int coef = 1;
-            List<String> vars = new LinkedList<>();
-
-            public Term(int n) {
-                coef = n;
+        public List<String> basicCalculatorIV(String expression, String[] evalvars, int[] evalints) {
+            System.out.println(expression.length());
+            Map<String, Integer> eval = new HashMap<>();
+            for (int i = 0; i < evalvars.length; i++)
+                eval.put(evalvars[i], evalints[i]);
+            char[] ch = expression.toCharArray();
+            Map<String, Integer> map = helper(ch, eval);
+            Map<String, Integer> formalMap = new HashMap<>();
+            for (String str : map.keySet()) {
+                if (!str.equals("1")) {
+                    String[] strs = str.split("\\*");
+                    Arrays.sort(strs);
+                    StringBuilder sb = new StringBuilder();
+                    for (String s : strs)
+                        sb.append('*').append(s);
+                    String lexicoKey = sb.substring(1);
+                    formalMap.put(lexicoKey, formalMap.getOrDefault(lexicoKey, 0) + map.get(str));
+                    if (formalMap.get(lexicoKey) == 0)
+                        formalMap.remove(lexicoKey);
+                }
             }
-
-            public Term(String s) {
-                vars.add(s);
-            }
-
-            public String varString() {
-                Collections.sort(vars);
-                return vars.isEmpty() ? "" : ("*" + String.join("*", vars));
-            }
-
-            public String toString() {
-                return coef + varString();
-            }
-
-            public boolean equals(Term t) {
-                return varString().equals(t.varString());
-            }
-
-            public int compareTo(Term t) {
-                return (vars.size() == t.vars.size()) ? varString().compareTo(t.varString())
-                        : t.vars.size() - vars.size();
-            }
-
-            public Term multi(Term t) {
-                Term res = new Term(coef * t.coef);
-                res.vars.addAll(vars);
-                res.vars.addAll(t.vars);
-                return res;
-            }
+            List<String> keyList = new LinkedList<>();
+            for (String str : formalMap.keySet())
+                keyList.add(str);
+            Collections.sort(keyList, new Comparator<String>() {
+                public int compare(String str1, String str2) {
+                    String[] s1 = str1.split("\\*");
+                    String[] s2 = str2.split("\\*");
+                    if (s1.length != s2.length) {
+                        return s2.length - s1.length;
+                    } else {
+                        return str1.compareTo(str2);
+                    }
+                }
+            });
+            List<String> res = new LinkedList<>();
+            for (String str : keyList)
+                res.add(formalMap.get(str) + "*" + str);
+            if (map.containsKey("1") && map.get("1") != 0)
+                res.add(map.get("1") + "");
+            return res;
         }
 
-        // 2*a*b-c*d
-        class Sequence {
-            List<Term> terms = new LinkedList<>();
+        int index = 0;
 
-            public Sequence() {
-            }
-
-            public Sequence(int n) {
-                terms.add(new Term(n));
-            }
-
-            public Sequence(String s) {
-                terms.add(new Term(s));
-            }
-
-            public Sequence(Term t) {
-                terms.add(t);
-            }
-
-            public Sequence add(Sequence sq) {
-                for (Term t2 : sq.terms) {
-                    if (t2.coef == 0)
-                        continue;
-                    boolean found = false;
-                    for (Term t1 : terms) {
-                        if (t1.equals(t2)) {
-                            t1.coef += t2.coef;
-                            if (t1.coef == 0)
-                                terms.remove(t1);
-                            found = true;
-                            break;
+        public Map<String, Integer> helper(char[] ch, Map<String, Integer> eval) {
+            Map<String, Integer>[] stack = new Map[ch.length];
+            int stackIndex = 0;
+            char op = '+';
+            StringBuilder sb = new StringBuilder();
+            boolean isNum = false;
+            Map<String, Integer> term = null;
+            while (index <= ch.length) {
+                if (index != ch.length && ch[index] >= '0' && ch[index] <= '9') {
+                    isNum = true;
+                    sb.append(ch[index]);
+                } else if (index != ch.length && ch[index] >= 'a' && ch[index] <= 'z') {
+                    isNum = false;
+                    sb.append(ch[index]);
+                } else if (index == ch.length || ch[index] != ' ' && ch[index] != '(') {
+                    if (term == null) {
+                        term = new HashMap<>();
+                        if (isNum) {
+                            int value = Integer.valueOf(sb.toString());
+                            term.put("1", value);
+                        } else {
+                            if (eval.containsKey(sb.toString())) {
+                                int value = eval.get(sb.toString());
+                                term.put("1", value);
+                            } else {
+                                term.put(sb.toString(), 1);
+                            }
                         }
                     }
-                    if (!found)
-                        terms.add(t2);
+                    if (op != '*') {
+                        if (op == '-') {
+                            for (String str : term.keySet())
+                                term.put(str, -1 * term.get(str));
+                        }
+                        stack[stackIndex++] = term;
+                    } else {
+                        stack[stackIndex - 1] = mul(stack[stackIndex - 1], term);
+                    }
+                    if (index == ch.length || ch[index] == ')')
+                        break;
+                    op = ch[index];
+                    term = null;
+                    sb.setLength(0);
+                } else if (ch[index] == '(') {
+                    index++;
+                    term = helper(ch, eval);
                 }
-                return this;
+                index++;
             }
-
-            public Sequence multi(Sequence sq) {
-                Sequence res = new Sequence();
-                for (Term t1 : terms)
-                    for (Term t2 : sq.terms)
-                        res.add(new Sequence(t1.multi(t2)));
-                return res;
+            Map<String, Integer> res = new HashMap<>();
+            while (stackIndex != 0) {
+                stackIndex--;
+                Map<String, Integer> addTerm = stack[stackIndex];
+                for (String str : addTerm.keySet()) {
+                    res.put(str, res.getOrDefault(str, 0) + addTerm.get(str));
+                    if (res.get(str) == 0)
+                        res.remove(str);
+                }
             }
-        }
-
-        public List<String> basicCalculatorIV(String expression, String[] evalvars, int[] evalints) {
-            List<String> res = new LinkedList<>();
-            Map<String, Integer> map = new HashMap<>();
-            for (int i = 0; i < evalvars.length; i++)
-                map.put(evalvars[i], evalints[i]);
-            Sequence sq = helper(expression, map);
-            Collections.sort(sq.terms);
-            for (Term t : sq.terms)
-                if (!t.toString().equals("0"))
-                    res.add(t.toString());
             return res;
         }
 
-        int idx = 0;
-
-        public Sequence helper(String e, Map<String, Integer> map) {
-            Stack<Sequence> stack = new Stack<>();
-            int flag = 1;
-            while (idx < e.length()) {
-                char c = e.charAt(idx++);
-                if (c == ' ')
-                    continue;
-                else if (c == '(') {
-                    Sequence sq = helper(e, map);
-                    addToStack(stack, sq, flag);
-                } else if (c == ')')
-                    break;
-                else if (c == '+' || c == '-' || c == '*')
-                    flag = c == '+' ? 1 : c == '-' ? -1 : 0;
-                else if (Character.isDigit(c)) {
-                    int coef = c - '0';
-                    while (idx < e.length() && Character.isDigit(e.charAt(idx)))
-                        coef = coef * 10 + e.charAt(idx++) - '0';
-                    addToStack(stack, new Sequence(coef), flag);
-                } else if (Character.isLetter(c)) {
-                    StringBuilder sb = new StringBuilder(c + "");
-                    while (idx < e.length() && Character.isLetter(e.charAt(idx)))
-                        sb.append(e.charAt(idx++));
-                    String var = sb.toString();
-                    if (map.containsKey(var))
-                        addToStack(stack, new Sequence(map.get(var)), flag);
-                    else
-                        addToStack(stack, new Sequence(var), flag);
+        public Map<String, Integer> mul(Map<String, Integer> map1, Map<String, Integer> map2) {
+            Map<String, Integer> res = new HashMap<>();
+            for (String str1 : map1.keySet()) {
+                int v1 = map1.get(str1);
+                for (String str2 : map2.keySet()) {
+                    int v2 = map2.get(str2);
+                    String key;
+                    if (str1.equals("1")) {
+                        key = str2;
+                    } else if (str2.equals("1")) {
+                        key = str1;
+                    } else {
+                        key = str1 + "*" + str2;
+                    }
+                    res.put(key, res.getOrDefault(key, 0) + v1 * v2);
+                    if (res.get(key) == 0)
+                        res.remove(key);
                 }
             }
-            Sequence res = new Sequence();
-            while (!stack.isEmpty())
-                res.add(stack.pop());
             return res;
-        }
-
-        public void addToStack(Stack<Sequence> stack, Sequence sq, int flag) {
-            if (flag == 0)
-                stack.add(stack.pop().multi(sq));
-            else
-                stack.add(sq.multi(new Sequence(flag)));
         }
     }
 }

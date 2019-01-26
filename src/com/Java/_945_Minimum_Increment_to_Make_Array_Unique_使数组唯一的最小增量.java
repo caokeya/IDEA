@@ -24,13 +24,10 @@ public class _945_Minimum_Increment_to_Make_Array_Unique_使数组唯一的最�
             if (A == null || A.length == 0) {
                 return 0;
             }
-
             // sort
             Arrays.sort(A);
-
             // moves of steps needed
             int moves = 0;
-
             int max = A[0];
             // from the second number
             for (int i = 1; i < A.length; i++) {
@@ -41,7 +38,6 @@ public class _945_Minimum_Increment_to_Make_Array_Unique_使数组唯一的最�
                     max = A[i];
                 }
             }
-
             return moves;
         }
     }

@@ -45,7 +45,7 @@ public class _960_Delete_Columns_to_Make_Sorted_IlI_删列造序3_难 {
                         dp[i] = Math.max(dp[i], dp[j] + 1);
                     }
                 }
-                max = Math.max(max, dp[i]);
+                max = Math.max(max, dp[i]); // max 是保留的列数
             }
             return n - max;
         }

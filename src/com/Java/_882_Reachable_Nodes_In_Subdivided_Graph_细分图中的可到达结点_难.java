@@ -22,13 +22,13 @@ n 是该边上新结点的总数
  */
 public class _882_Reachable_Nodes_In_Subdivided_Graph_细分图中的可到达结点_难 {
     /*
-         * 将边存储到另一个2D哈希表e中，以便通过e[i][j]更容易地获得两个节点之间的长度。
+    * 将边存储到另一个2D哈希表e中，以便通过e[i][j]更容易地获得两个节点之间的长度。
     * seen[i]表示我们可以到达节点i，并看到[i]向左移动。
-         * 优先队列pq存储状态(向左移动，节点索引)。 
-         * 每次当我们从pq中跳出时，我们得到的状态是剩下的移动数最多的。
+    * 优先队列pq存储状态(向左移动，节点索引)。
+    * 每次当我们从pq中跳出时，我们得到的状态是剩下的移动数最多的。
     * For every edge e[i][j]:
     * res += min(seen.getOrDefault(i, 0) + seen.getOrDefault(j, 0), e[i][j])
-     */
+    */
     class Solution {
         public int reachableNodes(int[][] edges, int M, int N) {
             HashMap<Integer, HashMap<Integer, Integer>> e = new HashMap<>();

@@ -17,22 +17,50 @@ public class _813_Largest_Sum_of_Averages_最大平均值和的分组 {
     class Solution {
         public double largestSumOfAverages(int[] A, int K) {
             int N = A.length;
-            double[] sum = new double[N + 1];
-            for (int i = 0; i < N; ++i)
-                sum[i + 1] = sum[i] + A[i];//记录各个位置的总和
+            double[][] memo = new double[N + 1][N + 1];
+            double cur = 0;
+            for (int i = 0; i < N; ++i) {
+                cur += A[i];
+                memo[i + 1][1] = cur / (i + 1);
+            }
+            return search(N, K, A, memo);
+        }
 
-            double[] dp = new double[N];
-            for (int i = 0; i < N; ++i)
-                dp[i] = (sum[N] - sum[i]) / (N - i);//求出末尾得到各位置的平均值
+        public double search(int n, int k, int[] A, double[][] memo) {
+            if (memo[n][k] > 0)
+                return memo[n][k];
+            if (n < k)
+                return 0;
+            double cur = 0;
+            for (int i = n - 1; i > 0; --i) {
+                cur += A[i];
+                memo[n][k] = Math.max(memo[n][k], search(i, k - 1, A, memo) + cur / (n - i));
+            }
+            return memo[n][k];
+        }
+    }
 
-            for (int k = 0; k < K - 1; ++k)
-                for (int i = 0; i < N; ++i)
-                    for (int j = i + 1; j < N; ++j) {
-                        dp[i] = Math.max(dp[i], (sum[j] - sum[i]) / (j - i) + dp[j]);
-
+    class Solution2 {
+        public double largestSumOfAverages(int[] A, int K) {
+            // dp[i][j] is the max average sum (MAS) of the array of length j (the subarray of A, starting from 0), with i partitions
+            double[][] dp = new double[K + 1][A.length + 1];
+            double sum = 0.0;
+            for (int j = 1; j <= A.length; j++) { // calculate the initial state, the MAS of 1 partition for each subarray
+                sum += A[j - 1];
+                dp[1][j] = sum / j;
+            }
+            for (int i = 2; i <= K; i++) { // itearate from 2 partitions
+                for (int j = 1; j <= A.length; j++) {
+                    // for each dp[i][j], it can be dp[i - 1][k] + the average of (A[k, ..., j - 1])
+                    // then we iterate k from j - 1 to 0, and get max dp[i][j]
+                    sum = 0;
+                    for (int k = j - 1; k >= 0; k--) {
+                        sum += A[k];
+                        dp[i][j] = Math.max(dp[i][j], dp[i - 1][k] + sum / (j - k));
                     }
-
-            return dp[0];
+                }
+            }
+            return dp[K][A.length];
         }
     }
 }

@@ -16,7 +16,7 @@ package src.com.Java;
 最小的差值是 1, 它是节点1和节点2的差值, 也是节点3和节点2的差值。
  */
 public class _783_MinImum_Distance_Between_BST_Nodes_二叉搜索树结点最小距离 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -30,18 +30,22 @@ public class _783_MinImum_Distance_Between_BST_Nodes_二叉搜索树结点最小
     }
 
     class Solution {
-        Integer res = Integer.MAX_VALUE, pre = null;
+        //BST 中序遍历获得有序数组
+        int prev = Integer.MIN_VALUE, res = Integer.MAX_VALUE;
 
         public int minDiffInBST(TreeNode root) {
-            if (root.left != null)
-                minDiffInBST(root.left);
-            if (pre != null)
-                res = Math.min(res, root.val - pre);
-            pre = root.val;
-            if (root.right != null)
-                minDiffInBST(root.right);
+            inorder(root);
             return res;
         }
-    }
 
+        public void inorder(TreeNode root) {
+            if (root == null) return;
+            inorder(root.left);
+            if (prev != Integer.MIN_VALUE) {
+                res = Math.min(root.val - prev, res);
+            }
+            prev = root.val;
+            inorder(root.right);
+        }
+    }
 }

@@ -18,27 +18,24 @@ package src.com.Java;
  */
 public class _769_Max_Chunks_To_Make_Sorted_最多能完成排序的块 {
     /*
-           基本思想是使用max[] array来跟踪最大值直到当前位置，并将其与排序的数组(索引从0到arr)进行比较。如果max[i]等于排序数组中索引i处的元素，那么最终计数++
-     original: 0, 2, 1, 4, 3, 5, 7, 6
-     max:      0, 2, 2, 4, 4, 5, 7, 7
-     sorted:   0, 1, 2, 3, 4, 5, 6, 7
-     index:    0, 1, 2, 3, 4, 5, 6, 7
-     The chunk 0| 2, 1| 4, 3| 5| 7, 6
+    基本思想是使用max[] array来跟踪最大值直到当前位置，并将其与排序的数组(索引从0到arr)进行比较。
+    如果max[i]等于排序数组中索引i处的元素，那么最终计数++
+    original: 0, 2, 1, 4, 3, 5, 7, 6
+    max:      0, 2, 2, 4, 4, 5, 7, 7
+    sorted:   0, 1, 2, 3, 4, 5, 6, 7
+    index:    0, 1, 2, 3, 4, 5, 6, 7
+    The chunk 0| 2, 1| 4, 3| 5| 7, 6
      */
     class Solution {
         public int maxChunksToSorted(int[] arr) {
-
             if (arr == null || arr.length == 0) {
                 return 0;
             }
-            int[] max = new int[arr.length];
-            max[0] = arr[0];
-            for (int i = 1; i < arr.length; i++) {
-                max[i] = Math.max(arr[i], max[i - 1]);
-            }
             int count = 0;
-            for (int i = 0; i < max.length; i++) {
-                if (max[i] == i) {
+            int max = arr[0];
+            for (int i = 0; i < arr.length; i++) {
+                max = Math.max(arr[i], max);
+                if (max == i) { // max is on its correct position, so can split between i and i+1
                     count++;
                 }
             }

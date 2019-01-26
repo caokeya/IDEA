@@ -3,6 +3,7 @@ package src.com.Java;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 /*
 N  辆车沿着一条车道驶向位于 target 英里之外的共同目的地。
@@ -23,26 +24,19 @@ N  辆车沿着一条车道驶向位于 target 英里之外的共同目的地。
  */
 public class _853_Car_Fleet_车队 {
     class Solution {
-        public int carFleet(int target, int[] position, int[] speed) {
-            Map<Integer, Integer> speedMap = new HashMap<>();
-            for (int i = 0; i < position.length; i++) {
-                speedMap.put(position[i], speed[i]);
-            }
-            Arrays.sort(position);
-            double timeToArrive = 0;
-            int carFleet = 0;
-            for (int i = position.length - 1; i >= 0; i--) {
-                double t = (double) (target - position[i]) / (double) speedMap.get(position[i]);
-                if (timeToArrive == 0) {
-                    timeToArrive = t;
-                    carFleet = 1;
-                } else if (t > timeToArrive) {
-                    timeToArrive = t;
-                    carFleet++;
+        public int carFleet(int target, int[] pos, int[] speed) {
+            TreeMap<Integer, Double> m = new TreeMap<>();
+            for (int i = 0; i < pos.length; ++i)
+                m.put(-pos[i], (double) (target - pos[i]) / speed[i]);
+            int res = 0;
+            double cur = 0;
+            for (double time : m.values()) {
+                if (time > cur) {
+                    cur = time;
+                    res++;
                 }
-
             }
-            return carFleet;
+            return res;
         }
     }
 }

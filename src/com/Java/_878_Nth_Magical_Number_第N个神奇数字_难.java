@@ -18,12 +18,6 @@ package src.com.Java;
  */
 public class _878_Nth_Magical_Number_第N个神奇数字_难 {
     class Solution {
-        public int gcd(int x, int y) {
-            if (x == 0)
-                return y;
-            return gcd(y % x, x);// 求出最大公约数
-        }
-
         public int nthMagicalNumber(int N, int A, int B) {
             long low = 0;
             long high = (long) 1e15;
@@ -38,9 +32,13 @@ public class _878_Nth_Magical_Number_第N个神奇数字_难 {
                     high = mid;
                 }
             }
-
             return (int) (low % (1_000_000_007));
+        }
 
+        public int gcd(int x, int y) {
+            if (x == 0)
+                return y;
+            return gcd(y % x, x);// 求出最大公约数
         }
     }
 }

@@ -57,7 +57,6 @@ public class _959_Regions_Cut_By_Slashes_由斜杠划分区域 {
                         dsu.union(root + 0, root + 2);
                         dsu.union(root + 1, root + 3);
                     }
-
                     // north south
                     if (r + 1 < N)
                         dsu.union(root + 3, (root + 4 * N) + 0);
@@ -69,13 +68,11 @@ public class _959_Regions_Cut_By_Slashes_由斜杠划分区域 {
                     if (c - 1 >= 0)
                         dsu.union(root + 1, (root - 4) + 2);
                 }
-
             int ans = 0;
             for (int x = 0; x < 4 * N * N; ++x) {
                 if (dsu.find(x) == x)
                     ans++;
             }
-
             return ans;
         }
     }

@@ -45,7 +45,6 @@ public class _808_Soup_Servings_分汤 {
                                   helper(a - 3, b - 1, cache) + 
                                   helper(a - 2, b - 2, cache) + 
                                   helper(a - 1, b - 3, cache));
-
             return cache[a][b];
         }
     }

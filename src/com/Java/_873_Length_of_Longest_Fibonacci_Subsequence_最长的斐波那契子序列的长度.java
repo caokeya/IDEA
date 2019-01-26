@@ -34,10 +34,11 @@ public class _873_Length_of_Longest_Fibonacci_Subsequence_最长的斐波那契�
             int res = 2;
             for (int i = 0; i < A.length; i++) {
                 for (int j = i + 1; j < A.length; j++) {
+                    // Initial (a, b) = (A[i], A[j])
                     int a = A[i];
                     int b = A[j];
                     int l = 2;
-                    while (s.contains(a + b)) {
+                    while (s.contains(a + b)) { // While the set s contains a + b, we update (a, b) = (b, a + b).
                         b = b + a;
                         a = b - a;
                         l++;

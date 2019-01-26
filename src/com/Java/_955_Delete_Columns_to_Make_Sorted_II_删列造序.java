@@ -31,7 +31,7 @@ public class _955_Delete_Columns_to_Make_Sorted_II_删列造序 {
         public int minDeletionSize(String[] A) {
             int res = 0;
             int m = A.length, n = A[0].length();
-            // 如果A[i]已经大于A[i-1]，设sorted[i] = true
+
             boolean[] sorted = new boolean[m];
             for (int j = 0; j < n; j++) {
                 int i = 1;
@@ -48,12 +48,11 @@ public class _955_Delete_Columns_to_Make_Sorted_II_删列造序 {
 
                 i = 1;
                 for (; i < m; i++) {
-                    if (A[i].charAt(j) > A[i - 1].charAt(j)) {
+                    if (A[i].charAt(j) > A[i - 1].charAt(j)) { // 如果A[i]已经大于A[i-1]，设sorted[i] = true
                         sorted[i] = true;
                     }
                 }
             }
-
             return res;
         }
     }

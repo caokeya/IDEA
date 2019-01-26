@@ -23,60 +23,17 @@ public class _788_Rotated_Digits_旋转数字 {
             return count;
         }
 
-        public boolean isValid(int N) {
-            /*
-             * Valid if N contains ATLEAST ONE 2, 5, 6, 9 AND NO 1, 3, 4, 7, 8
-             */
-            boolean validFound = false;
-            while (N > 0) {
-                if (N % 10 == 2)
-                    validFound = true;
-                if (N % 10 == 5)
-                    validFound = true;
-                if (N % 10 == 6)
-                    validFound = true;
-                if (N % 10 == 9)
-                    validFound = true;
-                if (N % 10 == 1)
-                    return false;
-                if (N % 10 == 3)
-                    return false;
-                if (N % 10 == 4)
-                    return false;
-                if (N % 10 == 7)
-                    return false;
-                if (N % 10 == 8)
-                    return false;
-                N = N / 10;
-            }
-            return validFound;
-        }
-    }
+        public boolean isValid(int i) {
+            boolean valid = false;
 
-    class Solution2 {
-        public int rotatedDigits(int N) {
-            int[] dp = new int[N + 1];
-            int count = 0;
-            for (int i = 0; i <= N; i++) {
-                if (i < 10) {
-                    if (i == 0 || i == 1 || i == 8)
-                        dp[i] = 1;
-                    else if (i == 2 || i == 5 || i == 6 || i == 9) {
-                        dp[i] = 2;
-                        count++;
-                    }
-                } else {
-                    int a = dp[i / 10], b = dp[i % 10];
-                    if (a == 1 && b == 1)
-                        dp[i] = 1;
-                    else if (a >= 1 && b >= 1) {
-                        dp[i] = 2;
-                        count++;
-                    }
-                }
+            while (i > 0) {
+                if (i % 10 == 2 || i % 10 == 5 || i % 10 == 6 || i % 10 == 9)
+                    valid = true;
+                if (i % 10 == 3 || i % 10 == 4 || i % 10 == 7)
+                    return false;
+                i = i / 10;
             }
-            return count;
-
+            return valid;
         }
     }
 }

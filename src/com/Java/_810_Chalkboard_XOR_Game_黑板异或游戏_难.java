@@ -15,10 +15,10 @@ package src.com.Java;
  */
 public class _810_Chalkboard_XOR_Game_黑板异或游戏_难 {
     /*
-           不是所有的数字都是一样的。否则xor将等于0 
-           如果所有的数字都不相同，这意味着至少有两个不同的数字。
-     Alice总是可以擦掉一个不同于当前xor的数字。
-           所以爱丽丝在这种情况下不会输掉这个回合。
+    不是所有的数字都是一样的。否则xor将等于0
+    如果所有的数字都不相同，这意味着至少有两个不同的数字。
+    Alice总是可以擦掉一个不同于当前xor的数字。
+    所以爱丽丝在这种情况下不会输掉这个回合。
      */
     class Solution {
         public boolean xorGame(int[] nums) {

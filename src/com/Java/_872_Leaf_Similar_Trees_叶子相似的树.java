@@ -10,7 +10,7 @@ import java.util.List;
 如果给定的两个头结点分别为 root1 和 root2 的树是叶相似的，则返回 true；否则返回 false 。
  */
 public class _872_Leaf_Similar_Trees_叶子相似的树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -24,27 +24,24 @@ public class _872_Leaf_Similar_Trees_叶子相似的树 {
     }
 
     class Solution {
-        private void dfs(TreeNode root, List<Integer> list) {
-            if (root == null) {
-                return;
-            }
-
-            if (root.left == null && root.right == null) {
-                list.add(root.val);
-                return;
-            }
-
-            dfs(root.left, list);
-            dfs(root.right, list);
-        }
-
         public boolean leafSimilar(TreeNode root1, TreeNode root2) {
             List<Integer> list1 = new ArrayList<Integer>();
             List<Integer> list2 = new ArrayList<Integer>();
             dfs(root1, list1);
             dfs(root2, list2);
-
             return list1.equals(list2);
         }
+    }
+
+    private void dfs(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        if (root.left == null && root.right == null) {
+            list.add(root.val);
+            return;
+        }
+        dfs(root.left, list);
+        dfs(root.right, list);
     }
 }

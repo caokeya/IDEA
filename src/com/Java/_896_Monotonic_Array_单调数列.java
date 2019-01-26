@@ -28,7 +28,6 @@ public class _896_Monotonic_Array_单调数列 {
                 inc = inc && (A[i - 1] <= A[i]);
                 dec = dec && (A[i - 1] >= A[i]);
             }
-
             return inc || dec;
         }
     }

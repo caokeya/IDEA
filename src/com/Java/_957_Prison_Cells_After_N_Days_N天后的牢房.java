@@ -31,10 +31,10 @@ Day 7: [0, 0, 1, 1, 0, 0, 0, 0]
  */
 public class _957_Prison_Cells_After_N_Days_N天后的牢房 {
     /*
-    We record all seen states.
-    Be careful,
-    we need transform array to string as the key,
-    otherwise it use the reference.
+    我们记录所有可见的状态。
+    要小心,
+    我们需要将数组转换为字符串作为键，
+    否则使用引用。
     */
     class Solution {
         public int[] prisonAfterNDays(int[] cells, int N) {
@@ -52,25 +52,4 @@ public class _957_Prison_Cells_After_N_Days_N天后的牢房 {
             return cells;
         }
     }
-    /*
-    I tried to find the pattern of the loop.
-    Well, the length of loop can be 1, 7, or 14.
-    
-    So once we enter the loop, every 14 steps must be the same state.
-    
-    The length of cells is even,
-    so for any state, we can find a previous state.
-    So all states are in a loop.
-     */
-    class Solution2 {
-        public int[] prisonAfterNDays(int[] cells, int N) {
-               for (N = (N - 1) % 14 + 1; N > 0; --N) {
-                   int[] cells2 = new int[8];
-                   for (int i = 1; i < 7; ++i)
-                       cells2[i] = cells[i - 1] == cells[i + 1] ? 1 : 0;
-                   cells = cells2;
-               }
-               return cells;
-           }
-       }
 }

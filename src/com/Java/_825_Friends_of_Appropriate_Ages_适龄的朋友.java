@@ -25,21 +25,21 @@ package src.com.Java;
 public class _825_Friends_of_Appropriate_Ages_适龄的朋友 {
     class Solution {
         public int numFriendRequests(int[] ages) {
-            int[] hash = new int[121];
-            for (int i = 0; i < ages.length; i++) {
-                hash[ages[i]]++;
+            int res = 0;
+            int[] numInAge = new int[121];
+            int[] sumInAge = new int[121];
+            for (int age : ages)
+                numInAge[age]++;
+            for (int i = 1; i <= 120; i++)
+                sumInAge[i] = sumInAge[i - 1] + numInAge[i];
+
+            for (int i = 15; i <= 120; i++) {
+                if (numInAge[i] == 0)
+                    continue;
+                int count = sumInAge[i] - sumInAge[i / 2 + 7];
+                res += (count - 1) * numInAge[i];
             }
-            for (int i = 1; i < 121; i++) {
-                hash[i] += hash[i - 1];
-            }
-            int result = 0;
-            for (int i = 0; i < ages.length; i++) {
-                int lowerbound = ages[i] / 2 + 7;
-                if (lowerbound < ages[i]) {
-                    result += hash[ages[i]] - hash[lowerbound] - 1;
-                }
-            }
-            return result;
+            return res;
         }
     }
 }

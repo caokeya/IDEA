@@ -11,7 +11,7 @@ package src.com.Java;
 输出：23
  */
 public class _938_Range_Sum_of_BST_二叉搜索树的范围和 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

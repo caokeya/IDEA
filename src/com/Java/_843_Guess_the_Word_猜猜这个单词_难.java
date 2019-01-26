@@ -23,7 +23,7 @@ master.guess("abcczz") 返回 4, 因为 "abcczz" 有 4 个匹配项。
 我们调用了 5 次master.guess，其中一次猜到了秘密，所以我们通过了这个测试用例。
  */
 public class _843_Guess_the_Word_猜猜这个单词_难 {
-    /**
+    /*
      * // This is the Master's API interface.
      * // You should not implement it, or speculate about its implementation
      * interface Master {
@@ -31,7 +31,6 @@ public class _843_Guess_the_Word_猜猜这个单词_难 {
      * }
      */
     class Solution {
-        
         // Randomly guess a word, then shrink the word list 
         public void findSecretWord(String[] wordlist, Master master) {
             int matches = 0;
@@ -40,7 +39,6 @@ public class _843_Guess_the_Word_猜猜这个单词_难 {
                 matches = master.guess(guess);
                 List<String> nextWordlist = new ArrayList<>();
                 for (String word : wordlist) {
-                    
                     if (word.length() == guess.length() && match(guess, word) == matches) {
                         nextWordlist.add(word);
                     }
@@ -59,6 +57,5 @@ public class _843_Guess_the_Word_猜猜这个单词_难 {
             }
             return matches;
         }
-        
     }
 }

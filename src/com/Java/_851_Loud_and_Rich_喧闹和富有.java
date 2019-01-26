@@ -10,7 +10,8 @@ import java.util.List;
 为了方便起见，我们将编号为 x 的人简称为 "person x "。
 如果能够肯定 person x 比 person y 更有钱的话，我们会说 richer[i] = [x, y] 。注意 richer 可能只是有效观察的一个子集。
 另外，如果 person x 的安静程度为 q ，我们会说 quiet[x] = q 。
-现在，返回答案 answer ，其中 answer[x] = y 的前提是，在所有拥有的钱不少于 person x 的人中，person y 是最安静的人（也就是安静值 quiet[y] 最小的人）。
+现在，返回答案 answer ，其中 answer[x] = y 的前提是，
+在所有拥有的钱不少于 person x 的人中，person y 是最安静的人（也就是安静值 quiet[y] 最小的人）。
 示例：
 输入：richer = [[1,0],[2,1],[3,1],[3,7],[4,3],[5,3],[6,3]], quiet = [3,2,5,4,6,1,7,0]
 输出：[5,5,2,5,4,5,6,7]

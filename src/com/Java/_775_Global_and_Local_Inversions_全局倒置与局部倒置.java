@@ -16,10 +16,10 @@ package src.com.Java;
  */
 public class _775_Global_and_Local_Inversions_全局倒置与局部倒置 {
     /*
-     * 所有局部倒置对都是全局倒置对。 如果全局逆序对的数目等于局部逆序对的数目，则意味着排列中的所有全局逆序对都是局部逆序对。
-     * 这也意味着在i+2<=j的情况下，我们找不到A[i] > A[j]。 换句话说，max(A[i]] < A[i+2]
-     * 遍历A并保持当前最大的数字cmax，然后检查条件cmax < A[I +2]
-     */
+    所有局部倒置对都是全局倒置对。 如果全局逆序对的数目等于局部逆序对的数目，则意味着排列中的所有全局逆序对都是局部逆序对。
+    这也意味着在i+2<=j的情况下，我们找不到A[i] > A[j]。 换句话说，max(A[i]] < A[i+2]
+    遍历A并保持当前最大的数字cmax，然后检查条件cmax < A[I +2]
+    */
     class Solution {
         public boolean isIdealPermutation(int[] A) {
             int cmax = 0;
@@ -33,9 +33,9 @@ public class _775_Global_and_Local_Inversions_全局倒置与局部倒置 {
     }
 
     /*
-     * 基于这个想法，我试图安排一个理想的排列。然后我发现， 我只能把I放在A[I -1] A[I]或A[I +1]。
-     * 我想起来了，检查A (i) - i是否等于-1 0或1会更简单
-     */
+    基于这个想法，我试图安排一个理想的排列。然后我发现， 我只能把I放在A[I -1] A[I]或A[I +1]。
+    我想起来了，检查A (i) - i是否等于-1 0或1会更简单
+    */
     class Solution2 {
         public boolean isIdealPermutation(int[] A) {
             for (int i = 0; i < A.length; i++) {

@@ -18,15 +18,13 @@ import java.util.Map;
 在时间 15、24 和 8 处继续执行 3 个查询。
  */
 public class _911_Online_Election_在线选举 {
-
-
-class TopVotedCandidate {
+    class TopVotedCandidate {
         // map to record time -> leader mappings. 
         Map<Integer, Integer> map = new HashMap<>();
         // cache the input times[] array
         int[] time;
-    
-        // time: O(n) where n is the number of votes. 
+
+        // time: O(n) where n is the number of votes.
         // space: O(n) where n is the number of votes. 
         public TopVotedCandidate(int[] persons, int[] times) {
             // acquire input stats
@@ -35,10 +33,8 @@ class TopVotedCandidate {
             time = times;
             // initialize leader (leader is actually person, NOT INDEX! )
             int leader = -1;
-
             // map used to record person's index ---> vote mappings.
             Map<Integer, Integer> count = new HashMap<>();
-
             // for rach person.
             for (int i = 0; i < n; i++) {
                 // increment this person's vote by 1
@@ -53,13 +49,14 @@ class TopVotedCandidate {
             }
         }
 
-        // time: O(log n); where n is the number of votes. 
+        // time: O(log n); where n is the number of votes.
         // use binary search to find a closest time that is no later than the query time 't'. 
         // and return the result from 'map'.
         public int q(int t) {
             int i = Arrays.binarySearch(time, t);
             // -insertionPoint - 1; insertion point is the first element that is larger than key.
-            // 如果key在数组中，则返回搜索值的索引；否则返回-1或者”-“(插入点)。插入点是索引键将要插入数组的那一点，即第一个大于该键的元素索引。
+            // 如果key在数组中，则返回搜索值的索引；否则返回-1或者”-“(插入点)。
+            // 插入点是索引键将要插入数组的那一点，即第一个大于该键的元素索引。
             return (i < 0) ? map.get(time[-i - 2]) : map.get(time[i]);
         }
     }

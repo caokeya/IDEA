@@ -9,7 +9,7 @@ package src.com.Java;
 输出：true
  */
 public class _951_Flip_Equivalent_Binary_Trees_翻转等价二叉树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -28,8 +28,8 @@ public class _951_Flip_Equivalent_Binary_Trees_翻转等价二叉树 {
                 return true;
             if (root1 == null || root2 == null || root1.val != root2.val)
                 return false;
-            return (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right))
-                    || (flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
+            return (flipEquiv(root1.left, root2.left) && flipEquiv(root1.right, root2.right)) ||
+                    (flipEquiv(root1.left, root2.right) && flipEquiv(root1.right, root2.left));
         }
     }
 }

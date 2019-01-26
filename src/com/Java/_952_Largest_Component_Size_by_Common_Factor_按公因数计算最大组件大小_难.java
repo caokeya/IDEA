@@ -20,9 +20,16 @@ import java.util.Set;
 输出：8
  */
 public class _952_Largest_Component_Size_by_Common_Factor_按公因数计算最大组件大小_难 {
+    /*
+    计算所有小于100000的素数。
+    对于A中的每个数，我们说A[i]
+    a.做质因数分解(使用步骤1中设置的素数进行蛮力分解)，我们说质因数是p。
+    b.如果p出现在primeToIndex、union i和primeToIndex中[p]。
+    c.将primeToIndex[p]更新到i。
+    返回最大计数。
+     */
     class Solution {
         int max = 0;
-
         public int largestComponentSize(int[] A) {
             boolean[] isPrime = new boolean[100001];
             Arrays.fill(isPrime, true);

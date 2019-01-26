@@ -1,8 +1,6 @@
 package src.com.Java;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /*
 给定一个无向、连通的树。树中有 N 个标记为 0...N-1 的节点以及 N-1 条边 。
@@ -22,41 +20,81 @@ import java.util.List;
 也就是 1 + 1 + 2 + 2 + 2 = 8。 因此，answer[0] = 8，以此类推。
  */
 public class _834_Sum_of_Distances_in_Tree_树中距离之和_难 {
+    /*
+    我们把结点0作为根结点来解。
+    初始化一个哈希集树数组，树[i]包含所有连接到i的节点。
+    初始化一个数组count, count[i]计数子树i中的所有节点。
+    初始化一个res数组，res[i]计数子树i中的距离和。
+    后序dfs遍历、更新计数和res:
+    count[根]= sum(count[i]) + 1
+    res[根]= sum(res[i]) + sum(count[i])
+    预序dfs遍历，更新res:
+    当我们把根结点从父结点移到子结点i时，count[i]点离根结点更近1个，n - count[i]节点离根结点更近1个。
+     */
+    // 后序DFS + 先序DFS
+
     class Solution {
+        List<HashSet<Integer>> tree;
+        int N;
+        int[] sum;         // total sum of distance in subtree i
+        int[] count;       // number of all nodes in the subtree i, including node i itself
+
         public int[] sumOfDistancesInTree(int N, int[][] edges) {
-            List<Integer>[] adj = new List[N];
-            for (int i = 0; i < N; i++)
-                adj[i] = new LinkedList<>();
-            for (int[] e : edges) {
-                adj[e[0]].add(e[1]);
-                adj[e[1]].add(e[0]);
+            this.N = N;
+
+            tree = new ArrayList<HashSet<Integer>>();
+            sum = new int[N];
+            count = new int[N];
+
+            // 图中的每个点初始化一个集合
+            for (int i = 0; i < N; i++) {
+                tree.add(new HashSet<Integer>());
             }
-            int[] res = new int[N], count = new int[N];
-            boolean[] visited = new boolean[N];
-            countDown(adj, 0, res, count, visited);
-            Arrays.fill(visited, false);
-            countUp(adj, 0, count[0], res, count, visited);
-            return res;
+            // 遍历每条边，添加每个点的邻居
+            for (int[] e : edges) {
+                tree.get(e[0]).add(e[1]);
+                tree.get(e[1]).add(e[0]);
+            }
+
+            dfs(0, new HashSet<Integer>());
+
+            dfs2(0, new HashSet<Integer>());
+
+            return sum;
         }
 
-        public void countDown(List<Integer>[] adj, int node, int[] res, int[] count, boolean[] visited) {
-            visited[node] = true;
-            for (int v : adj[node]) {
-                if (!visited[v]) {
-                    countDown(adj, v, res, count, visited);
-                    count[node] += count[v];
-                    res[node] += res[v] + count[v];
+        // Post order dfs traversal
+        public void dfs(int root, HashSet<Integer> seen) {
+            // 标记为已访问
+            seen.add(root);
+
+            for (int i : tree.get(root)) {
+                if (!seen.contains(i)) {
+                    // 向子树递归
+                    dfs(i, seen);
+                    // 更新当前树包含的节点个数
+                    count[root] += count[i];
+                    // 当前树距离和 += 子树距离和 + 子树节点个数
+                    sum[root] += sum[i] + count[i];
                 }
             }
-            count[node]++;
+
+            count[root]++;  // 加上1，表示当前节点自己
         }
 
-        public void countUp(List<Integer>[] adj, int node, int total, int[] res, int[] count, boolean[] visited) {
-            visited[node] = true;
-            for (int v : adj[node]) {
-                if (!visited[v]) {
-                    res[v] += res[node] - res[v] - count[v] + total - count[v];
-                    countUp(adj, v, total, res, count, visited);
+        // Pre order dfs traversal
+        public void dfs2(int root, HashSet<Integer> seen) {
+            // 标记为已访问
+            seen.add(root);
+
+            for (int i : tree.get(root)) {
+                if (!seen.contains(i)) {
+                    // When we move our root from parent to its child i,
+                    // count[i] points get 1 closer to root, n - count[i] nodes get 1 futhur to root.
+                    // 子树距离和 = 当前树距离和 - 子树节点个数 + 其余节点个数
+                    sum[i] = sum[root] - count[i] + (N - count[i]);
+                    //向子树递归
+                    dfs2(i, seen);
                 }
             }
         }

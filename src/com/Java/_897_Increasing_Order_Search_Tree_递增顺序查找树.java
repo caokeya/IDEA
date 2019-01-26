@@ -31,7 +31,7 @@ package src.com.Java;
                  9  
  */
 public class _897_Increasing_Order_Search_Tree_递增顺序查找树 {
-    /**
+    /*
      * Definition for a binary tree node.
      */
     public class TreeNode {

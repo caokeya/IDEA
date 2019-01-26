@@ -21,31 +21,20 @@ import java.util.Arrays;
 public class _948_Bag_of_Tokens_令牌放置 {
     class Solution {
         public int bagOfTokensScore(int[] tokens, int P) {
-            if (tokens == null || tokens.length < 1)
-                return 0;
             Arrays.sort(tokens);
-            if (P < tokens[0])
-                return 0;
-            int i = 0;
-            int j = tokens.length - 1;
-            int points = 0;
+            int res = 0, points = 0, i = 0, j = tokens.length - 1;
             while (i <= j) {
-                if (i == j && P < tokens[i])
-                    break;
                 if (P >= tokens[i]) {
-                    points++;
-                    P -= tokens[i];
-                    i++;
+                    P -= tokens[i++];
+                    res = Math.max(res, ++points);
+                } else if (points > 0) {
+                    points--;
+                    P += tokens[j--];
                 } else {
-                    if (points > 0) {
-                        points--;
-                        P += tokens[j];
-                        j--;
-                    } else
-                        break;
+                    break;
                 }
             }
-            return points;
+            return res;
         }
     }
 }
