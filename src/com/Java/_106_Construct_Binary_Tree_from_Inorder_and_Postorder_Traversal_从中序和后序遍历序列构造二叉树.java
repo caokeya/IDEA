@@ -16,7 +16,7 @@ import java.util.HashMap;
     /  \
    15   7
  */
-public class _106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树2 {
+public class _106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树 {
     /*
      * Definition for a binary tree node.
      */
@@ -45,6 +45,7 @@ public class _106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从
             return buildTree(inorder, postorder, 0, inorder.length - 1);
 
         }
+
         /*
         in  : 9 3 15 20 7
         post: 9 15 7 20 3
@@ -62,8 +63,6 @@ public class _106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从
             node.right = buildTree(inorder, postorder, index + 1, inE);
             node.left = buildTree(inorder, postorder, inS, index - 1);
             return node;
-
         }
     }
-
 }

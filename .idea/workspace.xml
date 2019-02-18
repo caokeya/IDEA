@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="1-26">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Mysql/_176_Second_Highest_Salary_第二高的薪水.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Mysql/_176_Second_Highest_Salary_第二高的薪水.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Mysql/_177_Nth_Highest_Salary_第N高的薪水.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Mysql/_177_Nth_Highest_Salary_第N高的薪水.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Mysql/_178_Rank_Scores_分数排名.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Mysql/_178_Rank_Scores_分数排名.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Mysql/_262_Trips_and_Users_行程和用户_难.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Mysql/_262_Trips_and_Users_行程和用户_难.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Mysql/_595_Big_Countries_大的国家.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Mysql/_595_Big_Countries_大的国家.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Mysql/_626_Exchange_Seats_换座位.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Mysql/_626_Exchange_Seats_换座位.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Mysql/_627_Swap_Salary_交换工资.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Mysql/_627_Swap_Salary_交换工资.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +31,7 @@
     <favorites_list name="IDEA" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,8 +56,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/Java/_906_Super_Palindromes_超级回文数_难.java" />
-        <option value="$PROJECT_DIR$/src/com/Java/_907_Sum_of_Subarray_Minimums_子数组的最小值之和.java" />
         <option value="$PROJECT_DIR$/src/com/Java/_908_Smallest_Range_l_最小差值.java" />
         <option value="$PROJECT_DIR$/src/com/Java/_909_Snakes_and_Ladders_爬坡和梯子.java" />
         <option value="$PROJECT_DIR$/src/com/Java/_910_Smallest_Range_ll_最小差值2.java" />
@@ -112,6 +105,8 @@
         <option value="$PROJECT_DIR$/src/com/Mysql/_595_Big_Countries_大的国家.java" />
         <option value="$PROJECT_DIR$/src/com/Mysql/_626_Exchange_Seats_换座位.java" />
         <option value="$PROJECT_DIR$/src/com/Mysql/_627_Swap_Salary_交换工资.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java" />
+        <option value="$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树.java" />
       </list>
     </option>
   </component>
@@ -135,6 +130,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -151,13 +147,12 @@
               <item name="IDEA" type="b2602c69:ProjectViewProjectNode" />
               <item name="IDEA" type="462c0819:PsiDirectoryNode" />
               <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="Mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="Java" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -192,7 +187,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548431105732" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550477516648" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/Java" />
@@ -210,6 +205,11 @@
       <recent name="H:\IDEA\com\company" />
       <recent name="H:\IDEA\src\com\company" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="105" />
+    </option>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -337,7 +337,10 @@
       <workItem from="1548400239986" duration="599000" />
       <workItem from="1548418039385" duration="12118000" />
       <workItem from="1548481850734" duration="11834000" />
-      <workItem from="1548507921069" duration="1680000" />
+      <workItem from="1548507921069" duration="1706000" />
+      <workItem from="1550372434629" duration="43000" />
+      <workItem from="1550372647947" duration="606000" />
+      <workItem from="1550476987402" duration="727000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1523671095562</created>
@@ -640,11 +643,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548507019765</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="1-26">
+      <created>1548509610607</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1548509610607</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="480347000" />
+    <option name="totallyTimeSpent" value="481749000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -658,7 +668,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.30063966" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.31023455" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -768,20 +778,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_929_Unique_Email_Addressrs_不同的邮箱地址.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="33" column="39" lean-forward="true" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Java/_930_Binary_Subarrays_With_Sum_和相同的二元子数组.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="18" selection-start-line="18" selection-end-line="30" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Java/_931_Minimum_Falling_Path_Sum_最小下降路径和.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11">
@@ -1138,6 +1134,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding>
+            <element signature="e#504#505#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
         </state>
       </provider>
     </entry>

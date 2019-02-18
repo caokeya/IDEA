@@ -32,15 +32,14 @@ public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_ä»Žå
     }
 
     class Solution {
-        int preorderIndex;
+        int preIndex = 0;
+        Map<Integer, Integer> indexMap = new HashMap<>();
 
         public TreeNode buildTree(int[] preorder, int[] inorder) {
-            preorderIndex = 0;
-            Map<Integer, Integer> inorderIndex = new HashMap<>();
             for (int i = 0; i < inorder.length; i++) {
-                inorderIndex.put(inorder[i], i);
+                indexMap.put(inorder[i], i);
             }
-            return build(preorder, inorder, inorderIndex, 0, inorder.length - 1);
+            return constructTree(preorder, 0, inorder.length);
         }
 
         /*
@@ -50,17 +49,16 @@ public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_ä»Žå
             9      20
                  15   7
         */
-        public TreeNode build(int[] preorder, int[] inorder, Map<Integer, Integer> inorderIndex, int iStart, int iEnd) {
-            if (preorderIndex >= inorder.length || iStart > iEnd || iStart >= inorder.length || iEnd < 0) return null;
-            int rootval = preorder[preorderIndex++];
-            TreeNode root = new TreeNode(rootval);
+        public TreeNode constructTree(int[] preorder, int start, int end) {
+            if (start > end || preIndex > preorder.length - 1)
+                return null;
+            int rootVal = preorder[preIndex++];
+            TreeNode root = new TreeNode(rootVal);
+            int rootIndex = indexMap.get(rootVal);
+            root.left = constructTree(preorder, start, rootIndex - 1);
+            root.right = constructTree(preorder, rootIndex + 1, end);
 
-            int inorderMid = inorderIndex.get(rootval);
-            root.left = build(preorder, inorder, inorderIndex, iStart, inorderMid - 1);
-            root.right = build(preorder, inorder, inorderIndex, inorderMid + 1, iEnd);
             return root;
         }
     }
-
-
 }
