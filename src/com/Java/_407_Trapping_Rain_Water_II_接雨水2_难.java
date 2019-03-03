@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -25,6 +25,7 @@ public class _407_Trapping_Rain_Water_II_接雨水2_难 {
      */
     class Solution {
         private int[][] dirs = { { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 0 } };
+
         // 方块类，实现了Comparable接口，用于优先级队列排序
         private class Cell implements Comparable<Cell> {
             int row;
@@ -79,7 +80,9 @@ public class _407_Trapping_Rain_Water_II_接雨水2_难 {
                     }
                 }
             }
+
             return res;
         }
     }
+
 }

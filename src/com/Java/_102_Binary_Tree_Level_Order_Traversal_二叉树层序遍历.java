@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,7 +21,7 @@ import java.util.Queue;
 ]
  */
 public class _102_Binary_Tree_Level_Order_Traversal_二叉树层序遍历 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -36,6 +36,7 @@ public class _102_Binary_Tree_Level_Order_Traversal_二叉树层序遍历 {
 
     class Solution {
         public List<List<Integer>> levelOrder(TreeNode root) {
+
             List<List<Integer>> result = new ArrayList<List<Integer>>();
             if (root == null)
                 return result;
@@ -55,6 +56,7 @@ public class _102_Binary_Tree_Level_Order_Traversal_二叉树层序遍历 {
                 result.add(list);
             }
             return result;
+
         }
     }
 }

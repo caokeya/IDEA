@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -11,34 +11,50 @@ import java.util.Arrays;
  */
 public class _698_Partition_to_K_Equal_Sum_Subsets_划分为k个相等的子集 {
     /*
-    假设sum是nums[]的和。dfs过程是找到nums[]的一个子集，它的和等于sum/k。 我们使用访问过的数组[]来记录nums[]中使用的元素。
-    每次当我们得到cur_sum = sum/k时，我们将从nums[]中的位置0开始查找尚未使用的元素，并找到另一个cur_sum = sum/k。
-    当sum = 0时，我的方法是使用cur_num记录当前子集中的元素数量。
-    只有当cur_sum = sum/k && cur_num > 0时，我们才能启动另一个查找进程。
+           * 假设sum是nums[]的和。dfs过程是找到nums[]的一个子集，它的和等于sum/k。 我们使用访问过的数组[]来记录nums[]中使用的元素。
+           * 每次当我们得到cur_sum = sum/k时，我们将从nums[]中的位置0开始查找尚未使用的元素，并找到另一个cur_sum = sum/k。
+           * 当sum = 0时，我的方法是使用cur_num记录当前子集中的元素数量。
+           * 只有当cur_sum = sum/k && cur_num > 0时，我们才能启动另一个查找进程。
      */
     class Solution {
         public boolean canPartitionKSubsets(int[] nums, int k) {
             int sum = 0;
             for (int num : nums)
                 sum += num;
-            if (k <= 0 || sum % k != 0)
+            if (sum % k != 0)
                 return false;
-            int[] visited = new int[nums.length];
-            return canPartition(nums, visited, 0, k, 0, 0, sum / k);
-        }
+            int count = 0;
+            int target = sum / k;
+            boolean[] visited = new boolean[nums.length];
+            Arrays.sort(nums);
 
-        public boolean canPartition(int[] nums, int[] visited, int start_index, int k, int cur_sum, int cur_num, int target) {
-            if (k == 1) return true;
-            if (cur_sum == target && cur_num > 0)
-                return canPartition(nums, visited, 0, k - 1, 0, 0, target);
-            for (int i = start_index; i < nums.length; i++) {
-                if (visited[i] == 0) {
-                    visited[i] = 1;
-                    if (canPartition(nums, visited, i + 1, k, cur_sum + nums[i], cur_num++, target))
-                        return true;
-                    visited[i] = 0;
+            while (count < k) {
+                if (helper(nums, visited, nums.length - 1, target)) {
+                    count++;
+                } else {
+                    break;
                 }
             }
+
+            return count == k;
+        }
+
+        private boolean helper(int[] nums, boolean[] visited, int index, int remaining) {
+            if (remaining == 0)
+                return true;
+            if (remaining <= 0)
+                return false;
+            for (int i = index; i >= 0; i--) {
+                if (visited[i])
+                    continue;
+                visited[i] = true;
+                if (helper(nums, visited, i - 1, remaining - nums[i])) {
+                    return true;
+                } else {
+                    visited[i] = false;
+                }
+            }
+
             return false;
         }
     }

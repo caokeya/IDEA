@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.TreeMap;
 
@@ -7,8 +7,7 @@ import java.util.TreeMap;
 MyCalendar 有一个 book(int start, int end)方法。它意味着在 start 到 end 时间内增加一个日程安排，
 注意，这里的时间是半开区间，即 [start, end), 实数 x 的范围为，  start <= x < end。
 当两个日程安排有一些时间上的交叉时（例如两个日程安排都在同一时间内），就会产生重复预订。
-每次调用 MyCalendar.book方法时，如果可以将日程安排成功添加到日历中而不会导致重复预订，返回 true。
-否则，返回 false 并且不要将该日程安排添加到日历中。
+每次调用 MyCalendar.book方法时，如果可以将日程安排成功添加到日历中而不会导致重复预订，返回 true。否则，返回 false 并且不要将该日程安排添加到日历中。
 请按照以下步骤调用 MyCalendar 类: MyCalendar cal = new MyCalendar(); MyCalendar.book(start, end)
 示例 1:
 MyCalendar();
@@ -21,6 +20,7 @@ MyCalendar.book(20, 30); // returns true
  */
 public class _729_My_Calendar_I_我的日程安排表 {
     class MyCalendar {
+
         TreeMap<Integer, Integer> map;
 
         public MyCalendar() {
@@ -29,6 +29,7 @@ public class _729_My_Calendar_I_我的日程安排表 {
 
         public boolean book(int start, int end) {
             Integer low = map.lowerKey(end);
+
             if (low == null || map.get(low) <= start) {
                 map.put(start, end);
                 return true;

@@ -1,7 +1,10 @@
-package src.com.Java;
+package com.Java;
 
-import java.util.*;
-
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 /*
 给定一个文档 (Unix-style) 的完全路径，请进行路径简化。
 例如，
@@ -34,30 +37,6 @@ public class _071_Simplify_Path_简化路径 {
                 res.insert(0, "/" + stack.removeLast());
             }
             return res.toString();
-        }
-    }
-
-    class Solution2 {
-        public String simplifyPath(String path) {
-            String[] paths = path.split("/");
-            Stack<String> stack = new Stack<>();
-            for (String p : paths) {
-                if (p.equals("") || p.equals(".")) {
-                    continue;
-                } else if (p.equals("..")) {
-                    if (stack.isEmpty()) continue;
-                    else stack.pop();
-                } else {
-                    stack.push(p);
-                }
-            }
-            String result = "";
-            if (stack.isEmpty()) return "/";
-            while (!stack.isEmpty()) {
-                String cur = stack.pop();
-                result = "/" + cur + result;
-            }
-            return result;
         }
     }
 }

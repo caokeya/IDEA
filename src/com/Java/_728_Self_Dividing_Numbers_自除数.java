@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,33 +16,22 @@ import java.util.List;
 public class _728_Self_Dividing_Numbers_自除数 {
     class Solution {
         public List<Integer> selfDividingNumbers(int left, int right) {
+
             ArrayList<Integer> res = new ArrayList<Integer>();
+
             for (int i = left; i <= right; i++) {
                 for (int j = i; j > 0; j /= 10) {
+
                     if (j % 10 == 0 || i % (j % 10) != 0)
                         break;
+
                     if (j / 10 == 0)
                         res.add(i);
                 }
+
             }
-            return res;
-        }
-    }
 
-    class Solution2 {
-        public List<Integer> selfDividingNumbers(int left, int right) {
-            List<Integer> res = new ArrayList<>();
-            for (int i = left; i <= right; i++)
-                if (dividingNumber(i))
-                    res.add(i);
             return res;
-        }
-
-        boolean dividingNumber(int num) {
-            for (int n = num; n > 0; n /= 10)
-                if (n % 10 == 0 || num % (n % 10) != 0)
-                    return false;
-            return true;
         }
     }
 }

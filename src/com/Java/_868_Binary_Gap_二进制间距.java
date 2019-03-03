@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个正整数 N，找到并返回 N 的二进制表示中两个连续的 1 之间的最长距离。 
@@ -35,7 +35,9 @@ public class _868_Binary_Gap_二进制间距 {
             int max = 0;
             if (N == 0 || Integer.bitCount(N) == 1)
                 return max;
+
             int counter = 0;
+
             while (N > 0) {
                 if ((N & 1) == 0) {
                     if (counter != 0)

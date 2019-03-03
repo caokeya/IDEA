@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个编码字符串 S。为了找出解码字符串并将其写入磁带，从编码字符串中每次读取一个字符，并采取以下步骤：

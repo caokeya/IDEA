@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在计算机界中，我们总是追求用有限的资源获取最大的收益。
@@ -34,13 +34,13 @@ public class _474_Ones_and_Zeroes_一和零 {
         }
 
         public int countZero(String s) {
-            int count = 0;
+            int res = 0;
             for (int i = 0; i < s.length(); i++) {
                 if (s.charAt(i) == '0') {
-                    count++;
+                    res++;
                 }
             }
-            return count;
+            return res;
         }
     }
 }

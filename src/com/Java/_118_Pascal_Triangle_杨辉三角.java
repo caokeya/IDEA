@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,4 +33,5 @@ public class _118_Pascal_Triangle_杨辉三角 {
             return res;
         }
     }
+
 }

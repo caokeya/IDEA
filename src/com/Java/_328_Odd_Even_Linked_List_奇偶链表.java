@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个单链表，把所有的奇数节点和偶数节点分别排在一起。请注意，这里的奇数节点和偶数节点指的是节点编号的奇偶性，而不是节点的值的奇偶性。
@@ -8,7 +8,7 @@ package src.com.Java;
 输出: 1->3->5->2->4->NULL
  */
 public class _328_Odd_Even_Linked_List_奇偶链表 {
-    /*
+    /**
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -20,23 +20,22 @@ public class _328_Odd_Even_Linked_List_奇偶链表 {
         }
     }
 
-    class Solution {
+    public class Solution {
         public ListNode oddEvenList(ListNode head) {
-            if (head == null)
-                return null;
+            if (head != null) {
 
-            ListNode odd = head;
-            ListNode even = head.next;
-            ListNode evenHead = even;
+                ListNode odd = head, even = head.next, evenHead = even;
 
-            while (even != null && even.next != null) {
-                odd.next = odd.next.next;
-                even.next = even.next.next;
-                odd = odd.next;
-                even = even.next;
+                while (even != null && even.next != null) {
+                    odd.next = odd.next.next;
+                    even.next = even.next.next;
+                    odd = odd.next;
+                    even = even.next;
+                }
+                odd.next = evenHead;
             }
-            odd.next = evenHead;
             return head;
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 如果单词列表（words）中的一个单词包含牌照（licensePlate）中所有的字母，那么我们称之为完整词。在所有完整词中，最短的单词我们称之为最短完整词。

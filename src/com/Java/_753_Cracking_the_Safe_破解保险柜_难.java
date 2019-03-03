@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -30,6 +30,7 @@ public class _753_Cracking_the_Safe_破解保险柜_难 {
             visited.add(sb.toString());
             // 遍历所有情况
             dfs(sb, total, visited, n, k);
+
             return sb.toString();
         }
 
@@ -53,5 +54,6 @@ public class _753_Cracking_the_Safe_破解保险柜_难 {
             }
             return false;
         }
+
     }
 }

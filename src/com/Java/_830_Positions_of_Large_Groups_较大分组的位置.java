@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +23,44 @@ import java.util.List;
  */
 public class _830_Positions_of_Large_Groups_较大分组的位置 {
     class Solution {
+        public List<List<Integer>> largeGroupPositions(String S) {
+            List<List<Integer>> res = new ArrayList<List<Integer>>();
+            if (S == null || S.length() < 3)
+                return res;
+
+            int p = 0;
+            int count = 1;
+
+            for (int i = 1; i < S.length(); i++) {
+                if (S.charAt(i) != S.charAt(p)) {
+                    List<Integer> temp = new ArrayList<>();
+                    if (count >= 3) {
+                        temp.add(p);
+                        temp.add(i - 1);
+                        res.add(temp);
+                    }
+
+                    count = 1;
+                    p = i;
+                }
+
+                else {
+                    count++;
+                }
+            }
+
+            if (S.length() - p >= 3) {
+                List<Integer> temp = new ArrayList<>();
+                temp.add(p);
+                temp.add(S.length() - 1);
+                res.add(temp);
+            }
+
+            return res;
+        }
+    }
+
+    class Solution2 {
         public List<List<Integer>> largeGroupPositions(String S) {
             int i = 0, j = 0, N = S.length();
             List<List<Integer>> res = new ArrayList<>();

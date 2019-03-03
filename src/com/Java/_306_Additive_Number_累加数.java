@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 累加数是一个字符串，组成它的数字可以形成累加序列。
@@ -16,8 +16,8 @@ public class _306_Additive_Number_累加数 {
             int n = s.length();
             for (int i = 1; i < n; i++) {
                 for (int j = i + 1; j < n; j++) {
-                    long a = parse(s.substring(0, i));//1
-                    long b = parse(s.substring(i, j));//99
+                    long a = parse(s.substring(0, i));
+                    long b = parse(s.substring(i, j));
                     if (a == -1 || b == -1)
                         continue;
                     if (dfs(s.substring(j), a, b))//substring(i)删去字符串开头的i个字符
@@ -27,14 +27,14 @@ public class _306_Additive_Number_累加数 {
             return false;
         }
 
-        public boolean dfs(String s, long a, long b) {//s=100
+        public boolean dfs(String s, long a, long b) {
             if (s.length() == 0)
                 return true;
             for (int i = 1; i <= s.length(); i++) {
                 long c = parse(s.substring(0, i));
                 if (c == -1)
                     continue;
-                if (c - a == b && dfs(s.substring(i), b, c))
+                if (c - a == b && dfs(s.substring(i), b, c)) 
                     return true;
             }
             return false;
@@ -44,31 +44,6 @@ public class _306_Additive_Number_累加数 {
             if (!s.equals("0") && s.startsWith("0"))
                 return -1;
             return Long.parseLong(s);
-        }
-    }
-
-    class Solution2 {
-        public boolean isAdditiveNumber(String num) {
-            int L = num.length();
-            for (int i = 1; i <= (L - 1) / 2; i++) {
-                if (num.charAt(0) == '0' && i >= 2) break;
-                for (int j = i + 1; L - j >= j - i && L - j >= i; j++) {
-                    if (num.charAt(i) == '0' && j >= i + 2) break;
-                    long num1 = Long.parseLong(num.substring(0, i));
-                    long num2 = Long.parseLong(num.substring(i, j));
-                    String substr = num.substring(j);
-                    if (isAdditive(substr, num1, num2)) return true;
-                }
-            }
-            return false;
-        }
-
-        public boolean isAdditive(String substr, long num1, long num2) {
-            if (substr.equals("")) return true;
-            long sum = num1 + num2;
-            String s = sum + "";
-            if (!substr.startsWith(s)) return false;
-            return isAdditive(substr.substring(s.length()), num2, sum);
         }
     }
 }

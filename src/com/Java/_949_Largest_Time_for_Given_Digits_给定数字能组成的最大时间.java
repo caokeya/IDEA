@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个由 4 位数字组成的数组，返回可以设置的符合 24 小时制的最大时间。
@@ -15,6 +15,7 @@ public class _949_Largest_Time_for_Given_Digits_给定数字能组成的最大�
     class Solution {
         public String largestTimeFromDigits(int[] A) {
             String res = "";
+
             for (int i = 0; i < 4; i++) {
                 for (int j = 0; j < 4; j++) {
                     for (int k = 0; k < 4; k++) {
@@ -29,6 +30,7 @@ public class _949_Largest_Time_for_Given_Digits_给定数字能组成的最大�
                     }
                 }
             }
+
             return res;
         }
     }

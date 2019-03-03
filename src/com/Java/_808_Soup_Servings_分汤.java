@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 有 A 和 B 两种类型的汤。一开始每种类型的汤有 N 毫升。有四种分配操作：
@@ -45,6 +45,7 @@ public class _808_Soup_Servings_分汤 {
                                   helper(a - 3, b - 1, cache) + 
                                   helper(a - 2, b - 2, cache) + 
                                   helper(a - 1, b - 3, cache));
+
             return cache[a][b];
         }
     }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个字符串数组 words，找到 length(word[i]) * length(word[j]) 的最大值，并且这两个单词不含有公共字母
@@ -16,17 +16,18 @@ public class _318_Maximum_Product_of_Word_Lengths_最大单词长度乘积 {
             for (int i = 0; i < words.length; i++) {
                 int val = 0;
                 for (int j = 0; j < words[i].length(); j++) {
-                    val |= 1 << (words[i].charAt(j) - 'a');//记录各个单词出现的情况
+                    val |= 1 << (words[i].charAt(j) - 'a');
                 }
                 bytes[i] = val;
             }
             for (int i = 0; i < bytes.length; i++) {
                 for (int j = i + 1; j < bytes.length; j++) {
-                    if ((bytes[i] & bytes[j]) == 0)//没有相同字母
+                    if ((bytes[i] & bytes[j]) == 0)
                         max = Math.max(max, words[i].length() * words[j].length());
                 }
             }
             return max;
         }
+
     }
 }

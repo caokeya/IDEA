@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Comparator;
 import java.util.List;
@@ -17,10 +17,10 @@ import java.util.PriorityQueue;
  */
 public class _632_Smallest_Range_最小区间_难 {
     /*
-    从每个数组中取出一个放到一个最小堆，用一个范围包括这些数字不就是一个合理的range了
-    每次就从抽出来的数中拿出最小的那个数，然后再加入在那个数组里面后面的那个数
-    当加不了时就结束了，在这个过程中收集range最小的答案
-    */
+         * 从每个数组中取出一个放到一个最小堆，用一个范围包括这些数字不就是一个合理的range了
+         * 每次就从抽出来的数中拿出最小的那个数，然后再加入在那个数组里面后面的那个数 
+         * 当加不了时就结束了，在这个过程中收集range最小的答案
+     */
     class Solution {
         public int[] smallestRange(List<List<Integer>> nums) {
             PriorityQueue<int[]> minHeap = new PriorityQueue<int[]>(new Comparator<int[]>() {
@@ -51,6 +51,7 @@ public class _632_Smallest_Range_最小区间_难 {
                     max = Math.max(max, t[0]);
                 }
             }
+
             return new int[] { start, start + minRange };
         }
     }

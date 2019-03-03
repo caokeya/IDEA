@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 如果数组是单调递增或单调递减的，那么它是单调的。
@@ -28,6 +28,7 @@ public class _896_Monotonic_Array_单调数列 {
                 inc = inc && (A[i - 1] <= A[i]);
                 dec = dec && (A[i - 1] >= A[i]);
             }
+
             return inc || dec;
         }
     }

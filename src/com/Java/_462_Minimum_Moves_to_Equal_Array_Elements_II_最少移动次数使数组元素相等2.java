@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -27,4 +27,5 @@ public class _462_Minimum_Moves_to_Equal_Array_Elements_II_最少移动次数使
             return count;
         }
     }
+
 }

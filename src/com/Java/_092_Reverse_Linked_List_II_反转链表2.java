@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
 说明:
@@ -9,7 +8,7 @@ package src.com.Java;
 输出: 1->4->3->2->5->NULL
  */
 public class _092_Reverse_Linked_List_II_反转链表2 {
-    /*
+    /**
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -25,18 +24,24 @@ public class _092_Reverse_Linked_List_II_反转链表2 {
         public ListNode reverseBetween(ListNode head, int m, int n) {
             ListNode dummy = new ListNode(0);
             dummy.next = head;
-            ListNode pre = dummy;
-            ListNode cur = dummy.next;
-            for (int i = 1; i < m; i++) {
-                cur = cur.next;
-                pre = pre.next;
+
+            int count = 0;
+            ListNode curr = dummy;
+            ListNode pre = null;
+            while (curr != null && count < m) {
+                pre = curr;
+                curr = curr.next;
+                count += 1;
             }
-            for (int i = 0; i < n - m; i++) {
-                ListNode temp = cur.next;
-                cur.next = temp.next;
+
+            while (count < n) {
+                ListNode temp = curr.next;
+                curr.next = temp.next;
                 temp.next = pre.next;
                 pre.next = temp;
+                count += 1;
             }
+
             return dummy.next;
         }
     }

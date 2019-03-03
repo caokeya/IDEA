@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个整数数组，你需要寻找一个连续的子数组，如果对这个子数组进行升序排序，那么整个数组都会变为升序排序。
@@ -28,6 +28,7 @@ public class _581_Shortest_Unsorted_Continuous_Subarray_最短无序连续子数
                     left = i;
                 }
             }
+
             return right - left + 1;
         }
     }

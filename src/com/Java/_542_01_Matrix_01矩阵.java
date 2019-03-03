@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个由 0 和 1 组成的矩阵，找出每个元素到最近的 0 的距离。
@@ -23,49 +23,7 @@ package src.com.Java;
 1 2 1
  */
 public class _542_01_Matrix_01矩阵 {
-    class Solution {
-        public int[][] updateMatrix(int[][] matrix) {
-            int row = matrix.length;
-            if (row == 0) {
-                return matrix;
-            }
-            int col = matrix[0].length;
-            int[][] dist = new int[row][col];
-
-            // top left to bottom right，first pass
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < col; j++) {
-                    if (matrix[i][j] == 0) {
-                        dist[i][j] = 0;
-                    } else {
-                        dist[i][j] = Integer.MAX_VALUE - 1;
-                        // top
-                        if (i > 0) {
-                            dist[i][j] = Math.min(dist[i][j], dist[i - 1][j] + 1);
-                        }
-                        // left
-                        if (j > 0) {
-                            dist[i][j] = Math.min(dist[i][j], dist[i][j - 1] + 1);
-                        }
-                    }
-                }
-            }
-            // bottom right to top left,second pass
-            for (int i = row - 1; i >= 0; i--) {
-                for (int j = col - 1; j >= 0; j--) {
-                    if (i < row - 1) {
-                        dist[i][j] = Math.min(dist[i][j], dist[i + 1][j] + 1);
-                    }
-                    if (j < col - 1) {
-                        dist[i][j] = Math.min(dist[i][j], dist[i][j + 1] + 1);
-                    }
-                }
-            }
-            return dist;
-        }
-    }
-
-    public class SolutionDFS {
+    public class Solution {
         public int[][] updateMatrix(int[][] matrix) {
             if (matrix.length == 0)
                 return matrix;

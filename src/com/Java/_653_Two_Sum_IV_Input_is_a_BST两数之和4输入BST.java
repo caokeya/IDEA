@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +25,7 @@ Target = 28
 输出: False
  */
 public class _653_Two_Sum_IV_Input_is_a_BST两数之和4输入BST {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -47,10 +47,13 @@ public class _653_Two_Sum_IV_Input_is_a_BST两数之和4输入BST {
         public boolean find(TreeNode root, Set<Integer> set, int k) {
             if (root == null)
                 return false;
+
             if (set.contains(k - root.val))
                 return true;
             set.add(root.val);
+
             return find(root.left, set, k) || find(root.right, set, k);
+
         }
     }
 }

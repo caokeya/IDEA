@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一组含有正整数和负整数的数组。如果某个索引中的 n 是正数的，则向前移动 n 个索引。相反，如果是负数(-n)，则向后移动 n 个索引。
@@ -7,41 +7,36 @@ package src.com.Java;
 示例 2：给定数组[-1, 2], 没有循环。
  */
 public class _457_Circular_Array_Loop_环形数组循环 {
-    public class Solution {
+    class Solution {
         public boolean circularArrayLoop(int[] nums) {
-            int n = nums.length;
-            for (int i = 0; i < n; i++) {
-                if (nums[i] == 0) {
-                    continue;
+            for (int i = 0; i < nums.length; i++) {
+                Integer ps = i;
+                Integer pf = next(nums, 0, i);
+                int dir = nums[i];
+                while (ps != null && pf != null && ps != pf) {
+                    ps = next(nums, dir, ps);
+                    pf = next(nums, dir, next(nums, dir, pf));
                 }
-                // slow/fast pointer
-                int j = i, k = getIndex(i, nums);
-                while (nums[k] * nums[i] > 0 && nums[getIndex(k, nums)] * nums[i] > 0) {
-                    if (j == k) {
-                        // check for loop with only one element
-                        if (j == getIndex(j, nums)) {
-                            break;
-                        }
-                        return true;
-                    }
-                    j = getIndex(j, nums);
-                    k = getIndex(getIndex(k, nums), nums);
-                }
-                // loop not found, set all element along the way to 0
-                j = i;
-                int val = nums[i];
-                while (nums[j] * val > 0) {
-                    int next = getIndex(j, nums);
-                    nums[j] = 0;
-                    j = next;
+                if (ps != null && ps == pf) {
+                    return true;
                 }
             }
             return false;
         }
 
-        public int getIndex(int i, int[] nums) {
-            int n = nums.length;
-            return i + nums[i] >= 0 ? (i + nums[i]) % n : n + ((i + nums[i]) % n);
+        Integer next(int[] nums, int dir, Integer pos) {
+            if (pos == null)
+                return null;
+            if (dir * nums[pos] < 0)
+                return null;
+            Integer next = pos + nums[pos];
+            if (next >= nums.length)
+                next = next % nums.length;
+            if (next < 0)
+                next += nums.length;
+            if (next == pos)
+                next = null;
+            return next;
         }
     }
 }

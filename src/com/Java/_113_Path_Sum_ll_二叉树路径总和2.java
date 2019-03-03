@@ -1,8 +1,7 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /*
 给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
 说明: 叶子节点是指没有子节点的节点。
@@ -22,7 +21,7 @@ import java.util.List;
 ]
  */
 public class _113_Path_Sum_ll_二叉树路径总和2 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -36,24 +35,28 @@ public class _113_Path_Sum_ll_二叉树路径总和2 {
     }
 
     class Solution {
+        private List<List<Integer>> res;
+
         public List<List<Integer>> pathSum(TreeNode root, int sum) {
-            List<List<Integer>> list = new ArrayList<>();
+            res = new ArrayList<>();
             if (root == null)
-                return list;
-            checkPath(root, sum, list, new ArrayList<>());
-            return list;
+                return res;
+            List<Integer> path = new ArrayList<Integer>();
+            help(root, sum, path);
+            return res;
         }
 
-        public void checkPath(TreeNode root, int sum, List<List<Integer>> list, List<Integer> cur) {
-            if (root == null)
+        public void help(TreeNode r, int sum, List<Integer> path) {
+            if (r == null)
                 return;
-            cur.add(root.val);
-            if (root.left == null && root.right == null && sum - root.val == 0)
-                list.add(new ArrayList<>(cur));
-
-            checkPath(root.left, sum - root.val, list, cur);
-            checkPath(root.right, sum - root.val, list, cur);
-            cur.remove(cur.size() - 1);
+            int val = sum - r.val;
+            path.add(r.val);
+            if (r.left == null && r.right == null && val == 0) {
+                res.add(new ArrayList<Integer>(path));
+            }
+            help(r.left, val, path);
+            help(r.right, val, path);
+            path.remove(path.size() - 1);
         }
     }
 }

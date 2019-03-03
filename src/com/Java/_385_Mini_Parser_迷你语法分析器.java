@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.List;
 import java.util.Stack;
@@ -20,9 +20,9 @@ import java.util.Stack;
          a. 一个 integer 包含值 789
  */
 public class _385_Mini_Parser_迷你语法分析器 {
-    /*
-     * // This is the interface that allows for creating nested lists.
-     * // You should not implement it, or speculate about its implementation
+    /**
+     * // This is the interface that allows for creating nested lists. // You should
+     * not implement it, or speculate about its implementation
      */
     public interface NestedInteger {
         // Constructor initializes an empty nested list.
@@ -51,47 +51,38 @@ public class _385_Mini_Parser_迷你语法分析器 {
 
     class Solution {
         public NestedInteger deserialize(String s) {
-            NestedInteger res = new NestedInteger();
-            if (s == null || s.isEmpty())
-                return res;
-            if ((s.charAt(0)) != '[') {
-                res.setInteger(Integer.parseInt(s));
-                return res;
+            if (!s.contains("[")) {
+                return new NestedInteger(Integer.valueOf(s));
             }
-            recursion(1, res, s);
-            return res;
-        }
+            Stack<NestedInteger> stack = new Stack<>();
+            int num = 0;
+            NestedInteger res = null;
+            int j = 0;
+            for (int i = 0; i < s.length(); i++) {
+                char ch = s.charAt(i);
+                if (ch == '[') {
+                    stack.add(new NestedInteger());
+                    j = i + 1;
+                } else if (ch == ']') {
+                    if (s.charAt(i - 1) != ']' && s.charAt(i - 1) != '[') {
+                        stack.peek().add(new NestedInteger(Integer.valueOf(s.substring(j, i))));
+                        j = i + 1;
 
-        private int recursion(int index, NestedInteger res, String s) {
-            int start = index;
-            while (s.charAt(index) != ']') {
-                if (s.charAt(index) == ',') {
-                    index++;
-                } else if (s.charAt(index) == '[') {
-                    NestedInteger next = new NestedInteger();
-                    if (res.isInteger()) {
-                        NestedInteger tmp = new NestedInteger(res.getInteger());
-                        res.add(tmp);
                     }
-                    res.getList().add(next);
-                    index += recursion(index + 1, next, s) + 1;
-                } else {
-                    int num = 0;
-                    boolean neg = false;
-                    if (s.charAt(index) == '-') {
-                        neg = true;
-                        index++;
+
+                    res = stack.pop();
+                    if (!stack.isEmpty())
+                        stack.peek().add(res);
+
+                } else if (ch == ',') {
+                    if (s.charAt(i - 1) != ']') {
+                        stack.peek().add(new NestedInteger(Integer.valueOf(s.substring(j, i))));
                     }
-                    while (Character.isDigit(s.charAt(index))) {
-                        num *= 10;
-                        num += s.charAt(index) - '0';
-                        index++;
-                    }
-                    num = neg ? -num : num;
-                    res.getList().add(new NestedInteger(num));
+                    j = i + 1;
                 }
             }
-            return index - start + 1;
+            return res;
+
         }
     }
 }

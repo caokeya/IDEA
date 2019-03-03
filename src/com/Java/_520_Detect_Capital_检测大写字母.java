@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个单词，你需要判断单词的大写使用是否正确。
@@ -19,7 +19,7 @@ public class _520_Detect_Capital_检测大写字母 {
         public boolean detectCapitalUse(String word) {
             int count = 0;
             for (char c : word.toCharArray()) {
-                if ('Z' - c >= 0)//统计大写字母的个数
+                if ('Z' - c >= 0)
                     count++;
             }
             return (count == 0 || count == word.length()) || (count == 1 && ('Z' - word.charAt(0) >= 0));
@@ -28,7 +28,9 @@ public class _520_Detect_Capital_检测大写字母 {
 
     class Solution2 {
         public boolean detectCapitalUse(String word) {
+
             boolean first = true, second = true, third = true;
+
             for (int i = 0; i < word.length(); i++) {
                 if (Character.isUpperCase(word.charAt(i))) {
                     second = false;

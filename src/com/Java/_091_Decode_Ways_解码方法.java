@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 一条包含字母 A-Z 的消息通过以下方式进行了编码：
 'A' -> 1
@@ -28,7 +27,10 @@ public class _091_Decode_Ways_解码方法 {
                 else
                     dp[i] = Integer.parseInt(s.substring(i, i + 2)) <= 26 ? dp[i + 1] + dp[i + 2] : dp[i + 1];
             }
+
             return dp[0];
+
         }
+
     }
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -41,19 +41,23 @@ public class _403_Frog_Jump_青蛙过河_难 {
             if (target == stone) {
                 return true;
             }
+
             // k + 1
             if (hs.contains(stone + jump + 1) && dfs(stone + jump + 1, jump + 1, target, hs))
                 return true;
+
             // k
             if (jump > 0) {
                 if (hs.contains(stone + jump) && dfs(stone + jump, jump, target, hs))
                     return true;
             }
+
             // k-1
             if (jump > 1) {
                 if (hs.contains(stone + jump - 1) && dfs(stone + jump - 1, jump - 1, target, hs))
                     return true;
             }
+
             return false;
         }
     }

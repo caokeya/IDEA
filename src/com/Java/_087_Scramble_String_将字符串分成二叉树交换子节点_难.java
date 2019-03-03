@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个字符串 s1，我们可以把它递归地分割成两个非空子字符串，从而将其表示为二叉树。
 下图是字符串 s1 = "great" 的一种可能的表示形式。
@@ -32,9 +32,6 @@ r   g  ta  e
 示例 1:
 输入: s1 = "great", s2 = "rgeat"
 输出: true
-示例 2:
-输入: s1 = "abcde", s2 = "caebd"
-输出: false
  */
 public class _087_Scramble_String_将字符串分成二叉树交换子节点_难 {
     public class Solution {

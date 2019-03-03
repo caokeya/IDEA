@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在二维平面上，有一个机器人从原点 (0, 0) 开始。给出它的移动顺序，判断这个机器人在完成移动后是否在 (0, 0) 处结束。
@@ -32,6 +32,7 @@ public class _657_Robot_Return_to_Origin_机器人能否返回原点 {
                 return true;
             else
                 return false;
+
         }
     }
 }

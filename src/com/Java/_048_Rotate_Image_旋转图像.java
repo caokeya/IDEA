@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 给定一个 n × n 的二维矩阵表示一个图像。
 将图像顺时针旋转 90 度。
@@ -22,7 +21,7 @@ package src.com.Java;
 public class _048_Rotate_Image_旋转图像 {
     public class Solution {
         public void rotate(int[][] matrix) {
-            for (int i = 0; i < matrix.length; i++) {//沿对角线翻转
+            for (int i = 0; i < matrix.length; i++) {
                 for (int j = i; j < matrix[0].length; j++) {
                     int temp = 0;
                     temp = matrix[i][j];
@@ -30,7 +29,7 @@ public class _048_Rotate_Image_旋转图像 {
                     matrix[j][i] = temp;
                 }
             }
-            for (int i = 0; i < matrix.length; i++) {//沿竖直中线翻转
+            for (int i = 0; i < matrix.length; i++) {
                 for (int j = 0; j < matrix.length / 2; j++) {
                     int temp = 0;
                     temp = matrix[i][j];

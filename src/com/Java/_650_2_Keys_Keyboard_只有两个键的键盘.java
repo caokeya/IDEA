@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 最初在一个记事本上只有一个字符 'A'。你每次可以对这个记事本进行两种操作：
@@ -16,23 +16,18 @@ package src.com.Java;
 
  */
 public class _650_2_Keys_Keyboard_只有两个键的键盘 {
-    /*
-    我们找一个除数d这样我们就可以对(n / d)进行d次复制得到n
-    复制d个拷贝的过程需要d个步骤(全部复制1个步骤，粘贴d - 1个步骤)
-    我们不断地把问题简化成一个小问题。
-    最好的情况是当n快速减小，且方法接近O(log(n))
-    例如，当n = 1024时，那么n除以2只需要10次迭代，这比O(n) DP方法快得多。
-    最坏的情况发生在n是某个大素数的倍数时，如n = 997，但这种情况比较少见。
-    */
-    public int minSteps(int n) {
-        int res = 0;
-        for (int i = 2; i <= n; i++) {
-            while (n % i == 0) {
-                res = res + i;
-                n = n / i;
+    //得到n个'A'，需要复制一次，粘贴n-1次
+    class Solution {
+        public int minSteps(int n) {
+            int i = 2, step = 0;
+            while (n > 1) {
+                while (n % i == 0) {
+                    step += i;
+                    n /= i;
+                }
+                i++;
             }
+            return step;
         }
-        return res;
     }
-
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Deque;
 import java.util.LinkedList;
@@ -17,9 +17,6 @@ import java.util.LinkedList;
 输出：3
  */
 public class _862_Shortest_Subarray_with_Sum_at_Least_K_和至少为K的最短子数组_难 {
-    /*
-    先找到preSum大于K的位置，去掉开头，去掉结尾，取最短的长度
-     */
     class Solution {
         public int shortestSubarray(int[] A, int K) {
             if (A.length == 0)

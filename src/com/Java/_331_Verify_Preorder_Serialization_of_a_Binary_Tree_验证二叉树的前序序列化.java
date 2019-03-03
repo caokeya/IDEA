@@ -1,8 +1,7 @@
-package src.com.Java;
+package com.Java;
 
 /*
-序列化二叉树的一种方法是使用前序遍历。当我们遇到一个非空节点时，我们可以记录下这个节点的值。
-如果它是一个空节点，我们可以使用一个标记值记录，例如 #。
+序列化二叉树的一种方法是使用前序遍历。当我们遇到一个非空节点时，我们可以记录下这个节点的值。如果它是一个空节点，我们可以使用一个标记值记录，例如 #。
      _9_
     /   \
    3     2
@@ -20,10 +19,11 @@ package src.com.Java;
  */
 public class _331_Verify_Preorder_Serialization_of_a_Binary_Tree_验证二叉树的前序序列化 {
     /*
-     * 假设我们尝试构建这棵树。在建造过程中，我们记录了出度和入度差=出度-入度的差值。
-     * 当下一个节点到来时，我们将diff减少1，因为节点提供了一个in度。如果节点不是null，我们将diff增加2，因为它提供了2个out度。
-     * 如果序列化是正确的，diff永远不应该是负的，完成时diff将为零。
+             * 假设我们尝试构建这棵树。在建造过程中，我们记录了出度和入度差=出度-入度的差值。
+             * 当下一个节点到来时，我们将diff减少1，因为节点提供了一个in度。如果节点不是null，我们将diff增加2，因为它提供了2个out度。
+             * 如果序列化是正确的，diff永远不应该是负的，完成时diff将为零。
      */
+
     class Solution {
         public boolean isValidSerialization(String preorder) {
             String[] nodes = preorder.split(",");
@@ -37,4 +37,5 @@ public class _331_Verify_Preorder_Serialization_of_a_Binary_Tree_验证二叉树
             return diff == 0;
         }
     }
+
 }

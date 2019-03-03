@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 统计字符串中的单词个数，这里的单词指的是连续的不是空格的字符。
@@ -9,8 +9,6 @@ package src.com.Java;
  */
 public class _434_Number_of_Segments_in_a_String_字符串中的单词数 {
     class Solution {
-        // Time complexity: O(n)
-        // Space complexity: O(1)
         public int countSegments(String s) {
             int res = 0;
             for (int i = 0; i < s.length(); i++)
@@ -18,5 +16,8 @@ public class _434_Number_of_Segments_in_a_String_字符串中的单词数 {
                     res++;
             return res;
         }
+
+        // Time complexity: O(n)
+        // Space complexity: O(1)
     }
 }

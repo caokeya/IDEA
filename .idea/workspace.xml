@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="1-26">
+    <list default="true" id="191ac1f4-e102-46ba-ac79-8e5c8cc6a1a4" name="Default" comment="根据遍历情况构建二叉树">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Java/_106_Construct_Binary_Tree_from_Inorder_and_Postorder_Traversal_从中序和后序遍历序列构造二叉树.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -130,7 +128,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,6 +150,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -187,7 +185,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550477516648" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550477765626" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/Java" />
@@ -340,7 +338,10 @@
       <workItem from="1548507921069" duration="1706000" />
       <workItem from="1550372434629" duration="43000" />
       <workItem from="1550372647947" duration="606000" />
-      <workItem from="1550476987402" duration="727000" />
+      <workItem from="1550476987402" duration="800000" />
+      <workItem from="1551094535193" duration="21000" />
+      <workItem from="1551234675378" duration="32000" />
+      <workItem from="1551234785872" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1523671095562</created>
@@ -650,11 +651,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548509610607</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="根据遍历情况构建二叉树">
+      <created>1550477754083</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1550477754083</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="481749000" />
+    <option name="totallyTimeSpent" value="482183000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -668,7 +676,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.31023455" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49916527" visible="true" weight="0.31982943" />
       <window_info id="Image Layers" order="1" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -771,7 +779,8 @@
     <MESSAGE value="1-8" />
     <MESSAGE value="1-14" />
     <MESSAGE value="1-26" />
-    <option name="LAST_COMMIT_MESSAGE" value="1-26" />
+    <MESSAGE value="根据遍历情况构建二叉树" />
+    <option name="LAST_COMMIT_MESSAGE" value="根据遍历情况构建二叉树" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />

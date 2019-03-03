@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,7 +19,7 @@ import java.util.Map;
      [0,0,0,0,0,null,null,0,0]]
  */
 public class _894_All_Possible_Full_Binary_Trees_所有可能的满二叉树 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -34,6 +34,7 @@ public class _894_All_Possible_Full_Binary_Trees_所有可能的满二叉树 {
 
     class Solution {
         Map<Integer, List<TreeNode>> cache = new HashMap<>();
+
         public List<TreeNode> allPossibleFBT(int N) {
             List<TreeNode> res = new ArrayList<>();
             if (N % 2 == 0)

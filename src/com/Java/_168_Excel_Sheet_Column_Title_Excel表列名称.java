@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个正整数，返回它在 Excel 表中相对应的列名称。
@@ -13,15 +13,17 @@ package src.com.Java;
     ...
  */
 public class _168_Excel_Sheet_Column_Title_Excel表列名称 {
-    class Solution {
+    public class Solution {
         public String convertToTitle(int n) {
-            String res = "";
-            while(n != 0) {
-                char ch = (char)((n - 1) % 26 + 65);
-                n = (n - 1) / 26;
-                res = ch + res;
+            StringBuilder result = new StringBuilder();
+
+            while (n > 0) {
+                n--;
+                result.insert(0, (char) ('A' + n % 26));
+                n /= 26;
             }
-            return res;
+
+            return result.toString();
         }
     }
 }

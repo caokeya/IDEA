@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 班上有 N 名学生。其中有些人是朋友，有些则不是。他们的友谊具有是传递性。
@@ -21,26 +21,29 @@ package src.com.Java;
 说明：已知学生0和学生1互为朋友，学生1和学生2互为朋友，所以学生0和学生2也是朋友，所以他们三个在一个朋友圈，返回1。
  */
 public class _547_Friend_Circles_朋友圈 {
-    public class Solution {
+    class Solution {
         public int findCircleNum(int[][] M) {
             int[] visited = new int[M.length];
             int count = 0;
             for (int i = 0; i < M.length; i++) {
                 if (visited[i] == 0) {
-                    dfs(M, visited, i);
                     count++;
+                    DFS(visited, M, i);
                 }
             }
             return count;
         }
 
-        public void dfs(int[][] M, int[] visited, int i) {
-            for (int j = 0; j < M.length; j++) {
-                if (M[i][j] == 1 && visited[j] == 0) {
-                    visited[j] = 1;
-                    dfs(M, visited, j);
+        public void DFS(int[] visited, int[][] M, int index) {
+            if (visited[index] == 1)
+                return;
+            visited[index] = 1;
+            for (int i = 0; i < M.length; i++) {
+                if (M[index][i] == 1) {
+                    DFS(visited, M, i);
                 }
             }
         }
     }
+
 }

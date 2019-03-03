@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.List;
 
@@ -26,23 +26,18 @@ public class _559_Maximum_Depth_of_N_ary_Tree_N叉树的最大深度 {
             val = _val;
             children = _children;
         }
-    }
+    };
 
     class Solution {
-        int max = 0;
-
         public int maxDepth(Node root) {
-            if (root == null) return 0;
-            maxDepth(root, 1);
-            return max;
-        }
+            if (root == null)
+                return 0;
 
-        public void maxDepth(Node node, int depth) {
-            if (node == null) return;
-            for (Node child : node.children) {
-                maxDepth(child, depth + 1);
+            int max = 0;
+            for (Node c : root.children) {
+                max = Math.max(max, maxDepth(c));
             }
-            max = Math.max(max, depth);
+            return max + 1;
         }
     }
 }

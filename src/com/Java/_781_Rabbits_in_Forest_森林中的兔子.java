@@ -1,6 +1,5 @@
-package src.com.Java;
+package com.Java;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,13 +22,12 @@ import java.util.Map;
  */
 public class _781_Rabbits_in_Forest_森林中的兔子 {
     /*
-    我们统计数组中所有回答x的兔子的数量n：
-    若 n%(x+1)==0，说明我们此时只需要 n/(x+1) 组个数为x+1的兔子。
-    若 n%(x+1)!=0，说明我们此时只需要 n/(x+1) + 1 组个数为x+1的兔子。
-    那么这两种情况可以通过 ceil(n/(x+1))来整合，而这个值也等于 (n + x) / (x + 1).
-    if(该数字出现次数 % (喊出的数字+1) == 0) { ans+= 出现次数;//该回答的兔子全在数组内，默认为相同颜色，将该数字加入总数 }
-    else{ ans+= (出现次数 % (喊出的数字+1)+1)* (喊出的数字 +1); //如果出现的次数多于或少于兔子所说实际情况，那么数组之外必有其他兔子 }
-    */
+     * 我们统计数组中所有回答x的兔子的数量n： 若 n%(x+1)==0，说明我们此时只需要 n/(x+1) 组个数为x+1的兔子。 若
+     * n%(x+1)!=0，说明我们此时只需要 n/(x+1) + 1 组个数为x+1的兔子。 那么这两种情况可以通过 ceil(n/(x+1))
+     * 来整合，而这个值也等于 (n + x) / (x + 1). if(该数字出现次数 % (喊出的数字+1) == 0) { ans+= 出现次数
+     * ;//该回答的兔子全在数组内，默认为相同颜色，将该数字加入总数 }else{ ans+= (出现次数 % (喊出的数字+1)+1)* (喊出的数字 +
+     * 1); //如果出现的次数多于或少于兔子所说实际情况，那么数组之外必有其他兔子 }
+     */
     class Solution {
         public int numRabbits(int[] answers) {
             Map<Integer, Integer> map = new HashMap<>();
@@ -37,22 +35,30 @@ public class _781_Rabbits_in_Forest_森林中的兔子 {
                 map.put(i, map.getOrDefault(i, 0) + 1);
             int res = 0;
             for (int i : map.keySet())
-                res += (map.get(i) + i) / (i + 1) * (i + 1);//相当于math.ceil(n / (x + 1)) * (i + 1)
+                res += (map.get(i) + i) / (i + 1) * (i + 1);
             return res;
         }
     }
 
     class Solution2 {
-        public int numRabbits(int[] a) {
-            Arrays.sort(a);
-            int total = 0, r = 0;
-            for (int i = 0; i < a.length; i++) {
-                if (r-- == 0 || a[i] != a[i - 1]) {
-                    r = a[i];
-                    total += a[i] + 1;
-                }
+        public int numRabbits(int[] answers) {
+            if (answers == null || answers.length == 0)
+                return 0;
+
+            int[] count = new int[1000];
+            for (int i : answers)
+                count[i]++;
+
+            int sum = 0;
+            for (int i = 0; i < count.length; i++) {
+                int temp = count[i] % (i + 1);
+                if (temp == 0)
+                    sum += count[i];
+                else
+                    sum += count[i] + (i + 1) - temp;
             }
-            return total;
+
+            return sum;
         }
     }
 }

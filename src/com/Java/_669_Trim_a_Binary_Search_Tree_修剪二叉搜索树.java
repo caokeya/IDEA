@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个二叉搜索树，同时给定最小边界L 和最大边界 R。通过修剪二叉搜索树，使得所有节点的值在[L, R]中 (R>=L) 。
@@ -34,7 +34,7 @@ package src.com.Java;
  1
  */
 public class _669_Trim_a_Binary_Search_Tree_修剪二叉搜索树 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -52,11 +52,14 @@ public class _669_Trim_a_Binary_Search_Tree_修剪二叉搜索树 {
             // base case
             if (root == null)
                 return null;
+
             // recurse
             if (root.val < L) { // ignore left sub-tree
                 return trimBST(root.right, L, R);
+
             } else if (root.val > R) {
                 return trimBST(root.left, L, R);
+
             } else { // L <= root.val <= R
                 root.left = trimBST(root.left, L, R);
                 root.right = trimBST(root.right, L, R);

@@ -1,6 +1,11 @@
-package src.com.Java;
+package com.Java;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /*
 设计一个支持在平均 时间复杂度 O(1) 下， 执行以下操作的数据结构。
@@ -25,67 +30,58 @@ collection.remove(1);
 collection.getRandom();
  */
 public class _381_Insert_Delete_GetRandom_O1_Duplicates_allowed_O1时间插入删除和获取随机元素允许重复_难 {
-    class RandomizedCollection {
-        private Map<Integer, ArrayList<Integer>> map;
-        private ArrayList<Integer> list;
+    public class RandomizedCollection {
 
-        /**
-         * Initialize your data structure here.
-         */
+        List<Integer> nums;
+        Map<Integer, Set<Integer>> map;
+        java.util.Random random;
+
+        /** Initialize your data structure here. */
         public RandomizedCollection() {
+            nums = new ArrayList<>();
             map = new HashMap<>();
-            list = new ArrayList<>();
+            random = new java.util.Random();
         }
 
         /**
-         * Inserts a value to the collection. Returns true if the collection did not already contain the specified element.
+         * Inserts a value to the collection. Returns true if the collection did not
+         * already contain the specified element.
          */
         public boolean insert(int val) {
-            boolean flag = !map.containsKey(val);
-            if (flag) {
-                //the collection does not contain the element
-                map.put(val, new ArrayList<>());
-            }
-            map.get(val).add(list.size());
-            list.add(val);
-            return flag;
+            boolean doesContain = map.containsKey(val);
+            if (!doesContain)
+                map.put(val, new HashSet<>());
+            map.get(val).add(nums.size());
+            nums.add(val);
+            return !doesContain;
         }
 
         /**
-         * Removes a value from the collection. Returns true if the collection contained the specified element.
+         * Removes a value from the collection. Returns true if the collection contained
+         * the specified element.
          */
         public boolean remove(int val) {
-            boolean flag = map.containsKey(val);
-            //System.out.println(list.toString());
-            if (flag) {
-                //if flag contains key, then remove it, always remove the last one
-                ArrayList<Integer> pos = map.get(val);
-                //System.out.println(pos.toString());
-                int removePos = pos.get(pos.size() - 1);
-                pos.remove(pos.size() - 1);
-                if (pos.size() == 0) {
-                    map.remove(val);
-                }
-                if (removePos != list.size() - 1) {
-                    list.set(removePos, list.get(list.size() - 1));
-                    //you also need to update the pos in the list Integer
-                    ArrayList<Integer> lastVal = map.get(list.get(list.size() - 1));
-                    Collections.sort(lastVal);
-                    lastVal.remove(lastVal.size() - 1);
-                    lastVal.add(removePos);
-                }
-                list.remove(list.size() - 1);
-                //when we set the
+            if (!map.containsKey(val))
+                return false;
+            if (!map.get(val).contains(nums.size() - 1)) {
+                int currPos = map.get(val).iterator().next();
+                int lastVal = nums.get(nums.size() - 1);
+                map.get(lastVal).remove(nums.size() - 1);
+                map.get(lastVal).add(currPos);
+                map.get(val).remove(currPos);
+                map.get(val).add(nums.size() - 1);
+                nums.set(currPos, lastVal);
             }
-            return flag;
+            map.get(val).remove(nums.size() - 1);
+            if (map.get(val).isEmpty())
+                map.remove(val);
+            nums.remove(nums.size() - 1);
+            return true;
         }
 
-        /**
-         * Get a random element from the collection.
-         */
+        /** Get a random element from the collection. */
         public int getRandom() {
-            int random = (int) (Math.random() * list.size());
-            return list.get(random);
+            return nums.get(random.nextInt(nums.size()));
         }
     }
     /**

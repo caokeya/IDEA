@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个已排序的正整数数组 nums，和一个正整数 n 。从 [1, n] 区间内选取任意个数字补充到 nums 中，
@@ -14,21 +14,23 @@ package src.com.Java;
  */
 public class _330_Patching_Array_按要求补齐数组_难 {
     class Solution {
-        //The variable max records the maximal value that can be formed by the elements in nums and patched numbers.
-        //If max is less than nums[i] - 1 which means we need to patch a new number, we then patch max + 1.
+
         public int minPatches(int[] nums, int n) {
-            long max = 0;
-            int cnt = 0;
-            for (int i = 0; max < n; ) {
-                if (i >= nums.length || max < nums[i] - 1) {
-                    max += max + 1;
-                    cnt++;
+            int m = nums.length;
+            int missnumber = 0;
+            long canreach = 1;
+            int i = 0;
+            while (canreach <= n) {
+                if (i < m && nums[i] <= canreach) {
+                    canreach += nums[i++];
                 } else {
-                    max += nums[i];
-                    i++;
+                    canreach += canreach;
+                    missnumber++;
                 }
             }
-            return cnt;
+            return missnumber;
+
         }
+
     }
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,54 +30,49 @@ randomSet.getRandom();
  */
 public class _380_Insert_Delete_GetRandom_O1_常数时间插入删除获取随机元素 {
     class RandomizedSet {
-        List<Integer> list;
-        Map<Integer, Integer> map;
+        private List<Integer> list;
+        private Map<Integer, Integer> map;
 
-        /*
-         * Initialize your data structure here.
-         */
+        /** Initialize your data structure here. */
         public RandomizedSet() {
-            list = new ArrayList<>();
-            map = new HashMap<>();
+            this.list = new ArrayList<>();
+            this.map = new HashMap<>();
         }
 
-        /*
-         * Inserts a value to the set. Returns true if the set did not already contain the specified element.
+        /**
+         * Inserts a value to the set. Returns true if the set did not already contain
+         * the specified element.
          */
         public boolean insert(int val) {
-            if (map.containsKey(val)) {
+            if (map.containsKey(val))
                 return false;
-            } else {
-                map.put(val, list.size());
-                list.add(val);
-                return true;
-            }
-        }
-
-        /*
-         * Removes a value from the set. Returns true if the set contained the specified element.
-         */
-        public boolean remove(int val) {
-            if (!map.containsKey(val)) {
-                return false;
-            } else if (map.get(val) == list.size() - 1) {
-                list.remove(list.size() - 1);
-            } else {
-                int last = list.get(list.size() - 1);
-                int index = map.get(val);
-                list.set(index, last);
-                map.put(last, index);
-                list.remove(list.size() - 1);
-            }
-            map.remove(val);
+            map.put(val, list.size());
+            list.add(val);
             return true;
         }
 
-        /*
-         * Get a random element from the set.
+        /**
+         * Removes a value from the set. Returns true if the set contained the specified
+         * element.
          */
+        public boolean remove(int val) {
+            if (!map.containsKey(val))
+                return false;
+            int idx = map.get(val);
+            if (idx != list.size() - 1) {
+                int last = list.get(list.size() - 1);
+                list.set(idx, last);
+                map.put(last, idx);
+            }
+            map.remove(val);
+            list.remove(list.size() - 1);
+            return true;
+        }
+
+        /** Get a random element from the set. */
         public int getRandom() {
-            return list.get((int) (Math.random() * list.size()));
+            int lastIdx = list.size() - 1;
+            return list.get((int) (Math.random() * (lastIdx - 0 + 1)));
         }
     }
 /**

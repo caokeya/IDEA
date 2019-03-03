@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,16 +21,12 @@ public class _676_Implement_Magic_Dictionary_实现一个魔法字典 {
 
         Map<Integer, Set<String>> map;
 
-        /*
-         * Initialize your data structure here.
-         */
+        /** Initialize your data structure here. */
         public MagicDictionary() {
             map = new HashMap<>();
         }
 
-        /*
-         * Build a dictionary through a list of words
-         */
+        /** Build a dictionary through a list of words */
         public void buildDict(String[] dict) {
             for (String s : dict) {
                 int len = s.length();
@@ -40,7 +36,7 @@ public class _676_Implement_Magic_Dictionary_实现一个魔法字典 {
             }
         }
 
-        /*
+        /**
          * Returns if there is any word in the trie that equals to the given word after
          * modifying exactly one character
          */
@@ -48,57 +44,53 @@ public class _676_Implement_Magic_Dictionary_实现一个魔法字典 {
             if (!map.containsKey(word.length()))
                 return false;
             Set<String> set = map.get(word.length());
-            char[] wordc = word.toCharArray();
-            for (int i = 0; i < wordc.length; i++) {
-                char wordi = wordc[i];
+            char[] wc = word.toCharArray();
+            for (int i = 0; i < wc.length; i++) {
+                char og = wc[i];
                 for (char c = 'a'; c <= 'z'; c++) {
-                    if (wordi != c) {
-                        wordc[i] = c;
-                        if (set.contains(new String(wordc)))
+                    if (og != c) {
+                        wc[i] = c;
+                        if (set.contains(new String(wc)))
                             return true;
                     }
                 }
-                wordc[i] = wordi;
+                wc[i] = og;
             }
             return false;
         }
     }
+    
+    class MagicDictionary2 {
+        Set<String> set;
 
-    class MagicDictionarySet {
-
-        HashSet<String> dictSet;
-
-        /*
-         * Initialize your data structure here.
-         */
-        public MagicDictionarySet() {
-            dictSet = new HashSet<>();
+        /** Initialize your data structure here. */
+        public MagicDictionary2() {
+            this.set = new HashSet<String>();
         }
 
-        /*
-         * Build a dictionary through a list of words
-         */
+        /** Build a dictionary through a list of words */
         public void buildDict(String[] dict) {
-            dictSet = new HashSet<String>();
-            for (String word : dict)
-                dictSet.add(word);
+            for (String s : dict)
+                set.add(s);
         }
 
-        /*
-         * Returns if there is any word in the trie that equals to the given word after modifying exactly one character
+        /**
+         * Returns if there is any word in the trie that equals to the given word after
+         * modifying exactly one character
          */
         public boolean search(String word) {
-            char[] chars = word.toCharArray();
-            for (int i = 0; i < chars.length; i++) {
-                char ch = chars[i];
-                for (char c = 'a'; c <= 'z'; c++) {
-                    if (c != ch) {
-                        chars[i] = c;
-                        if (dictSet.contains(new String(chars)))
-                            return true;
-                    }
+            char[] arr = word.toCharArray();
+            for (int i = 0; i < word.length(); i++) {
+                char orig = arr[i];
+                for (int j = 0; j < 26; j++) {
+                    char cur = (char) ('a' + j);
+                    if (orig == cur)
+                        continue;
+                    arr[i] = cur;
+                    if (set.contains(String.valueOf(arr)))
+                        return true;
                 }
-                chars[i] = ch;
+                arr[i] = orig;
             }
             return false;
         }

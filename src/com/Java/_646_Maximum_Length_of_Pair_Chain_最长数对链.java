@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -14,14 +14,14 @@ import java.util.Comparator;
  */
 public class _646_Maximum_Length_of_Pair_Chain_最长数对链 {
     class Solution {
-        class compare implements Comparator<int[]> {
+        class comp implements Comparator<int[]> {
             public int compare(int p1[], int p2[]) {
                 return p1[1] - p2[1];
             }
         }
 
         public int findLongestChain(int[][] pairs) {
-            Arrays.sort(pairs, new compare());
+            Arrays.sort(pairs, new comp());
             int last = Integer.MIN_VALUE;
             int cnt = 0;
             for (int i = 0; i < pairs.length; i++) {
@@ -31,6 +31,7 @@ public class _646_Maximum_Length_of_Pair_Chain_最长数对链 {
                 }
             }
             return cnt;
+
         }
     }
 }

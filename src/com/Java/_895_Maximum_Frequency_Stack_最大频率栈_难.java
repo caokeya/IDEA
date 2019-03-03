@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,22 +28,30 @@ pop() -> 返回 4 。
  */
 public class _895_Maximum_Frequency_Stack_最大频率栈_难 {
     class FreqStack {
-        HashMap<Integer, Integer> freq = new HashMap<>();
-        HashMap<Integer, Stack<Integer>> m = new HashMap<>();
-        int maxfreq = 0;
+        Map<Integer, Integer> freq;
+        Map<Integer, Stack<Integer>> group;
+        int maxfreq;
+
+        public FreqStack() {
+            freq = new HashMap();
+            group = new HashMap();
+            maxfreq = 0;
+        }
 
         public void push(int x) {
             int f = freq.getOrDefault(x, 0) + 1;
             freq.put(x, f);
-            maxfreq = Math.max(maxfreq, f);
-            if (!m.containsKey(f)) m.put(f, new Stack<Integer>());
-            m.get(f).add(x);
+            if (f > maxfreq)
+                maxfreq = f;
+
+            group.computeIfAbsent(f, z -> new Stack()).push(x);
         }
 
         public int pop() {
-            int x = m.get(maxfreq).pop();
-            freq.put(x, maxfreq - 1);
-            if (m.get(maxfreq).size() == 0) maxfreq--;
+            int x = group.get(maxfreq).pop();
+            freq.put(x, freq.get(x) - 1);
+            if (group.get(maxfreq).size() == 0)
+                maxfreq--;
             return x;
         }
     }

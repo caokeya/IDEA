@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,12 +27,12 @@ import java.util.List;
  */
 public class _816_Ambiguous_Coordinates_模糊坐标 {
     /*
-    if S == "": return []
-    if S == "0": return [S]
-    if S == "0XXX0": return []
-    if S == "0XXX": return ["0.XXX"]
-    if S == "XXX0": return [S]
-    return [S, "X.XXX", "XX.XX", "XXX.X"...]
+     if S == "": return []
+     if S == "0": return [S]
+     if S == "0XXX0": return []
+     if S == "0XXX": return ["0.XXX"]
+     if S == "XXX0": return [S]
+     return [S, "X.XXX", "XX.XX", "XXX.X"...]
      */
     class Solution {
         public List<String> ambiguousCoordinates(String S) {
@@ -49,6 +49,7 @@ public class _816_Ambiguous_Coordinates_模糊坐标 {
             for (int i = 1; i < S.length(); i++) {
                 List<String> left = parse(S.substring(0, i));
                 List<String> right = parse(S.substring(i));
+
                 for (String leftPart : left) {
                     for (String rightPart : right) {
                         res.add("(" + leftPart + ", " + rightPart + ")");
@@ -62,25 +63,30 @@ public class _816_Ambiguous_Coordinates_模糊坐标 {
             char[] letters = s.toCharArray();
             int len = s.length();
             List<String> res = new ArrayList<String>();
-            if (letters[0] == '0' && letters[len - 1] == '0') {// "0xxxx0" Invalid unless a single "0"
+
+            if (letters[0] == '0' && letters[len - 1] == '0') {
                 if (len == 1) {
                     res.add("0");
                 }
                 return res;
             }
-            if (letters[0] == '0') {// "0xxxxx" The only valid result is "0.xxxxx"
+
+            if (letters[0] == '0') {
                 res.add("0." + s.substring(1));
                 return res;
             }
-            if (letters[len - 1] == '0') {// "xxxxx0" The only valid result is itself
+
+            if (letters[len - 1] == '0') {
                 res.add(s);
                 return res;
             }
-            res.add(s);// Add itself
-            for (int i = 1; i < len; i++) {// "xxxx" -> "x.xxx", "xx.xx", "xxx.x"
+
+            res.add(s);
+            for (int i = 1; i < len; i++) {
                 res.add(s.substring(0, i) + "." + s.substring(i));
             }
             return res;
         }
     }
+
 }

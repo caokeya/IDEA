@@ -1,8 +1,7 @@
-package src.com.Java;
+package com.Java;
 
 /*
-给定二叉搜索树（BST）的根节点和一个值。 你需要在BST中找到节点值等于给定值的节点。
-返回以该节点为根的子树。 如果节点不存在，则返回 NULL。
+给定二叉搜索树（BST）的根节点和一个值。 你需要在BST中找到节点值等于给定值的节点。 返回以该节点为根的子树。 如果节点不存在，则返回 NULL。
 例如，
 给定二叉搜索树:
         4
@@ -18,7 +17,7 @@ package src.com.Java;
     1   3
  */
 public class _700_Searchin_a_Binary_Search_Tree_二叉搜索树中的搜索 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {

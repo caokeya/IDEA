@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个初始元素全部为 0，大小为 m*n 的矩阵 M 以及在 M 上的一系列更新操作。
@@ -30,11 +30,13 @@ public class _598_Range_Addition_II_范围求和 {
             if (ops == null || ops.length == 0) {
                 return m * n;
             }
+
             int row = Integer.MAX_VALUE, col = Integer.MAX_VALUE;
             for (int[] op : ops) {
                 row = Math.min(row, op[0]);
                 col = Math.min(col, op[1]);
             }
+
             return row * col;
         }
     }

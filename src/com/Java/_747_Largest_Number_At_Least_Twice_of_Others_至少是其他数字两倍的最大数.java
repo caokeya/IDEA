@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -34,4 +34,42 @@ public class _747_Largest_Number_At_Least_Twice_of_Others_至少是其他数字�
                 return -1;
         }
     }
+
+    class Solution2 {
+        public int dominantIndex(int[] nums) {
+
+            if (nums.length == 1) {
+                return 0;
+            }
+
+            int copy[] = new int[nums.length];
+            for (int i = 0; i < nums.length; i++) {
+                copy[i] = nums[i];
+            }
+
+            Arrays.sort(copy);
+            if (copy.length > 0) {
+                int max = copy[copy.length - 1];
+                int secondMax = -1;
+                for (int i = copy.length - 2; i >= 0; i--) {
+                    if (copy[i] < max) {
+                        secondMax = copy[i];
+                        break;
+                    }
+                }
+
+                if (secondMax != -1 && (2 * secondMax <= max)) {
+                    for (int i = 0; i < nums.length; i++) {
+                        if (nums[i] == max) {
+                            return i;
+                        }
+                    }
+                }
+
+            }
+            return -1;
+
+        }
+    }
+
 }

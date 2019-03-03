@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 给定一个数组 A，我们可以将它按一个非负整数 K 进行轮调，
 这样可以使数组变为 A[K], A[K+1], A{K+2], ... A[A.length - 1], A[0], A[1], ..., A[K-1] 的形式。此后，任何值小于或等于其索引的项都可以记作一分。
@@ -27,45 +26,31 @@ A 无论怎么变化总是有 3 分。
 public class _798_Smallest_Rotation_with_Highest_Score_得分最高的最小轮调_难 {
     class Solution {
         public int bestRotation(int[] A) {
-            int n = A.length;
-            int[] a = new int[n];  // to record interval start/end
-            for (int i = 0; i < A.length; i++) {
-                a[(i + 1) % n]++;             // interval start
-                a[(i + 1 - A[i] + n) % n]--;  // interval end
-            }
-            int count = 0;
-            int maxCount = -1;
-            int res = 0;
-            for (int i = 0; i < n; i++) {  // find most overlap interval
-                count += a[i];
-                if (count > maxCount) {
-                    res = i;
-                    maxCount = count;
-                }
-            }
-            return res;
-        }
-    }
-
-    class Solution2 {
-        public int bestRotation(int[] A) {
-            // find out how score changes when k goes up
             int N = A.length;
-            int[] change = new int[A.length];
-            for (int i = 0; i < A.length; i++) {
-                // for k large than (i - A[i] + N) % N
-                // we lose point
-                change[(i - A[i] + N + 1) % N] -= 1;
+            int[] bad = new int[N];
+            for (int i = 0; i < N; ++i) {
+                int left = (i - A[i] + 1 + N) % N;
+                int right = (i + 1) % N;
+                bad[left]--;
+                bad[right]++;
+                // left > right means wraparound interval. That means that 0 -> right-1 is also bad.
+                // This only happens when A[i] > i. But what about about left? Well this means that
+                // left -> N-1 is also bad. But N and 0 are the same thing here (wrap around). So it does not matter.
+                // Take a 10 element array and make A[2] = 5 (wraparound case) A[2] = 2/3 (regular case).
+                if (left > right)
+                    bad[0]--;
             }
-            int max_i = 0;
-            for (int i = 1; i < N; i++) {
-                // score[k] = score[k - 1] + change[k]
-                change[i] = change[i] + change[i - 1] + 1;
-                if (change[i] > change[max_i]) {
-                    max_i = i;
+
+            int best = -N;
+            int ans = 0, cur = 0;
+            for (int i = 0; i < N; ++i) {
+                cur += bad[i];
+                if (cur > best) {
+                    best = cur;
+                    ans = i;
                 }
             }
-            return max_i;
+            return ans;
         }
     }
 }

@@ -1,8 +1,7 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
-
 /*
 根据一棵树的前序遍历与中序遍历构造二叉树。
 注意:
@@ -18,7 +17,7 @@ import java.util.Map;
    15   7
  */
 public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从前序和中序遍历序列构造二叉树 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -41,13 +40,12 @@ public class _105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal_从�
             }
             return constructTree(preorder, 0, inorder.length);
         }
-
         /*
         pre: 3 9 20 15 7
         in : 9 3 15 20 7
-                3
-            9      20
-                 15   7
+                        3
+                    9      20
+                         15   7
         */
         public TreeNode constructTree(int[] preorder, int start, int end) {
             if (start > end || preIndex > preorder.length - 1)

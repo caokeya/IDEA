@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 编写一个程序，通过已填充的空格来解决数独问题。
 一个数独的解法需遵循如下规则：
@@ -49,4 +49,5 @@ public class _037_Sudoku_Solver_解数独_难 {
             return true;
         }
     }
+
 }

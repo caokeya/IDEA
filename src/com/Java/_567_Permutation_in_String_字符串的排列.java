@@ -1,6 +1,4 @@
-package src.com.Java;
-
-import java.util.Arrays;
+package com.Java;
 
 /*
 给定两个字符串 s1 和 s2，写一个函数来判断 s2 是否包含 s1 的排列。
@@ -15,9 +13,9 @@ import java.util.Arrays;
  */
 public class _567_Permutation_in_String_字符串的排列 {
     /*
-    我们只需要创建一个长度为s1的滑动窗口，从s2的开始移动到结束。
-    当一个字符从窗口的右侧移进来时，我们从地图中减去1个字符的计数。当一个字符从窗口的左边移出时，我们向该字符计数加1。
-    因此，一旦我们看到地图上所有的0，即s1和滑动窗口子字符串之间的每个字符的数量相等，我们就知道答案是正确的。
+         * 我们只需要创建一个长度为s1的滑动窗口，从s2的开始移动到结束。
+         * 当一个字符从窗口的右侧移进来时，我们从地图中减去1个字符的计数。当一个字符从窗口的左边移出时，我们向该字符计数加1。
+         * 因此，一旦我们看到地图上所有的0，即s1和滑动窗口子字符串之间的每个字符的数量相等，我们就知道答案是正确的。
      */
     public class Solution {
         public boolean checkInclusion(String s1, String s2) {
@@ -49,27 +47,6 @@ public class _567_Permutation_in_String_字符串的排列 {
                     return false;
             }
             return true;
-        }
-    }
-
-    class Solution2 {
-        public boolean checkInclusion(String s1, String s2) {
-            int n1 = s1.length(), n2 = s2.length();
-            if (n1 > n2) return false;
-            int[] map1 = new int[26];
-            int[] map2 = new int[26];
-            for (int i = 0; i < n1; i++) {
-                map1[s1.charAt(i) - 'a']++;
-            }
-            for (int j = 0; j < n2; j++) {
-                map2[s2.charAt(j) - 'a']++;
-                if (j >= n1) {
-                    //定位到从窗口出去的那个数，减去一次occurence
-                    map2[s2.charAt(j - n1) - 'a']--;
-                }
-                if (Arrays.equals(map1, map2)) return true;
-            }
-            return false;
         }
     }
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -40,7 +40,7 @@ public class _854_K_Similar_Strings_相似度为K的字符串_难 {
                     while (s.charAt(i) == B.charAt(i))
                         i++;
                     for (int j = i + 1; j < s.length(); j++) {
-                        if (s.charAt(j) == B.charAt(j) || s.charAt(i) != B.charAt(j))//找到交换的位置
+                        if (s.charAt(j) == B.charAt(j) || s.charAt(i) != B.charAt(j))
                             continue;
                         String temp = swap(s, i, j);
                         if (temp.equals(B))

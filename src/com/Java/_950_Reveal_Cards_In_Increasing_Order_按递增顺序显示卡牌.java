@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -44,17 +44,14 @@ public class _950_Reveal_Cards_In_Increasing_Order_按递增顺序显示卡牌 {
         }
     }
 
-    /*
-    我们模拟了相反的过程。
-    初始化一个空列表或deque或队列，每次将最后一个元素旋转到第一个元素，并在左边追加一个第二大的数字。
-     */
     class Solution2 {
         public int[] deckRevealedIncreasing(int[] deck) {
             int n = deck.length;
             Arrays.sort(deck);
             Queue<Integer> q = new LinkedList<>();
             for (int i = n - 1; i >= 0; --i) {
-                if (q.size() > 0) q.add(q.poll());
+                if (q.size() > 0)
+                    q.add(q.poll());
                 q.add(deck[i]);
             }
             int[] res = new int[n];

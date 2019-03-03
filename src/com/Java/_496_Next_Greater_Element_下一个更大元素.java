@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,37 +24,13 @@ nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的�
 public class _496_Next_Greater_Element_下一个更大元素 {
     class Solution {
         public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-            Map<Integer, Integer> map = new HashMap<>();
-            for (int i = 0; i < nums2.length; i++) {
-                map.put(nums2[i], i);
-            }
-            int[] result = new int[nums1.length];
-            for (int i = 0; i < nums1.length; i++) {
-                int num = nums1[i];
-                int index = map.get(num) + 1;
-                int nextGreat = -1;
-                while (index < nums2.length) {
-                    if (num < nums2[index]) {
-                        nextGreat = nums2[index];
-                        break;
-                    }
-                    index++;
-                }
-                result[i] = nextGreat;
-            }
-            return result;
-        }
-    }
-
-    class SolutionStack {
-        public int[] nextGreaterElement(int[] nums1, int[] nums2) {
             Map<Integer, Integer> map = new HashMap<>(); // map from x to next greater element of x
             Stack<Integer> stack = new Stack<>();
             for (int num : nums2) {
                 while (!stack.isEmpty() && stack.peek() < num)
                     map.put(stack.pop(), num);
                 stack.push(num);
-            }
+            }   
             for (int i = 0; i < nums1.length; i++)
                 nums1[i] = map.getOrDefault(nums1[i], -1);
             return nums1;

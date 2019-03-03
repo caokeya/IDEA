@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 设计实现双端队列。
 你的实现需要支持以下操作：
@@ -14,11 +13,11 @@ package src.com.Java;
     isFull()：检查双端队列是否满了。
 示例：
 MyCircularDeque circularDeque = new MycircularDeque(3); // 设置容量大小为3
-circularDeque.insertLast(1);            // 返回 true 1
-circularDeque.insertLast(2);            // 返回 true 1 2
-circularDeque.insertFront(3);           // 返回 true 3 1 2
+circularDeque.insertLast(1);            // 返回 true
+circularDeque.insertLast(2);            // 返回 true
+circularDeque.insertFront(3);           // 返回 true
 circularDeque.insertFront(4);           // 已经满了，返回 false
-circularDeque.getRear();                // 返回 2
+circularDeque.getRear();                // 返回  32
 circularDeque.isFull();                 // 返回 true
 circularDeque.deleteLast();             // 返回 true
 circularDeque.insertFront(4);           // 返回 true
@@ -34,15 +33,13 @@ public class _641_Design_Circular_Deque_设计循环双端队列 {
         private int start = 0;
         private int end = 0;
 
-        /*
-         * Initialize your data structure here. Set the size of the deque to be k.
-         */
+        /** Initialize your data structure here. Set the size of the deque to be k. */
         public MyCircularDeque(int k) {
             this.k = k;
             arr = new int[k];
         }
 
-        /*
+        /**
          * Adds an item at the front of Deque. Return true if the operation is
          * successful.
          */
@@ -56,7 +53,7 @@ public class _641_Design_Circular_Deque_设计循环双端队列 {
             return true;
         }
 
-        /*
+        /**
          * Adds an item at the rear of Deque. Return true if the operation is
          * successful.
          */
@@ -70,7 +67,7 @@ public class _641_Design_Circular_Deque_设计循环双端队列 {
             return true;
         }
 
-        /*
+        /**
          * Deletes an item from the front of Deque. Return true if the operation is
          * successful.
          */
@@ -83,7 +80,7 @@ public class _641_Design_Circular_Deque_设计循环双端队列 {
             return true;
         }
 
-        /*
+        /**
          * Deletes an item from the rear of Deque. Return true if the operation is
          * successful.
          */
@@ -96,9 +93,7 @@ public class _641_Design_Circular_Deque_设计循环双端队列 {
             return true;
         }
 
-        /*
-         * Get the front item from the deque.
-         */
+        /** Get the front item from the deque. */
         public int getFront() {
             if (isEmpty())
                 return -1;
@@ -106,9 +101,7 @@ public class _641_Design_Circular_Deque_设计循环双端队列 {
             return arr[start];
         }
 
-        /*
-         * Get the last item from the deque.
-         */
+        /** Get the last item from the deque. */
         public int getRear() {
             if (isEmpty())
                 return -1;
@@ -116,16 +109,12 @@ public class _641_Design_Circular_Deque_设计循环双端队列 {
             return arr[(end - 1 + k) % k];
         }
 
-        /*
-         * Checks whether the circular deque is empty or not.
-         */
+        /** Checks whether the circular deque is empty or not. */
         public boolean isEmpty() {
             return size == 0;
         }
 
-        /*
-         * Checks whether the circular deque is full or not.
-         */
+        /** Checks whether the circular deque is full or not. */
         public boolean isFull() {
             return size == k;
         }

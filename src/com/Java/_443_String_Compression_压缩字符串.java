@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一组字符，使用原地算法将其压缩。
@@ -16,20 +16,21 @@ package src.com.Java;
 public class _443_String_Compression_压缩字符串 {
     class Solution {
         public int compress(char[] chars) {
-            int indexAns = 0, index = 0;
-            while (index < chars.length) {
-                char currentChar = chars[index];
+            int idx = 0, writeIdx = 0;
+            while (idx < chars.length) {
+                char c = chars[idx];
                 int count = 0;
-                while (index < chars.length && chars[index] == currentChar) {
-                    index++;
+                while (idx < chars.length && chars[idx] == c) {
                     count++;
+                    idx++;
                 }
-                chars[indexAns++] = currentChar;
+                chars[writeIdx++] = c;
                 if (count != 1)
-                    for (char c : Integer.toString(count).toCharArray())
-                        chars[indexAns++] = c;
+                    for (char i : Integer.toString(count).toCharArray()) {
+                        chars[writeIdx++] = i;
+                    }
             }
-            return indexAns;
+            return writeIdx;
         }
     }
 }

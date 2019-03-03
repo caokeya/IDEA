@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 不使用任何内建的哈希表库设计一个哈希集合
 具体地说，你的设计应该包含以下的功能
@@ -19,9 +18,8 @@ hashSet.contains(2);    // 返回  false (已经被删除)
  */
 public class _705_Design_HashSet_设计哈希集合 {
     class MyHashSet {
-        /*
-         * Initialize your data structure here.
-         */
+
+        /** Initialize your data structure here. */
         boolean[] set;
 
         public MyHashSet() {
@@ -30,15 +28,14 @@ public class _705_Design_HashSet_设计哈希集合 {
 
         public void add(int key) {
             set[key] = true;
+
         }
 
         public void remove(int key) {
             set[key] = false;
         }
 
-        /*
-         * Returns true if this set contains the specified element
-         */
+        /** Returns true if this set contains the specified element */
         public boolean contains(int key) {
             return set[key];
         }

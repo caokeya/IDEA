@@ -1,7 +1,4 @@
-package src.com.Java;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.Java;
 
 /*
 你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，/，+，-，(，) 的运算得到 24。
@@ -23,7 +20,8 @@ public class _679_24_Game_24点游戏_难 {
         }
 
         private boolean find(double[] nums) {
-            if (nums.length == 1) return Math.abs(nums[0] - 24) < 1e-6;
+            if (nums.length == 1)
+                return Math.abs(nums[0] - 24) < 1e-6;
             int n = nums.length;
             for (int i = 0; i < n; i++) {
                 for (int j = i + 1; j < n; j++) {
@@ -38,7 +36,8 @@ public class _679_24_Game_24点游戏_难 {
                     }
                     for (double r : results) {
                         next[idx] = r;
-                        if (find(next)) return true;
+                        if (find(next))
+                            return true;
                     }
                 }
             }
@@ -46,55 +45,7 @@ public class _679_24_Game_24点游戏_难 {
         }
 
         private double[] calc(double a, double b) {
-            return new double[]{a + b, a - b, b - a, a * b, a / b, b / a};
-        }
-    }
-
-    class Solution2 {
-
-        public boolean judgePoint24(int[] nums) {
-            List<Double> list = new ArrayList<>();
-            for (int i : nums) {
-                list.add((double) i);
-            }
-            return dfs(list);
-        }
-
-        private boolean dfs(List<Double> list) {
-            if (list.size() == 1) {
-                if (Math.abs(list.get(0) - 24.0) < 0.000001) {
-                    return true;
-                }
-                return false;
-            }
-
-            for (int i = 0; i < list.size(); i++) {
-                for (int j = i + 1; j < list.size(); j++) {
-                    for (double c : generatePossibleResults(list.get(i), list.get(j))) {
-                        List<Double> nextRound = new ArrayList<>();
-                        nextRound.add(c);
-                        for (int k = 0; k < list.size(); k++) {
-                            if (k == j || k == i)
-                                continue;
-                            nextRound.add(list.get(k));
-                        }
-                        if (dfs(nextRound)) return true;
-                    }
-                }
-            }
-            return false;
-
-        }
-
-        private List<Double> generatePossibleResults(double a, double b) {
-            List<Double> res = new ArrayList<>();
-            res.add(a + b);
-            res.add(a - b);
-            res.add(b - a);
-            res.add(a * b);
-            res.add(a / b);
-            res.add(b / a);
-            return res;
+            return new double[] { a + b, a - b, b - a, a * b, a / b, b / a };
         }
     }
 }

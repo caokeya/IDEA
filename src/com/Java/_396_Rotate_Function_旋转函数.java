@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个长度为 n 的整数数组 A 。
 假设 Bk 是数组 A 顺时针旋转 k 个位置后的数组，我们定义 A 的“旋转函数” F 为：
@@ -40,7 +40,7 @@ public class _396_Rotate_Function_旋转函数 {
                 F += i * A[i];
                 Sum += A[i];
             }
-            int max = F;//F(0)
+            int max = F;
             for (int i = n - 1; i >= 1; i--) {
                 F = F + Sum - n * A[i];
                 max = Math.max(F, max);

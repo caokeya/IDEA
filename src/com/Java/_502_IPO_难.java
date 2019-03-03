@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.PriorityQueue;
 
@@ -20,18 +20,20 @@ import java.util.PriorityQueue;
  */
 public class _502_IPO_难 {
     /*
-    创建(资本、利润)对，并将它们放入PriorityQueue pqCap中。这种优先次序越来越按资本排序。
-    将轮询对从pqCap，直到项目超出当前的资本能力。把它们放进优先队列pqPro，按利润递减排序。
-    来自pqPro的调查显示，它保证是一个利润最大化的项目，并且在目前的资本能力范围内。把利润加到资本W中。
-    重复步骤2和3，直到完成k个步骤或没有合适的项目(pqPro.isEmpty())。
+            创建(资本、利润)对，并将它们放入PriorityQueue pqCap中。这种优先次序越来越按资本排序。
+            将轮询对从pqCap，直到项目超出当前的资本能力。把它们放进优先队列pqPro，按利润递减排序。
+            来自pqPro的调查显示，它保证是一个利润最大化的项目，并且在目前的资本能力范围内。把利润加到资本W中。
+            重复步骤2和3，直到完成k个步骤或没有合适的项目(pqPro.isEmpty())。
      */
     public class Solution {
         public int findMaximizedCapital(int k, int W, int[] Profits, int[] Capital) {
             PriorityQueue<int[]> pqCap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
             PriorityQueue<int[]> pqPro = new PriorityQueue<>((a, b) -> (b[1] - a[1]));
+
             for (int i = 0; i < Profits.length; i++) {
-                pqCap.add(new int[]{Capital[i], Profits[i]});
+                pqCap.add(new int[] { Capital[i], Profits[i] });
             }
+
             for (int i = 0; i < k; i++) {
                 while (!pqCap.isEmpty() && pqCap.peek()[0] <= W) {
                     pqPro.add(pqCap.poll());
@@ -39,8 +41,10 @@ public class _502_IPO_难 {
 
                 if (pqPro.isEmpty())
                     break;
+
                 W += pqPro.poll()[1];
             }
+
             return W;
         }
     }

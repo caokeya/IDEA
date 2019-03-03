@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -55,6 +55,7 @@ public class _846_Hand_of_Straights_一手顺子 {
             PriorityQueue<Integer> pq = new PriorityQueue<>();
             for (int h : hand)
                 pq.add(h);
+
             while (!pq.isEmpty()) {
                 int small = pq.peek();
 

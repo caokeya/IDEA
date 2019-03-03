@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个字符串，逐个翻转字符串中的每个单词。
 示例:  
@@ -12,7 +12,9 @@ package src.com.Java;
 public class _151_Reverse_Words_in_a_String_翻转字符串里的单词 {
     public class Solution {
         public String reverseWords(String s) {
+
             String arr[] = s.split(" ");
+
             if (arr.length == 0) {
                 return s.trim();
             }
@@ -22,7 +24,9 @@ public class _151_Reverse_Words_in_a_String_翻转字符串里的单词 {
                     ret.append(arr[i]);
                     ret.append(" ");
                 }
+
             }
+
             return ret.toString().trim();
         }
     }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 找到给定字符串（由小写字符组成）中的最长子串 T ， 要求 T 中的每一字符出现次数都不少于 k 。输出 T 的长度。
@@ -11,13 +11,6 @@ s = "ababbc", k = 2
  */
 public class _395_Longest_Substring_with_At_Least_K_Repeating_Characters_至少有K个重复字符的最长子串 {
     class Solution {
-        /*核心点是：要求的是substring，
-        因此，如果发现一个string中间有一个char是小于k次的，那么最长的substring只可能是这个char左右两边的两个substring。
-            1. 统计当前string中每个字符出现的次数，用少于k次的字符作为分隔符，把string分割成几个substring，
-               只有这些substring才有可能是满足条件的substring。
-            2. recurse on substrings，找到结果中最大的一个即可。
-        终止条件：substring长度已经小于k，substring已空，或 k<=1的时候都可以直接返回确定值了。
-        */
         public int longestSubstring(String s, int k) {
             if (s.length() == 0 || k == 0)
                 return 0;

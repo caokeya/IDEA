@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 你将获得 K 个鸡蛋，并可以使用一栋从 1 到 N  共有 N 层楼的建筑。
@@ -24,25 +24,41 @@ package src.com.Java;
  */
 public class _887_Super_Egg_Drop_鸡蛋掉落_难 {
     /*
-    假设我们有k个鸡蛋第m步时，在第X层扔鸡蛋。这时候，会有两种结果，鸡蛋碎了，或者没碎。
-    如果鸡蛋没碎，我们接下来会在更高的楼层扔，最多能确定 X + dp[k][m-1] 层的结果；
-    如果鸡蛋碎了，我们接下来会在更低的楼层扔，最多能确定 Y + dp[k-1][m-1] 层的结果(假设在第X层上还有Y层)。
-    因此，这次扔鸡蛋，我们最多能测出 dp[k-1][m-1] (摔碎时能确定的层数) + dp[k][m-1](没摔碎时能确定的层数) + 1 (本层) 层的结果。
-    另外，我们知道一个鸡蛋一次只能测一层，没有鸡蛋一层都不能测出来。 因此我们可以列出完整的递推式:
-    dp[k][0] = 0
-    dp[1][m] = m (m > 0)
-    dp[k][m] = dp[k-1][m-1] + dp[k][m-1] + 1 (k > 0, m>0)
-    */
+            * 假设我们有k个鸡蛋第m步时，在第X层扔鸡蛋。这时候，会有两种结果，鸡蛋碎了，或者没碎。 
+            * 如果鸡蛋没碎，我们接下来会在更高的楼层扔，最多能确定 X + dp[k][m-1] 层的结果； 
+            * 如果鸡蛋碎了，我们接下来会在更低的楼层扔，最多能确定 Y + dp[k-1][m-1] 层的结果(假设在第X层上还有Y层)。 
+            * 因此，这次扔鸡蛋，我们最多能测出 dp[k-1][m-1] (摔碎时能确定的层数) + dp[k][m-1](没摔碎时能确定的层数) + 1 (本层) 层的结果。 
+            * 另外，我们知道一个鸡蛋一次只能测一层，没有鸡蛋一层都不能测出来。 因此我们可以列出完整的递推式:
+     * dp[k][0] = 0 
+     * dp[1][m] = m (m > 0) 
+     * dp[k][m] = dp[k-1][m-1] + dp[k][m-1] + 1 (k > 0, m>0)
+     */
     class Solution {
         public int superEggDrop(int KEggs, int NFloors) {
+            int dp[] = new int[KEggs + 1];
+
+            int moves = 0;
+            for (moves = 0; dp[KEggs] < NFloors; ++moves) {
+
+                for (int k = KEggs; k > 0; --k)
+                    dp[k] += dp[k - 1] + 1;
+            }
+
+            return moves;
+        }
+
+        public int superEggDropV1(int KEggs, int NFloors) {
             int[][] dp = new int[NFloors + 1][KEggs + 1];
+
             int moves = 0;
             while (dp[moves][KEggs] < NFloors) {
                 moves++;
+
                 for (int eggCnt = 1; eggCnt <= KEggs; ++eggCnt)
                     // 即当前情况=丢下去碎了，消耗一步能确定的层数+丢下去没碎，消耗一步能确定的层数+当前这一层
                     dp[moves][eggCnt] = dp[moves - 1][eggCnt - 1] + dp[moves - 1][eggCnt] + 1;
             }
+
             return moves;
         }
     }

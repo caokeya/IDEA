@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个未经排序的整数数组，找到最长且连续的的递增序列。
@@ -19,6 +19,7 @@ public class _674_Longest_Continuous_Increasing_Subsequence_最长连续递增�
                 return 0;
             }
             int count = 1;
+
             int max = 1;
             for (int i = 1; i < nums.length; i++) {
                 if (nums[i] > nums[i - 1]) {
@@ -28,7 +29,9 @@ public class _674_Longest_Continuous_Increasing_Subsequence_最长连续递增�
                     count = 1;
                 }
             }
+
             max = Math.max(max, count);
+
             return max;
         }
     }

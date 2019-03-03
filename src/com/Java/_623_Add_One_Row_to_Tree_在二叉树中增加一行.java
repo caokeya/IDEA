@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个二叉树，根节点为第1层，深度为 1。在其第 d 层追加一行值为 v 的节点。
@@ -43,7 +43,7 @@ d = 3
 3       1
  */
 public class _623_Add_One_Row_to_Tree_在二叉树中增加一行 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -58,46 +58,22 @@ public class _623_Add_One_Row_to_Tree_在二叉树中增加一行 {
 
     class Solution {
         public TreeNode addOneRow(TreeNode root, int v, int d) {
-            if (d == 0 || d == 1) {
-                TreeNode newroot = new TreeNode(v);
-                newroot.left = d == 1 ? root : null;
-                newroot.right = d == 0 ? root : null;
-                return newroot;
+            if (d < 2) {
+                TreeNode newRoot = new TreeNode(v);
+                if (d == 0) {
+                    newRoot.right = root;
+                } else if (d == 1) {
+                    newRoot.left = root;
+                }
+                return newRoot;
             }
-            if (root != null && d >= 2) {
-                root.left = addOneRow(root.left, v, d > 2 ? d - 1 : 1);
-                root.right = addOneRow(root.right, v, d > 2 ? d - 1 : 0);
+
+            if (root == null) {
+                return null;
             }
+            root.left = addOneRow(root.left, v, d == 2 ? 1 : d - 1);
+            root.right = addOneRow(root.right, v, d == 2 ? 0 : d - 1);
             return root;
         }
-    }
-
-
-    class Solution2 {
-        public TreeNode addOneRow(TreeNode root, int v, int d) {
-            if (d == 1) {
-                TreeNode newroot = new TreeNode(v);
-                newroot.left = root;
-                return newroot;
-            }
-            dfs(root, 1, v, d);
-            return root;
-        }
-
-        private void dfs(TreeNode root, int depth, int v, int d) {
-            if (root == null) return;
-            if (depth < d - 1) {
-                dfs(root.left, depth + 1, v, d);
-                dfs(root.right, depth + 1, v, d);
-            } else {
-                TreeNode tmp = root.left;
-                root.left = new TreeNode(v);
-                root.left.left = tmp;
-                tmp = root.right;
-                root.right = new TreeNode(v);
-                root.right.right = tmp;
-            }
-        }
-
     }
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 几乎每一个人都用 乘法表。但是你能在乘法表中快速找到第k小的数字吗？
@@ -24,22 +24,25 @@ package src.com.Java;
 public class _668_Kth_Smallest_Number_in_Multiplication_Table_乘法表中第k小的数_难 {
     class Solution {
         public int findKthNumber(int m, int n, int k) {
-            int low = 1, high = m * n;
-            while (low <= high) {
+            int low = 1, high = m * n + 1;
+
+            while (low < high) {
                 int mid = low + (high - low) / 2;
-                int count = helper(m, n, mid);
-                if (count >= k)
-                    high = mid - 1;
+                int c = count(mid, m, n);
+                if (c >= k)
+                    high = mid;
                 else
                     low = mid + 1;
             }
-            return low;
+
+            return high;
         }
 
-        private int helper(int m, int n, int num) {
+        private int count(int v, int m, int n) {
             int count = 0;
             for (int i = 1; i <= m; i++) {
-                count += Math.min(num / i, n);
+                int temp = Math.min(v / i, n);
+                count += temp;
             }
             return count;
         }

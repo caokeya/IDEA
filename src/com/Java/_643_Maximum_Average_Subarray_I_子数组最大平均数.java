@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定 n 个整数，找出平均数最大且长度为 k 的连续子数组，并输出该最大平均数。

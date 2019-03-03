@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个数组 A，将其划分为两个不相交（没有公共元素）的连续子数组 left 和 right， 使得：
@@ -23,22 +23,23 @@ public class _915_Partition_Array_into_Disjoint_Intervals_分割数组 {
             
             int[] leftMax = new int[A.length];
             int[] rightMin = new int[A.length];
-            // 记录 i 左边最大的值
+            
             for (int i = 0; i < A.length; i++) {
                 max = Math.max(max, A[i]);
                 leftMax[i] = max;
             }
-            // 记录 i 右边最小的值
+            
             for (int i = A.length - 1; i >= 0; i--) {
                 min = Math.min(min, A[i]);
                 rightMin[i] = min;
             }
-            // 当 i 左边最大的值 小于 i+1 右边最小的值，得到位置
+            
             for (int i = 0; i < A.length - 1; i++) {
                 if (leftMax[i] <= rightMin[i + 1]) {
                     return i + 1;
                 }
             }
+            
             return -1;
         }
     }

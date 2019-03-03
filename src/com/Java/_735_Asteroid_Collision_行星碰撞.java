@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +36,9 @@ asteroids = [-2, -1, 1, 2]
  */
 public class _735_Asteroid_Collision_行星碰撞 {
     /*
-    1）栈为空； 2）栈顶为负数（此时栈内元素已不会影响到后面）；3）栈顶元素和当前数字同号
-    需要特殊处理的是栈顶为正数，当前数字为负数，假设分别为s[top]和num，s[top]>=-num && s[top] > 0时栈顶出栈，相等的情况需要单独处理
-    */
+     1）栈为空； 2）栈顶为负数（此时栈内元素已不会影响到后面）；3）栈顶元素和当前数字同号
+           需要特殊处理的是栈顶为正数，当前数字为负数，假设分别为s[top]和num，s[top]>=-num && s[top] > 0时栈顶出栈，相等的情况需要单独处理
+     */
     class Solution {
         public int[] asteroidCollision(int[] asteroids) {
             Stack<Integer> stack = new Stack<>();
@@ -67,6 +67,53 @@ public class _735_Asteroid_Collision_行星碰撞 {
                 res[i] = list.get(i);
             }
             return res;
+        }
+    }
+
+    class Solution2 {
+
+        public int[] asteroidCollision(int[] a) {
+
+            Stack<Integer> stack = new Stack<>();
+            for (int i = 0; i < a.length; i++) {
+                if (stack.isEmpty() || a[i] > 0) {
+                    stack.push(a[i]);
+                    continue;
+                }
+
+                while (true) {
+                    int prev = stack.peek();
+                    if (prev < 0) {
+                        stack.push(a[i]);
+                        break;
+                    }
+
+                    if (Math.abs(a[i]) == prev) {
+                        stack.pop();
+                        break;
+                    }
+
+                    if (Math.abs(a[i]) < prev) {
+                        break;
+                    }
+
+                    stack.pop();
+                    if (stack.isEmpty()) {
+                        stack.push(a[i]);
+                        break;
+                    }
+
+                }
+            }
+
+            int[] res = new int[stack.size()];
+            // 这里要倒着输出！！！
+            for (int i = stack.size() - 1; i >= 0; i--) {
+                res[i] = stack.pop();
+            }
+
+            return res;
+
         }
     }
 }

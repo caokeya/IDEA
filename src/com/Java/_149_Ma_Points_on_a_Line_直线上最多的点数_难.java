@@ -1,36 +1,13 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /*
-给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。
-示例 1:
-输入: [[1,1],[2,2],[3,3]]
-输出: 3
-解释:
-^
-|
-|        o
-|     o
-|  o
-+------------->
-0  1  2  3  4
-示例 2:
-输入: [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
-输出: 4
-解释:
-^
-|
-|  o
-|     o        o
-|        o
-|  o        o
-+------------------->
-0  1  2  3  4  5  6
+给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上
  */
 public class _149_Ma_Points_on_a_Line_直线上最多的点数_难 {
-    /*
+    /**
      * Definition for a point.
      */
     public class Point {
@@ -74,11 +51,11 @@ public class _149_Ma_Points_on_a_Line_直线上最多的点数_难 {
                 for (int j = i + 1; j < points.length; j++) {
                     int x = points[j].x - points[i].x;
                     int y = points[j].y - points[i].y;
-                    if (x == 0 && y == 0) {//相同的点
+                    if (x == 0 && y == 0) {
                         overlap++;
                         continue;
                     }
-                    int gcd = generateGCD(x, y);//求最大公约数
+                    int gcd = generateGCD(x, y);
                     if (gcd != 0) {
                         x /= gcd;
                         y /= gcd;
@@ -104,10 +81,13 @@ public class _149_Ma_Points_on_a_Line_直线上最多的点数_难 {
         }
 
         private int generateGCD(int a, int b) {
+
             if (b == 0)
                 return a;
             else
                 return generateGCD(b, a % b);   //最大公约数
+
         }
     }
+
 }

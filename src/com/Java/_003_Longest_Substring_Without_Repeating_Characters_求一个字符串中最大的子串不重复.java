@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 
@@ -15,22 +15,24 @@ import java.util.HashMap;
 解释: 无重复字符的最长子串是 "b"，其长度为 1。
  */
 public class _003_Longest_Substring_Without_Repeating_Characters_求一个字符串中最大的子串不重复 {
-    class Solution {
-        public int lengthOfLongestSubstring(String s) {
-            int n = s.length();
-            HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 
-            int first = 0;
-            int max = 0;
-            for (int second = 0; second < n; second++) {
-                char c = s.charAt(second);
-                if (map.containsKey(c)) {
-                    first = Math.max(map.get(c) + 1, first);
-                }
-                map.put(c, second);
-                max = Math.max(max, second - first + 1);
-            }
-            return max;
-        }
-    }
+	class Solution {
+	    public int lengthOfLongestSubstring(String s) {
+	        int n = s.length();
+	        HashMap<Character, Integer> map = new HashMap<Character, Integer>();
+	        
+	        int first = 0;
+	        int max = 0;
+	        for(int second = 0; second < n; second++) {
+	            char c = s.charAt(second);
+	            if(map.containsKey(c)) {
+	                first = Math.max(map.get(c) + 1, first);
+	            }           
+	            map.put(c, second);
+	            max = Math.max(max, second - first + 1);
+	        }
+	        return max;
+	    }
+	}
+	
 }

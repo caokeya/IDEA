@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个整数，编写一个算法将这个数转换为十六进制数。对于负整数，我们通常使用 补码运算 方法。
@@ -9,7 +9,7 @@ package src.com.Java;
     不能使用任何由库提供的将数字直接转换或格式化为十六进制的方法。
 示例 1：
 输入:
-26   0001 1010
+26
 输出:
 "1a"
  */
@@ -21,7 +21,7 @@ public class _405_Convert_a_Number_to_Hexadecimal_数字转换为十六进制数
             char[] map = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
             StringBuilder sb = new StringBuilder();
             while (num != 0) {
-                sb.append(map[num & 0xf]);//0000 1111
+                sb.append(map[num & 15]);
                 num >>>= 4;
             }
             return sb.reverse().toString();

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个矩阵 A， 返回 A 的转置矩阵。

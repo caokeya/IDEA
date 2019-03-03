@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Stack;
 
@@ -28,6 +28,31 @@ public class _946_Validate_Stack_Sequences_验证栈序列 {
                 }
             }
             return stack.isEmpty();
+        }
+    }
+
+    class Solution2 {
+        public boolean validateStackSequences(int[] pushed, int[] popped) {
+            Stack<Integer> stack = new Stack<>();
+            if (pushed == null || popped == null || pushed.length != popped.length)
+                return false;
+            if (pushed.length == 0)
+                return true;
+            int n = pushed.length;
+            int j = 0;
+            for (int i = 0; i < n; i++) {
+                stack.push(pushed[i]);
+                while (j < n && !stack.empty() && stack.peek() == popped[j]) {
+                    stack.pop();
+                    j++;
+                }
+            }
+            while (j < n && !stack.empty() && stack.peek() == popped[j]) {
+                stack.pop();
+                j++;
+            }
+
+            return (stack.empty());
         }
     }
 }

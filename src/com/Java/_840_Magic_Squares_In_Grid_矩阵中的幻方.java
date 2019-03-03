@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,34 +25,33 @@ import java.util.Set;
 public class _840_Magic_Squares_In_Grid_矩阵中的幻方 {
     class Solution {
         public int numMagicSquaresInside(int[][] grid) {
-            int R = grid.length, C = grid[0].length;
-            int ans = 0;
-            for (int r = 0; r < R - 2; ++r)
-                for (int c = 0; c < C - 2; ++c) {
-                    if (grid[r + 1][c + 1] != 5) continue;  // optional skip
-                    if (magic(grid[r][c], grid[r][c + 1], grid[r][c + 2],
-                              grid[r + 1][c], grid[r + 1][c + 1], grid[r + 1][c + 2],
-                              grid[r + 2][c], grid[r + 2][c + 1], grid[r + 2][c + 2]))
-                        ans++;
-                }
-            return ans;
+            int total = 0;
+            for (int i = 0; i < grid.length; i++)
+                for (int j = 0; j < grid[0].length; j++)
+                    if (isMagic(grid, i, j))
+                        total++;
+            return total;
         }
 
-        public boolean magic(int... val) {
-            int[] count = new int[16];
-            for (int v : val)
-                count[v]++;
-            for (int v = 1; v <= 9; ++v)
-                if (count[v] != 1)
-                    return false;
-            return (val[0] + val[1] + val[2] == 15 &&
-                    val[3] + val[4] + val[5] == 15 &&
-                    val[6] + val[7] + val[8] == 15 &&
-                    val[0] + val[3] + val[6] == 15 &&
-                    val[1] + val[4] + val[7] == 15 &&
-                    val[2] + val[5] + val[8] == 15 &&
-                    val[0] + val[4] + val[8] == 15 &&
-                    val[2] + val[4] + val[6] == 15);
+        boolean isMagic(int[][] grid, int i, int j) {
+            if (i + 2 >= grid.length || j + 2 >= grid[i].length)
+                return false;
+            Set<Integer> s = new HashSet<>();
+            for (int x = 0; x < 3; x++)
+                for (int y = 0; y < 3; y++)
+                    if (!s.add(grid[i + x][j + y]) || grid[i + x][j + y] <= 0 || grid[i + x][j + y] > 9)
+                        return false;
+
+            int[] l = { grid[i][j] + grid[i + 1][j] + grid[i + 2][j],
+                        grid[i][j + 1] + grid[i + 1][j + 1] + grid[i + 2][j + 1],
+                        grid[i][j + 2] + grid[i + 1][j + 2] + grid[i + 2][j + 2] };
+            int[] r = { grid[i][j] + grid[i][j + 1] + grid[i][j + 2],
+                        grid[i + 1][j] + grid[i + 1][j + 1] + grid[i + 1][j + 2],
+                        grid[i + 2][j] + grid[i + 2][j + 1] + grid[i + 2][j + 2] };
+            int d1 = grid[i][j] + grid[i + 1][j + 1] + grid[i + 2][j + 2];
+            int d2 = grid[i][j + 2] + grid[i + 1][j + 1] + grid[i + 2][j];
+            return d1 == d2 && d2 == l[0] && l[0] == l[1] && l[1] == l[2] && l[2] == r[0] && r[0] == r[1]
+                    && r[1] == r[2];
         }
     }
 }

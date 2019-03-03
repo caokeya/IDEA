@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 你需要找到由两个 n 位数的乘积组成的最大回文数。

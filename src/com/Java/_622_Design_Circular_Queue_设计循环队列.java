@@ -1,7 +1,4 @@
-package src.com.Java;
-
-import java.util.ArrayList;
-
+package com.Java;
 /*
 设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为“环形缓冲器”。
 循环队列的一个好处是我们可以利用这个队列之前用过的空间。
@@ -28,78 +25,97 @@ circularQueue.enQueue(4);  // 返回true
 circularQueue.Rear();  // 返回4
  */
 public class _622_Design_Circular_Queue_设计循环队列 {
+
     class MyCircularQueue {
-        private int size;
-        private ArrayList<Integer> myCircularQueue;
+        private int front;
+        private int tail;
+        private int[] store;
+        private boolean isEmpty;
+        private int k;
 
-        /*
-         * Initialize your data structure here. Set the size of the queue to be k.
-         */
+        /** Initialize your data structure here. Set the size of the queue to be k. */
         public MyCircularQueue(int k) {
-            this.size = k;
-            this.myCircularQueue = new ArrayList<Integer>();
+            store = new int[k];
+            this.front = 0;
+            this.tail = 0;
+            this.isEmpty = true;
+            this.k = k;
         }
 
-        /*
-         * Insert an element into the circular queue. Return true if the operation is successful.
-         */
+        /** Insert an element into the circular queue. Return true if the operation is successful. */
         public boolean enQueue(int value) {
-            if (myCircularQueue.size() < size) {
-                myCircularQueue.add(value);
+            // Check if the queue is full
+            if (this.isEmpty) {
+                store[front] = value;
+                tail = front;
+                isEmpty = false;
                 return true;
-            } else return false;
-        }
+            }
 
-        /*
-         * Delete an element from the circular queue. Return true if the operation is successful.
-         */
+            // Check if the queue is full
+            if (front == (tail + 1) % k) {
+                return false;
+            }
+
+            tail = (tail + 1) % k;
+            store[tail] = value;
+            return true;
+        }
+    
+        /** Delete an element from the circular queue. Return true if the operation is successful. */
         public boolean deQueue() {
-            if (myCircularQueue.size() >= 1) {
-                myCircularQueue.remove(0);
-                return true;
-            } else return false;
+            if (this.isEmpty) {
+                return false;
+            }
+
+            // check if the queue is empty.
+            if (front == tail) {
+                isEmpty = true;
+            } else {
+                front = (front + 1) % k;
+            }
+            return true;
         }
 
-        /*
-         * Get the front item from the queue.
-         */
+        /** Get the front item from the queue. */
         public int Front() {
-            if (myCircularQueue.size() >= 1) {
-                return myCircularQueue.get(0);
-            } else return -1;
+            if (isEmpty)
+                return -1;
+            return store[front];
         }
 
-        /*
-         * Get the last item from the queue.
-         */
+        /** Get the last item from the queue. */
         public int Rear() {
-            if (myCircularQueue.size() >= 1) {
-                return myCircularQueue.get(myCircularQueue.size() - 1);
-            } else return -1;
+            if (isEmpty)
+                return -1;
+            return store[tail];
         }
 
-        /*
-         * Checks whether the circular queue is empty or not.
-         */
+        /** Checks whether the circular queue is empty or not. */
         public boolean isEmpty() {
-            return myCircularQueue.size() == 0;
+            return isEmpty;
         }
 
-        /*
-         * Checks whether the circular queue is full or not.
-         */
+        /** Checks whether the circular queue is full or not. */
         public boolean isFull() {
-            return myCircularQueue.size() == size;
+            if (isEmpty) {
+                return false;
+            }
+
+            return front == (tail + 1) % k;
         }
     }
-    /**
-     * Your MyCircularQueue object will be instantiated and called as such:
-     * MyCircularQueue obj = new MyCircularQueue(k);
-     * boolean param_1 = obj.enQueue(value);
-     * boolean param_2 = obj.deQueue();
-     * int param_3 = obj.Front();
-     * int param_4 = obj.Rear();
-     * boolean param_5 = obj.isEmpty();
-     * boolean param_6 = obj.isFull();
-     */
+
+/**
+ * Your MyCircularQueue object will be instantiated and called as such:
+ * MyCircularQueue obj = new MyCircularQueue(k);
+ * boolean param_1 = obj.enQueue(value);
+ * boolean param_2 = obj.deQueue();
+ * int param_3 = obj.Front();
+ * int param_4 = obj.Rear();
+ * boolean param_5 = obj.isEmpty();
+ * boolean param_6 = obj.isFull();
+ */
+
+
 }

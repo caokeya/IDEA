@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 用字符串数组作为井字游戏的游戏板 board。当且仅当在井字游戏过程中，玩家有可能将字符放置成游戏板所显示的状态时，才返回 true。

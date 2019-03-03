@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import java.util.Map;
 提示：如果众数超过1个，不需考虑输出顺序
  */
 public class _501_Find_Mode_in_Binary_Search_Tree_二叉搜索树中的众数 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {

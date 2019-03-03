@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +33,7 @@ public class _039_Combination_Sum_组合总和 {
                     cur.add(nums[i]);
                     getResult(result, cur, nums, target - nums[i], i);
                     cur.remove(cur.size() - 1);
-                }
+                } 
             }
             else if (target == 0) {
                 result.add(new ArrayList<Integer>(cur));

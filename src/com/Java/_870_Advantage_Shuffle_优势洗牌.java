@@ -1,6 +1,7 @@
-package src.com.Java;
+package com.Java;
 
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
 
 /*
 给定两个大小相等的数组 A 和 B，A 相对于 B 的优势可以用满足 A[i] > B[i] 的索引 i 的数目来描述。
@@ -14,42 +15,6 @@ import java.util.*;
  */
 public class _870_Advantage_Shuffle_优势洗牌 {
     class Solution {
-        public int[] advantageCount(int[] A, int[] B) {
-            int[] sortedA = A.clone();
-            Arrays.sort(sortedA);
-            int[] sortedB = B.clone();
-            Arrays.sort(sortedB);
-            // map[b] = list of a that are assigned to beat b
-            Map<Integer, Deque<Integer>> map = new HashMap<>();
-            for (int b : B) {
-                map.put(b, new LinkedList());
-            }
-            // remaining = list of a that are not assigned to any b
-            Deque<Integer> remaining = new LinkedList<>();
-            // populate (assigned, remaining) appropriately
-            // sortedB[j] is always the smallest unassigned element in B
-            int j = 0;
-            for (int a : sortedA) {
-                if (a > sortedB[j]) {
-                    map.get(sortedB[j++]).add(a);
-                } else {
-                    remaining.add(a);
-                }
-            }
-            // Reconstruct the answer from annotations (map, remaining)
-            int[] ans = new int[B.length];
-            for (int i = 0; i < B.length; ++i) {
-                // if there is some a assigned to b...
-                if (map.get(B[i]).size() > 0)
-                    ans[i] = map.get(B[i]).pop();
-                else
-                    ans[i] = remaining.pop();
-            }
-            return ans;
-        }
-    }
-
-    class Solution2 {
         public int[] advantageCount(int[] A, int[] B) {
             // 田忌赛马
             // 运用田忌赛马的思路，如果A中有相应的higher元素，使用最小的higher元素。否则使用A中最小的元素 
@@ -76,6 +41,7 @@ public class _870_Advantage_Shuffle_优势洗牌 {
                     map.put(matchingEntry.getKey(), matchingEntry.getValue() - 1);
                 }
             }
+
             return res;
         }
     }

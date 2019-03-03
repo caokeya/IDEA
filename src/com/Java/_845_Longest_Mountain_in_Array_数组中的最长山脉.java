@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 我们把数组 A 中符合下列属性的任意连续子数组 B 称为 “山脉”：
@@ -17,7 +17,7 @@ package src.com.Java;
 解释：不含 “山脉”。
  */
 public class _845_Longest_Mountain_in_Array_数组中的最长山脉 {
-    /*
+    /**
      * 分别从左往右、从右往左遍历数组 left记录某数字左侧的最长递增子串的长度 right记录数字右侧的最长递减子串的长度
      **/
     class Solution {
@@ -40,27 +40,36 @@ public class _845_Longest_Mountain_in_Array_数组中的最长山脉 {
                     res = Math.max(res, l[i] + r[i] + 1);
                 }
             }
+
             return res;
         }
     }
 
     class Solution2 {
+
         public int longestMountain(int[] A) {
-            int longestMountain = 0;
-            for (int i = 1; i < A.length - 1; i++) {
-                if (A[i - 1] < A[i] && A[i + 1] < A[i]) {
-                    int l = i - 1;
-                    int r = i + 1;
-                    while (l > 0 && A[l - 1] < A[l]) {
-                        l--;
-                    }
-                    while (r < A.length - 1 && A[r + 1] < A[r]) {
-                        r++;
-                    }
-                    longestMountain = Math.max(longestMountain, (r - l + 1));
+            int lo = 0;
+            int max = 0;
+            while (lo < A.length - 1) {
+                int peak = lo;
+                while (peak + 1 < A.length && A[peak + 1] > A[peak])
+                    peak++;
+                if (peak == lo || peak == A.length - 1) {
+                    lo = peak + 1;
+                    continue;
                 }
+
+                int hi = peak;
+                while (hi + 1 < A.length && A[hi + 1] < A[hi])
+                    hi++;
+                if (peak == hi) {
+                    lo = hi + 1;
+                    continue;
+                }
+                max = Math.max(max, hi - lo + 1);
+                lo = hi;
             }
-            return longestMountain;
+            return max;
         }
     }
 }

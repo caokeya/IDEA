@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -22,7 +22,7 @@ import java.util.Comparator;
 对于[1,2]，区间[2,3]具有最小的“右”起点。
  */
 public class _436_Find_Right_Interval_寻找右区间 {
-    /*
+    /**
      * Definition for an interval.
      */
     public class Interval {

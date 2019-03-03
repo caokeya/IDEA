@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +23,7 @@ public class _336_Palindrome_Pairs_回文对_难 {
             for (int i = 0; i < words.length; i++)
                 map.put(words[i], i);
             for (int i = 0; i < words.length; i++) {
+                // System.out.println(words[i]);
                 for (int j = 0; j <= words[i].length(); j++) { // notice it should be "j <= words[i].length()"
                     String str1 = words[i].substring(0, j);
                     String str2 = words[i].substring(j);
@@ -33,6 +34,7 @@ public class _336_Palindrome_Pairs_回文对_难 {
                             list.add(map.get(str2rvs));
                             list.add(i);
                             ret.add(list);
+                            // System.out.printf("isPal(str1): %s\n", list.toString());
                         }
                     }
                     if (isPalindrome(str2)) {
@@ -43,6 +45,7 @@ public class _336_Palindrome_Pairs_回文对_难 {
                             list.add(i);
                             list.add(map.get(str1rvs));
                             ret.add(list);
+                            // System.out.printf("isPal(str2): %s\n", list.toString());
                         }
                     }
                 }
@@ -62,11 +65,14 @@ public class _336_Palindrome_Pairs_回文对_难 {
     }
 
     class SolutionTrie {
-        /*
+        /**
          * 这是一个Trie的高级变种题目。 对Trie的应用实在是太精妙了。
+         * 
          * 总体思路是这样的： 1. 用Trie倒序存储所有的words 2. 遍历words，对于当前的currWord，
          * 按照自己的倒序在Trie里边找是否有合适的另一半，有的话就加到res里边 a. currWord 比 pairWord长，
          * 剩下的部分是palindrome就可以 b. currWord 没有 pairWord长， 停止的Trie Node里边保存了所有的符合条件的的pair
+         * 
+         * 
          */
         private class TrieNode {
             TrieNode[] children;

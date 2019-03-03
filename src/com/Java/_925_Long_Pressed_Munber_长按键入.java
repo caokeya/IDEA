@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 你的朋友正在使用键盘输入他的名字 name。偶尔，在键入字符 c 时，按键可能会被长按，而字符可能被输入 1 次或多次。

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 如果一个正整数自身是回文数，而且它也是一个回文数的平方，那么我们称这个数为超级回文数。
@@ -46,6 +46,57 @@ public class _906_Super_Palindromes_超级回文数_难 {
                 n /= 10;
             }
             return m == n || m / 10 == n;
+        }
+    }
+
+    class Solution2 {
+        public int superpalindromesInRange(String sL, String sR) {
+            long L = Long.valueOf(sL);
+            long R = Long.valueOf(sR);
+            int MAGIC = (int) Math.pow(10, 18 * 0.25);
+            int ans = 0;
+
+            // count odd length;
+            for (int k = 1; k < MAGIC; ++k) {
+                StringBuilder sb = new StringBuilder(Integer.toString(k));
+                for (int i = sb.length() - 2; i >= 0; --i)
+                    sb.append(sb.charAt(i));
+                long v = Long.valueOf(sb.toString());
+                v *= v;
+                if (v > R)
+                    break;
+                if (v >= L && isPalindrome(v))
+                    ans++;
+            }
+
+            // count even length;
+            for (int k = 1; k < MAGIC; ++k) {
+                StringBuilder sb = new StringBuilder(Integer.toString(k));
+                for (int i = sb.length() - 1; i >= 0; --i)
+                    sb.append(sb.charAt(i));
+                long v = Long.valueOf(sb.toString());
+                v *= v;
+                if (v > R)
+                    break;
+                if (v >= L && isPalindrome(v))
+                    ans++;
+            }
+
+            return ans;
+        }
+
+        public boolean isPalindrome(long x) {
+            return x == reverse(x);
+        }
+
+        public long reverse(long x) {
+            long ans = 0;
+            while (x > 0) {
+                ans = 10 * ans + x % 10;
+                x /= 10;
+            }
+
+            return ans;
         }
     }
 }

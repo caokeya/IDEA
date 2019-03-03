@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个正整数 n，你可以做如下操作：
 1. 如果 n 是偶数，则用 n / 2替换 n。
@@ -11,18 +11,18 @@ n 变为 1 所需的最小替换次数是多少？
 public class _397_Integer_Replacement_整数替换 {
     class Solution {
         public int integerReplacement(int n) {
-        int count = 0;
+        int c = 0;
         while (n != 1) {
-            if ((n & 1) == 0) {//最后一位是0
+            if ((n & 1) == 0) {
                 n >>>= 1;
-            } else if (n == 3 || ((n >>> 1) & 1) == 0) {//最后一位是1，但是倒数第二位是0就-1
+            } else if (n == 3 || ((n >>> 1) & 1) == 0) {
                 --n;
-            } else {//最后一位是1，但是倒数第二位是1就+1
+            } else {
                 ++n;
             }
-            ++count;
+            ++c;
         }
-        return count;
+        return c;
         }
     }
 }

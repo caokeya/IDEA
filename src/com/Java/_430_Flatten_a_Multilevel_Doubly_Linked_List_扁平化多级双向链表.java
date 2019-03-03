@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class _430_Flatten_a_Multilevel_Doubly_Linked_List_扁平化多级双向�
             next = _next;
             child = _child;
         }
-    }
+    };
 
     class Solution {
         public Node flatten(Node head) {
@@ -46,13 +46,13 @@ public class _430_Flatten_a_Multilevel_Doubly_Linked_List_扁平化多级双向�
                 if (cur.child == null) {
                     cur = cur.next;
                 } else {
-                    Node child = cur.child;
-                    while (child.next != null) {// 存在子节点则进入子节点
-                        child = child.next;
+                    Node tmp = cur.child;
+                    while (tmp.next != null) {
+                        tmp = tmp.next;
                     }
-                    child.next = cur.next;
-                    if (cur.next != null) {// 已经是结尾，将最后节点的前置节点设为child
-                        cur.next.prev = child;
+                    tmp.next = cur.next;
+                    if (cur.next != null) {
+                        cur.next.prev = tmp;
                     }
                     cur.next = cur.child;
                     cur.child.prev = cur;
@@ -64,34 +64,32 @@ public class _430_Flatten_a_Multilevel_Doubly_Linked_List_扁平化多级双向�
     }
 
     class Solution2 {
-        /*
-        Global variable pre to track the last node we visited
-        */
-        Node pre = null;
-
         public Node flatten(Node head) {
-            if (head == null) {
-                return null;
+            List<Integer> list = new ArrayList<Integer>();
+            getChilds(head, list);
+            Node p = null;
+            for (int i = 0; i < list.size(); i++) {
+                Node n = new Node(list.get(i), p, null, null);
+                if (p != null)
+                    p.next = n;
+                p = n;
             }
-            /*
-            Connect last visted node with current node
-            */
-            if (pre != null) {
-                pre.next = head;
-                head.prev = pre;
+            while (p != null && p.prev != null)
+                p = p.prev;
+            return p;
+        }
+
+        void getChilds(Node node, List<Integer> l) {
+
+            if (node == null)
+                return;
+            l.add(node.val);
+            if (node.child != null) {
+                getChilds(node.child, l);
+
             }
+            getChilds(node.next, l);
 
-            pre = head;
-            /*
-            Store head.next in a next pointer in case recursive call to flatten head.child overrides head.next
-            */
-            Node next = head.next;
-
-            flatten(head.child);
-            head.child = null;
-
-            flatten(next);
-            return head;
         }
     }
 }

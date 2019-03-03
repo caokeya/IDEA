@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个正整数，输出它的补数。补数是对该数的二进制表示取反。
@@ -18,17 +18,21 @@ public class _476_Number_Complement_数字的补数 {
     class Solution {
         public int findComplement(int num) {
             int mask = (Integer.highestOneBit(num) << 1) - 1;
+
             return ~num & mask;
         }
     }
 
     class Solution2 {
         public int findComplement(int num) {
-            int mask = 1;
-            while (mask < num) {
-                mask = (mask << 1) | 1;
+            int i = 0;
+            int j = 0;
+
+            while (i < num) {
+                i += Math.pow(2, j);
+                j++;
             }
-            return num ^ mask;
+            return i - num;
         }
     }
 }

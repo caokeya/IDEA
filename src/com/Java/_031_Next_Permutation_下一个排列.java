@@ -1,7 +1,6 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
-
 /*
 实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
 如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
@@ -14,36 +13,21 @@ import java.util.Arrays;
 public class _031_Next_Permutation_下一个排列 {
     class Solution {
         public void nextPermutation(int[] nums) {
-            if (nums == null || nums.length == 0 || nums.length == 1) {
-                return;
-            }
-            int i = nums.length - 2;
-            while (i >= 0 && nums[i + 1] <= nums[i]) {
-                i--;
-            }
-            if (i >= 0) {
-                int j = nums.length - 1;
-                while (j >= 0 && nums[j] <= nums[i]) {
-                    j--;
+            for (int i = nums.length - 2; i >= 0; i--) {
+                // 寻找可以替换的最低位
+                for (int j = i + 1; j < nums.length; j++) {
+                    if (nums[i] < nums[j]) {
+                        int temp = nums[i];
+                        nums[i] = nums[j];
+                        nums[j] = temp;
+                        // 确保替换位的后续位的值最小
+                        Arrays.sort(nums, i + 1, nums.length);
+                        return;
+                    }
                 }
-                swap(nums, i, j);
+                // 若当前位不可替换，则自当前位开始排序，以保证下一位可以在不进行完整遍历的前提下找到最小的更大值
+                Arrays.sort(nums, i, nums.length);
             }
-            reverse(nums, i + 1);
-        }
-
-        private void reverse(int[] nums, int i) {
-            int j = nums.length - 1;
-            while (i < j) {
-                swap(nums, i, j);
-                i++;
-                j--;
-            }
-        }
-
-        private void swap(int[] nums, int i, int j) {
-            int tmp = nums[i];
-            nums[i] = nums[j];
-            nums[j] = tmp;
         }
     }
 }

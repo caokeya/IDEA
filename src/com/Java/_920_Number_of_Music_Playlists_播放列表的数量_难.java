@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 你的音乐播放器里有 N 首不同的歌，在旅途中，你的旅伴想要听 L 首歌（不一定不同，即，允许歌曲重复）。请你为她按如下规则创建一个播放列表：
@@ -20,10 +20,10 @@ package src.com.Java;
  */
 public class _920_Number_of_Music_Playlists_播放列表的数量_难 {
     /*
-    考虑dp[i][j]。上一首歌，我们要么是第一次演奏，要么不是。
-    如果是，那么我们有dp[i-1][j-1] * (N-j)的方法来选择它。
-    如果我们没有，那么我们在dp[i-1][j] * max(j-K, 0)的方法中重复前面的一首歌(其中j个，除了最后K个被禁止播放)。
-    */
+            * 考虑dp[i][j]。上一首歌，我们要么是第一次演奏，要么没有。
+            * 如果有，那么我们有dp[i-1][j-1] * (N-j)的方法来选择它。
+            * 如果我们没有，那么我们在dp[i-1][j] * max(j-K, 0)的方法中重复前面的一首歌(其中j个，除了最后K个被禁止播放)。
+     */
     class Solution {
         public int numMusicPlaylists(int N, int L, int K) {
             int mod = (int) Math.pow(10, 9) + 7;

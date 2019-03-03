@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个二进制数组， 计算其中最大连续1的个数。
@@ -10,17 +10,19 @@ package src.com.Java;
 public class _485_Max_Consecutive_Ones_最大连续1的个数 {
     class Solution {
         public int findMaxConsecutiveOnes(int[] nums) {
-            int max = 0;
             int count = 0;
+            int temp = 0;
             for (int i = 0; i < nums.length; i++) {
                 if (nums[i] == 1) {
-                    count++;
-                    max = Math.max(max, count);
+                    temp++;
+                    if (count < temp) {
+                        count = temp;
+                    }
                 } else {
-                    count = 0;
+                    temp = 0;
                 }
             }
-            return max;
+            return count;
         }
     }
 }

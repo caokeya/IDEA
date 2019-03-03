@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -29,31 +29,6 @@ public class _503_Next_Greater_Element_ll_下一个更大元素2 {
                 }
             }
             return ret;
-        }
-    }
-
-    class Solution2 {
-        public int[] nextGreaterElements(int[] nums) {
-            int[] res = new int[nums.length];
-            Stack<Integer> stack = new Stack<>();
-            Arrays.fill(res, -1);
-
-            // first round
-            for (int i = 0; i < nums.length; i++) {
-                while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
-                    res[stack.pop()] = nums[i];
-                }
-                stack.push(i);
-            }
-
-            // second round (because searching circularly)
-            for (int i = 0; i < nums.length; i++) {
-                while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
-                    res[stack.pop()] = nums[i];
-                }
-                stack.push(i);
-            }
-            return res;
         }
     }
 }

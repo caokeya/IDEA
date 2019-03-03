@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,38 +27,38 @@ A，B，C的价格分别为¥2，¥3，¥4.
 你不可以购买超出待购清单的物品，尽管购买大礼包2更加便宜。
  */
 public class _638_Shopping_Offers_大礼包 {
-    public class Solution {
+    class Solution {
         public int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs) {
-            return helper(price, special, needs, 0);
+            return shoppingOffers(price, special, needs, 0);
         }
 
-        private int helper(List<Integer> price, List<List<Integer>> special, List<Integer> needs, int pos) {
-            int local_min = directPurchase(price, needs);
+        private int shoppingOffers(List<Integer> price, List<List<Integer>> special, List<Integer> needs, int pos) {
+            int res = directBuy(price, needs);
             for (int i = pos; i < special.size(); i++) {
                 List<Integer> offer = special.get(i);
-                List<Integer> temp = new ArrayList<Integer>();
+                boolean isValid = true;
+                List<Integer> tmp = new ArrayList<Integer>();
+
                 for (int j = 0; j < needs.size(); j++) {
-                    if (needs.get(j) < offer.get(j)) { // check if the current offer is valid
-                        temp = null;
+                    if (needs.get(j) < offer.get(j)) {
+                        isValid = false;
                         break;
                     }
-                    temp.add(needs.get(j) - offer.get(j));
+                    tmp.add(needs.get(j) - offer.get(j));
                 }
 
-                if (temp != null) { // use the current offer and try next
-                    local_min = Math.min(local_min, offer.get(offer.size() - 1) + helper(price, special, temp, i));
-                }
+                if (isValid)
+                    res = Math.min(res, shoppingOffers(price, special, tmp, i) + offer.get(needs.size()));
             }
-            return local_min;
+            return res;
         }
 
-        private int directPurchase(List<Integer> price, List<Integer> needs) {
-            int total = 0;
-            for (int i = 0; i < needs.size(); i++) {
-                total += price.get(i) * needs.get(i);
+        private int directBuy(List<Integer> price, List<Integer> needs) {
+            int res = 0;
+            for (int i = 0; i < price.size(); i++) {
+                res += price.get(i) * needs.get(i);
             }
-            return total;
+            return res;
         }
     }
 }
-

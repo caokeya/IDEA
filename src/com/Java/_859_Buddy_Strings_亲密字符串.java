@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,33 +24,34 @@ import java.util.Set;
 public class _859_Buddy_Strings_亲密字符串 {
     class Solution {
         public boolean buddyStrings(String A, String B) {
-            int lenA = A.length(), lenB = B.length();
-            if (lenA != lenB)
+            if (A == null || B == null || A.length() != B.length())
                 return false;
-            if (A.equals(B)) {
-                //count appearances of chars, has to >= 2
-                int[] count = new int[26];
-                for (char c : A.toCharArray())
-                    count[c - 'a']++;
-                for (int i : count)
-                    if (i >= 2)
-                        return true;
-                return false;
-            }
-
-            //a, b not equals, if and only if they have to chars difference
-            int first = -1, second = -1;
-            for (int i = 0; i < lenA; i++) {
+            if (A.equals(B))
+                return hasDup(A);
+            int a = -1;
+            int b = -1;
+            for (int i = 0; i < A.length(); i++) {
                 if (A.charAt(i) != B.charAt(i)) {
-                    if (first == -1)
-                        first = i;
-                    else if (second == -1)
-                        second = i;
+                    if (a < 0)
+                        a = i;
+                    else if (b < 0)
+                        b = i;
                     else
                         return false;
                 }
             }
-            return second != -1 && A.charAt(first) == B.charAt(second) && A.charAt(second) == B.charAt(first);
+            if (a < 0 || b < 0)
+                return false;
+            return A.charAt(a) == B.charAt(b) && A.charAt(b) == B.charAt(a);
+        }
+
+        private boolean hasDup(String S) {
+            Set<Character> set = new HashSet<Character>();
+            for (char c : S.toCharArray()) {
+                if (!set.add(c))
+                    return true;
+            }
+            return false;
         }
     }
 }

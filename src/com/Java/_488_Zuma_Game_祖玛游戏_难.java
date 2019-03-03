@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 回忆一下祖玛游戏。现在桌上有一串球，颜色有红色(R)，黄色(Y)，蓝色(B)，绿色(G)，还有白色(W)。 现在你手里也有几个球。
@@ -35,7 +35,7 @@ public class _488_Zuma_Game_祖玛游戏_难 {
             for (int i = 0; i < hand.length(); ++i)
                 ++handCount[hand.charAt(i) - 'A'];
             int rs = helper(board + "#", handCount); // append a "#" to avoid special process while j==board.length,
-                                                        // make the code shorter.
+                                                     // make the code shorter.
             return rs == MAXCOUNT ? -1 : rs;
         }
 
@@ -70,5 +70,6 @@ public class _488_Zuma_Game_祖玛游戏_难 {
             }
             return board;
         }
+
     }
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在MATLAB中，有一个非常有用的函数 reshape，它可以将一个矩阵重塑为另一个大小不同的新矩阵，但保留其原始数据。

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个未排序的数组，判断这个数组中是否存在长度为 3 的递增子序列。
@@ -24,9 +24,10 @@ public class _334_Increasing_Triplet_Subsequence_递增的三元子序列 {
                     small = nums[i];// update small if n is smaller than both
                 else if (nums[i] <= big)
                     big = nums[i];// update big only if greater than small but smaller than big
-                else if (nums[i] >= big)
+                else
                     return true;// return if you find a number bigger than both
             }
+
             return false;
         }
     }

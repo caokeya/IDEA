@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 有一个特殊的正方形房间，每面墙上都有一面镜子。除西南角以外，每个角落都放有一个接受器，编号为 0， 1，以及 2。
@@ -21,6 +21,16 @@ public class _858_Mirror_Reflection_镜面反射 {
      * 如果p =奇数，q =奇数:返回1
      */
     class Solution {
+        public int mirrorReflection(int p, int q) {
+            while (p % 2 == 0 && q % 2 == 0) {
+                p >>= 1;
+                q >>= 1;
+            }
+            return 1 - p % 2 + q % 2;
+        }
+    }
+    
+    class Solution2 {
         public int mirrorReflection(int p, int q) {
             while (p % 2 == 0 && q % 2 == 0) {
                 p /= 2;

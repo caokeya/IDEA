@@ -1,8 +1,7 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个字符串 S 和一个字符串 T，计算在 S 的子序列中 T 出现的个数。
-一个字符串的一个子序列是指，通过删除一些（也可以不删除）字符且不干扰剩余字符相对位置所组成的新字符串。
-（例如，"ACE" 是 "ABCDE" 的一个子序列，而 "AEC" 不是）
+一个字符串的一个子序列是指，通过删除一些（也可以不删除）字符且不干扰剩余字符相对位置所组成的新字符串。（例如，"ACE" 是 "ABCDE" 的一个子序列，而 "AEC" 不是）
 示例 1:
 输入: S = "rabbbit", T = "rabbit"
 输出: 3
@@ -27,19 +26,16 @@ public class _115_Distinct_Subsequences_不同的子序列_难 {
                 mem[0][j] = 1;
             }
 
-            /*
-            if the current character in S doesn't equal to current character T,
-                then we have the same number of distinctsubsequences as we had without the new character.
-            if the current character in S equal to the current character T,
-                then the distinct number of subsequences: the number we had before plus the distinct number of
-                subsequences we had with less longer T and less longer S.
-            S: [acdabefbc] and T: [ab]
+            /**S: [acdabefbc] and T: [ab]
+
                     first we check with a:
+
                                *  *
                           S = [acdabefbc]
                     mem[1] = [0111222222]
 
                     then we check with ab:
+
                                    *  * ]
                           S = [acdabefbc]
                     mem[1] = [0111222222]
@@ -54,6 +50,7 @@ public class _115_Distinct_Subsequences_不同的子序列_难 {
                     }
                 }
             }
+
             return mem[T.length()][S.length()];
         }
     }

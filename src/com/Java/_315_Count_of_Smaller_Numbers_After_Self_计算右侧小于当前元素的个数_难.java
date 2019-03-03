@@ -1,7 +1,6 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,123 +17,106 @@ counts[i] 的值是  nums[i] 右侧小于 nums[i] 的元素的数量。
 1 的右侧有 0 个更小的元素.
  */
 public class _315_Count_of_Smaller_Numbers_After_Self_计算右侧小于当前元素的个数_难 {
-    class SolutionTree {
-        // Logic:
-        //          We need count of smaller elements 'after' self. So I should have already processed the elements to the right
-        //          So logically we build the tree by processing from right of the array
-        //          We need to account for duplicates, so we will maintain a count of number of times the current element occurred
-        // Time:  O(nlogn) for balanced bst
-        // Space: O(n) for constructing tree
+    public class SolutionMerge {
+
         public List<Integer> countSmaller(int[] nums) {
-            List<Integer> res = new ArrayList<Integer>();
-            if (nums == null || nums.length == 0)
-                return res;
+            int len = (nums == null ? 0 : nums.length);
 
-            TreeNode root = new TreeNode(nums[nums.length - 1]);//最后一个数
-            res.add(0);
+            int[] idxs = new int[len];
+            int[] count = new int[len];
 
-            for (int i = nums.length - 2; i >= 0; i--) {
-                int count = insert(root, nums[i]);
-                res.add(count);
-            }
+            for (int i = 0; i < len; i++)
+                idxs[i] = i;
 
-            Collections.reverse(res);
-            return res;
+            mergeSort(nums, idxs, 0, len, count);
+
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            for (int i : count)
+                list.add(i);
+
+            return list;
         }
 
-        public int insert(TreeNode root, int val) {
-            int cnt = 0;
-            while (true) {
-                if (val <= root.val) {
-                    root.count += 1;    // increase root count coz this is one node going into left subtree
-                    // if we have reached the end of the path, create new node
-                    if (root.left == null) {
-                        root.left = new TreeNode(val);
-                        break;
+        private void mergeSort(int[] nums, int[] idxs, int start, int end, int[] count) {
+            if (start + 1 >= end)
+                return;
+
+            int mid = (end - start) / 2 + start;
+            mergeSort(nums, idxs, start, mid, count);
+            mergeSort(nums, idxs, mid, end, count);
+
+            merge(nums, idxs, start, end, count);
+        }
+
+        private void merge(int[] nums, int[] idxs, int start, int end, int[] count) {
+            int mid = (end - start) / 2 + start;
+
+            int[] tmp = new int[end - start];
+            int[] tmpidx = new int[end - start];
+            int i = start, j = mid, k = 0;
+            while (k < end - start) {
+                if (i < mid) {
+                    if (j < end && nums[j] < nums[i]) {
+                        tmpidx[k] = idxs[j];
+                        tmp[k++] = nums[j++];
                     } else {
-                        root = root.left;
-                    }
-                } else {
-                    // we are going to the right so add the size of left subtree we have passed
-                    cnt += root.count;
-                    if (root.right == null) {
-                        root.right = new TreeNode(val);
-                        break;
-                    } else {
-                        root = root.right;
+                        count[idxs[i]] += j - mid; // add those already counted
+                        tmpidx[k] = idxs[i];
+                        tmp[k++] = nums[i++];
                     }
 
+                } else {
+                    tmpidx[k] = idxs[j];
+                    tmp[k++] = nums[j++];
                 }
             }
-            return cnt;
-        }
 
-        public class TreeNode {
-            TreeNode left, right;
-            int val;    // key that represents the node
-            int count;  // size of to the left subtree
-
-            public TreeNode(int val) {
-                this.val = val;
-                this.count = 1;
-            }
+            System.arraycopy(tmpidx, 0, idxs, start, end - start);
+            System.arraycopy(tmp, 0, nums, start, end - start);
         }
     }
 
+    class SolutionTree {
+        class TreeNode {
+            int dup, val, small;
+            TreeNode left, right;
 
-    public class SolutionMerge {
+            TreeNode(int val) {
+                this.val = val;
+                dup = 1;
+                small = 0;
+            }
+        }
+
         public List<Integer> countSmaller(int[] nums) {
-            List<Integer> results = new ArrayList<>();
-            int len = nums.length;
-            int[] indices = new int[len];
-            int[] count = new int[len];
-            for (int i = 0; i < len; i++) {
-                indices[i] = i;
+            int n = nums.length;
+            List<Integer> ans = new LinkedList<>();
+            if (n == 0)
+                return ans;
+            TreeNode root = null;
+            for (int i = n - 1; i >= 0; i--) {
+                root = insert(nums[i], root, ans, 0);
             }
-            int left = 0, right = len - 1;
-            mergeSort(nums, indices, count, left, right);
-            for (int i : count) {
-                results.add(i);
-            }
-            return results;
+            return ans;
         }
 
-        private void mergeSort(int[] nums, int[] indices, int[] count, int left, int right) {
-            if (left >= right) {
-                return;
+        public TreeNode insert(int t, TreeNode x, List<Integer> ans, int pre) {
+            if (x == null) {
+                ans.add(0, pre);
+                return new TreeNode(t);
             }
-            int mid = left + (right - left) / 2;
-            mergeSort(nums, indices, count, left, mid);
-            mergeSort(nums, indices, count, mid + 1, right);
-            merge(nums, indices, count, left, right);
+            if (x.val == t) {
+                x.dup++;
+                ans.add(0, pre + x.small);
+            } else if (x.val > t) {
+                x.small++;
+                x.left = insert(t, x.left, ans, pre);
+
+            } else {
+                x.right = insert(t, x.right, ans, pre + x.small + x.dup);
+            }
+            return x;
         }
 
-        private void merge(int[] nums, int[] indices, int[] count, int left, int right) {
-            int mid = left + (right - left) / 2;
-            int l1 = left, r1 = mid;
-            int l2 = mid + 1, r2 = right;
-            int index = 0;
-            int rightCount = 0;
-            int[] newIndices = new int[right - left + 1];
-            while (l1 <= r1 && l2 <= r2) {
-                if (nums[indices[l1]] > nums[indices[l2]]) {
-                    newIndices[index++] = indices[l2++];
-                    rightCount++;
-                } else {
-                    count[indices[l1]] += rightCount;
-                    newIndices[index++] = indices[l1++];
-                }
-            }
-            while (l1 <= r1) {
-                count[indices[l1]] += rightCount;
-                newIndices[index++] = indices[l1++];
-            }
-            while (l2 <= r2) {
-                newIndices[index++] = indices[l2++];
-            }
-            for (int i = left; i <= right; i++) {
-                indices[i] = newIndices[i - left];
-            }
-        }
     }
 }

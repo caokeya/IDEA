@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给出一些不同颜色的盒子，盒子的颜色由数字表示，即不同的数字表示不同的颜色。
@@ -36,9 +36,11 @@ public class _546_Remove_Boxes_移除盒子_难 {
 
             for (int m = i + 1; m <= j; m++) {
                 if (boxes[i] == boxes[m]) {
-                    res = Math.max(res, removeBoxesSub(boxes, i + 1, m - 1, 0, dp) + removeBoxesSub(boxes, m, j, k + 1, dp));
+                    res = Math.max(res,
+                            removeBoxesSub(boxes, i + 1, m - 1, 0, dp) + removeBoxesSub(boxes, m, j, k + 1, dp));
                 }
             }
+
             dp[i][j][k] = res;
             return res;
         }

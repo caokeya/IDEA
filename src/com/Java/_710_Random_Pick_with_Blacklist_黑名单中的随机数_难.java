@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -67,7 +67,7 @@ public class _710_Random_Pick_with_Blacklist_黑名单中的随机数_难 {
             return num;
         }
     }
-
+    
     class Solution2 {
         int M;
         Map<Integer, Integer> map;
@@ -82,7 +82,7 @@ public class _710_Random_Pick_with_Blacklist_黑名单中的随机数_难 {
             }
 
             for (int tmp : blacklist) {
-                if (tmp < M) {// re-mapping
+                if (tmp < M) {
                     while (map.containsKey(N - 1)) {
                         N--;
                     }

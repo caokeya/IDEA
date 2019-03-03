@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -41,54 +41,53 @@ Click : [1,2]
  */
 /*
 如果点击地雷('M')，标记为'X'，停止进一步搜索。
-如果点击一个空单元格('E')，取决于我周围有多少个:已包围矿井，用周围矿井的数量标记，停止进一步搜索。
+如果点击一个空单元格('E')，取决于我周围有多少个:
+已包围矿井，用周围矿井的数量标记，停止进一步搜索。
 我的周围没有，标记为“B”，继续搜索它的8个邻居。
  */
 public class _529_Minesweeper_扫雷游戏 {
     // DFS
-    class Solution {
+    public class Solution {
         public char[][] updateBoard(char[][] board, int[] click) {
-            int x = click[0];
-            int y = click[1];
-            if (board[x][y] == 'M') {
-                board[x][y] = 'X';
-                return board;
-            }
-            int M = board.length;
-            int N = board[0].length;
-            dfs(board, x, y, M, N);
-            return board;
-        }
+            int m = board.length, n = board[0].length;
+            int row = click[0], col = click[1];
 
-        private void dfs(char[][] board, int x, int y, int M, int N) {
-            if (x < 0 || x >= M)
-                return;
-            if (y < 0 || y >= N)
-                return;
-            int cnt = 0;
-            if (board[x][y] != 'E')
-                return;
-            if (x > 0 && board[x - 1][y] == 'M') cnt++;
-            if (x > 0 && y > 0 && board[x - 1][y - 1] == 'M') cnt++;
-            if (x > 0 && y < N - 1 && board[x - 1][y + 1] == 'M') cnt++;
-            if (y > 0 && board[x][y - 1] == 'M') cnt++;
-            if (y < N - 1 && board[x][y + 1] == 'M') cnt++;
-            if (x < M - 1 && board[x + 1][y] == 'M') cnt++;
-            if (x < M - 1 && y > 0 && board[x + 1][y - 1] == 'M') cnt++;
-            if (x < M - 1 && y < N - 1 && board[x + 1][y + 1] == 'M') cnt++;
-            if (cnt > 0) {
-                board[x][y] = (char) ('0' + cnt);
-                return;
+            if (board[row][col] == 'M') { // Mine
+                board[row][col] = 'X';
+            } else { // Empty
+                     // Get number of mines first.
+                int count = 0;
+                for (int i = -1; i < 2; i++) {
+                    for (int j = -1; j < 2; j++) {
+                        if (i == 0 && j == 0)
+                            continue;
+                        int r = row + i, c = col + j;
+                        if (r < 0 || r >= m || c < 0 || c < 0 || c >= n)
+                            continue;
+                        if (board[r][c] == 'M' || board[r][c] == 'X')
+                            count++;
+                    }
+                }
+
+                if (count > 0) { // If it is not a 'B', stop further DFS.
+                    board[row][col] = (char) (count + '0');
+                } else { // Continue DFS to adjacent cells.
+                    board[row][col] = 'B';
+                    for (int i = -1; i < 2; i++) {
+                        for (int j = -1; j < 2; j++) {
+                            if (i == 0 && j == 0)
+                                continue;
+                            int r = row + i, c = col + j;
+                            if (r < 0 || r >= m || c < 0 || c < 0 || c >= n)
+                                continue;
+                            if (board[r][c] == 'E')
+                                updateBoard(board, new int[] { r, c });
+                        }
+                    }
+                }
             }
-            board[x][y] = 'B';
-            dfs(board, x - 1, y, M, N);
-            dfs(board, x + 1, y, M, N);
-            dfs(board, x - 1, y - 1, M, N);
-            dfs(board, x, y - 1, M, N);
-            dfs(board, x + 1, y - 1, M, N);
-            dfs(board, x - 1, y + 1, M, N);
-            dfs(board, x, y + 1, M, N);
-            dfs(board, x + 1, y + 1, M, N);
+
+            return board;
         }
     }
 
@@ -102,10 +101,11 @@ public class _529_Minesweeper_扫雷游戏 {
             while (!queue.isEmpty()) {
                 int[] cell = queue.poll();
                 int row = cell[0], col = cell[1];
+
                 if (board[row][col] == 'M') { // Mine
                     board[row][col] = 'X';
                 } else { // Empty
-                    // Get number of mines first.
+                         // Get number of mines first.
                     int count = 0;
                     for (int i = -1; i < 2; i++) {
                         for (int j = -1; j < 2; j++) {
@@ -118,6 +118,7 @@ public class _529_Minesweeper_扫雷游戏 {
                                 count++;
                         }
                     }
+
                     if (count > 0) { // If it is not a 'B', stop further BFS.
                         board[row][col] = (char) (count + '0');
                     } else { // Continue BFS to adjacent cells.
@@ -130,7 +131,7 @@ public class _529_Minesweeper_扫雷游戏 {
                                 if (r < 0 || r >= m || c < 0 || c < 0 || c >= n)
                                     continue;
                                 if (board[r][c] == 'E') {
-                                    queue.add(new int[]{r, c});
+                                    queue.add(new int[] { r, c });
                                     board[r][c] = 'B'; // Avoid to be added again.
                                 }
                             }
@@ -138,6 +139,7 @@ public class _529_Minesweeper_扫雷游戏 {
                     }
                 }
             }
+
             return board;
         }
     }

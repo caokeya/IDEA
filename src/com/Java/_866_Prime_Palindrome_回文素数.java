@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 求出大于或等于 N 的最小回文素数。

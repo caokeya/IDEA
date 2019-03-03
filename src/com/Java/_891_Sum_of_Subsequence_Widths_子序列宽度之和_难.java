@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -17,44 +17,27 @@ import java.util.Arrays;
  */
 public class _891_Sum_of_Subsequence_Widths_子序列宽度之和_难 {
     class Solution {
-        /*
-        初始数组的顺序不重要，我的第一直觉是对数组排序。
-        对于A[i]
-        有i个更小的数字,所以有2 ^i个A[i]是最大的序列。
-        我们应该做res + =A[i]*(2 ^i)
-        有n - i - 1更大的数字,所以有2 ^(n - i - 1)个A[i]是最低的序列。
-        我们应该做res - =A[i]* 2 ^(n - i - 1)
-        */
         public int sumSubseqWidths(int[] A) {
-
-            int MOD = 1_000_000_007;
-            int N = A.length;
-            Arrays.sort(A);
-            long[] pow2 = new long[N];
-            pow2[0] = 1;
-            for (int i = 1; i < N; ++i)
-                pow2[i] = pow2[i - 1] * 2 % MOD;
-            long ans = 0;
-            for (int i = 0; i < N; ++i)
-                ans = (ans + (pow2[i] - pow2[N - 1 - i]) * A[i]) % MOD;
-            return (int) ans;
-        }
-    }
-    class Solution2 {
-        public int sumSubseqWidths(int[] A) {
-            /*初始数组的顺序不重要，我的第一直觉是对数组排序。
-            对于A[i]
-            有i个更小的数字,所以有2 ^i个A[i]是最大的序列。
-            我们应该做res + =A[i]*(2 ^i)
-            有n - i - 1更大的数字,所以有2 ^(n - i - 1)个A[i]是最低的序列。
-            我们应该做res - =A[i]* 2 ^(n - i - 1)
-            */
+            // If it is a subarray problem, the solution is very obviously 2D-DP or Segment Tree.
+            // Subsequece的index不连续有skip, DP matrix的index就不能用原来数组的index了, 而要选取target的begin和end values,
+            // 2D-DP, dp[min_element][max_element] = count, 即符合min_element和max_element的subsequence的数量, 进行不下去了?!
+            // 间隔问题必须先sort!!!
+            // For sort(A[i]):
+            // There are i smaller numbers,
+            // so there are 2 ^ i sequences in which A[i] is maximum.
+            // we should do res += A[i] * (2 ^ i)
+            // Meanwhile, there are n - i - 1 bigger numbers,
+            // so there are 2 ^ (n - i - 1) sequences in which A[i] is minimum.
+            // we should do res -= A[i] * 2 ^ (n - i - 1)
+            
+            // each A[i] is both the smallest and largest number in somes subsequences
+            // when A[i] is the smallest, it needs to be substracted
+            // when A[i] is the largest, it needs to be plused
             Arrays.sort(A); // 间隔问题必须先sort!!!
             long c = 1, res = 0, mod = (long) 1e9 + 7;
             for (int i = 0; i < A.length; ++i, c = (c << 1) % mod)
-                res = (res + A[i] * c - A[A.length - i - 1] * c) % mod;// 第i个和第length-i-1个的幂次数是一样的
+                res = (res + A[i] * c - A[A.length - i - 1] * c) % mod;
             return (int) ((res + mod) % mod);
         }
     }
-
 }

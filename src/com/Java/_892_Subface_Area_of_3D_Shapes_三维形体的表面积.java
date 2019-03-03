@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在 N * N 的网格上，我们放置一些 1 * 1 * 1  的立方体。

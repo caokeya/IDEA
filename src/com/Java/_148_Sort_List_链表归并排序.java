@@ -1,16 +1,11 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
-示例 1:
-输入: 4->2->1->3
-输出: 1->2->3->4
-示例 2:
-输入: -1->5->3->4->0
-输出: -1->0->3->4->5
  */
 public class _148_Sort_List_链表归并排序 {
-    /*
+
+    /**
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -54,8 +49,10 @@ public class _148_Sort_List_链表归并排序 {
             while (fast.next != null && fast.next.next != null) {
                 slow = slow.next;
                 fast = fast.next.next;
+
             }
             return slow;
         }
+
     }
 }

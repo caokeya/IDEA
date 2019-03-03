@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 求解一个给定的方程，将x以字符串"x=#value"的形式返回。该方程仅包含'+'，' - '操作，变量 x 和其对应系数。
@@ -24,8 +24,54 @@ package src.com.Java;
 public class _640_Solve_the_Equation_求解方程 {
     class Solution {
         public String solveEquation(String equation) {
+            int x = 0;
+            int num = 0;
+
+            int tmp = 0;
+            int sign = 1;
+            boolean afterEqual = false;
+            for (int i = 0; i < equation.length(); i++) {
+                char c = equation.charAt(i);
+                if (c == '=') {
+                    num += (afterEqual ? tmp : -tmp) * sign;
+                    afterEqual = true;
+                    sign = 1;
+                    tmp = 0;
+                    continue;
+                }
+                if (c == '+' || c == '-') {
+                    num += (afterEqual ? tmp : -tmp) * sign;
+                    sign = c == '+' ? 1 : -1;
+                    tmp = 0;
+                }
+                if (c >= '0' && c <= '9') {
+                    tmp = tmp * 10 + (c - '0');
+                }
+                if (c == 'x') {
+                    x += (afterEqual ? -tmp : tmp) * sign;
+                    if (tmp == 0 && (i == 0 || equation.charAt(i - 1) != '0')) {
+                        x += (afterEqual ? -1 : 1) * sign;
+                    }
+                    tmp = 0;
+                    sign = 1;
+                }
+            }
+            if (tmp != 0) {
+                num += sign * tmp;
+            }
+            if (x == 0 && num == 0)
+                return "Infinite solutions";
+            if (x == 0 && num != 0)
+                return "No solution";
+            int ans = num / x;
+            return "x=" + ans;
+        }
+    }
+
+    class Solution2 {
+        public String solveEquation(String equation) {
             int[] res = evaluateExpression(equation.split("=")[0]), res2 = evaluateExpression(equation.split("=")[1]);
-            res[0] = res[0] - res2[0];
+            res[0] -= res2[0];
             res[1] = res2[1] - res[1];
             if (res[0] == 0 && res[1] == 0)
                 return "Infinite solutions";
@@ -35,7 +81,7 @@ public class _640_Solve_the_Equation_求解方程 {
         }
 
         public int[] evaluateExpression(String exp) {
-            String[] tokens = exp.split("(?=[-+])");//从-+向前找
+            String[] tokens = exp.split("(?=[-+])");
             int[] res = new int[2];
             for (String token : tokens) {
                 if (token.equals("+x") || token.equals("x"))

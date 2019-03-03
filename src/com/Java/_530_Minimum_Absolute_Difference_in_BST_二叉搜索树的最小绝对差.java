@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个所有节点为非负值的二叉搜索树，求树中任意两节点的差的绝对值的最小值。
@@ -15,7 +15,8 @@ package src.com.Java;
 最小绝对差为1，其中 2 和 1 的差的绝对值为 1（或者 2 和 3）。
  */
 public class _530_Minimum_Absolute_Difference_in_BST_二叉搜索树的最小绝对差 {
-    /*
+
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -29,20 +30,20 @@ public class _530_Minimum_Absolute_Difference_in_BST_二叉搜索树的最小绝
     }
 
     class Solution {
-        int dif = Integer.MAX_VALUE;
-        int pre = Integer.MAX_VALUE;
+        private int min = Integer.MAX_VALUE;
+        private Integer prev = null;
 
         public int getMinimumDifference(TreeNode root) {
-            helper(root);
-            return dif;
-        }
-
-        public void helper(TreeNode root) {
-            if (root == null) return;
-            helper(root.left);
-            dif = Math.min(dif, Math.abs(root.val - pre));
-            pre = root.val;
-            helper(root.right);
+            if (root == null)
+                return 0;
+            getMinimumDifference(root.left);
+            if (prev != null) {
+                min = Math.min(min, root.val - prev);
+            }
+            prev = root.val;
+            getMinimumDifference(root.right);
+            return min;
         }
     }
+
 }

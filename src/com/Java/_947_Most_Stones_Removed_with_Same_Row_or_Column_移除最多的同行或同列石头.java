@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,13 +19,17 @@ import java.util.Map;
  */
 public class _947_Most_Stones_Removed_with_Same_Row_or_Column_移除最多的同行或同列石头 {
     class Solution {
+
         int islands = 0;
         Map<Integer, Integer> map;
+
         public int removeStones(int[][] stones) {
             int n = stones.length;
             map = new HashMap<Integer, Integer>();
             for (int[] stone : stones) {
-                int x = stone[0], y = stone[1] + 10000; // a stone connect x and y, in order to unify x and y, let y += 10000
+                int x = stone[0], y = stone[1] + 10000; // a stone connect x and y, in order to unify x and y, let y +=
+                                                        // 10000
+
                 if (!map.containsKey(x)) {
                     islands++;
                     map.put(x, x);
@@ -34,6 +38,7 @@ public class _947_Most_Stones_Removed_with_Same_Row_or_Column_移除最多的同
                     islands++;
                     map.put(y, y);
                 }
+
                 union(x, y);
             }
             return n - islands;

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -34,4 +34,5 @@ public class _822_Card_Flipping_Game_翻转卡片游戏 {
             return res == Integer.MAX_VALUE ? 0 : res;
         }
     }
+
 }

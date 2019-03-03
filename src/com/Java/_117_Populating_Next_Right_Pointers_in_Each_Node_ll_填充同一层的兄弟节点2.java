@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个二叉树
 struct TreeLinkNode {
@@ -24,7 +24,7 @@ struct TreeLinkNode {
 4->5->6->7 -> NULL
  */
 public class _117_Populating_Next_Right_Pointers_in_Each_Node_ll_填充同一层的兄弟节点2 {
-    /*
+    /**
      * Definition for binary tree with next pointer.
      */
     public class TreeLinkNode {
@@ -39,6 +39,7 @@ public class _117_Populating_Next_Right_Pointers_in_Each_Node_ll_填充同一层
     // 设定为非完美二叉树
     public class Solution {
         public void connect(TreeLinkNode root) {
+
             while (root != null) {
                 TreeLinkNode tempChild = new TreeLinkNode(0);
                 TreeLinkNode currentChild = tempChild;
@@ -57,4 +58,5 @@ public class _117_Populating_Next_Right_Pointers_in_Each_Node_ll_填充同一层
             }
         }
     }
+
 }

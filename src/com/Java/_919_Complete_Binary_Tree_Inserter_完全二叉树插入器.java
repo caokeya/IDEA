@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -20,7 +20,7 @@ import java.util.Queue;
 输出：[null,3,4,[1,2,3,4,5,6,7,8]]
  */
 public class _919_Complete_Binary_Tree_Inserter_完全二叉树插入器 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -34,7 +34,9 @@ public class _919_Complete_Binary_Tree_Inserter_完全二叉树插入器 {
     }
 
     class CBTInserter {
+
         List<TreeNode> tree;
+
         public CBTInserter(TreeNode root) {
             tree = new ArrayList<>();
             tree.add(root);

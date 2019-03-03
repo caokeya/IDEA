@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在一根无限长的数轴上，你站在0的位置。终点在target的位置。
@@ -20,11 +20,10 @@ package src.com.Java;
  */
 public class _754_Reach_a_Number_到达终点数字 {
     /*
-    求和与目标的差值。目标是消除差异，达到目标。
-    对于第i个移动，如果我们把右移到左边，总和的变化会是2*i少。求和和目标之间的差必须是偶数才能算出来。
-    如果差值是偶数，我们可以返回当前步骤。
-    如果差值为奇数，则需要增加步长，直到差值为偶数为止(最多需要再增加两步)。
-    */
+     * 求和与目标的差值。目标是消除差异，达到目标。对于第i个移动，如果我们把右移到左边，总和的变化会是2*i少。求和和目标之间的差必须是偶数才能算出来。
+     * 如果差值是偶数，我们可以返回当前步骤。 
+     * 如果差值为奇数，则需要增加步长，直到差值为偶数为止(最多需要再增加两步)。
+     */
     class Solution {
         public int reachNumber(int target) {
             target = Math.abs(target);
@@ -42,4 +41,5 @@ public class _754_Reach_a_Number_到达终点数字 {
             return res;
         }
     }
+
 }

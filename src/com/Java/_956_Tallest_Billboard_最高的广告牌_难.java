@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 你正在安装一个广告牌，并希望它高度最大。这块广告牌将有两个钢制支架，两边各一个。每个钢支架的高度必须相等。
@@ -18,41 +18,59 @@ package src.com.Java;
 解释：没法安装广告牌，所以返回 0。
  */
 public class _956_Tallest_Billboard_最高的广告牌_难 {
-    /*
-    dp[d]是指通过对差d可以得到的最大和对
-    例如，如果有一对和(a, b)和啊a > b，那么dp[a - b] = b
-    如果我们有dp[diff] = a，这意味着我们有一对和(a, a + diff)
-    这是diff = a的最大对
-    case 1
-        If put x to tall side
-        ------- y ------|----- d -----|----- x -----|
-        ------- y ------|
-        We update dp[d + x] = max(dp[d + x], y )
-    case 2.1
-        Put x to low side and d >= x:
-        -------y------|----- d -----|
-        -------y------|--- x ---|
-        We update dp[d-x] = max( dp[d - x], y + x)
-    case 2.2
-        Put x to low side and d < x:
-        ------- y ------|----- d -----|
-        ------- y ------|------- x -------|
-        We update dp[x - d] = max(dp[x - d], y + d)
-    case 2.1 and case2.2 can merge into dp[abs(x - d)] = max(dp[abs(x - d)], y + min(d, x))
-     */
     class Solution {
         public int tallestBillboard(int[] rods) {
             int[] dp = new int[5001];
-            for (int d = 1; d < 5001; d++)
-                dp[d] = -10000;
-            for (int x : rods) {
+            for (int i = 1; i < 5001; i++)
+                dp[i] = -10001;
+            for (int rod : rods) {
                 int[] cur = dp.clone();
-                for (int d = 0; d + x < 5001; d++) {
-                    dp[d + x] = Math.max(dp[d + x], cur[d]);
-                    dp[Math.abs(d - x)] = Math.max(dp[Math.abs(d - x)], cur[d] + Math.min(d, x));
+                for (int i = 0; i + rod < 5001; i++) {
+                    dp[i + rod] = Math.max(dp[i + rod], cur[i]);
+                    dp[Math.abs(i - rod)] = Math.max(dp[Math.abs(i - rod)], cur[i] + Math.min(rod, i));
                 }
             }
             return dp[0];
         }
+    }
+
+    class Solution2 {
+        public int tallestBillboard(int[] rods) {
+            int[][] memo = new int[rods.length + 1][5001];
+            for (int i = 0; i < rods.length + 1; i++) {
+                for (int j = 0; j < 5001; j++) {
+                    memo[i][j] = -10000;
+                }
+            }
+            memo[0][0] = 0;
+            int res = dfs(rods.length, 0, rods, memo);
+            return res;
+        }
+
+        private int dfs(int i, int diff, int[] rods, int[][] memo) {
+            if (i < 0 || diff < 0 || diff > 5000) {
+                return -10000;
+            }
+
+            if (i == 0 || memo[i][diff] != -10000) {
+                return memo[i][diff];
+            }
+
+            int res = memo[i][diff];
+            // add nothing
+            res = Math.max(res, dfs(i - 1, diff, rods, memo));
+
+            // add to the longer one
+            res = Math.max(res, dfs(i - 1, diff - rods[i - 1], rods, memo));
+
+            // add to the shorter one
+            res = Math.max(res, 
+                    Math.max(dfs(i - 1, diff + rods[i - 1], rods, memo) + rods[i - 1],
+                             dfs(i - 1, rods[i - 1] - diff, rods, memo) + rods[i - 1] - diff));
+
+            memo[i][diff] = res;
+            return res;
+        }
+
     }
 }

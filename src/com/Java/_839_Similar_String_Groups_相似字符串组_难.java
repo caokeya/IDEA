@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 如果我们交换字符串 X 中的两个不同位置的字母，使得它和字符串 Y 相等，那么称 X 和 Y 两个字符串相似。

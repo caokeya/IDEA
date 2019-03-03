@@ -1,7 +1,6 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
-import java.util.HashSet;
 
 /*
 给定二维空间中四点的坐标，返回四点是否可以构造一个正方形。
@@ -14,35 +13,25 @@ public class _593_Valid_Square_有效的正方形 {
     class Solution {
         public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
             int[] distances = new int[6];
-            distances[0] = distance2(p1, p2);
-            distances[1] = distance2(p1, p3);
-            distances[2] = distance2(p1, p4);
-            distances[3] = distance2(p2, p3);
-            distances[4] = distance2(p2, p4);
-            distances[5] = distance2(p3, p4);
+            distances[0] = distance2(p1,p2);
+            distances[1] = distance2(p1,p3);
+            distances[2] = distance2(p1,p4);
+            distances[3] = distance2(p2,p3);
+            distances[4] = distance2(p2,p4);
+            distances[5] = distance2(p3,p4);
             Arrays.sort(distances);
             return (
-                    distances[0] > 0 &&
-                    distances[0] == distances[1] &&
-                    distances[0] == distances[2] &&
-                    distances[2] == distances[3] &&
-                    distances[4] == distances[5]
-            );
+                distances[0] >0 && 
+                distances[0] == distances[1] &&
+                distances[0] == distances[2] &&
+                distances[0] == distances[3] &&
+                
+                distances[4] == distances[5]                      
+               ) ;
         }
-
-        int distance2(int[] p1, int[] p2) {
-            return (p1[0] - p2[0]) * (p1[0] - p2[0]) + (p1[1] - p2[1]) * (p1[1] - p2[1]);
-        }
-    }
-
-    class Solution2 {
-        public boolean validSquare(int[] p1, int[] p2, int[] p3, int[] p4) {
-            HashSet<Integer> hs = new HashSet<>(Arrays.asList(dis(p1, p2), dis(p1, p3), dis(p1, p4), dis(p2, p3), dis(p2, p4), dis(p3, p4)));
-            return !hs.contains(0) && hs.size() == 2; //One each for side & diagonal
-        }
-
-        int dis(int[] a, int[] b) {
-            return (a[0] - b[0]) * (a[0] - b[0]) + (a[1] - b[1]) * (a[1] - b[1]);
+        
+        int distance2(int[] p1, int[] p2){
+            return (p1[0]-p2[0])*(p1[0]-p2[0]) + (p1[1]-p2[1])*(p1[1]-p2[1]);
         }
     }
 }

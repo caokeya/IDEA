@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个方形整数数组 A，我们想要得到通过 A 的下降路径的最小和。

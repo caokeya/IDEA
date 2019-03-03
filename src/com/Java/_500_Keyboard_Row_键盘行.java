@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +34,9 @@ public class _500_Keyboard_Row_键盘行 {
                     }
                 }
             }
+
             return list.toArray(new String[list.size()]);
         }
     }
+
 }

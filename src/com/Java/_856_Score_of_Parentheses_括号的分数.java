@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个平衡括号字符串 S，按下述规则计算该字符串的分数：
@@ -21,28 +21,39 @@ package src.com.Java;
 public class _856_Score_of_Parentheses_括号的分数 {
     class Solution {
         public int scoreOfParentheses(String S) {
-            int res[] = new int[30], i = 0;
-            for (char c : S.toCharArray())
-                if (c == '(')
-                    res[++i] = 0;
-                else
-                    res[i - 1] += Math.max(res[i--] * 2, 1);
-            return res[0];
+            int balance = 0, answer = 0;
+            for (int i = 0; i < S.length(); i++) {
+                if (S.charAt(i) == '(') {
+                    balance++;
+                } else {
+                    balance--;
+                    if (S.charAt(i - 1) == '(') {
+                        answer += 1 << balance;
+                    }
+                }
+            }
+            return answer;
         }
     }
 
     class Solution2 {
         public int scoreOfParentheses(String S) {
-            int result = 0, layers = 0;
-            for( int i = 0; i < S.length(); i++ ){
-                if( S.charAt(i) == '(' )
-                    layers++;
+            if (S.length() == 2)
+                return 1;
+
+            int count = 1;
+            for (int i = 1; i < S.length(); i++) {
+                if (S.charAt(i) == '(')
+                    count++;
                 else
-                    layers--;
-                if( S.charAt(i) == '(' && S.charAt(i+1) == ')' )
-                    result += Math.pow(2, (layers-1) );
+                    count--;
+
+                if (count == 0 && i == S.length() - 1)
+                    return 2 * scoreOfParentheses(S.substring(1, S.length() - 1));
+                else if (count == 0)
+                    return scoreOfParentheses(S.substring(0, i + 1)) + scoreOfParentheses(S.substring(i + 1));
             }
-            return result;
+            return -100;
         }
     }
 }

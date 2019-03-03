@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +23,7 @@ root = [10,5,-3,3,2,null,11,3,-2,null,1], sum = 8
 3.  -3 -> 11
  */
 public class _437_Path_Sum_III_路径总和3 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -38,29 +38,23 @@ public class _437_Path_Sum_III_路径总和3 {
 
     class Solution {
         public int pathSum(TreeNode root, int sum) {
-            Map<Integer, Integer> preSum = new HashMap<Integer, Integer>();
-            preSum.put(0, 1);
-            return pathSumRecur(preSum, 0, sum, root);
+            Map<Integer, Integer> prefixSums = new HashMap<>();
+            // the one path above root has sum 0
+            prefixSums.put(0, 1);
+            return pathSumHelper(root, sum, prefixSums, 0);
         }
 
-        private int pathSumRecur(Map<Integer, Integer> preSum, int currSum, int target, TreeNode node) {
-            if (node == null)
+        private int pathSumHelper(TreeNode root, int target, Map<Integer, Integer> prefixSums, int sum) {
+            if (root == null)
                 return 0;
-            currSum += node.val;
-            //In a prefix sum array, sum(a,b) = sum(0, b) - sum(0, a-1) is the same as sum(0, a-1) = sum(0, b) - sum(a,b)
-            // where currSum = sum(0, b) and target is sum(a,b). a and b are indices in the array.
-            //Note that currSum is the prefix sum, i.e. the sum of all node values (from its ancestors to that node).
-            int res = preSum.getOrDefault(currSum - target, 0);//See if there is a subarray sum equals to target
-            //for example, if we have currSum=8 and target=6,
-            //we want to see whether we can cut some head nodes whose prefix is currSum-target=2,
-            //then we get a wanted path which is from that node's child to the current node.
-            preSum.put(currSum, preSum.getOrDefault(currSum, 0) + 1);
-            //Extend to left and right child
-            res += pathSumRecur(preSum, currSum, target, node.left) + pathSumRecur(preSum, currSum, target, node.right);
-            preSum.put(currSum, preSum.get(currSum) - 1);//Remove the current node so it won't affect other path
+            sum += root.val;
+            int res = prefixSums.getOrDefault(sum - target, 0);
+            prefixSums.put(sum, prefixSums.getOrDefault(sum, 0) + 1);
+            res += pathSumHelper(root.left, target, prefixSums, sum);
+            res += pathSumHelper(root.right, target, prefixSums, sum);
+            prefixSums.put(sum, prefixSums.get(sum) - 1);
             return res;
         }
-
     }
 
     public class Solution2 {
@@ -73,9 +67,8 @@ public class _437_Path_Sum_III_路径总和3 {
         private int pathSumFrom(TreeNode node, int sum) {
             if (node == null)
                 return 0;
-            return (node.val == sum ? 1 : 0) +
-                    pathSumFrom(node.left, sum - node.val) +
-                    pathSumFrom(node.right, sum - node.val);
+            return (node.val == sum ? 1 : 0) + pathSumFrom(node.left, sum - node.val)
+                    + pathSumFrom(node.right, sum - node.val);
         }
     }
 }

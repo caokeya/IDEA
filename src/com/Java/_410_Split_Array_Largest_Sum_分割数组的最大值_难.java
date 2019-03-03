@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个非负整数数组和一个整数 m，你需要将这个数组分成 m 个非空的连续子数组。设计一个算法使得这 m 个子数组各自和的最大值最小。
@@ -42,40 +42,10 @@ public class _410_Split_Array_Largest_Sum_分割数组的最大值_难 {
                     }
                 }
             }
+
             return dp[0];
         }
     }
-
-    class Solution {
-        public int splitArray(int[] nums, int m) {
-            int max = 0;
-            long sum = 0;
-            for (int num : nums) {
-                max = Math.max(num, max);
-                sum += num;
-            }
-
-            //binary search for max_sum of each group
-            long l = max, r = sum;
-            while (l < r) {
-                long mid = l + (r - l) / 2;
-                int cnt = groupCnt(nums, mid);
-                if (cnt > m) l = mid + 1;  // cnt == m does not mean to stop
-                else r = mid;
-            }
-            return (int) r;
-        }
-
-        private int groupCnt(int[] nums, long target) {
-            int groupCnt = 1, sum = 0;
-            for (int num : nums) {
-                if (sum + num <= target) sum += num;
-                else {
-                    groupCnt++;
-                    sum = num;
-                }
-            }
-            return groupCnt;
-        }
-    }
+    
+    
 }

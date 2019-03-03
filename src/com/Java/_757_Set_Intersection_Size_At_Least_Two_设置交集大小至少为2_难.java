@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -32,7 +32,7 @@ public class _757_Set_Intersection_Size_At_Least_Two_设置交集大小至少为
                         return o2[0] - o1[0];
                 }
             });
-            int[] maxtwo = new int[]{-1, -1};
+            int[] maxtwo = new int[] { -1, -1 };
             int res = 0;
             for (int[] t : intervals) {
                 if (maxtwo[0] >= t[0])

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个非空数组，返回此数组中第三大的数。如果不存在，则返回数组中最大的数。要求算法时间复杂度必须是O(n)。
@@ -14,9 +14,9 @@ package src.com.Java;
 public class _414_Third_Maximum_Number_第三大的数 {
     class Solution {
         public int thirdMax(int[] nums) {
-            Integer max1 = null;//最大的
-            Integer max2 = null;//第二大的
-            Integer max3 = null;//第三大的
+            Integer max1 = null;
+            Integer max2 = null;
+            Integer max3 = null;
             for (Integer n : nums) {
                 if (n.equals(max1) || n.equals(max2) || n.equals(max3))
                     continue;

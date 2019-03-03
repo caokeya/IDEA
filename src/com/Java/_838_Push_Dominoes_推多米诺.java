@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 一行中有 N 张多米诺骨牌，我们将每张多米诺骨牌垂直竖立。
@@ -71,39 +71,31 @@ public class _838_Push_Dominoes_推多米诺 {
         }
     }
 
-    /*
-    If you see 'R' and R > L, you have R....R, turn everything to 'R'.
-    If you see 'R' and R < L, you have L...R and you don't need to do anything.
-    If you see 'L' and L > R, you have L....L, turn everything to 'L'.
-    If you see 'L' and L < R, you have R....L, have to pointers from both sides, lo and hi,
-        turn a[lo]='R' and a[hi] = 'L', increment lo, decrement hi, make sure you do nothing when lo=hi
-    Watch out for edge cases. Note i<=dominoes.length(), this is to deal with L.. Also note L and R are initialized to -1, not 0.
-     */
     class Solution2 {
         public String pushDominoes(String dominoes) {
             char[] a = dominoes.toCharArray();
             int left = -1;
-            int right = -1;//positions of last seen L and R
+            int right = -1;
 
             for (int i = 0; i <= a.length; i++) {
                 if (i == a.length || a[i] == 'R') {
-                    if (right > left) {//R..R, turn all to R
+                    if (right > left) {
                         while (right < i) {
                             a[right++] = 'R';
                         }
                     }
                     right = i;
                 } else if (a[i] == 'L') {
-                    if (left > right || (right == -1 && left == -1)) {//L..L, turn all to L
+                    if (left > right || (right == -1 && left == -1)) {
                         while (left < i) {
                             a[++left] = 'L';
                         }
                         left = i;
-                    } else { //R...L
+                    } else {
                         left = i;
                         int lo = right + 1;
                         int hi = left - 1;
-                        while (lo < hi) {//one in the middle stays '.'
+                        while (lo < hi) {
                             a[lo++] = 'R';
                             a[hi--] = 'L';
                         }
@@ -112,5 +104,6 @@ public class _838_Push_Dominoes_推多米诺 {
             }
             return new String(a);
         }
+
     }
 }

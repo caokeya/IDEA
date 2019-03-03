@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,7 +23,67 @@ import java.util.Set;
  */
 public class _827_Making_A_Large_Islang_最大人工岛_难 {
     class Solution {
-        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        private final int[][] MOVES = new int[][] {
+                {1, 0},
+                {-1, 0},
+                {0, 1},
+                {0, -1}
+        };
+        public int largestIsland(int[][] grid) {
+            int idx = 2;
+            int m = grid.length;
+            int n = grid[0].length;
+            int[] area = new int[n * n + 2];
+
+            int ans = 0;
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (grid[i][j] == 1) {
+                        area[idx] = dfs(grid, i, j, idx);
+                        ans = Math.max(ans, area[idx++]);
+                    }
+                }
+            }
+
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < n; j++) {
+                    if (grid[i][j] == 0) {
+                        int count = 1;
+                        Set<Integer> set = new HashSet<>();
+                        for (int[] move : MOVES) {
+                            int r = i + move[0];
+                            int c = j + move[1];
+                            if (r < 0 || r >= m || c < 0 || c >= n || grid[r][c] == 0 || set.contains(grid[r][c])) {
+                                continue;
+                            }
+                            set.add(grid[r][c]);
+                            count += area[grid[r][c]];
+                        }
+                        ans = Math.max(count, ans);
+                    }
+                }
+            }
+            return ans;
+        }
+
+        private int dfs(int[][] grid, int r, int c, int idx) {
+            if (r < 0 || r >= grid.length || c < 0 || c >= grid[0].length || grid[r][c] != 1) {
+                return 0;
+            }
+            grid[r][c] = idx;
+            int ans = 1;
+
+            for (int[] move : MOVES) {
+                ans += dfs(grid, r + move[0], c + move[1], idx);
+            }
+
+            return ans;
+        }
+    }
+    
+    
+    class Solution2 {
+        int[][] directions = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 
         public int largestIsland(int[][] grid) {
             int m = grid.length, n = grid[0].length;

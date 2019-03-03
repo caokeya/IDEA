@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -23,7 +23,7 @@ G = [0, 3, 1, 4]
 链表中，0 和 1 是相连接的，3 和 4 是相连接的，所以 [0, 1] 和 [3, 4] 是两个组件，故返回 2。
  */
 public class _817_Linked_List_Components_链表组件 {
-    /*
+    /**
      * Definition for singly-linked list.
      */
     public class ListNode {

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -14,7 +14,7 @@ import java.util.Comparator;
 解释: 移除 [1,3] 后，剩下的区间没有重叠。
  */
 public class _435_Non_overlapping_Intervals_无重叠区间 {
-    /*
+    /**
      * Definition for an interval.
      */
     public class Interval {

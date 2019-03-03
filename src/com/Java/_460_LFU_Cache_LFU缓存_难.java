@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.LinkedHashSet;
@@ -9,7 +9,7 @@ get(key) - 如果键存在于缓存中，则获取键的值（总是正数），
 put(key, value) - 如果键不存在，请设置或插入值。当缓存达到其容量时，它应该在插入新项目之前，
 使最不经常使用的项目无效。在此问题中，当存在平局（即两个或更多个键具有相同使用频率）时，最近最少使用的键将被去除。
 示例：
-LFUCache cache = new LFUCache( 2 capacity (缓存容量))
+LFUCache cache = new LFUCache( 2 /* capacity (缓存容量) 
 cache.put(1, 1);
 cache.put(2, 2);
 cache.get(1);       // 返回 1
@@ -22,6 +22,7 @@ cache.get(3);       // 返回 3
 cache.get(4);       // 返回 4
 */
 public class _460_LFU_Cache_LFU缓存_难 {
+
     class LFUCache {
         HashMap<Integer, Integer> vals;
         HashMap<Integer, Integer> counts;
@@ -93,4 +94,5 @@ public class _460_LFU_Cache_LFU缓存_难 {
      * Your LFUCache object will be instantiated and called as such: LFUCache obj =
      * new LFUCache(capacity); int param_1 = obj.get(key); obj.put(key,value);
      */
+
 }

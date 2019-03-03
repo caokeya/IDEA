@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
 最高位数字存放在数组的首位， 数组中每个元素只存储一个数字。
@@ -11,16 +11,20 @@ package src.com.Java;
 public class _066_Plus_One_加一 {
     class Solution {
         public int[] plusOne(int[] digits) {
+
             int n = digits.length;
             for (int i = n - 1; i >= 0; i--) {
                 if (digits[i] < 9) {
                     digits[i]++;
                     return digits;
                 }
+
                 digits[i] = 0;
             }
+
             int[] newNumber = new int[n + 1];
             newNumber[0] = 1;
+
             return newNumber;
         }
     }

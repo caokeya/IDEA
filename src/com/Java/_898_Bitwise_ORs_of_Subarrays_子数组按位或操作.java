@@ -1,12 +1,11 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /*
 我们有一个非负整数数组 A。
-对于每个（连续的）子数组 B = [A[i], A[i+1], ..., A[j]] （ i <= j），
-我们对 B 中的每个元素进行按位或操作，获得结果 A[i] | A[i+1] | ... | A[j]。
+对于每个（连续的）子数组 B = [A[i], A[i+1], ..., A[j]] （ i <= j），我们对 B 中的每个元素进行按位或操作，获得结果 A[i] | A[i+1] | ... | A[j]。
 返回可能结果的数量。 （多次出现的结果在最终答案中仅计算一次。）
 示例 1：
 输入：[0]
@@ -29,18 +28,18 @@ import java.util.Set;
 public class _898_Bitwise_ORs_of_Subarrays_子数组按位或操作 {
     class Solution {
         public int subarrayBitwiseORs(int[] A) {
-            Set<Integer> res = new HashSet<>();
-            Set<Integer> cur = new HashSet<>();
-            Set<Integer> curTemp;
-            for (Integer a : A) {
-                curTemp = new HashSet<>();
-                curTemp.add(a);
-                for (Integer b : cur)
-                    curTemp.add(a | b);
-                cur = curTemp;
-                res.addAll(cur);
+            Set<Integer> set = new HashSet<>();
+            Set<Integer> prev = new HashSet<>();
+
+            for (int a : A) {
+                Set<Integer> curr = new HashSet<>();
+                for (int x : prev)
+                    curr.add(x | a);
+                curr.add(a);
+                prev = curr;
+                set.addAll(curr);
             }
-            return res.size();
+            return set.size();
         }
     }
 }

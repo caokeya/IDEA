@@ -1,7 +1,6 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
-import java.util.Map;
 
 /*
 给定一个二进制数组, 找到含有相同数量的 0 和 1 的最长连续子数组。
@@ -17,24 +16,28 @@ import java.util.Map;
 public class _525_Contiguous_Array_连续数组 {
     public class Solution {
         public int findMaxLength(int[] nums) {
-            for (int i = 0; i < nums.length; i++) {
-                if (nums[i] == 0) nums[i] = -1;
-            }
+            HashMap<Integer, Integer> map = new HashMap<>();
+            map.put(0, -1);
 
-            Map<Integer, Integer> sumToIndex = new HashMap<>();
-            sumToIndex.put(0, -1);
-            int sum = 0, max = 0;
-
+            int zero = 0;
+            int one = 0;
+            int len = 0;
             for (int i = 0; i < nums.length; i++) {
-                sum += nums[i];
-                if (sumToIndex.containsKey(sum)) {
-                    max = Math.max(max, i - sumToIndex.get(sum));
+                if (nums[i] == 0) {
+                    zero++;
                 } else {
-                    sumToIndex.put(sum, i);
+                    one++;
+                }
+
+                if (map.containsKey(zero - one)) {
+                    len = Math.max(len, i - map.get(zero - one));
+                } else {
+                    map.put(zero - one, i);
                 }
             }
 
-            return max;
+            return len;
         }
     }
+
 }

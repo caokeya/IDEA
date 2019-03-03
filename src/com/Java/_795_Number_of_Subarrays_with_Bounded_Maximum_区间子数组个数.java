@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个元素都是正整数的数组A ，正整数 L 以及 R (L <= R)。

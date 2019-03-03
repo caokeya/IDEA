@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -59,6 +59,7 @@ public class _874_Walking_Robot_Simulation_模拟行走机器人 {
                     }
                 }
             }
+
             return ans;
         }
     }

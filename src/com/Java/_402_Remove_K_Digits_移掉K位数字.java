@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个以字符串表示的非负整数 num，移除这个数中的 k 位数字，使得剩下的数字最小。
@@ -19,24 +19,19 @@ package src.com.Java;
 解释: 从原数字移除所有的数字，剩余为空就是0。
  */
 public class _402_Remove_K_Digits_移掉K位数字 {
-    public class Solution {
+    class Solution {
         public String removeKdigits(String num, int k) {
             int digits = num.length() - k;
             char[] stk = new char[num.length()];
             int top = 0;
-            // k keeps track of how many characters we can remove
-            // if the previous character in stk is larger than the current one
-            // then removing it will get a smaller number
-            // but we can only do so when k is larger than 0
-            for (int i = 0; i < num.length(); ++i) {
+            for (int i = 0; i < num.length(); i++) {
                 char c = num.charAt(i);
-                while (top > 0 && stk[top - 1] > c && k > 0) {//stk[]中最后一位比当前数字大，覆盖掉
-                    top -= 1;
-                    k -= 1;
+                while (top > 0 && stk[top - 1] > c && k > 0) {
+                    top--;
+                    k--;
                 }
                 stk[top++] = c;
             }
-            // find the index of first non-zero digit
             int idx = 0;
             while (idx < digits && stk[idx] == '0')
                 idx++;

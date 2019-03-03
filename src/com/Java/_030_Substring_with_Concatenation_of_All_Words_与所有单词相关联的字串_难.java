@@ -1,11 +1,10 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 /*
 给定一个字符串 s 和一些长度相同的单词 words。在 s 中找出可以恰好串联 words 中所有单词的子串的起始位置。
 注意子串要与 words 中的单词完全匹配，中间不能有其他字符，但不需要考虑 words 中单词串联的顺序。
@@ -14,70 +13,83 @@ import java.util.Map;
   s = "barfoothefoobarman",
   words = ["foo","bar"]
 输出: [0,9]
-解释: 从索引 0 和 9 开始的子串分别是 "barfoo" 和 "foobar" 。
+解释: 从索引 0 和 9 开始的子串分别是 "barfoor" 和 "foobar" 。
 输出的顺序不重要, [9,0] 也是有效答案。
  */
 public class _030_Substring_with_Concatenation_of_All_Words_与所有单词相关联的字串_难 {
+
     class Solution {
         public List<Integer> findSubstring(String s, String[] words) {
-            List<Integer> result = new ArrayList<Integer>();
-            if (s == null || s.length() == 0 || words.length == 0 || words == null) {
-                return result;
+            int N = s.length();
+            List<Integer> indexes = new ArrayList<Integer>(s.length());
+            if (words.length == 0) {
+                return indexes;
             }
-            HashMap<String, Integer> map = new HashMap<String, Integer>();
-            for (String word : words) {
-                if (map.containsKey(word)) {
-                    map.put(word, map.get(word) + 1);
-                } else {
-                    map.put(word, 1);
-                }
+            int M = words[0].length();
+            if (N < M * words.length) {
+                return indexes;
             }
-            int len = words[0].length();
-            for (int j = 0; j < len; j++) {
-                HashMap<String, Integer> currMap = new HashMap<String, Integer>();
-                int start = j;
-                int count = 0;
-                for (int i = j; i <= s.length() - len; i = i + len) {
-                    String sub = s.substring(i, i + len);
-                    if (map.containsKey(sub)) {
-                        if (currMap.containsKey(sub)) {
-                            currMap.put(sub, currMap.get(sub) + 1);
-                        } else {
-                            currMap.put(sub, 1);
-                        }
-                        count++;
-                        while (currMap.get(sub) > map.get(sub)) {
-                            String left = s.substring(start, start + len);
-                            int currCount = currMap.get(left);
-                            if (currCount > 1) {
-                                currMap.put(left, currCount - 1);
-                            } else {
-                                currMap.remove(left);
-                            }
-                            count--;
-                            start = start + len;
-                        }
-                        if (count == words.length) {
-                            result.add(start);
-                            String left = s.substring(start, start + len);
-                            int currCount = currMap.get(left);
-                            if (currCount > 1) {
-                                currMap.put(left, currCount - 1);
-                            } else {
-                                currMap.remove(left);
-                            }
-                            count--;
-                            start = start + len;
-                        }
-                    } else {
-                        currMap.clear();
-                        start = i + len;
-                        count = 0;
-                    }
+            int last = N - M + 1;
 
+            // map each string in words array to some index and compute target counters
+            Map<String, Integer> mapping = new HashMap<String, Integer>(words.length);
+            int[][] table = new int[2][words.length];
+            int failures = 0, index = 0;
+            for (int i = 0; i < words.length; ++i) {
+                Integer mapped = mapping.get(words[i]);
+                if (mapped == null) {
+                    ++failures;
+                    mapping.put(words[i], index);
+                    mapped = index++;
+                }
+                ++table[0][mapped];
+            }
+
+            // find all occurrences at string S and map them to their current integer, -1
+            // means no such string is in words array
+            int[] smapping = new int[last];
+            for (int i = 0; i < last; ++i) {
+                String section = s.substring(i, i + M);
+                Integer mapped = mapping.get(section);
+                if (mapped == null) {
+                    smapping[i] = -1;
+                } else {
+                    smapping[i] = mapped;
                 }
             }
-            return result;
+
+            // fix the number of linear scans
+            for (int i = 0; i < M; ++i) {
+                // reset scan variables
+                int currentFailures = failures; // number of current mismatches
+                int left = i, right = i;
+                Arrays.fill(table[1], 0);
+                // here, simple solve the minimum-window-substring problem
+                while (right < last) {
+                    while (currentFailures > 0 && right < last) {
+                        int target = smapping[right];
+                        if (target != -1 && ++table[1][target] == table[0][target]) {
+                            --currentFailures;
+                        }
+                        right += M;
+                    }
+                    while (currentFailures == 0 && left < right) {
+                        int target = smapping[left];
+                        if (target != -1 && --table[1][target] == table[0][target] - 1) {
+                            int length = right - left;
+                            // instead of checking every window, we know exactly the length we want
+                            if ((length / M) == words.length) {
+                                indexes.add(left);
+                            }
+                            ++currentFailures;
+                        }
+                        left += M;
+                    }
+                }
+
+            }
+            return indexes;
         }
     }
+
 }

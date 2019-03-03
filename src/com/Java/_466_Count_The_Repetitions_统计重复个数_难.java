@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 定义由 n 个连接的字符串 s 组成字符串 S，即 S = [s,n]。例如，["abc", 3]=“abcabcabc”。
@@ -15,6 +15,7 @@ s2 ="ab",n2 = 2
  */
 public class _466_Count_The_Repetitions_统计重复个数_难 {
     class Solution {
+
         public int getMaxRepetitions(String s1, int n1, String s2, int n2) {
             if (n1 == 0)
                 return 0;
@@ -23,8 +24,7 @@ public class _466_Count_The_Repetitions_统计重复个数_难 {
             int index = 0;
             int repeat_count = 0;
             for (int i = 0; i < n1; i++) {
-                for (int j = 0; j < s1.length(); j++) { // 这对循环可以迭代S1的所有字符，但因为有pattern的出现，
-                                                        // 因此有可能中途中断，因而加速。
+                for (int j = 0; j < s1.length(); j++) { // 这对循环可以迭代S1的所有字符，但因为有pattern的出现，因此有可能中途中断，因而加速。
                     // 找repeat
                     if (s1.charAt(j) == s2.charAt(index))
                         index++; // 只有相同是s2的index才会自增
@@ -67,6 +67,7 @@ public class _466_Count_The_Repetitions_统计重复个数_难 {
                     count1++;
                 }
             }
+
             return count2 / n2;
         }
     }

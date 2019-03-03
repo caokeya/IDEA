@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个正整数 N，试求有多少组连续正整数满足所有数字之和为 N?
@@ -19,8 +19,7 @@ public class _829_Consecutive_Numbers_Sum_连续整数求和 {
     /*
     N可以表示为k + 1 k + 2，…k + i, k是正整数;因此
     N = k * i + (i + 1) * i / 2 =>
-    N - (i + 1) * i / 2 = k * i，这意味着只要N - (i + 1) * i / 2 = k乘以i，就得到i对应的解;
-    因此，从1开始迭代所有可能的i值，将覆盖问题的所有情况。
+    N - (i + 1) * i / 2 = k * i，这意味着只要N - (i + 1) * i / 2 = k乘以i，就得到i对应的解;因此，从1开始迭代所有可能的i值，将覆盖问题的所有情况。
      */
     class Solution {
         public int consecutiveNumbersSum(int N) {

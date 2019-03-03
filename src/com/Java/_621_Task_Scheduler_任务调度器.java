@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -11,28 +11,21 @@ import java.util.Arrays;
 输入: tasks = ["A","A","A","B","B","B"], n = 2
 输出: 8
 执行顺序: A -> B -> (待命) -> A -> B -> (待命) -> A -> B.
-A,A,A,A,B,B,B,B,C,C,C,D   n = 4
-A B C D #
-A B C # #
-A B C # #
-A B # # #
  */
 public class _621_Task_Scheduler_任务调度器 {
-    /*
-    (c[25] - 1) * (n + 1) + 25 - i  is frame size
-    when inserting chars, the frame might be "burst", then tasks.length takes precedence
-    when 25 - i > n, the frame is already full at construction, the following is still valid.
-    */
     class Solution {
         public int leastInterval(char[] tasks, int n) {
             int[] c = new int[26];
+
             for (char t : tasks) {
                 c[t - 'A']++;
             }
             Arrays.sort(c);
+
             int i = 25;
             while (i >= 0 && c[i] == c[25])
                 i--;
+
             return Math.max(tasks.length, (c[25] - 1) * (n + 1) + (25 - i));
         }
     }

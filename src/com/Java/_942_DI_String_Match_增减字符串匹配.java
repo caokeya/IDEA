@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定只含 "I"（增大）或 "D"（减小）的字符串 S ，令 N = S.length。
@@ -18,22 +18,11 @@ package src.com.Java;
 public class _942_DI_String_Match_增减字符串匹配 {
     class Solution {
         public int[] diStringMatch(String S) {
-            char[] cha = S.toCharArray();
-            int N = cha.length;
-            int min = 0;
-            int max = N;
-            int[] res = new int[N + 1];
-
-            for (int i = 0; i < N; i++) {
-                if (cha[i] == 'I') {
-                    res[i] = min;
-                    min++;
-                } else if (cha[i] == 'D') {
-                    res[i] = max;
-                    max--;
-                }
-            }
-            res[res.length - 1] = cha[N - 1] == 'i' ? min : max;        //for the last number in the array
+            int n = S.length(), left = 0, right = n;
+            int[] res = new int[n + 1];
+            for (int i = 0; i < n; ++i)
+                res[i] = S.charAt(i) == 'I' ? left++ : right--;
+            res[n] = left;
             return res;
         }
     }

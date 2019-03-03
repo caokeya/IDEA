@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -6,8 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 /*
-给定一个段落 (paragraph) 和一个禁用单词列表 (banned)。返回出现次数最多，同时不在禁用列表中的单词。
-题目保证至少有一个词不在禁用列表中，而且答案唯一。
+给定一个段落 (paragraph) 和一个禁用单词列表 (banned)。返回出现次数最多，同时不在禁用列表中的单词。题目保证至少有一个词不在禁用列表中，而且答案唯一。
 禁用列表中的单词用小写字母表示，不含标点符号。段落中的单词不区分大小写。答案都是小写字母。
 示例：
 输入: 
@@ -37,7 +36,7 @@ public class _819_Most_Common_Word_最常见的单词 {
             return res;
         }
     }
-
+    
     class Solution2 {
         public String mostCommonWord(String paragraph, String[] banned) {
             paragraph += ".";
@@ -65,7 +64,9 @@ public class _819_Most_Common_Word_最常见的单词 {
                     word = new StringBuilder();
                 }
             }
+
             return ans;
+            
         }
     }
 }

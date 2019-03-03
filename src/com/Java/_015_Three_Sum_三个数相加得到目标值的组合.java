@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -15,6 +15,7 @@ import java.util.List;
 ]
  */
 public class _015_Three_Sum_三个数相加得到目标值的组合 {
+	
 	class Solution {
 		public List<List<Integer>> threeSum(int[] nums) {
 			List<List<Integer>> res = new ArrayList<>();

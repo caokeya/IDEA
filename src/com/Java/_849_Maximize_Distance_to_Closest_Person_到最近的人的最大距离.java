@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在一排座位（ seats）中，1 代表有人坐在座位上，0 代表座位上是空的。
@@ -38,31 +38,36 @@ public class _849_Maximize_Distance_to_Closest_Person_到最近的人的最大�
                     prev = i;//记录前一个1的位置
                 }
             }
-            return Math.max(Math.max(fixFirst, seats.length - 1 - fixLast), max / 2);//第一个1，最后一个1，0个数的一半
+            return Math.max(Math.max(fixFirst, seats.length - 1 - fixLast), max / 2);
+
         }
     }
 
     class Solution2 {
+
         public int maxDistToClosest(int[] seats) {
-            int maxDist = 0;
-            int n = seats.length;
-            for (int i = 0; i < seats.length; i++) {
-                if (seats[i] == 0) {
-                    int start = i;
-                    while (i < n && seats[i] == 0)
-                        i++;
-                    if (start == 0 || i == n) {
-                        maxDist = Math.max(maxDist, i - start);
-                    } else {
-                        if ((i - start) % 2 == 0) {
-                            maxDist = Math.max(maxDist, (i - start) / 2);
-                        } else {
-                            maxDist = Math.max(maxDist, (i - start) / 2 + 1);
-                        }
-                    }
+            int max = Integer.MIN_VALUE;
+            int i = 0;
+            while (i < seats.length) {
+                if (seats[i] == 1) {
+                    i++;
+                    continue;
                 }
+                int j = i;
+                while (j < seats.length && seats[j] == 0) {
+                    j++;
+                }
+                // j will point the next of last 0
+                int dist;
+                if (i == 0 || j == seats.length) {
+                    dist = j - i;
+                } else {
+                    dist = (j - i + 1) / 2;
+                }
+                max = Math.max(max, dist);
+                i = j;
             }
-            return maxDist;
+            return max;
         }
     }
 }

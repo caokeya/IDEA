@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -46,7 +46,8 @@ public class _934_Shortest_Bridge_最短的桥 {
                     for (int[] dir : dirs) {
                         int r = dir[0] + curr[0];
                         int c = dir[1] + curr[1];
-                        if (r < 0 || c < 0 || r > A.length - 1 || c > A[r].length - 1 || connected[r][c] || visited[r][c])
+                        if (r < 0 || c < 0 || r > A.length - 1 || c > A[r].length - 1 || connected[r][c]
+                                || visited[r][c])
                             continue;
                         visited[r][c] = true;
                         if (A[r][c] == 1)
@@ -65,6 +66,7 @@ public class _934_Shortest_Bridge_最短的桥 {
                 return;
             connected[i][j] = true;
             bfs.add(new int[] { i, j });
+
             dfs(i - 1, j, A, connected, bfs);
             dfs(i + 1, j, A, connected, bfs);
             dfs(i, j - 1, A, connected, bfs);

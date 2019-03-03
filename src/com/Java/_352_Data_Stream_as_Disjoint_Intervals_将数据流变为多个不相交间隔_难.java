@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,11 +12,14 @@ import java.util.TreeMap;
 [1, 1], [3, 3], [7, 7]
 [1, 3], [7, 7]
 [1, 3], [6, 7]
+
  */
 public class _352_Data_Stream_as_Disjoint_Intervals_将数据流变为多个不相交间隔_难 {
-    /*
-     * Definition for an interval.
-     */
+
+
+/**
+ * Definition for an interval.
+ */
     public class Interval {
         int start;
         int end;
@@ -31,7 +34,7 @@ public class _352_Data_Stream_as_Disjoint_Intervals_将数据流变为多个不�
             end = e;
         }
     }
-
+ 
     class SummaryRanges {
 
         TreeMap<Integer, Interval> tree;
@@ -45,19 +48,15 @@ public class _352_Data_Stream_as_Disjoint_Intervals_将数据流变为多个不�
                 return;
             Integer l = tree.lowerKey(val);
             Integer h = tree.higherKey(val);
-            // merge three intervals
             if (l != null && h != null && tree.get(l).end + 1 == val && h == val + 1) {
                 tree.get(l).end = tree.get(h).end;
                 tree.remove(h);
-            }// merge lower and this interval
-            else if (l != null && tree.get(l).end + 1 >= val) {
+            } else if (l != null && tree.get(l).end + 1 >= val) {
                 tree.get(l).end = Math.max(tree.get(l).end, val);
-            }// merge this and higher interval
-            else if (h != null && h == val + 1) {
+            } else if (h != null && h == val + 1) {
                 tree.put(val, new Interval(val, tree.get(h).end));
                 tree.remove(h);
-            }
-            else {// insert this interval
+            } else {
                 tree.put(val, new Interval(val, val));
             }
         }
@@ -66,10 +65,13 @@ public class _352_Data_Stream_as_Disjoint_Intervals_将数据流变为多个不�
             return new ArrayList<>(tree.values());
         }
     }
+
 /**
  * Your SummaryRanges object will be instantiated and called as such:
  * SummaryRanges obj = new SummaryRanges();
  * obj.addNum(val);
  * List<Interval> param_2 = obj.getIntervals();
  */
+
+
 }

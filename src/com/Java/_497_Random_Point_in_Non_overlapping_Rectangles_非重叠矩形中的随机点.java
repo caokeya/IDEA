@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Random;
 import java.util.TreeMap;
@@ -27,37 +27,48 @@ Output:
 [null,[-1,-2],[2,0],[-2,-1],[3,0],[-2,-2]]
  */
 public class _497_Random_Point_in_Non_overlapping_Rectangles_非重叠矩形中的随机点 {
+
     class Solution {
 
-        TreeMap<Integer, int[]> map;
-        Random random;
-        int[][] rects;
-        int sum = 0;
+        TreeMap<Integer, Integer> map;
+        int[][] arrays;
+        int sum;
+        Random rnd = new Random();
 
         public Solution(int[][] rects) {
-            this.rects = rects;
-            random = new Random();
+            arrays = rects;
             map = new TreeMap<>();
-            for (int[] rect : rects) {
-                int area = (rect[2] - rect[0] + 1) * (rect[3] - rect[1] + 1);
-                sum += area;
-                map.put(sum, rect);
+            sum = 0;
+
+            for (int i = 0; i < rects.length; i++) {
+                int[] rect = rects[i];
+        
+                // the right part means the number of points of this rectangle, rather than its area
+                // coz ractangles gonna get picked by the num of points
+                sum += (rect[2] - rect[0] + 1) * (rect[3] - rect[1] + 1);
+                map.put(sum, i);
             }
         }
-
+    
         public int[] pick() {
-            int key = map.ceilingKey(random.nextInt(sum + 1));
-            return pickPoints(map.get(key));
+            // nextInt(sum) returns a num in [0, sum -1]. After added by 1, it becomes [1, sum]
+            int c = map.higherKey(rnd.nextInt(sum));
+
+            return pickInRect(arrays[map.get(c)]);
         }
 
-        public int[] pickPoints(int[] rect) {
-            return new int[]{rect[0] + random.nextInt(rect[2] - rect[0] + 1),
-                             rect[1] + random.nextInt(rect[3] - rect[1] + 1)};
+        private int[] pickInRect(int[] rect) {
+            int left = rect[0], right = rect[2], bot = rect[1], top = rect[3];
+
+            return new int[] { left + rnd.nextInt(right - left + 1), bot + rnd.nextInt(top - bot + 1) };
         }
     }
-    /*
-     * Your Solution object will be instantiated and called as such:
-     * Solution obj = new Solution(rects);
-     * int[] param_1 = obj.pick();
-     */
+
+/**
+ * Your Solution object will be instantiated and called as such:
+ * Solution obj = new Solution(rects);
+ * int[] param_1 = obj.pick();
+ */
+
+
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
 update(i, val) 函数可以通过将下标为 i 的数值更新为 val，从而对数列进行修改。
@@ -10,7 +10,7 @@ sumRange(0, 2) -> 8
  */
 public class _307_Range_Sum_Query_Mutable_区域和检索数组可修改 {
     public class NumArray {
-        /*
+        /**
          * Binary Indexed Trees (BIT or Fenwick tree):
          * https://www.topcoder.com/community/data-science/data-science-
          * tutorials/binary-indexed-trees/

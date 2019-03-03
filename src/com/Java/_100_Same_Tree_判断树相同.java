@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定两个二叉树，编写一个函数来检验它们是否相同。
 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
@@ -11,7 +11,7 @@ package src.com.Java;
 输出: true
  */
 public class _100_Same_Tree_判断树相同 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {

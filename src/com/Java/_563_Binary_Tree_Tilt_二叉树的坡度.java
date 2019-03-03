@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个二叉树，计算整个树的坡度。
@@ -17,7 +17,7 @@ package src.com.Java;
 树的坡度 : 0 + 0 + 1 = 1
  */
 public class _563_Binary_Tree_Tilt_二叉树的坡度 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {

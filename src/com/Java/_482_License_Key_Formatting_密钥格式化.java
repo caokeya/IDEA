@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个密钥字符串S，只包含字母，数字以及 '-'（破折号）。N 个 '-' 将字符串分成了 N+1 组。给定一个数字 K，重新格式化字符串，
@@ -31,6 +31,7 @@ public class _482_License_Key_Formatting_密钥格式化 {
                     charsAppended++;
                 }
             }
+
             return result.reverse().toString();
         }
     }

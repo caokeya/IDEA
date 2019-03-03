@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 我们有两个长度相等且不为空的整型数组 A 和 B 。

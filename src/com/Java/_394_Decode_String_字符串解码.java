@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Stack;
 
@@ -12,37 +12,7 @@ s = "3[a]2[bc]", 返回 "aaabcbc".
 s = "3[a2[c]]", 返回 "accaccacc".
  */
 public class _394_Decode_String_字符串解码 {
-    class Solution {
-        public String decodeString(String s) {
-            int cnt = 0;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < s.length(); i++) {
-                char c = s.charAt(i);
-                if (Character.isDigit(c)) {
-                    cnt = cnt * 10 + (c - '0');
-                } else if (c == '[') {
-                    int n = 1, j = i + 1;
-                    while (j < s.length()) {
-                        if (s.charAt(j) == '[') n++;
-                        if (s.charAt(j) == ']') n--;
-                        if (n == 0) break;
-                        j++;
-                    }
-                    String subs = decodeString(s.substring(i + 1, j));
-                    for (int k = 0; k < cnt; k++) {
-                        sb.append(subs);
-                    }
-                    cnt = 0;
-                    i = j;
-                } else {
-                    sb.append(c);
-                }
-            }
-            return sb.toString();
-        }
-    }
-
-    public class SolutionStack {
+    public class Solution {
         public String decodeString(String s) {
             Stack<Integer> count = new Stack<>();
             Stack<String> result = new Stack<>();

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定两个表示复数的字符串。
@@ -15,6 +15,7 @@ package src.com.Java;
 public class _537_Complex_Number_Multiplication_复数乘法 {
     class Solution {
         public String complexNumberMultiply(String a, String b) {
+
             String ca[] = a.split("\\+");
             String cb[] = b.split("\\+");
             String caa[] = ca[1].split("i");
@@ -30,4 +31,5 @@ public class _537_Complex_Number_Multiplication_复数乘法 {
             return s;
         }
     }
+
 }

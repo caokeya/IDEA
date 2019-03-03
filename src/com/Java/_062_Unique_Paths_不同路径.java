@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为“Start” ）。
 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为“Finish”）。
@@ -24,7 +24,7 @@ public class _062_Unique_Paths_不同路径 {
             }
             for (int i = 1; i < m; i++) {
                 for (int j = 1; j < n; j++) {
-                    map[i][j] = map[i - 1][j] + map[i][j - 1];//加上左边和上边的方法值
+                    map[i][j] = map[i - 1][j] + map[i][j - 1];
                 }
             }
             return map[m - 1][n - 1];

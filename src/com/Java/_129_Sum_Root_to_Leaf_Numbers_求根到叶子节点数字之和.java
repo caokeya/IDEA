@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
  给定一个二叉树，它的每个结点都存放一个 0-9 的数字，每条从根到叶子节点的路径都代表一个数字。
@@ -17,7 +17,7 @@ package src.com.Java;
 因此，数字总和 = 12 + 13 = 25.
  */
 public class _129_Sum_Root_to_Leaf_Numbers_求根到叶子节点数字之和 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {

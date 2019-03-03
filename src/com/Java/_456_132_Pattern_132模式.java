@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -19,78 +19,74 @@ public class _456_132_Pattern_132模式 {
     /*
      * One-pass O(n) solution
      */
-    class Solution {
-        public boolean find132pattern(int[] nums) {
-            int two = Integer.MIN_VALUE;
-            int index = nums.length;
-            for (int i = nums.length - 1; i >= 0; i--) {
-                if (nums[i] < two)
-                    return true;
-                while (index < nums.length && nums[i] > nums[index]) {
-                    two = nums[index++];
-                }
-                nums[--index] = nums[i];
-            }
-            return false;
-        }
-    }
+    public boolean find132pattern(int[] nums) {
+        int n = nums.length, top = n, third = Integer.MIN_VALUE;
 
+        for (int i = n - 1; i >= 0; i--) {
+            if (nums[i] < third)
+                return true;
+            while (top < n && nums[i] > nums[top])
+                third = nums[top++];
+            nums[--top] = nums[i];
+        }
+
+        return false;
+    }
+    
     /*
      * Optimized O(n) solution
      */
-    class Solution1 {
-        public boolean find132pattern1(int[] nums) {
-            int[] arr = Arrays.copyOf(nums, nums.length);
-            for (int i = 1; i < nums.length; i++) {
-                arr[i] = Math.min(nums[i - 1], arr[i - 1]);//记录最小值
-            }
-            for (int j = nums.length - 1, top = nums.length; j >= 0; j--) {
-                if (nums[j] <= arr[j])
-                    continue;
-                while (top < nums.length && arr[top] <= arr[j])
-                    top++;
-                if (top < nums.length && nums[j] > arr[top])
-                    return true;
-                arr[--top] = nums[j];
-            }
-            return false;
+    public boolean find132pattern1(int[] nums) {
+        int[] arr = Arrays.copyOf(nums, nums.length);
+
+        for (int i = 1; i < nums.length; i++) {
+            arr[i] = Math.min(nums[i - 1], arr[i - 1]);
         }
+
+        for (int j = nums.length - 1, top = nums.length; j >= 0; j--) {
+            if (nums[j] <= arr[j])
+                continue;
+            while (top < nums.length && arr[top] <= arr[j])
+                top++;
+            if (top < nums.length && nums[j] > arr[top])
+                return true;
+            arr[--top] = nums[j];
+        }
+
+        return false;
     }
 
     /*
      * Improved O(n^2) solution
      */
-    class Solution2 {
-        public boolean find132pattern2(int[] nums) {
-            for (int j = 0, min = Integer.MAX_VALUE; j < nums.length; j++) {
-                min = Math.min(nums[j], min);
-                if (min == nums[j])
-                    continue;
+    public boolean find132pattern2(int[] nums) {
+        for (int j = 0, min = Integer.MAX_VALUE; j < nums.length; j++) {
+            min = Math.min(nums[j], min);
+            if (min == nums[j])
+                continue;
 
-                for (int k = nums.length - 1; k > j; k--) {
-                    if (min < nums[k] && nums[k] < nums[j])
-                        return true;
-                }
+            for (int k = nums.length - 1; k > j; k--) {
+                if (min < nums[k] && nums[k] < nums[j])
+                    return true;
             }
-            return false;
         }
-    }
 
+        return false;
+    }
+    
     /*
      *  Naive O(n^3) solution
      *  The naive O(n^3) solution is a no-brainer --- simply check every (i, j, k) combination to see if there is any 132 pattern.
      */
-    class Solution3 {
-        public boolean find132pattern3(int[] nums) {
-            for (int i = 0; i < nums.length; i++) {
-                for (int j = i + 1; j < nums.length; j++) {
-                    for (int k = j + 1; k < nums.length; k++) {
-                        if (nums[i] < nums[k] && nums[k] < nums[j])
-                            return true;
-                    }
+    public boolean find132pattern3(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                for (int k = j + 1; k < nums.length; k++) {
+                    if (nums[i] < nums[k] && nums[k] < nums[j])
+                        return true;
                 }
             }
-            return false;
         }
+        return false;
     }
 }

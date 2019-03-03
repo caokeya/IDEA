@@ -1,8 +1,7 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
-
 /*
 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
 ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
@@ -16,23 +15,26 @@ import java.util.Map;
 public class _033_Search_in_Rotated_Sorted_Array_搜索旋转排序数组 {
     class Solution {
         public int search(int[] nums, int target) {
-            int l = 0, r = nums.length - 1;
-            while (l < r) {
-                int mid = l + (r - l) / 2;
-                if (nums[mid] > nums[r]) l = mid + 1;
-                else r = mid;
-            }
-            int offset = l;
-            l = 0;
-            r = nums.length - 1;
-            while (l <= r) {
-                int mid = l + (r - l) / 2;
-                int realMid = (mid + offset) % nums.length;
-                if (nums[realMid] > target) r = mid - 1;
-                else if (nums[realMid] < target) l = mid + 1;
-                else return realMid;
+            for (int i = 0; i < nums.length; i++) {
+                if (target == nums[i]) {
+                    return i;
+                }
             }
             return -1;
+        }
+    }
+
+    class SolutionMap {
+        public int search(int[] nums, int target) {
+            Map<Integer, Integer> m = new HashMap<>();
+
+            if (nums.length == 0)
+                return -1;
+
+            for (int i = 0; i < nums.length; i++)
+                m.put(nums[i], i);
+
+            return (m.containsKey(target)) ? m.get(target) : -1;
         }
     }
 }

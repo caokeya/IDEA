@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashSet;
 
@@ -30,16 +30,23 @@ public class _771_Jewels_and_Stones_宝石与石头 {
 
     class Solution2 {
         public int numJewelsInStones(String J, String S) {
+
             int count = 0;
+
             char[] j = J.toCharArray();
             char[] s = S.toCharArray();
+
             HashSet<Character> jSet = new HashSet<Character>();
+
             for (char c : j)
                 jSet.add(c);
+
             for (char x : s)
                 if (jSet.contains(x))
                     count++;
+
             return count;
+
         }
     }
 }

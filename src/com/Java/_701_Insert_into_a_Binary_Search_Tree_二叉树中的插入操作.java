@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定二叉搜索树（BST）的根节点和要插入树中的值，将值插入二叉搜索树。 返回插入后二叉搜索树的根节点。 保证原始二叉搜索树中不存在新值。
@@ -27,7 +27,7 @@ package src.com.Java;
           4
  */
 public class _701_Insert_into_a_Binary_Search_Tree_二叉树中的插入操作 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -43,15 +43,19 @@ public class _701_Insert_into_a_Binary_Search_Tree_二叉树中的插入操作 {
     class Solution {
         public TreeNode insertIntoBST(TreeNode root, int val) {
             TreeNode newNode = new TreeNode(val);
+
             if (root == null) {
                 return newNode;
             }
+
             if (val > root.val) {
                 root.right = insertIntoBST(root.right, val);
             }
+
             if (val < root.val) {
                 root.left = insertIntoBST(root.left, val);
             }
+
             return root;
         }
     }

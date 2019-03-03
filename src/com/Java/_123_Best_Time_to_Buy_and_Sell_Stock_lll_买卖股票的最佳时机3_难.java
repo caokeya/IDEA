@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 //只能两次买卖
 /*

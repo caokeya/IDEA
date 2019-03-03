@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.LinkedList;
 
@@ -24,106 +24,181 @@ linkedList.get(1);            //返回3
  */
 public class _707_Design_Linked_List_设计链表 {
     class MyLinkedList {
-        class Node {
-            int val;
-            Node next;
 
-            public Node(int val) {
-                this.val = val;
-            }
-        }
+        private DoublyLinkedListNode head = null;
 
-        private Node head;
-        private int size;
-
-        /*
-         * Initialize your data structure here.
-         */
+        /** Initialize your data structure here. */
         public MyLinkedList() {
 
         }
 
-        /*
-         * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+        /**
+         * Get the value of the index-th node in the linked list. 
+         * If the index is invalid, return -1.
          */
         public int get(int index) {
-            if (index >= size) return -1;
-            Node current = head;
-            for (int i = 0; i < index; i++) {
-                current = current.next;
+
+            if (head == null || index < 0) {
+                return -1;
             }
-            return current.val;
+
+            if (index == 0) {
+                return head.val;
+            }
+
+            DoublyLinkedListNode curr = head;
+
+            for (int i = 0; i < index; i++) {
+                if (curr.next != null) {
+                    curr = curr.next;
+                } else {
+                    curr = null;
+                    break;
+                }
+            }
+
+            if (curr == null) {
+                return -1;
+            }
+
+            return curr.val;
         }
 
-        /*
+        /**
          * Add a node of value val before the first element of the linked list.
          * After the insertion, the new node will be the first node of the linked list.
          */
         public void addAtHead(int val) {
-            Node prev = head;
-            head = new Node(val);
-            head.next = prev;
-            size++;
-        }
+            DoublyLinkedListNode node = new DoublyLinkedListNode(val);
 
-        /*
-         * Append a node of value val to the last element of the linked list.
-         */
-        public void addAtTail(int val) {
-            Node node = new Node(val);
-            size++;
             if (head == null) {
                 head = node;
-            } else {
-                Node current = head;
-                while (current.next != null) {
-                    current = current.next;
-                }
-                current.next = node;
+                return;
             }
+
+            node.next = head;
+            head.prev = node;
+            head = node;
+
         }
 
-        /*
-         * Add a node of value val before the index-th node in the linked list.
-         * If index equals to the length of linked list, the node will be appended to the end of linked list.
-         * If index is greater than the length, the node will not be inserted.
+        /** Append a node of value val to the last element of the linked list. */
+        public void addAtTail(int val) {
+            DoublyLinkedListNode node = new DoublyLinkedListNode(val);
+
+            if (head == null) {
+                head = node;
+                return;
+            }
+
+            DoublyLinkedListNode curr = head;
+
+            while (curr.next != null) {
+                curr = curr.next;
+            }
+
+            curr.next = node;
+            node.prev = curr;
+        }
+
+        /**
+         * Add a node of value val before the index-th node in the linked list. If index
+         * equals to the length of linked list, the node will be appended to the end of
+         * linked list. If index is greater than the length, the node will not be
+         * inserted.
          */
         public void addAtIndex(int index, int val) {
-            if (index > size) return;
+
+            if (head == null && index < 0) {
+                return;
+            }
+
             if (index == 0) {
                 addAtHead(val);
-            } else {
-                size++;
-                Node current = head;
-                for (int i = 0; i < index - 1; i++) {
-                    current = current.next;
-                }
-                Node node = new Node(val);
-                node.next = current.next;
-                current.next = node;
+                return;
             }
+
+            DoublyLinkedListNode curr = head;
+            for (int i = 0; i < index - 1; i++) {
+                if (curr.next == null) {
+                    return;
+                }
+                curr = curr.next;
+            }
+
+            if (curr != null) {
+                DoublyLinkedListNode node = new DoublyLinkedListNode(val);
+                DoublyLinkedListNode tempNext = curr.next;
+
+                curr.next = node;
+
+                node.prev = curr;
+                node.next = tempNext;
+
+                if (tempNext != null) {
+                    tempNext.prev = node;
+                }
+            }
+
         }
 
-        /*
-         * Delete the index-th node in the linked list, if the index is valid.
-         */
+        /** Delete the index-th node in the linked list, if the index is valid. */
         public void deleteAtIndex(int index) {
-            if (index >= size) return;
-            size--;
-            Node current = head;
-            for (int i = 0; i < index - 1; i++) {
-                current = current.next;
+
+            if (head == null || index < 0) {
+                return;
             }
-            current.next = current.next.next;
+
+            if (index == 0) {
+                DoublyLinkedListNode tempNext = head.next;
+                tempNext.prev = null;
+                head = tempNext;
+                return;
+            }
+
+            DoublyLinkedListNode curr = head;
+            for (int i = 0; i < index; i++) {
+                if (curr.next == null) {
+                    return;
+                }
+                curr = curr.next;
+            }
+
+            if (curr != null) {
+                if (curr.prev == null) {
+                    DoublyLinkedListNode tempNext = curr.next;
+                    tempNext.prev = null;
+                    return;
+                }
+
+                if (curr.next == null) {
+                    DoublyLinkedListNode tempPrev = curr.prev;
+                    tempPrev.next = null;
+                    return;
+                }
+
+                DoublyLinkedListNode tempNext = curr.next;
+                DoublyLinkedListNode tempPrev = curr.prev;
+                tempPrev.next = tempNext;
+
+                tempNext.prev = tempPrev;
+            }
+        }
+    }
+
+    public class DoublyLinkedListNode {
+        int val;
+        DoublyLinkedListNode prev, next;
+
+        public DoublyLinkedListNode(int val) {
+            this.val = val;
         }
     }
 
     class MyLinkedList2 {
         LinkedList<Integer> list = new LinkedList<>();
 
-        /**
-         * Initialize your data structure here.
-         */
+        /** Initialize your data structure here. */
         public MyLinkedList2() {
 
         }
@@ -136,22 +211,20 @@ public class _707_Design_Linked_List_设计链表 {
         }
 
         /**
-         * Add a node of value val before the first element of the linked list.
+         * Add a node of value val before the first element of the linked list. 
          * After the insertion, the new node will be the first node of the linked list.
          */
         public void addAtHead(int val) {
             list.addFirst(val);
         }
 
-        /**
-         * Append a node of value val to the last element of the linked list.
-         */
+        /** Append a node of value val to the last element of the linked list. */
         public void addAtTail(int val) {
             list.add(val);
         }
 
         /**
-         * Add a node of value val before the index-th node in the linked list.
+         * Add a node of value val before the index-th node in the linked list. 
          * If index equals to the length of linked list, the node will be appended to the end of linked list.
          * If index is greater than the length, the node will not be inserted.
          */
@@ -161,15 +234,14 @@ public class _707_Design_Linked_List_设计链表 {
             list.add(index, val);
         }
 
-        /**
-         * Delete the index-th node in the linked list, if the index is valid.
-         */
+        /** Delete the index-th node in the linked list, if the index is valid. */
         public void deleteAtIndex(int index) {
             if (index < 0 || index >= list.size())
                 return;
             list.remove(index);
         }
     }
+
     /**
      * Your MyLinkedList object will be instantiated and called as such:
      * MyLinkedList obj = new MyLinkedList();

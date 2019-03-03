@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,4 +39,5 @@ public class _939_Minimum_Area_Rectangle_最小面积矩形 {
             return min == Integer.MAX_VALUE ? 0 : min;
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -12,7 +12,6 @@ import java.util.Arrays;
 输出: -1
  */
 public class _556_Next_Greater_Element_III_下一个更大元素3 {
-    //13254 -> 13[2]54 -> 13[2]5{4} -> 13[4]5{2} -> 13[4]25
     public class Solution {
         public int nextGreaterElement(int n) {
             char[] a = ("" + n).toCharArray();
@@ -51,37 +50,55 @@ public class _556_Next_Greater_Element_III_下一个更大元素3 {
             a[j] = temp;
         }
     }
-
-    public class Solution2 {
+    
+    class Solution2 {
+        
+        //1. go from right -> left to find the first decreasing number num[i]; if no such number return -1;
+        //2. swap num[i] with the smaillest digit in its right which is greater than num[i];
+        //3. reverse the right part of num[i];
         public int nextGreaterElement(int n) {
-            char[] number = (n + "").toCharArray();
-
-            int i, j;
-            // I) Start from the right most digit and find the first digit that is smaller than the digit next to it.
-            for (i = number.length - 1; i > 0; i--)
-                if (number[i - 1] < number[i])
-                    break;
-
-            // If no such digit is found, its the edge case 1.
-            if (i == 0)
+            if (n < 10)
                 return -1;
+            char[] arr = (n + "").toCharArray();
 
-            // II) Find the smallest digit on right side of (i-1)'th digit that is greater than number[i-1]
-            int x = number[i - 1], smallest = i;
-            for (j = i + 1; j < number.length; j++)
-                if (number[j] > x && number[j] <= number[smallest])
-                    smallest = j;
+            int len = arr.length;
+            int[] nums = new int[10];
+            Arrays.fill(nums, -1);
 
-            // III) Swap the above found smallest digit with number[i-1]
-            char temp = number[i - 1];
-            number[i - 1] = number[smallest];
-            number[smallest] = temp;
+            int idx = len - 2;
+            nums[arr[len - 1] - '0'] = len - 1;
+            while (idx >= 0) {
+                if (nums[arr[idx] - '0'] == -1)
+                    nums[arr[idx] - '0'] = idx;
+                if (arr[idx] >= arr[idx + 1])
+                    idx--;
+                else
+                    break;
+            }
+            if (idx == -1)
+                return -1; // all none-decreasing from right return -1;
 
-            // IV) Sort the digits after (i-1) in ascending order
-            Arrays.sort(number, i, number.length);
-
-            long val = Long.parseLong(new String(number));
-            return (val <= Integer.MAX_VALUE) ? (int) val : -1;
+            int value = arr[idx] - '0';
+            for (int i = value + 1; i < 10; i++) {
+                if (nums[i] != -1) {
+                    swap(arr, idx, nums[i]);
+                    break;
+                }
+            }
+            reverse(arr, idx+1, len-1);
+            long next = Integer.parseInt(new String(arr));
+            if(next > n && next<=Integer.MAX_VALUE) return (int)next;
+            else return -1;
+        }
+        
+        public void reverse(char[] arr, int start, int end){
+            for(int i=0; i<=(end-start)/2; i++)  swap(arr, start+i, end-i);
+        }
+        
+        public void swap(char[] arr, int i, int j){
+            char tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
         }
     }
 }

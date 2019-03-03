@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
 ]
  */
 public class _103_Binary_Tree_Zigzag_Level_Order_Traversal_二叉树的锯齿形遍历 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -38,6 +38,7 @@ public class _103_Binary_Tree_Zigzag_Level_Order_Traversal_二叉树的锯齿形
             if (root == null)
                 return res;
             helper(root, 0, res);
+            // Collections.reverse(res);
             return res;
         }
 

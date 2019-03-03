@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 给定圆的半径和圆心的 x、y 坐标，写一个在圆中产生均匀随机点的函数 randPoint 。
 说明:
@@ -30,7 +30,7 @@ public class _478_Generate_Random_Point_in_a_Circle_在圆内随机生成点 {
             return new double[] { x, y };
         }
     }
-    /*
+    /**
      * Your Solution object will be instantiated and called as such:
      * Solution obj = new Solution(radius, x_center, y_center);
      * double[] param_1 = obj.randPoint();

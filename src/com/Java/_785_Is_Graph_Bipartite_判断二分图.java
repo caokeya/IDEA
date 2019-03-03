@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个无向图graph，当这个图为二分图时返回true。
@@ -28,34 +28,30 @@ graph将会以邻接表方式给出，graph[i]表示图中与节点i相连的所
  */
 public class _785_Is_Graph_Bipartite_判断二分图 {
     /*
-    试图用两种颜色给图上色看看是否有任何相邻的节点有相同的颜色。
-    如果它没有被着色，就用一种颜色来着色。然后用另一种颜色给所有相邻节点(DFS)上色。
-    如果它已经被着色，检查当前的颜色是否与用于着色的颜色相同
-    */
+     * 试图用两种颜色给图上色看看是否有任何相邻的节点有相同的颜色。
+     * 如果它没有被着色，就用一种颜色来着色。然后用另一种颜色给所有相邻节点(DFS)上色。
+     * 如果它已经被着色，检查当前的颜色是否与用于着色的颜色相同
+     */
     class Solution {
         public boolean isBipartite(int[][] graph) {
-            if (graph == null || graph.length == 0) {
-                return false;
-            }
-            int[] visited = new int[graph.length];
-            for (int i = 0; i < graph.length; i++) {
-                if (visited[i] != 0) {
-                    continue;
-                }
-                if (!isValid(graph, visited, i, 1)) {
+            int n = graph.length;
+            int[] colors = new int[n];
+
+            for (int i = 0; i < n; i++) { // This graph might be a disconnected graph. So check each unvisited node.
+                if (colors[i] == 0 && !validColor(graph, colors, 1, i)) {
                     return false;
                 }
             }
             return true;
         }
 
-        private boolean isValid(int[][] graph, int[] visited, int node, int id) {
-            if (visited[node] != 0) {
-                return visited[node] == id;
+        public boolean validColor(int[][] graph, int[] colors, int color, int node) {
+            if (colors[node] != 0) {
+                return colors[node] == color;
             }
-            visited[node] = id;
-            for (int i = 0; i < graph[node].length; i++) {
-                if (!isValid(graph, visited, graph[node][i], -id)) {
+            colors[node] = color;
+            for (int next : graph[node]) {
+                if (!validColor(graph, colors, -color, next)) {
                     return false;
                 }
             }

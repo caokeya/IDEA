@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 有两种特殊字符。第一种字符可以用一比特0来表示。第二种字符可以用两比特(10 或 11)来表示。
@@ -18,11 +18,11 @@ bits = [1, 1, 1, 0]
  */
 public class _717_1_bit_and_2_bit_Characters_1比特与2比特字符 {
     /*
-     如果数组中只有一个符号，答案总是正确的(因为最后一个元素是0)
-     如果最后再出现两个0，不管剩下的符号是什么，答案都是正确的。1100…1000,)
-     如果在最后一个元素之前有一个元素(…10)，那么结果取决于序列1的计数，即
-     a)如果有1(10，…01110)答案是错误的，因为只有一个1没有配对
-     b)如果是偶数(110，……011110)答案是正确的，因为最后的0没有任何匹配项
+         如果数组中只有一个符号，答案总是正确的(因为最后一个元素是0)
+         如果最后再出现两个0，不管剩下的符号是什么，答案都是正确的。1100…1000,)
+         如果在最后一个元素之前有一个元素(…10)，那么结果取决于序列1的计数，即
+        a)如果有1(10，…01110)答案是错误的，因为只有一个1没有配对
+        b)如果是偶数(110，……011110)答案是正确的，因为最后的0没有任何匹配项
      */
     class Solution {
         public boolean isOneBitCharacter(int[] bits) {
@@ -34,17 +34,6 @@ public class _717_1_bit_and_2_bit_Characters_1比特与2比特字符 {
             if (ones % 2 > 0)
                 return false;
             return true;
-        }
-    }
-
-    class Solution2 {
-        public boolean isOneBitCharacter(int[] bits) {
-            int n = bits.length, i = 0;
-            while (i < n - 1) {
-                if (bits[i] == 0) i++;
-                else i += 2;
-            }
-            return i == n - 1;
         }
     }
 }

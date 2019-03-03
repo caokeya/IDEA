@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 //判断一个数是不是中心对称的
 /*
@@ -8,17 +8,17 @@ package src.com.Java;
 输出: true
  */
 public class _009_Palindrome_Number_判断一个数是不是中心对称的 {
-    class Solution {
-        public boolean isPalindrome(int x) {
-            if (x < 0)
-                return false;
-            int val = 0;
-            int n = x;
-            while (n > 0) {
-                val = val * 10 + n % 10;
-                n = n / 10;
-            }
-            return val == x;
-        }
-    }
+	
+	class Solution {
+	    public boolean isPalindrome(int x) {
+	        if(x < 0 || (x > 0) && (x % 10 == 0)) return false;
+	        int num = 0;
+	        while(x > num) {
+	            num = num * 10 + x % 10;
+	            x /= 10;
+	        }
+	        return (x == num || x == num / 10);
+	    }
+	}
+	
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 编写一个函数，其作用是将输入的字符串反转过来。

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -18,7 +18,7 @@ public class _820_Short_Encoding_of_Words_单词的压缩编码 {
     class Solution {
         // If a word X is a suffix of Y, then X does not need to be considered.
         public int minimumLengthEncoding(String[] words) {
-            Set<String> set = new HashSet<>(Arrays.asList(words));
+            Set<String> set = new HashSet<String>(Arrays.asList(words));
             for (String word : words) {
                 for (int i = 1; i < word.length(); i++) {
                     // Remove its suffix if exists.

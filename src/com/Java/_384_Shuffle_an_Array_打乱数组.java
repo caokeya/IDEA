@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Random;
 
@@ -16,37 +16,39 @@ solution.reset();
 solution.shuffle();
  */
 public class _384_Shuffle_an_Array_打乱数组 {
-    class Solution {
-
+    public class Solution {
         private int[] nums;
-        private Random r;
+        private Random random;
 
         public Solution(int[] nums) {
             this.nums = nums;
-            this.r = new Random();
+            random = new Random();
         }
 
-        /*
-         * Resets the array to its original configuration and return it.
-         */
+        /** Resets the array to its original configuration and return it. */
         public int[] reset() {
-            return this.nums;
+            return nums;
         }
 
-        /*
-         * Returns a random shuffling of the array.
-         */
+        /** Returns a random shuffling of the array. */
         public int[] shuffle() {
-            int[] arr = new int[this.nums.length];
-
-            for (int i = 0; i < arr.length; i++) {
-                int j = this.r.nextInt(i + 1);
-                arr[i] = arr[j];
-                arr[j] = this.nums[i];
+            if (nums == null)
+                return null;
+            int[] a = nums.clone();
+            for (int j = 1; j < a.length; j++) {
+                int i = random.nextInt(j + 1);
+                swap(a, i, j);
             }
-            return arr;
+            return a;
+        }
+
+        private void swap(int[] a, int i, int j) {
+            int t = a[i];
+            a[i] = a[j];
+            a[j] = t;
         }
     }
+
     /**
      * Your Solution object will be instantiated and called as such:
      * Solution obj = new Solution(nums);

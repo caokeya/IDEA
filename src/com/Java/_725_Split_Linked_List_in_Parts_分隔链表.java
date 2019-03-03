@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个头结点为 root 的链表, 编写一个函数以将链表分隔为 k 个连续的部分。
@@ -23,7 +23,7 @@ root = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], k = 3
 输入被分成了几个连续的部分，并且每部分的长度相差不超过1.前面部分的长度大于等于后面部分的长度。
  */
 public class _725_Split_Linked_List_in_Parts_分隔链表 {
-    /*
+    /**
      * Definition for singly-linked list.
      */
     public class ListNode {

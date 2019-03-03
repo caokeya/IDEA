@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 二叉搜索树中的两个节点被错误地交换。
 请在不改变其结构的情况下，恢复这棵树。
@@ -20,7 +19,7 @@ package src.com.Java;
    2
  */
 public class _099_Recover_Binary_Search_Tree_恢复二叉树_难 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -34,31 +33,29 @@ public class _099_Recover_Binary_Search_Tree_恢复二叉树_难 {
     }
 
     class Solution {
-        TreeNode first;
-        TreeNode second;
-        TreeNode pre;
+        private TreeNode firstNode;
+        private TreeNode secondNode;
+        private TreeNode preNode;
 
         public void recoverTree(TreeNode root) {
-            first = null;
-            second = null;
-            pre = null;
-            recover(root);
-            int temp = first.val;
-            first.val = second.val;
-            second.val = temp;
+
+            helper(root);
+            int temp = firstNode.val;
+            firstNode.val = secondNode.val;
+            secondNode.val = temp;
         }
 
-        private void recover(TreeNode root) {
-            if (root == null) return;
-            recover(root.left);
-            if (first == null && (pre == null || pre.val >= root.val)) {
-                first = pre;
+        private void helper(TreeNode node) {
+            if (node == null)
+                return;
+            helper(node.left);
+            if (preNode != null && preNode.val >= node.val) {
+                if (firstNode == null)
+                    firstNode = preNode;
+                secondNode = node;
             }
-            if (first != null && pre.val >= root.val) {
-                second = root;
-            }
-            pre = root;
-            recover(root.right);
+            preNode = node;
+            helper(node.right);
         }
     }
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -19,6 +19,7 @@ import java.util.PriorityQueue;
  */
 public class _332_Reconstruct_Itinerary_重新安排行程 {
     public class Solution {
+
         Map<String, PriorityQueue<String>> flights;
         LinkedList<String> path;
 

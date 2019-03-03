@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,16 +31,22 @@ public class _594_Longest_Harmonious_Subsequence_最长和谐子序列 {
 
     class Solution2 {
         public int findLHS(int[] nums) {
+
             Arrays.sort(nums);
+
             int min = 0, count = 0;
+
             for (int i = 0; i < nums.length;) {
+
                 if (nums[i] == nums[min])
                     i++;
                 else if (nums[min] + 1 == nums[i]) {
+
                     count = Math.max(i - min + 1, count);
                     i++;
                 } else
                     min++;
+
             }
             return count;
         }

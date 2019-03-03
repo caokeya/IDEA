@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Stack;
 
@@ -10,7 +10,7 @@ import java.util.Stack;
 输出: 7 -> 8 -> 0 -> 7
  */
 public class _445_Add_Two_Numbers_ll_两数相加2 {
-    /*
+    /**
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -22,36 +22,37 @@ public class _445_Add_Two_Numbers_ll_两数相加2 {
         }
     }
 
-    class Solution {
+    public class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            Stack<Integer> s1 = new Stack<>();
-            Stack<Integer> s2 = new Stack<>();
+            Stack<Integer> s1 = new Stack<Integer>();
+            Stack<Integer> s2 = new Stack<Integer>();
 
             while (l1 != null) {
                 s1.push(l1.val);
                 l1 = l1.next;
             }
+            ;
             while (l2 != null) {
                 s2.push(l2.val);
                 l2 = l2.next;
             }
 
-            ListNode list = new ListNode(0);
             int sum = 0;
+            ListNode list = new ListNode(0);
             while (!s1.empty() || !s2.empty()) {
-                if (!s1.empty()) {
+                if (!s1.empty())
                     sum += s1.pop();
-                }
-                if (!s2.empty()) {
+                if (!s2.empty())
                     sum += s2.pop();
-                }
                 list.val = sum % 10;
                 ListNode head = new ListNode(sum / 10);
                 head.next = list;
                 list = head;
-                sum = sum / 10;
+                sum /= 10;
             }
-            return (list.val == 0) ? list.next : list;
+
+            return list.val == 0 ? list.next : list;
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 在一条环路上有 N 个加油站，其中第 i 个加油站有汽油 gas[i] 升。
@@ -21,34 +21,27 @@ cost = [3,4,5,1,2]
 开往 2 号加油站，此时油箱有 6 - 4 + 3 = 5 升汽油
 开往 3 号加油站，你需要消耗 5 升汽油，正好足够你返回到 3 号加油站。
 因此，3 可为起始索引。
-示例 2:
-输入:
-gas  = [2,3,4]
-cost = [3,4,3]
-输出: -1
-解释:
-你不能从 0 号或 1 号加油站出发，因为没有足够的汽油可以让你行驶到下一个加油站。
-我们从 2 号加油站出发，可以获得 4 升汽油。 此时油箱有 = 0 + 4 = 4 升汽油
-开往 0 号加油站，此时油箱有 4 - 3 + 2 = 3 升汽油
-开往 1 号加油站，此时油箱有 3 - 3 + 3 = 3 升汽油
-你无法返回 2 号加油站，因为返程需要消耗 4 升汽油，但是你的油箱只有 3 升汽油。
-因此，无论怎样，你都不可能绕环路行驶一周。
  */
 public class _134_Gas_Station_加油站 {
     class Solution {
         public int canCompleteCircuit(int[] gas, int[] cost) {
-            int tank = 0;
-            int total = 0;
             int start = 0;
+            int left = 0;
+            int need = 0;
             for (int i = 0; i < gas.length; i++) {
-                tank += gas[i] - cost[i];
-                if (tank < 0) {
-                    total += tank;
-                    tank = 0;
+                if (left + gas[i] - cost[i] < 0) {
                     start = i + 1;
+                    need += -1 * (left + gas[i] - cost[i]);
+                    left = 0;
+
+                } else {
+                    left = left + gas[i] - cost[i];
                 }
             }
-            return tank + total >= 0 ? start : -1;
+            if (left < need) {
+                return -1;
+            }
+            return start;
         }
     }
 }

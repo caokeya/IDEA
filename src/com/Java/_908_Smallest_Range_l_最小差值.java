@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 给定一个整数数组 A，对于每个整数 A[i]，我们可以选择任意 x 满足 -K <= x <= K，并将 x 加到 A[i] 中。
@@ -24,10 +24,10 @@ public class _908_Smallest_Range_l_最小差值 {
             int max = A[0];
             for (int i = 1; i < A.length; i++) {
                 if (A[i] < min) {
-                    min = A[i]; // 找到最小值
+                    min = A[i];
                 }
                 if (A[i] > max) {
-                    max = A[i]; // 找到最大值
+                    max = A[i];
                 }
             }
             if ((max - min) <= 2 * K)

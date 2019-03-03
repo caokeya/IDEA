@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ import java.util.List;
     4
  */
 public class _652_Find_Duplicate_Subtrees_寻找重复的子树 {
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {

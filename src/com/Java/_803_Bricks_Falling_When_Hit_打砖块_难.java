@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 /*
 我们有一组包含1和0的网格；其中1表示砖块。 当且仅当一块砖直接连接到网格的顶部，或者它至少连接着(4个方向)相邻的砖块之一时，它才不会落下。
@@ -21,11 +21,11 @@ hits = [[1,1],[1,0]]
  */
 public class _803_Bricks_Falling_When_Hit_打砖块_难 {
     /*
-    思路： 1） 根据删除的brick 所在位置以及特性分为以下几种情况 A, 当删除index处为0， 则drop为0. #B, 当删除index处为1：
-    B.1 当删除位置的brick 不和top相连， 则drop为0.
-    B.2 当删除位置的brick 和 top 相连 B.2.1 BFS该brick四周的各个bricks，如果各个bricks 能够通过其他bricks 到达 top，则该子brick 不会drop
-    B.2.2否则会drop。
-    */
+     * 思路： 1） 根据删除的brick 所在位置以及特性分为以下几种情况 A, 当删除index处为0， 则drop为0. #B, 当删除index处为1：
+     * B.1 当删除位置的brick 不和top相连， 则drop为0. B.2 当删除位置的brick 和 top 相连 B.2.1 BFS
+     * 该brick四周的各个bricks，如果各个bricks 能够通过其他bricks 到达 top，则该子brick 不会drop
+     * #B.2.2否则会drop。
+     */
     class Solution {
         public int[] hitBricks(int[][] grid, int[][] hits) {
             if (hits.length == 0 || hits[0].length == 0)
@@ -79,6 +79,7 @@ public class _803_Bricks_Falling_When_Hit_打砖块_难 {
         private boolean isConnectToTop(int[][] grid, int i, int j) {
             if (i == 0)
                 return true;
+
             if (i - 1 >= 0 && grid[i - 1][j] == 2) {
                 return true;
             }
@@ -111,6 +112,60 @@ public class _803_Bricks_Falling_When_Hit_打砖块_难 {
                 effectBricks += dfs(data, row, column - 1);
             }
             return effectBricks;
+        }
+    }
+
+    class Solution2 {
+        public int[] hitBricks2(int[][] grid, int[][] hits) {
+
+            int len = hits.length;
+            int[] result = new int[len];
+
+            // make all hits first
+            for (int[] hit : hits) {
+                grid[hit[0]][hit[1]] -= 1;
+                // ^ basically which every is a brick(i.e 1) which make it a 0, it is a false
+                // hit( i.e. there is no brick, it will make it a -1)
+            }
+
+            // make all the connected nodes, 2
+            for (int i = 0; i < grid[0].length; i++) {
+                dfs(0, i, grid);
+            }
+
+            // make all reverse hits and find the count of
+            for (int k = hits.length - 1; k >= 0; k--) {
+                int i = hits[k][0], j = hits[k][1];
+                grid[i][j] += 1; // += 1 & not, grid[][] = 1, since, if it is fake hit, we don't want to make it
+                                 // a brick again.
+                if (grid[i][j] == 1 && isConnected2Top(i, j, grid)) {
+                    result[k] = dfs(i, j, grid) - 1;
+                }
+            }
+
+            return result;
+
+        }
+
+        public boolean isConnected2Top(int i, int j, int[][] grid) {
+            if (i > 0 && grid[i - 1][j] == 2 
+               || j > 0 && grid[i][j - 1] == 2
+               || i < grid.length - 1 && grid[i + 1][j] == 2 
+               || j < grid[0].length - 1 && grid[i][j + 1] == 2
+               || (i == 0))
+                return true;
+
+            return false;
+        }
+
+        public int dfs(int i, int j, int[][] grid) {
+            if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] != 1)
+
+                return 0;
+
+            grid[i][j] = 2;
+
+            return 1 + dfs(i + 1, j, grid) + dfs(i, j + 1, grid) + dfs(i - 1, j, grid) + dfs(i, j - 1, grid);
         }
     }
 }

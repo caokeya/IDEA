@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.LinkedList;
 
@@ -27,6 +27,7 @@ public class _921_Minimum_Add_to_Make_Parentheses_Valid_使括号有效的最少
         public int minAddToMakeValid(String S) {
             LinkedList<Character> s = new LinkedList<Character>();
             int rightCount = 0;
+
             for (char c : S.toCharArray()) {
                 if (c == '(') {
                     s.push(c);
@@ -36,6 +37,7 @@ public class _921_Minimum_Add_to_Make_Parentheses_Valid_使括号有效的最少
                     rightCount++;
                 }
             }
+
             return s.size() + rightCount;
         }
     }

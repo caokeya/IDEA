@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -21,30 +21,20 @@ import java.util.Arrays;
 public class _940_Distinct_Subsequences_II_不同的子序列_II_难 {
     class Solution {
         public int distinctSubseqII(String S) {
-            int n = S.length(), M = (int) 1e9 + 7, result = 0;
-            int[] dp = new int[n];
-            Arrays.fill(dp, 1);
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < i; j++) {
-                    if (S.charAt(j) != S.charAt(i)) {
-                        dp[i] += dp[j];
-                        dp[i] %= M;
-                    }
-                }
-                result += dp[i];
-                result %= M;
+            int end[] = new int[26], res = 0, added = 0, mod = (int) 1e9 + 7;
+            for (char c : S.toCharArray()) {
+                added = (res + 1 - end[c - 'a']) % mod;
+                end[c - 'a'] = (res + 1) % mod;
+                res = (res + added) % mod;
+
             }
-            return result;
+            return (res + mod) % mod;
         }
     }
+
     class Solution2 {
-        /*
-        我们可以用sum来表示sum(dp[0]，…)， dp[i - 1])。
-        count数组，其中count[S.charAt(i) - 'a']表示以S.charAt(i)结尾的子序列的计数。
-        那么dp[i] = sum - count[S.charAt(i) - 'a']。
-         */
         public int distinctSubseqII(String S) {
-            int n = S.length(), M = (int)1e9 + 7;
+            int n = S.length(), M = (int) 1e9 + 7;
             int[] dp = new int[n];
             Arrays.fill(dp, 1);
             int[] count = new int[26];

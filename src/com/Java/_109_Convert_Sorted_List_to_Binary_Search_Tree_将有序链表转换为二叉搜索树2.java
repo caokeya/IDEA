@@ -1,5 +1,4 @@
-package src.com.Java;
-
+package com.Java;
 /*
 给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。
 本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。
@@ -13,7 +12,7 @@ package src.com.Java;
  -10  5
  */
 public class _109_Convert_Sorted_List_to_Binary_Search_Tree_将有序链表转换为二叉搜索树2 {
-    /*
+    /**
      * Definition for singly-linked list.
      */
     public class ListNode {
@@ -25,7 +24,7 @@ public class _109_Convert_Sorted_List_to_Binary_Search_Tree_将有序链表转�
         }
     }
 
-    /*
+    /**
      * Definition for a binary tree node.
      */
     public class TreeNode {
@@ -38,32 +37,29 @@ public class _109_Convert_Sorted_List_to_Binary_Search_Tree_将有序链表转�
         }
     }
 
-    class Solution {
+    public class Solution {
         public TreeNode sortedListToBST(ListNode head) {
-            if (head == null) return null;
-            return helper(head);
-        }
-
-        private TreeNode helper(ListNode head) {
             if (head == null)
                 return null;
-            if (head.next == null)
-                return new TreeNode(head.val);
+            return toBST(head, null);
+        }
 
-            ListNode preSlow = head;
+        public TreeNode toBST(ListNode head, ListNode tail) {
             ListNode slow = head;
             ListNode fast = head;
+            if (head == tail)
+                return null;
 
-            while (fast != null && fast.next != null) {//找到中间值作为根节点
-                preSlow = slow;
-                slow = slow.next;
+            while (fast != tail && fast.next != tail) {
                 fast = fast.next.next;
+                slow = slow.next;
             }
-            preSlow.next = null;
-            TreeNode root = new TreeNode(slow.val);
-            root.left = helper(head);
-            root.right = helper(slow.next);
-            return root;
+            TreeNode thead = new TreeNode(slow.val);
+            thead.left = toBST(head, slow);
+            thead.right = toBST(slow.next, tail);
+            return thead;
         }
+
     }
+
 }

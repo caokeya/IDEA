@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,9 +19,7 @@ public class _677_Map_Sum_Pairs_键值映射 {
         Map<String, Integer> mem;
         Map<String, Integer> set;
 
-        /*
-         * Initialize your data structure here.
-         */
+        /** Initialize your data structure here. */
         public MapSum() {
             mem = new HashMap<>();
             set = new HashMap<>();
@@ -48,32 +46,7 @@ public class _677_Map_Sum_Pairs_键值映射 {
                 return 0;
             return mem.get(prefix);
         }
-    }
 
-    class MapSumStartsWith {
-        Map<String, Integer> map = new HashMap<>();
-
-        /*
-         * Initialize your data structure here.
-         */
-        public MapSumStartsWith() {
-
-        }
-
-        public void insert(String key, int val) {
-            map.put(key, val);
-        }
-
-        public int sum(String prefix) {
-            int sum = 0;
-            for (String str : map.keySet()) {
-                if (str.startsWith(prefix)) {
-                    sum += map.get(str);
-                }
-            }
-
-            return sum;
-        }
     }
     /**
      * Your MapSum object will be instantiated and called as such:

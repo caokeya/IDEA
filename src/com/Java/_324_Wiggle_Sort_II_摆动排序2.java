@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.Arrays;
 
@@ -22,25 +22,6 @@ public class _324_Wiggle_Sort_II_摆动排序2 {
             for (int i = 0; i < nums.length; i += 2) {
                 nums[i] = arr[j];
                 --j;
-            }
-        }
-    }
-
-    class Solution2 {
-        public void wiggleSort(int[] nums) {
-            int[] temp = (int[]) nums.clone();
-            Arrays.sort(temp);
-            int n = nums.length;
-            int left = (n - 1) / 2;
-            int right = n - 1;
-
-            int index = 0;
-            while (left >= 0 && right >= (n + 1) / 2) {
-                nums[index++] = temp[left--];
-                nums[index++] = temp[right--];
-            }
-            if (left >= 0) {
-                nums[index] = temp[left];
             }
         }
     }

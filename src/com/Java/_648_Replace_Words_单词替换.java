@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 
 import java.util.List;
 
@@ -23,6 +23,7 @@ public class _648_Replace_Words_单词替换 {
             for (String s : arr) {
                 sb.append(replaceWithRootIfExists(dict, s)).append(" ");
             }
+
             return sb.toString().trim();
         }
 

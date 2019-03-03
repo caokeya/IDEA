@@ -1,4 +1,4 @@
-package src.com.Java;
+package com.Java;
 /*
 报数序列是指一个整照其中的整数的顺序进数序列，按行报数，得到下一个数。其前五项如下：
 1.     1
