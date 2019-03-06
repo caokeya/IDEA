@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 /*
 编写一个程序判断给定的数是否为丑数。

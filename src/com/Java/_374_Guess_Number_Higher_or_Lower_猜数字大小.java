@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 我们正在玩一个猜数字游戏。 游戏规则如下：
 我从 1 到 n 选择一个数字。 你需要猜我选择了哪个数字。

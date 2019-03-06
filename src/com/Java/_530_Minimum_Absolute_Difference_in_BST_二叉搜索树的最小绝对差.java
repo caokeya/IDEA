@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个所有节点为非负值的二叉搜索树，求树中任意两节点的差的绝对值的最小值。

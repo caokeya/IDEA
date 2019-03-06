@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 数组 A 是 [0, 1, ..., N - 1] 的一种排列，N 是数组 A 的长度。

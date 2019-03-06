@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 /*
  编写一个算法来判断一个数是不是“快乐数”。

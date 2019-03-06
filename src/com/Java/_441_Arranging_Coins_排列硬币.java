@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 你总共有 n 枚硬币，你需要将它们摆成一个阶梯形状，第 k 行就必须正好有 k 枚硬币。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在计算机界中，我们总是追求用有限的资源获取最大的收益。

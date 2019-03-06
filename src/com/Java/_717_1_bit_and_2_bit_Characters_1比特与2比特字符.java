@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 有两种特殊字符。第一种字符可以用一比特0来表示。第二种字符可以用两比特(10 或 11)来表示。

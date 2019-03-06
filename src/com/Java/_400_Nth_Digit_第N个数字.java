@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在无限的整数序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...中找到第 n 个数字。

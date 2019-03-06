@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 珂珂喜欢吃香蕉。这里有 N 堆香蕉，第 i 堆中有 piles[i] 根香蕉。警卫已经离开了，将在 H 小时后回来。

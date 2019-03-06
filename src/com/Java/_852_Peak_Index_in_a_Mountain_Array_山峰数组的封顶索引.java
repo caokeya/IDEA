@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 我们把符合下列属性的数组 A 称作山脉：

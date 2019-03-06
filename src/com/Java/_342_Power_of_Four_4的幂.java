@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个整数 (32 位有符号整数)，请编写一个函数来判断它是否是 4 的幂次方。

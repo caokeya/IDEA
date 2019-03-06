@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 https://leetcode-cn.com/problems/construct-quad-tree/description/

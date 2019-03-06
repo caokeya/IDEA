@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

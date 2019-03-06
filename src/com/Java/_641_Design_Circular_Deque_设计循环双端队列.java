@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 设计实现双端队列。
 你的实现需要支持以下操作：

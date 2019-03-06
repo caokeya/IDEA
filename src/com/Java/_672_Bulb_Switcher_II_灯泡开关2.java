@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 现有一个房间，墙上挂有 n 只已经打开的灯泡和 4 个按钮。在进行了 m 次未知操作后，你需要返回这 n 只灯泡可能有多少种不同的状态。

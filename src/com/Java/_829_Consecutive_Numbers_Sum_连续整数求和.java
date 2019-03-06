@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个正整数 N，试求有多少组连续正整数满足所有数字之和为 N?

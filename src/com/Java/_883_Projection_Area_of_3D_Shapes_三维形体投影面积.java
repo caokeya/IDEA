@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在 N * N 的网格中，我们放置了一些与 x，y，z 三轴对齐的 1 * 1 * 1 立方体。

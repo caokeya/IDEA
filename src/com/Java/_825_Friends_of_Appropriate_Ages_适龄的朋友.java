@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 人们会互相发送好友请求，现在给定一个包含有他们年龄的数组，ages[i] 表示第 i 个人的年龄。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 回忆一下祖玛游戏。现在桌上有一串球，颜色有红色(R)，黄色(Y)，蓝色(B)，绿色(G)，还有白色(W)。 现在你手里也有几个球。

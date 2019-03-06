@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个整数，将其转化为7进制，并以字符串形式输出。

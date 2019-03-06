@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 /*给出一个完全二叉树，求出该树的节点个数。
 说明：

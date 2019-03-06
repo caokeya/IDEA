@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //反转一个数字
 /*

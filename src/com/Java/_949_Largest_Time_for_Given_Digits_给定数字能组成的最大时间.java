@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个由 4 位数字组成的数组，返回可以设置的符合 24 小时制的最大时间。

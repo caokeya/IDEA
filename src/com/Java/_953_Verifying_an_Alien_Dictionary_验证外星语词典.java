@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 某种外星语也使用英文小写字母，但可能顺序 order 不同。字母表的顺序（order）是一些小写字母的排列。

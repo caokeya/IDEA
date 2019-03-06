@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在柠檬水摊上，每一杯柠檬水的售价为 5 美元。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //判断一个数是不是中心对称的
 /*

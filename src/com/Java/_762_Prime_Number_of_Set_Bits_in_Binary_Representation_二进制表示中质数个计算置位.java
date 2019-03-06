@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定两个整数 L 和 R ，找到闭区间 [L, R] 范围内，计算置位位数为质数的整数个数。

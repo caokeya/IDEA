@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定圆的半径和圆心的 x、y 坐标，写一个在圆中产生均匀随机点的函数 randPoint 。
 说明:

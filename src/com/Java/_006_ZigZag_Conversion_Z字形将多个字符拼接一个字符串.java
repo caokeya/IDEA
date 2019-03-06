@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //Z字形将多个字符拼接一个字符串
 /*

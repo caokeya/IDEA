@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 几乎每一个人都用 乘法表。但是你能在乘法表中快速找到第k小的数字吗？

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 验证给定的字符串是否为数字。
 例如:

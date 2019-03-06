@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个字符串 s1，我们可以把它递归地分割成两个非空子字符串，从而将其表示为二叉树。
 下图是字符串 s1 = "great" 的一种可能的表示形式。

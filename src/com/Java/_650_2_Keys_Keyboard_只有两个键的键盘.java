@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 最初在一个记事本上只有一个字符 'A'。你每次可以对这个记事本进行两种操作：

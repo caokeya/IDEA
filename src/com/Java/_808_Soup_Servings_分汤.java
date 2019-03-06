@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 有 A 和 B 两种类型的汤。一开始每种类型的汤有 N 毫升。有四种分配操作：

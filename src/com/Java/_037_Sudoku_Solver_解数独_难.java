@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 编写一个程序，通过已填充的空格来解决数独问题。
 一个数独的解法需遵循如下规则：

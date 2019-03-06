@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 一条包含字母 A-Z 的消息通过以下的方式进行了编码：

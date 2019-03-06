@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定只含 "I"（增大）或 "D"（减小）的字符串 S ，令 N = S.length。

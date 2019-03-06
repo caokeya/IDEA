@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个二叉搜索树的根结点 root, 返回树中任意两节点的差的最小值。

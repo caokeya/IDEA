@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个从1 到 n 排序的整数列表。
 首先，从左到右，从第一个数字开始，每隔一个数字进行删除，直到列表的末尾。

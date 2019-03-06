@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //成对交换链表中数的位置
 /*

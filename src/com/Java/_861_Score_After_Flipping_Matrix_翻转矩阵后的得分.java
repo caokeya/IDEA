@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 有一个二维矩阵 A 其中每个元素的值为 0 或 1 。

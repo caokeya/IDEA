@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //求两个数组的中位数（Hard）
 /*

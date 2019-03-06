@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个根为 root 的二叉树，每个结点的深度是它到根的最短距离。

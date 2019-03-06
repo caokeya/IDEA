@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 一个强密码应满足以下所有条件：

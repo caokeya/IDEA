@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在由 1 x 1 方格组成的 N x N 网格 grid 中，每个 1 x 1 方块由 /、\ 或空格构成。这些字符会将方块划分为一些共边的区域。

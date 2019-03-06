@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 一个已排序好的表 A，其包含 1 和其他一些素数.  当列表中的每一个 p<q 时，我们可以构造一个分数 p/q 。

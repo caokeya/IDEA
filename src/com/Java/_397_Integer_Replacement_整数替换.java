@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个正整数 n，你可以做如下操作：
 1. 如果 n 是偶数，则用 n / 2替换 n。

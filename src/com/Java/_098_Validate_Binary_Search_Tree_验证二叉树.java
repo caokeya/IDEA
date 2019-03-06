@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
 假设一个二叉搜索树具有如下特征：

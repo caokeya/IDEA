@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //按数字大小组合两个链表
 /*

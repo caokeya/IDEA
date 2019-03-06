@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 有台奇怪的打印机有以下两个特殊要求：

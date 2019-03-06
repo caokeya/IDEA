@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //求两个字符串是否匹配（Hard）
 //'.' 匹配一个任意字符

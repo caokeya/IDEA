@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 public class _147_Insertion_Sort_List_链表插入排序 {
     /**

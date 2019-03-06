@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 //去掉链表中倒数第n位的数字
 /*

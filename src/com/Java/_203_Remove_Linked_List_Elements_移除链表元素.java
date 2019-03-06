@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 /*
  删除链表中等于给定值 val 的所有节点。

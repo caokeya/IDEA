@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 帮派里有 G 名成员，他们可能犯下各种各样的罪行。

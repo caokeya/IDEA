@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 如果一个正整数自身是回文数，而且它也是一个回文数的平方，那么我们称这个数为超级回文数。

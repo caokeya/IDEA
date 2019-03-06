@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 我们正在玩一个猜数游戏，游戏规则如下：

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个正整数 N，找到并返回 N 的二进制表示中两个连续的 1 之间的最长距离。 

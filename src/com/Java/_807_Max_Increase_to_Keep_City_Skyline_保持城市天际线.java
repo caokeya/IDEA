@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在二维数组grid中，grid[i][j]代表位于某处的建筑物的高度。 我们被允许增加任何数量（不同建筑物的数量可能不同）的建筑物的高度。 高度 0 也被认为是建筑物。

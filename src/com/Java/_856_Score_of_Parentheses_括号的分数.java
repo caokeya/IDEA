@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个平衡括号字符串 S，按下述规则计算该字符串的分数：

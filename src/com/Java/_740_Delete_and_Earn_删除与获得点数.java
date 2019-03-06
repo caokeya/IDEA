@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个整数数组 nums ，你可以对它进行一些操作。

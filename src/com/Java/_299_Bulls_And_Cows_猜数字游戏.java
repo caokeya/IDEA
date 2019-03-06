@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 /*
 你正在和你的朋友玩 猜数字（Bulls and Cows）游戏：你写下一个数字让你的朋友猜。每次他猜测后，

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 f(x) 是 x! 末尾是0的数量。（回想一下 x! = 1 * 2 * 3 * ... * x，且0! = 1）

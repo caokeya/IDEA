@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 神奇的字符串 S 只包含 '1' 和 '2'，并遵守以下规则：

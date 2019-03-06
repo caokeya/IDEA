@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 如果数组是单调递增或单调递减的，那么它是单调的。

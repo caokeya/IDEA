@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 不使用任何内建的哈希表库设计一个哈希集合
 具体地说，你的设计应该包含以下的功能

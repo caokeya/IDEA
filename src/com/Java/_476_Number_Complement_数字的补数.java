@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个正整数，输出它的补数。补数是对该数的二进制表示取反。

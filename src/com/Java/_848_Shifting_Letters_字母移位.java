@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 有一个由小写字母组成的字符串 S，和一个整数数组 shifts。

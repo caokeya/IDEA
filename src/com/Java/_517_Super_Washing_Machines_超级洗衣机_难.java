@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 假设有 n 台超级洗衣机放在同一排上。开始的时候，每台洗衣机内可能有一定量的衣服，也可能是空的。

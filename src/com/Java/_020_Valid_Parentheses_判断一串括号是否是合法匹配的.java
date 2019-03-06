@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 import java.util.Stack;
 
 //判断一串括号是否是合法匹配的

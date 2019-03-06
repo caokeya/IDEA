@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 数组的每个索引做为一个阶梯，第 i个阶梯对应着一个非负数的体力花费值 cost[i](索引从0开始)。

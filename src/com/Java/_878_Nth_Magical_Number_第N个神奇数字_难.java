@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 如果正整数可以被 A 或 B 整除，那么它是神奇的。

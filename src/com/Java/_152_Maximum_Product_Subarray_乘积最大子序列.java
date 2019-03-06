@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个整数数组 nums ，找出一个序列中乘积最大的连续子序列（该序列至少包含一个数）。
 示例 1:

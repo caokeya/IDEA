@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 对于给定的整数 n, 如果n的k（k>=2）进制数的所有数位全为1，则称 k（k>=2）是 n 的一个好进制。

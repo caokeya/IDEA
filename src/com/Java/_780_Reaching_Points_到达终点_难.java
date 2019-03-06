@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 从点 (x, y) 可以转换到 (x, x+y)  或者 (x+y, y)。

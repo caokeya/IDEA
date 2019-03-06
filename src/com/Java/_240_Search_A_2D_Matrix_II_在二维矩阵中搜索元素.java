@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 /*
  编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：

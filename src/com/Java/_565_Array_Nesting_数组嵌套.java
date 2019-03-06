@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 索引从0开始长度为N的数组A，包含0到N - 1的所有整数。找到并返回最大的集合S，S[i] = {A[i], A[A[i]], A[A[A[i]]], ... }且遵守以下的规则。

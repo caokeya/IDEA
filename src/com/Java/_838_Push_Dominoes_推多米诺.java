@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 一行中有 N 张多米诺骨牌，我们将每张多米诺骨牌垂直竖立。

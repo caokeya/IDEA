@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 有两种形状的瓷砖：一种是 2x1 的多米诺形，另一种是形如 "L" 的托米诺形。两种形状都可以旋转。
 XX  <- 多米诺

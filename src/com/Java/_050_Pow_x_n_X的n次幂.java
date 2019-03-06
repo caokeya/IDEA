@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 实现 pow(x, n) ，即计算 x 的 n 次幂函数。
 示例 1:

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
 示例 1:

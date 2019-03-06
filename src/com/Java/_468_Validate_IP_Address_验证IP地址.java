@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 编写一个函数来验证输入的字符串是否是有效的 IPv4 或 IPv6 地址。

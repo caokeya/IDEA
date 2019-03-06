@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 import java.util.Arrays;
 
 //三个数的和最接近目标值的组合

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 两个整数之间的汉明距离指的是这两个数字对应二进制位不同的位置的数目。

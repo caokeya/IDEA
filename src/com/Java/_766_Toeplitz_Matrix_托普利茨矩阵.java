@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 如果一个矩阵的每一方向由左上到右下的对角线上具有相同元素，那么这个矩阵是托普利茨矩阵。

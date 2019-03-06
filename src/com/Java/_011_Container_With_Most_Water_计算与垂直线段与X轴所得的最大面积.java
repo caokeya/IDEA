@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //计算与垂直线段与X轴所得的最大面积
 /*

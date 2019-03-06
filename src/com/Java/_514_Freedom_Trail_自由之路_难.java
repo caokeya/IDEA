@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 视频游戏“辐射4”中，任务“通向自由”要求玩家到达名为“Freedom Trail Ring”的金属表盘，并使用表盘拼写特定关键词才能开门。

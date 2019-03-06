@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个长度为 n 的整数数组 A 。
 假设 Bk 是数组 A 顺时针旋转 k 个位置后的数组，我们定义 A 的“旋转函数” F 为：

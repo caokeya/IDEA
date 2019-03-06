@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给出两个整数 n 和 k，找出所有包含从 1 到 n 的数字，且恰好拥有 k 个逆序对的不同的数组的个数。

@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 import java.util.Collections;
 import java.util.PriorityQueue;

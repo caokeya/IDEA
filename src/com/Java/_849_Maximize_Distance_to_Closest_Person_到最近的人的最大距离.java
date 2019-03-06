@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在一排座位（ seats）中，1 代表有人坐在座位上，0 代表座位上是空的。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //String转换成Int数
 /*

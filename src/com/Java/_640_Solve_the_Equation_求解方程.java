@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 求解一个给定的方程，将x以字符串"x=#value"的形式返回。该方程仅包含'+'，' - '操作，变量 x 和其对应系数。

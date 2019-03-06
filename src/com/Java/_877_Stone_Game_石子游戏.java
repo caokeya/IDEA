@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 亚历克斯和李用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子 piles[i] 。

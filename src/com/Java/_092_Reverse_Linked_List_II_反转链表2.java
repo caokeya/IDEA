@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
 说明:

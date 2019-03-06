@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 一个 N x N的 board 仅由 0 和 1 组成 。每次移动，你能任意交换两列或是两行的位置。

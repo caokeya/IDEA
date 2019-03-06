@@ -1,4 +1,4 @@
-package src.com.Java;
+package src.src.com.Java;
 
 /*
 你是产品经理，目前正在带领一个团队开发新的产品。

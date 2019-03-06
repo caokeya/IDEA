@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 在一排树中，第 i 棵树产生 tree[i] 型的水果。
 你可以从你选择的任何树开始，然后重复执行以下步骤：

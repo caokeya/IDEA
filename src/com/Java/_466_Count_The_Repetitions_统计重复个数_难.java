@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 定义由 n 个连接的字符串 s 组成字符串 S，即 S = [s,n]。例如，["abc", 3]=“abcabcabc”。

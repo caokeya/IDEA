@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定数组 nums 由正整数组成，找到三个互不重叠的子数组的最大和。

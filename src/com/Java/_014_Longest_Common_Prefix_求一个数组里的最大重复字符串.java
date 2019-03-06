@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //求一个数组里的最大重复字符串
 /*

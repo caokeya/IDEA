@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 编写一段程序来查找第 n 个超级丑数。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 比较两个版本号 version1 和 version2。

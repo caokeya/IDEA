@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个无向图graph，当这个图为二分图时返回true。

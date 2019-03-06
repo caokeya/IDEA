@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //用链表求和，取出商和余数做相加运算
 /*

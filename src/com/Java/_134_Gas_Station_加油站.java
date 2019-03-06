@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 在一条环路上有 N 个加油站，其中第 i 个加油站有汽油 gas[i] 升。

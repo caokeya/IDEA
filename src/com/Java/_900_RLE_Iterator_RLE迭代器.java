@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 编写一个遍历游程编码序列的迭代器。
 迭代器由 RLEIterator(int[] A) 初始化，其中 A 是某个序列的游程编码。更具体地，对于所有偶数 i，A[i] 告诉我们在序列中重复非负整数值 A[i + 1] 的次数。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定由 N 个小写字母字符串组成的数组 A，其中每个字符串长度相等。

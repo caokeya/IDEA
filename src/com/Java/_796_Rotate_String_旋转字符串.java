@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定两个字符串, A 和 B。

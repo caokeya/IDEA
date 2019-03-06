@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 有时候人们会用额外的字母来表示额外的情感，比如 "hello" -> "heeellooo", "hi" -> "hiii"。

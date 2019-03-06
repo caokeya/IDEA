@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 //求出最长的回文子串
 /*

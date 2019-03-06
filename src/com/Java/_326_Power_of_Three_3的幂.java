@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个整数，写一个函数来判断它是否是 3 的幂次方。

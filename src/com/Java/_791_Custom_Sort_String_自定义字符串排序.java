@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 字符串S和 T 只包含小写字符。在S中，所有字符只会出现一次。

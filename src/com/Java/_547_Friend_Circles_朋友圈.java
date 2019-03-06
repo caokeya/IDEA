@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 班上有 N 名学生。其中有些人是朋友，有些则不是。他们的友谊具有是传递性。

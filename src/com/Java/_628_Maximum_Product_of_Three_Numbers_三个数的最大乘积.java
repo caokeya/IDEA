@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个整型数组，在数组中找出由三个数组成的最大乘积，并输出这个乘积。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定一个字符串来代表一个学生的出勤纪录，这个纪录仅包含以下三个字符：

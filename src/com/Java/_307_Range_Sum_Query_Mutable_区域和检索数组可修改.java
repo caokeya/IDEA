@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 /*
 给定一个整数数组  nums，求出数组从索引 i 到 j  (i ≤ j) 范围内元素的总和，包含 i,  j 两点。
 update(i, val) 函数可以通过将下标为 i 的数值更新为 val，从而对数列进行修改。

@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 给定两个字符串s1, s2，找到使两个字符串相等所需删除字符的ASCII值的最小和。

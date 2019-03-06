@@ -1,4 +1,4 @@
-package com.Java;
+package src.com.Java;
 
 /*
 你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，/，+，-，(，) 的运算得到 24。
